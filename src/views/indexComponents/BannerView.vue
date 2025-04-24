@@ -1,0 +1,84 @@
+<template>
+    <div class="banner-view-div">
+        <div class="top-two">
+            <div class="content">
+                <img class="icon-title" src="@/assets/fastsImages/Vector.png" alt="">
+                <div class="title">
+                    FastSimple：小型企业的
+                    <span>智能餐饮</span>
+                    解决方案
+                </div>
+                <div class="sub-title">
+                    简化运营，提升客户体验，优化成本
+                    <el-button class="tel-btn" type="pain">联系我们<el-icon><Right /></el-icon></el-button>
+                    
+                </div>
+                <div class="bg-title"></div>
+            </div>
+        </div>
+    </div>
+</template>
+<style scoped lang="less">
+.banner-view-div{
+    width: 100%;
+    padding-top: 90px;
+    .top-two{
+        height: 780px;
+        width: 100%;
+        background: linear-gradient(#1E1E1E 0%, #111111 100%);
+        .content{
+            width: 1280px;
+            margin: auto;
+            position: relative;
+            padding: 40px 0;
+            .bg-title{
+                width: 1720px;
+                height: 500px;
+                background-image: url('@/assets/fastsImages/top-bg.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                left: -220px;
+                bottom: -600px;
+            }
+            .icon-title{
+                display: block;
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                right: 0;
+                top: 60px;
+            }
+            .sub-title{
+                font-weight: 400;
+                font-size: 24px;
+                color: rgba(255,255,255,0.9);
+                .tel-btn{
+                    width: 187px;
+                    height: 60px;
+                    padding: 0 24px;
+                    border-radius: 70px;
+                    background-color: #FED15F !important;
+                    color: #111111;
+                    float: right;
+                    border: none;
+                }
+            }
+            .title{
+                width: 800px;
+                font-weight: bold;
+                font-size: 72px;
+                color: rgba(255,255,255,0.9);
+                >span{
+                    color: #FED15F;
+                }
+            }
+        }
+    }
+}
+</style>

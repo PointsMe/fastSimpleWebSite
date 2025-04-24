@@ -1,0 +1,186 @@
+<template>
+    <div class="banner-11-div">
+        <div class="top">
+            <el-row :gutter="12">
+                <el-col :span="12">
+                    <div class="nav-menu">
+                        <el-menu mode="horizontal" :ellipsis="false" class="menu">
+                            <el-menu-item index="1">主页</el-menu-item>
+                            <el-menu-item index="2">商城</el-menu-item>
+                            <el-menu-item index="3">服务支持</el-menu-item>
+                            <el-menu-item index="4">关于我们</el-menu-item>
+                            <el-menu-item index="5">联系我们</el-menu-item>
+                            <el-menu-item index="6">
+                                <el-dropdown>
+                                    <span class="language-selector">
+                                        中文 <el-icon><ArrowDown /></el-icon>
+                                    </span>
+                                    <template #dropdown>
+                                        <el-dropdown-menu>
+                                            <el-dropdown-item>中文</el-dropdown-item>
+                                            <el-dropdown-item>English</el-dropdown-item>
+                                        </el-dropdown-menu>
+                                    </template>
+                                </el-dropdown>
+                            </el-menu-item>
+                        </el-menu>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="qr-code">
+                        <el-row :gutter="12">
+                            <el-col :span="12">
+                                <div class="code-div">
+                                    <div class="code-top">
+                                        技术顾问
+                                        <span class="line"></span>
+                                    </div>
+                                    <div class="wx-img">
+                                        <p>
+                                            <img src="@/assets/fastsImages/b-11-1.png" alt="">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="wx-div">
+                                    微信:wxid_g1oajzv7yyu922
+                                </div>
+                            </el-col>
+                            <el-col :span="12">
+                                <div class="code-div">
+                                    <div class="code-top">
+                                        技术顾问
+                                        <span class="line"></span>
+                                    </div>
+                                    <div class="wx-img">
+                                        <p>
+                                            <img src="@/assets/fastsImages/b-11-2.png" alt="">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="wx-div" style="text-indent: 0;">
+                                    微信:PM3242850588
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
+        <div class="des">
+            Copyright © 2024 PointsMe By Yine Srl, 版权所有 - P.iva: 08435150969 - <span class="line-th">Termini</span>
+        </div>
+        <div class="des-img">
+                <img src="@/assets/fastsImages/b-11-3.png" alt="">
+            </div>
+    </div>
+</template>
+<script setup lang="ts">
+import { ArrowDown } from '@element-plus/icons-vue'
+</script>
+<style scoped lang="less">
+.banner-11-div {
+    width: 100%;
+    // height: 585px;
+    background: #151515;
+    .des-img{
+        width: 1280px;
+        margin: auto;
+        img{
+            display: block;
+            width: 1182px;
+            height: 136px;
+            margin: auto;
+        }
+    }
+    .des{
+        width: 1280px;
+        margin: auto;
+        text-align: center;
+        font-family: Inter, Inter;
+        font-weight: 500;
+        font-size: 14px;
+        color: #BDBDBD;
+        margin-top: 30px;
+            margin-bottom: 39px;
+            .line-th{
+                display: inline-block;
+                text-decoration: underline;
+            }
+        
+    }
+    .top {
+        width: 1280px;
+        margin: auto;
+        border-bottom: 1px solid #ffffff;
+        .qr-code{
+            font-family: Source Han Sans SC, Source Han Sans SC;
+            font-weight: 400;
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-top: 130px;
+            text-align: center;
+            .wx-div{
+                text-indent: 30px;
+                margin-top: 16px;
+            }
+            .code-div{
+                width: 140px;
+                margin: auto;
+                .wx-img{
+                    width: 100%;
+                    margin-top: 14px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .code-top{
+                    position: relative;
+                    text-align: left;
+                    .line{
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        transform: translateY(-50%);
+                        width: 78px;
+                        height: 1px;
+                        background-color: #FFFFFF;
+                    }
+                }
+            }
+        }
+        .nav-menu {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin-top: 210px;
+            padding-bottom: 124px;
+            .language-selector {
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                }
+
+            :deep(.menu) {
+                background-color: transparent;
+                border: none;
+
+                .el-menu-item {
+                    color: #ffffff;
+                    font-size: 16px;
+                    padding: 0 30px;
+
+                    &:hover,
+                    &.is-active {
+                        color: #409EFF;
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+}
+</style>
