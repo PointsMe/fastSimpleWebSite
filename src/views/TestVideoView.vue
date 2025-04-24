@@ -18,19 +18,22 @@ import { reactive } from 'vue';
    src: "https://m.suike.cn/19ad7364-c927-4f21-87ed-5f6fa45c70eb", //视频源
    poster: '', //封面
  })
- const onPlay = (ev) => {
+ const onPlay = (ev:any) => {
    console.log('播放')
  }
- const onPause = (ev) => {
+ const onPause = (ev:any) => {
    console.log(ev, '暂停')
  }
   
- const onTimeupdate = (ev) => {
+ const onTimeupdate = (ev:any) => {
    console.log(ev, '时间更新')
  }
- const onCanplay = (ev) => {
+ const onCanplay = (ev:any) => {
    console.log(ev, '可以播放')
  }
+ onMounted(()=>{
+  console.log('初始化视频')
+ })
 </script>
 <style scoped lang="less">
 
