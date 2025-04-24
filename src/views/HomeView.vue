@@ -14,16 +14,16 @@
 </template>
 
 <script setup lang="ts">
-import Top from "./homeComponents/Top.vue"
-import Banner from "./homeComponents/Banner.vue"
-import BannerTwo from "./homeComponents/BannerTwo.vue"
-import BannerThree from "./homeComponents/BannerThree.vue"
-import BannerFour from "./homeComponents/BannerFour.vue"
-import BannerFive from "./homeComponents/BannerFive.vue"
-import BannerSix from "./homeComponents/BannerSix.vue"
-import BannerSeven from "./homeComponents/BannerSeven.vue"
-import BannerEight from "./homeComponents/BannerEight.vue"
-import BannerNine from "./homeComponents/BannerNine.vue"
+import Top from './homeComponents/Top.vue'
+import Banner from './homeComponents/Banner.vue'
+import BannerTwo from './homeComponents/BannerTwo.vue'
+import BannerThree from './homeComponents/BannerThree.vue'
+import BannerFour from './homeComponents/BannerFour.vue'
+import BannerFive from './homeComponents/BannerFive.vue'
+import BannerSix from './homeComponents/BannerSix.vue'
+import BannerSeven from './homeComponents/BannerSeven.vue'
+import BannerEight from './homeComponents/BannerEight.vue'
+import BannerNine from './homeComponents/BannerNine.vue'
 </script>
 
 <style scoped lang="less"></style>

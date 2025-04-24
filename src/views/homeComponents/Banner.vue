@@ -7,13 +7,9 @@
         <span class="primary-btn">联系我们</span>
       </div>
     </div>
-    <div class="banner-two">
-    </div>
-    <div class="banner-two-i">
-        精准盘点，智能管控
-    </div>
+    <div class="banner-two"></div>
+    <div class="banner-two-i">精准盘点，智能管控</div>
   </div>
-  
 </template>
 
 <script setup lang="ts">
@@ -24,28 +20,28 @@ defineOptions({
 </script>
 
 <style scoped lang="less">
-.banner-two-i{
-    color: #ffffff;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-    line-height: 80px;
-    z-index: 2;
-    font-size: 20px;
-    text-align: center;
+.banner-two-i {
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  z-index: 2;
+  font-size: 20px;
+  text-align: center;
 }
-.banner-two{
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 0px 0px 0px 0px;
-    text-align: center;
-    line-height: 80px;
-    color: #ffffff;
+.banner-two {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0px 0px 0px 0px;
+  text-align: center;
+  line-height: 80px;
+  color: #ffffff;
 }
 .banner {
   width: 100%;
@@ -104,7 +100,7 @@ defineOptions({
   width: 187px;
   height: 60px;
   line-height: 60px;
-  background: #6A8C69;
+  background: #6a8c69;
   border-radius: 85px 85px 85px 85px;
   color: #fff;
 }

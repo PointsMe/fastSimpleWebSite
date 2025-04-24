@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/layout',
@@ -19,7 +19,7 @@ const router = createRouter({
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
           component: () => import('../views/IndexView.vue'),
-          meta:{
+          meta: {
             name: '主页'
           }
         },
@@ -30,7 +30,7 @@ const router = createRouter({
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
           component: () => import('../views/ShoppingView.vue'),
-          meta:{
+          meta: {
             name: '商城'
           }
         },
@@ -41,7 +41,7 @@ const router = createRouter({
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
           component: () => import('../views/ServerView.vue'),
-          meta:{
+          meta: {
             name: '服务支持'
           }
         },
@@ -52,7 +52,7 @@ const router = createRouter({
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
           component: () => import('../views/AboutView.vue'),
-          meta:{
+          meta: {
             name: '关于我们'
           }
         },
@@ -63,7 +63,7 @@ const router = createRouter({
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
           component: () => import('../views/ContactView.vue'),
-          meta:{
+          meta: {
             name: '联系我们'
           }
         }
@@ -100,9 +100,11 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/TestVideoView.vue')
-    },
+    }
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
+    // to, from, savedPosition
+    createWebHashHistory
     return { top: 0 }
   }
 })

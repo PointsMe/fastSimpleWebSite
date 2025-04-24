@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 defineProps<{
   msg: string
@@ -6,11 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="greetings">
-    hello world {{ msg }}
-  </div>
+  <div class="greetings">hello world {{ msg }}</div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

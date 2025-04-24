@@ -3,11 +3,11 @@
     <div class="navbar-container">
       <!-- Logo部分 -->
       <div class="navbar-brand">
-        <img src="@/assets/new-logo.png" alt="Joinku" class="logo">
+        <img src="@/assets/new-logo.png" alt="Joinku" class="logo" />
       </div>
 
       <!-- 主导航链接 -->
-      <el-menu 
+      <el-menu
         :default-active="activeIndex"
         class="navbar-menu"
         mode="horizontal"
@@ -154,4 +154,4 @@ const changeLanguage = () => {
     gap: 8px;
   }
 }
-</style> 
+</style>
