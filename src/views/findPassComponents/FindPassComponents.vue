@@ -2,15 +2,19 @@
   <div class="login-com">
     <div class="title">
       <el-row class="top-title">
-        <el-col :span="12" class="left-title"> 登录 </el-col>
+        <el-col :span="12" class="left-title"> 找回密码 </el-col>
         <el-col :span="12" class="right-title">
           <div class="tips">没有账号？ <span @click="toRegister">去注册</span></div>
         </el-col>
       </el-row>
       <el-row class="two-title">
         <el-col :span="12" class="left-title-i">
-          <div>
-            <LoginStyleTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
+          <div class="step-1" v-if="step === '2'">
+            公司信息
+          </div>  
+          <div  v-if="step === '1'">
+            
+            <FindPassTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
           </div>
         </el-col>
         <el-col :span="12" class="right-title">
@@ -19,13 +23,13 @@
       </el-row>
     </div>
     <div class="login-form">
-      <LoginForm :step="step" @setStep="setStep" :registerStyle="registerStyle"/>
+      <FindPassForm :step="step" @setStep="setStep" :registerStyle="registerStyle"/>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import LoginForm from './LoginForm.vue'
-import LoginStyleTab from "./LoginStyleTab.vue"
+import FindPassForm from './FindPassForm.vue'
+import FindPassTab from './FindPassTab.vue'
 import { useRouter } from 'vue-router'
 // 获取路由实例
 const router = useRouter()

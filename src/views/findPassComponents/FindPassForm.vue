@@ -32,12 +32,11 @@
             </el-row>
         </el-form>
         <div class="login-last">
-            <p class="forget-pass">
-                <span @click="forgetPass">忘记密码</span>
-            </p>
+            <!-- <p class="forget-pass">忘记密码</p> -->
             <div :class="props.step === '1' ? 'btn-login margin-top-60' : 'btn-login margin-top-148'">
                 <el-button class="el-btn-color" size="large" style="width: 100%" @click="onSubmit">
-                    <span>登录</span>
+                    <span v-if="props.step === '2'">注册</span>
+                    <span v-if="props.step === '1'">下一步</span>
                 </el-button>
             </div>
             <div class="checkbox-con">
@@ -88,8 +87,6 @@ interface formTypeOne {
     haveIcon?: boolean,
     haveTelSelect?: boolean
 }
-// 获取路由实例
-const router = useRouter()
 //定义props变量接收defineProps返回值
 const props = defineProps({
     step: {
@@ -119,8 +116,12 @@ const checked1 = ref()
 
 
 const onSubmit = () => {
-    // 跳转到首页的方法
-    router.push('/layout/index')
+    if (props.step === '1') {
+        emit('setStep', '2')
+    }
+    if (props.step === '2') {
+        emit('setStep', '1')
+    }
     console.log('submit!', props.step, typeof props.step)
 }
 watch(
@@ -138,9 +139,6 @@ watch(
     },
     { immediate: true } // 关键选项
 );
-const forgetPass = ()=>{
-    router.push('/module/findpass')
-}
 watch(
     () => props.step,
     (newVal) => {

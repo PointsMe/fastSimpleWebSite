@@ -22,18 +22,30 @@
     }
   }
 }
+.nav-menu{
+  .el-menu--horizontal>.el-menu-item.is-active{
+    border-bottom: none !important;
+  }
+  .el-menu--horizontal>.el-menu-item{
+    border-bottom: none !important;
+  }
+  .el-menu{
+    .el-menu-item{
+      .el-dropdown{
+        color: #ffffff;
+        font-size: 16px;
+      }
+    }
+  }
+
+}
 
 .login-com {
-  .tabs-login-style {
-    .el-tabs__item {
-      color: #bdbdbd !important;
-    }
-    .el-tabs__active-bar {
-      background-color: #fed15f !important;
-    }
-    .el-tabs__item.is-active,
-    .el-tabs__item:hover {
-      color: #fed15f !important;
+  .checkbox-con{
+    .el-select .el-select__wrapper{
+      width: 100px;
+      float: right;
+      background-color: #1a1a1a;
     }
   }
   .login-form {
@@ -41,8 +53,13 @@
       .el-form-item {
         border-bottom: 1px solid #999999;
         .el-form-item__content {
+          .el-select .el-select__wrapper{
+            box-shadow: none;
+            background-color: #1a1a1a;
+          }
           .el-input-group--prepend .el-input-group__prepend .el-select .el-select__wrapper {
             box-shadow: none !important;
+            background-color: #1a1a1a;
           }
           .el-input-group--append .el-input-group__append .el-select .el-select__wrapper {
             box-shadow: none !important;
