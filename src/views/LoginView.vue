@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import LoginComponents from './loginComponents/LoginComponents.vue'
+import LoginComponents from '@/views/loginComponents/LoginComponents.vue'
 defineOptions({
   name: 'loginView'
 })

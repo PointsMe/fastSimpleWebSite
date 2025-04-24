@@ -144,10 +144,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import HardWare from './shoppingComponents/HardWare.vue'
-import SoftWare from './shoppingComponents/SoftWare.vue'
-import ServerWare from './shoppingComponents/ServerWare.vue'
-import PackageWare from './shoppingComponents/PackageWare.vue'
+import HardWare from '@/views/shoppingComponents/HardWare.vue'
+import SoftWare from '@/views/shoppingComponents/SoftWare.vue'
+import ServerWare from '@/views/shoppingComponents/ServerWare.vue'
+import PackageWare from '@/views/shoppingComponents/PackageWare.vue'
 import {
   QuestionFilled,
   Right,

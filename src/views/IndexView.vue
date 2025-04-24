@@ -14,19 +14,16 @@
 </template>
 
 <script setup lang="ts">
-import BannerView from './indexComponents/BannerView.vue'
-import BannerOne from './indexComponents/BannerOne.vue'
-import BannerTwo from './indexComponents/BannerTwo.vue'
-import BannerThree from './indexComponents/BannerThree.vue'
-import BannerFour from './indexComponents/BannerFour.vue'
-import BannerFive from './indexComponents/BannerFive.vue'
-import BannerSix from './indexComponents/BannerSix.vue'
-import BannerSeven from './indexComponents/BannerSeven.vue'
-import BannerEight from './indexComponents/BannerEight.vue'
-import BannerNine from './indexComponents/BannerNine.vue'
-defineOptions({
-  name: 'indexView'
-})
+import BannerView from '@/views/indexComponents/BannerView.vue'
+import BannerOne from '@/views/indexComponents/BannerOne.vue'
+import BannerTwo from '@/views/indexComponents/BannerTwo.vue'
+import BannerThree from '@/views/indexComponents/BannerThree.vue'
+import BannerFour from '@/views/indexComponents/BannerFour.vue'
+import BannerFive from '@/views/indexComponents/BannerFive.vue'
+import BannerSix from '@/views/indexComponents/BannerSix.vue'
+import BannerSeven from '@/views/indexComponents/BannerSeven.vue'
+import BannerEight from '@/views/indexComponents/BannerEight.vue'
+import BannerNine from '@/views/indexComponents/BannerNine.vue'
 </script>
 
 <style scoped lang="less">

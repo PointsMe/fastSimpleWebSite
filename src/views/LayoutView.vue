@@ -8,9 +8,9 @@
 </template>
 
 <script setup lang="ts">
-import BannerTop from './indexComponents/BannerTop.vue'
-import BannerTen from './indexComponents/BannerTen.vue'
-import BannerEleven from './indexComponents/BannerEleven.vue'
+import BannerTop from '@/views/indexComponents/BannerTop.vue'
+import BannerTen from '@/views/indexComponents/BannerTen.vue'
+import BannerEleven from '@/views/indexComponents/BannerEleven.vue'
 defineOptions({
   name: 'layoutView'
 })

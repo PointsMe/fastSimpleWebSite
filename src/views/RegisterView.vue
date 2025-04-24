@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import RegisterComponents from './registerComponents/RegisterComponents.vue'
+import RegisterComponents from '@/views/registerComponents/RegisterComponents.vue'
 defineOptions({
   name: 'registerView'
 })

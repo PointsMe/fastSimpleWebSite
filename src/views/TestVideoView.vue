@@ -1,6 +1,6 @@
 <template>
   <div style="width: 300px; margin: auto; margin-top: 200px">
-    <vue3VideoPlay
+    <!-- <vue3VideoPlay
       width="800px"
       title="钢铁侠"
       src="https://cdn.jsdelivr.net/gh/xdlumia/files/video-play/IronMan.mp4"
@@ -9,12 +9,20 @@
       @pause="onPause"
       @timeupdate="onTimeupdate"
       @canplay="onCanplay"
-    />
+    /> -->
+    <div>{{ 
+    userStore.token
+     }}</div>
+     <el-button @click="changeToken">更改token</el-button>
   </div>
 </template>
 <script setup lang="ts">
 import { reactive, onMounted } from 'vue'
-
+import { useUserStore } from "@/stores/modules/user"
+const userStore = useUserStore()
+const changeToken = ()=>{
+  userStore.setToken('bbbbbbb')
+}
 const options = reactive({
   src: 'https://m.suike.cn/19ad7364-c927-4f21-87ed-5f6fa45c70eb', //视频源
   poster: '' //封面

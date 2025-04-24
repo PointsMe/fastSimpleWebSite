@@ -46,5 +46,25 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['vue3-video-play'], // 确保优化依赖包括了你的包
-  }
+  },
+ // 打包配置
+ build: {
+  // 清除console和debugger
+  terserOptions: {
+    compress: {
+      drop_console: true,
+      drop_debugger: true,
+    },
+  },
+  //警报门槛，限制大文件大小
+  // chunkSizeWarningLimit: 1500,
+  rollupOptions: {
+    output: {
+      //对静态文件进行打包处理（文件分类）
+      chunkFileNames: 'assets/js/[name]-[hash].js',
+      entryFileNames: 'assets/js/[name]-[hash].js',
+      assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+    }
+  },
+},
 })
