@@ -44,17 +44,19 @@
   </el-header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-
+defineOptions({
+  name: 'topView'
+})
 const route = useRoute()
 const router = useRouter()
 
 const currentLanguage = ref('zh')
 const activeIndex = computed(() => route.path)
 
-const handleSelect = (key) => {
+const handleSelect = (key: any) => {
   router.push(key)
 }
 

@@ -43,7 +43,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
 const router = useRouter();
  
 // 跳转到首页的方法
-const goToPage = (value) => {
+const goToPage = (value: any) => {
   router.push(`/layout/${value}`);
 };
 const login = () => {

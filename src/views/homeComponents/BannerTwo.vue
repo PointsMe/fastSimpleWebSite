@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // 使用 Vue 3 的 Composition API
 </script>
 

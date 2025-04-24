@@ -180,7 +180,7 @@
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 // 组件逻辑这里暂时不需要添加
 </script>
 

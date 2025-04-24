@@ -17,7 +17,7 @@
             <el-form-item label="">
                 <el-input size="large" v-model="form.name" placeholder="请输入您的手机号码" class="bg-input">
                     <template #prepend>
-                        <el-select v-model="select" placeholder="+86" style="width: 80px">
+                        <el-select placeholder="+86" style="width: 80px">
                             <el-option label="+86" value="+86" />
                             <el-option label="+101" value="+101" />
                         </el-select>

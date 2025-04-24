@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Top from "./homeComponents/Top.vue"
 import Banner from "./homeComponents/Banner.vue"
 import BannerTwo from "./homeComponents/BannerTwo.vue"
@@ -26,4 +26,4 @@ import BannerEight from "./homeComponents/BannerEight.vue"
 import BannerNine from "./homeComponents/BannerNine.vue"
 </script>
 
-<style></style>
+<style scoped lang="less"></style>

@@ -30,7 +30,7 @@
                     <template #append>
                         <div>
                             <span class="line-border"></span>
-                            <el-select v-model="select" placeholder="@gmail.com" style="width: 130px">
+                            <el-select placeholder="@gmail.com" style="width: 130px">
                                 <el-option label="@gmail.com" value="@gmail.com" />
                                 <el-option label="@qq.com" value="@gmail.com" />
                             </el-select>
@@ -78,7 +78,7 @@
 </template>
 <script setup lang="ts">
 import { View } from '@element-plus/icons-vue'
-import { reactiv, ref } from 'vue'
+import { reactive, ref } from 'vue'
 
 // do not use same name with ref
 const checked1 = ref()

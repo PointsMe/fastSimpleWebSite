@@ -12,7 +12,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive,onMounted } from 'vue';
  
  const options = reactive({
    src: "https://m.suike.cn/19ad7364-c927-4f21-87ed-5f6fa45c70eb", //视频源

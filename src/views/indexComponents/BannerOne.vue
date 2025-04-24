@@ -27,7 +27,7 @@
         </div>
     </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { DArrowRight } from '@element-plus/icons-vue'
 defineOptions({
     name: 'bannerOne'
