@@ -62,7 +62,18 @@ export default [
           meta: {
             name: '联系我们'
           }
-        }
+        },
+        {
+            path: 'news',
+            name: 'newsView',
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import('../views/NewsView.vue'),
+            meta: {
+              name: '新闻'
+            }
+          }
       ]
     },
     {

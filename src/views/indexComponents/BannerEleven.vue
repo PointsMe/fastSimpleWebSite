@@ -63,7 +63,7 @@
       </el-row>
     </div>
     <div class="des">
-      Copyright © 2024 PointsMe By Yine Srl, 版权所有 - P.iva: 08435150969 - <span class="line-th"
+      Copyright © 2024 PointsMe By Yine Srl, 版权所有 - P.iva: 08435150969 -<span class="line-th"
         >Termini</span
       >
     </div>

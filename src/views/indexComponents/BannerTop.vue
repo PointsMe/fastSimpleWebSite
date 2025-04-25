@@ -10,10 +10,11 @@
                     <el-menu mode="horizontal" :ellipsis="false" class="menu">
                         <el-menu-item index="1" @click="goToPage('index')">主页</el-menu-item>
                         <el-menu-item index="2" @click="goToPage('shopping')">商城</el-menu-item>
-                        <el-menu-item index="3" @click="goToPage('server')">服务支持</el-menu-item>
-                        <el-menu-item index="4" @click="goToPage('about')">关于我们</el-menu-item>
-                        <el-menu-item index="5" @click="goToPage('contact')">联系我们</el-menu-item>
-                        <el-menu-item index="6">
+                        <el-menu-item index="3" @click="goToPage('news')">新闻</el-menu-item>
+                        <el-menu-item index="4" @click="goToPage('server')">服务支持</el-menu-item>
+                        <el-menu-item index="5" @click="goToPage('about')">关于我们</el-menu-item>
+                        <el-menu-item index="6" @click="goToPage('contact')">联系我们</el-menu-item>
+                        <el-menu-item index="7">
                             <el-dropdown>
                                 <span class="language-selector">
                                     中文 <el-icon>
