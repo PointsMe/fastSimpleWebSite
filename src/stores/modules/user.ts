@@ -7,6 +7,7 @@ export const useUserStore = defineStore("user", () => {
   const token = ref<string>(getToken() || "xxxxxx")
   const roles = ref<string[]>([])
   const username = ref<string>("")
+  const discountedPrice = ref<number>(400)
 
   // 设置 Token
   const setToken = (value: string) => {
@@ -30,7 +31,7 @@ export const useUserStore = defineStore("user", () => {
     roles.value = []
   }
 
-  return { token, roles, username, setToken, resetToken }
+  return { token, roles,discountedPrice, username, setToken, resetToken }
 })
 
 /**

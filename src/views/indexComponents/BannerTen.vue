@@ -88,11 +88,16 @@
 </template>
 <script setup lang="ts">
 import { reactive } from 'vue'
+
 defineOptions({
   name: 'BannerTen'
 })
 const formLabelAlign = reactive({
-  name: ''
+  name: '',
+  email:'',
+  tel:'',
+  componey:'',
+  message:''
 })
 </script>
 <style scoped lang="less">

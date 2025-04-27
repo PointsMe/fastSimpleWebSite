@@ -62,67 +62,6 @@ defineOptions({
 })
 const DrawerRef = ref();
 const tab = ref<string>('1')
-const res: any = {
-    "id": "1001",
-    "name": "FASTSIMPE BASIC",
-    "subtitle": "基础套餐",
-    "sellPrice": 800,
-    "items": [{   // 固定套餐部分
-        "id": "xxx",
-        "name": "xxx",
-        "price": 'xxx'
-    }],
-    "assorts": [{     // 配套产品
-        "name": "点单手印打印扫码PDA",
-        "items": [{  // 可能是1个也可能是多个
-            "id": "产品ID",
-            "type": 101,       // 产品类型 101-正常售卖产品，102 - 服务产品(时端), 103 - 租售产品
-            "unit": "",          // 单位 如年月日，个台等，可能为空
-            "spec": "88mm",  //规格，有可能为空
-            "sellPrice": 800
-        }, {
-            "id": "产品ID",
-            "spec": "58mm",   // 规格
-            "sellPrice": 600
-        }]
-    }, {
-        "name": "WIFI SIM卡路由器",
-        "items": [{
-            "id": "产品ID",
-            "type": 101,
-            "unit": "台",    //单位
-            "spec": "",  //规格
-            "sellPrice": 100
-        }]
-    }, {
-        "name": "SOFATTURA 套餐",
-        "items": [{
-            "id": "产品ID",
-            "type": 102,
-            "unit": "",
-            "spec": "A套餐200张发票",
-            "sellPrice": 100
-        }, {
-            "id": "产品ID",
-            "type": 102,
-            "unit": "",
-            "spec": "B套餐200张发票",
-            "sellPrice": 200
-        }, {
-            "id": "产品ID",
-            "type": 102,
-            "unit": "",
-            "spec": "C套餐500张发票",
-            "sellPrice": 300
-        }, {
-            "id": "产品ID",
-            "type": 102,
-            "unit": "",
-            "spec": "D套餐1000张发票",
-            "sellPrice": 500
-        }]
-    }]
-}
 const toPayDrawer = ()=>{
     console.log("toPayDrawer=>",DrawerRef)
     if(DrawerRef.value){
