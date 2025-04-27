@@ -9,10 +9,11 @@
                                         固定套餐
                                     </el-col>
                                     <el-col :span="12" class="right sub-title">
-                                        <div class="pos-right">
+                                        <div class="pos-right" @click=joinUsFn>
                                             <el-icon>
                                                 <QuestionFilled />
-                                            </el-icon> 注册会员输入邀请码后，能享受€800优惠哦
+                                            </el-icon>
+                                             注册会员输入邀请码后，能享受€800优惠哦
                                         </div>
                                     </el-col>
                                 </el-row>
@@ -364,11 +365,17 @@
                         </div>
                     </el-col>
         </el-row>
+        <JoinUs ref="JoinUsFnRef"/>
+        <UpdateView ref="UpdateViewRef"/>
     </div>
 </template>
 <script setup lang="ts">
 import AddNum from "./AddNum.vue"
 import { QuestionFilled } from '@element-plus/icons-vue'
+import JoinUs from "./JoinUs.vue"
+import UpdateView from "./UpdateView.vue"
+const JoinUsFnRef = ref()
+const UpdateViewRef = ref()
 const emits = defineEmits(['toPay'])
 defineOptions({
     name: 'orderOne'
@@ -377,6 +384,17 @@ const toPay = ()=> {
     console.log("aaaaa")
     emits('toPay')
 }
+const joinUsFn = ()=>{
+    if(JoinUsFnRef.value){
+        JoinUsFnRef.value.showModal()
+    }
+    // if(UpdateViewRef.value){
+    //     UpdateViewRef.value.showModal()
+    // }
+}
+// defineExpose({
+//     joinUsFn
+// })
 </script>
 <style scoped lang="less">
         .order-one {
@@ -527,7 +545,7 @@ color: #1A1A1A;
                 position: absolute;
                 right: 0;
                 bottom: 0;
-
+                cursor: pointer;
                 .el-icon {
                     color: #2865FF;
                     font-size: 13px;

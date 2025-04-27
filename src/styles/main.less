@@ -27,9 +27,71 @@
     margin-top: 30px;
   }
 }
+.join-us-modal,.updata-view-modal{
+  .el-dialog{
+    padding: 0;
+    background: rgba(224,224,224);
+    // box-shadow: 4px 4px 33px 0px rgba(255,255,255,0.2);
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid #FFFFFF;
+    .btns-i{
+      .el-input__wrapper{
+        background-color: #1B1B1B;
+        box-shadow: none;
+        .el-input__inner{
+          text-align: center;
+        }
+      }
+    }
+
+  }
+}
+.content-list-right{
+  .order-btn{
+    .el-input__wrapper{
+      .el-input__inner{
+        text-align: center;
+      }
+    }
+  }
+}
+
+.add-num-div{
+  .el-input__wrapper{
+    .el-input__inner{
+      text-align: center;
+    }
+  }
+}
+
+.pay-suc-m{
+  .no-header-dialog .el-dialog__header {
+    display: none;
+  }
+  .el-dialog__header{
+    padding-bottom: 0;
+  }
+  .el-dialog.el-dialog--center{
+    // background-color: #000000 !important;
+    padding: 0px !important;
+    border-radius: 10px !important;
+}
+}
 .drawer-view{
   .el-drawer__body{
     padding: 0;
+    .form-message{
+      // .el-input__wrapper{
+      //   // border-radius: 10px !important;
+      // }
+      .el-input-group__prepend{
+        background-color: #ffffff;
+      }
+      .el-input-group--prepend .el-input-group__prepend .el-select .el-select__wrapper{
+        box-shadow: none;
+      }
+    }
+
   }
 }
 
