@@ -9,10 +9,7 @@
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
                                     <span class="line-border"></span>
-                                    <el-select placeholder="@gmail.com" style="width: 130px">
-                                        <el-option label="@gmail.com" value="@gmail.com" />
-                                        <el-option label="@qq.com" value="@gmail.com" />
-                                    </el-select>
+                                    <AllEmailView @changeEmail="changeEmail"/>
                                 </div>
                                 <span v-if="item.haveBtn" class="span-code" @click="getVerificationCode">
                                     <label v-if="!num">发送验证码</label>
@@ -57,11 +54,8 @@
                         </div>
                     </el-col>
                     <el-col :span="8">
-                        <div>
-                            <el-select class="chin-select">
-                                <el-option label="+86" value="+86" />
-                                <el-option label="+101" value="+101" />
-                            </el-select>
+                        <div class="chin-select">
+                            <LanguageView />
                         </div>
                     </el-col>
                 </el-row>
@@ -74,11 +68,13 @@
 <script setup lang="ts">
 import type * as Types from "@/apis/type"
 import { View, Hide } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage,ElLoading } from 'element-plus'
 import { getVerificationCodeApi, forgetPassWordApi } from "@/apis/user"
 import type { FormInstance, FormRules } from 'element-plus'
 import { reactive, ref, onMounted, watch } from 'vue'
 import AllCountryView from "@/views/loginComponents/AllCountryView.vue"
+import AllEmailView from "@/views/loginComponents/AllEmailView.vue"
+import LanguageView from "@/views/loginComponents/LanguageView.vue"
 import {
     emailFormStep1,
     phoneFormStep1,
@@ -86,6 +82,7 @@ import {
 import { useUserStore } from "@/stores/modules/user"
 const userStore = useUserStore()
 const countryCode = ref('+86')
+const emailCode = ref('@gmail.com')
 // 获取路由实例
 const router = useRouter()
 //定义props变量接收defineProps返回值
@@ -97,6 +94,9 @@ const props = defineProps({
 });
 const changeCountry = (e:string)=>{
     countryCode.value = e
+}
+const changeEmail = (e:string)=>{
+    emailCode.value = e
 }
 const form: any = reactive({
     account: "",
@@ -169,18 +169,23 @@ const onSubmit = async () => {
                 ElMessage.error("请先勾选")
                 return Promise.reject(false)
             }
-   
-            const params = {
+                const params = {
                     ...form,
-                    account:`${countryCode.value.replace('+','')}-${form.account}`,
+                    account: "",
+                }
+                if(props.registerStyle === '1'){
+                    params.account = `${countryCode.value.replace('+','')}-${form.account}`
+                }else{
+                    params.account =  `${form.account}${emailCode.value}`
                 }
                 console.log('submit!', form,params)
             // 跳转到首页的方法
             const { data } = await forgetPassWordApi(params)
             console.log("onSubmit===>", data)
+            ElMessage.success('密码重置成功，前往登录！！！')
             // userStore.setToken(data.token)
             // userStore.setUserInfo(data.account)
-            // router.push('/module/login')
+            router.push('/module/login')
         } else {
             console.log('error submit!')
         }
@@ -192,19 +197,46 @@ const timer = ref()
 const getVerificationCode = async () => {
     console.log("aaaaa",)
     if (num.value) return false
-    if (form.account && countryCode.value) {
-        await getVerificationCodeApi({
-            account:`${countryCode.value.replace('+','')}-${form.account}`,
-            "type": 102
+    if(props.registerStyle === '1'){
+        if(!countryCode.value) {
+        ElMessage.error("请先选择区号！！！")
+        return false
+    }
+    }else{
+        if(!emailCode.value) {
+        ElMessage.error("请先选择邮箱！！！")
+        return false
+    }
+    }
+    if (form.account) {
+        const loading = ElLoading.service({
+            lock: true,
+            text: 'Loading',
+            background: 'rgba(0, 0, 0, 0.7)',
         })
-        num.value = 5
-        timer.value = setInterval(() => {
-            if (num.value) {
-                num.value = num.value - 1
-            } else {
-                clearInterval(timer.value)
+        try{
+            const params = {
+                account: '',
+                type: 102
             }
-        }, 1000)
+            if(props.registerStyle === '1'){
+                params.account = `${countryCode.value.replace('+','')}-${form.account}`
+            }else{
+                params.account =  `${form.account}${emailCode.value}`
+            }
+            await getVerificationCodeApi(params)
+            loading.close()
+            num.value = 60
+            timer.value = setInterval(()=>{
+                if(num.value){
+                    num.value = num.value -1
+                }else{
+                    clearInterval(timer.value)
+                }
+            },1000)
+        }catch(e){
+            loading.close()
+        }
     } else {
         ElMessage.error('请先输入手机号码！！！')
     }

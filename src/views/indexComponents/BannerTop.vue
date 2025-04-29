@@ -15,49 +15,62 @@
                         <el-menu-item index="5" @click="goToPage('about')">关于我们</el-menu-item>
                         <el-menu-item index="6" @click="goToPage('contact')">联系我们</el-menu-item>
                         <el-menu-item index="7">
-                            <el-dropdown>
+                            <el-dropdown @command="handleCommand" trigger="click">
                                 <span class="language-selector">
-                                    中文 <el-icon>
+                                    {{ dropdownValue }} <el-icon>
                                         <ArrowDown />
                                     </el-icon>
                                 </span>
                                 <template #dropdown>
                                     <el-dropdown-menu>
-                                        <el-dropdown-item>中文</el-dropdown-item>
-                                        <el-dropdown-item>English</el-dropdown-item>
+                                        <el-dropdown-item v-for="(item, index) in languageList"
+                                            :command="item.code" :key="index">{{ item.label }}</el-dropdown-item>
                                     </el-dropdown-menu>
                                 </template>
                             </el-dropdown>
                         </el-menu-item>
                     </el-menu>
                 </div>
-
-                <!-- Right Section -->
                 <div class="right-section">
-                    <!-- <el-dropdown>
-            <span class="language-selector">
-              中文 <el-icon><ArrowDown /></el-icon>
-            </span>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item>中文</el-dropdown-item>
-                <el-dropdown-item>English</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown> -->
-                    <el-button class="login-btn" type="pain" @click="login">登录/注册</el-button>
+                    <el-button v-if="!userStore.token" class="login-btn" type="pain" @click="login">登录/注册</el-button>
+                    <div v-else>
+                        <el-dropdown trigger="click">
+                            <span class="language-selector">
+                                <img src="@/assets/fastsImages/user.png" alt="">
+                                {{ userStore.userInfo.username }} 
+                                  <!-- 18376614866 -->
+                                <el-icon>
+                                    <ArrowDown />
+                                </el-icon>
+                            </span>
+                            <template #dropdown>
+                                <el-dropdown-menu>
+                                    <el-dropdown-item>我的订单</el-dropdown-item>
+                                    <el-dropdown-item @click="loginOut">退出登录</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </template>
+                        </el-dropdown>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script setup lang="ts">
+import {languageList} from "@/http/config"
 import { useRouter } from 'vue-router'
 import { ArrowDown } from '@element-plus/icons-vue'
-import { useCommonStore } from '@/stores/modules/common'
+import { useUserStore } from '@/stores/modules/user'
+import {useCommonStore} from "@/stores/modules/common"
 // 获取路由实例
 const router = useRouter()
+const userStore = useUserStore()
 const commonStore = useCommonStore()
+const handleCommand = (command: string) => {
+    dropdownValue.value = command
+    commonStore.setLanguageFn(command)
+}
+const dropdownValue = ref<string>(commonStore.language || '')
 // 跳转到首页的方法
 const goToPage = (value: any) => {
     router.push(`/layout/${value}`)
@@ -65,8 +78,13 @@ const goToPage = (value: any) => {
 const login = () => {
     router.push(`/module/login`)
 }
-onMounted(()=>{
-    console.log(commonStore.countryList)
+const loginOut = () => {
+    userStore.resetToken()
+    userStore.resetUserInfo()
+    router.push(`/module/login`)
+}
+onMounted(() => {
+    console.log(userStore.userInfo)
 })
 </script>
 <style scoped lang="less">
@@ -132,6 +150,11 @@ onMounted(()=>{
                     display: flex;
                     align-items: center;
                     gap: 4px;
+
+                    img {
+                        width: 36px;
+                        height: 36px;
+                    }
                 }
 
                 .login-btn {

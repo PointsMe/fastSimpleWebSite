@@ -5,7 +5,7 @@ import { setToken as _setToken, getToken, removeToken,getUserInfoStorage,setUser
 
 export const useUserStore = defineStore("user", () => {
   const token = ref<string>(getToken() || "")
-  const userInfo = ref<any>(JSON.parse(getUserInfoStorage() || '{}'))
+  const userInfo = ref<any>(getUserInfoStorage())
 
   // 设置 Token
   const setToken = (value: string) => {
@@ -14,7 +14,7 @@ export const useUserStore = defineStore("user", () => {
   }
   // 设置 Token
   const setUserInfo = (data: any) => {
-    setUserInfoStorage(JSON.stringify(data))
+    setUserInfoStorage(data)
     userInfo.value = data
   }
 

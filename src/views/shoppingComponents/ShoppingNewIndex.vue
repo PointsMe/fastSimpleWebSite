@@ -57,6 +57,7 @@ import OrderOne from "./OrderOne.vue"
 import OrderTwo from "./OrderTwo.vue"
 import OrderThree from "./OrderThree.vue"
 import DrawerView from "./DrawerView.vue"
+import {getGoodsListApi} from "@/apis/goods"
 defineOptions({
     name: 'shoppingNewIndex'
 })
@@ -71,6 +72,15 @@ const toPayDrawer = ()=>{
 const changeTab = (val: string) => {
     tab.value = val
 }
+const getData=async()=>{
+    const res = await getGoodsListApi()
+    if(res){
+        console.log("res===>",res)
+    }
+}
+onMounted(()=>{
+    getData()
+})
 defineExpose({
     toPayDrawer
 })

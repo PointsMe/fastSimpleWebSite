@@ -6,7 +6,6 @@
         注册会员输入邀请码，享受五折优惠
         <span>立即注册</span>&nbsp;&nbsp;&nbsp;
         <el-icon class="icon-right-shop">
-            ...
           <Right />
         </el-icon>
       </p>

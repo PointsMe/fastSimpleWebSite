@@ -4,7 +4,7 @@
       <el-row class="top-title">
         <el-col :span="12" class="left-title"> 登录 </el-col>
         <el-col :span="12" class="right-title">
-          <div class="tips">没有账号？ <span @click="toRegister">去注册</span></div>
+          <div class="tips">没有账号？ <span @click="toRegister" style="cursor: pointer;">去注册</span></div>
         </el-col>
       </el-row>
       <el-row class="two-title">

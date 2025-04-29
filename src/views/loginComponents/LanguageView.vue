@@ -1,36 +1,31 @@
 <template>
  <el-select
         v-model="value"
-        filterable
-        placeholder="+86"
+        placeholder="zh"
         @change="changeCountry"
     >
         <el-option
-            v-for="item in commonStore.countryList"
-            :key="item.id"
-            :label="item.name"
-            :value="item.id"
+            v-for="item in languageList"
+            :key="item.code"
+            :label="item.label"
+            :value="item.code"
             >
-            <!-- <div class="all-country">
-                <img :src="item.icon" alt="">
-                <span>{{ item.name }}</span>
-                <span>({{ item.num }})</span>
-            </div> -->
     </el-option>
   </el-select>
 </template>
 <script setup lang="ts">
-import { useCommonStore } from '@/stores/modules/common';
+import {languageList} from "@/http/config"
+import { useCommonStore } from "@/stores/modules/common"
 defineOptions({
     name: 'languageView'
 })
 import { ref } from 'vue'
 const commonStore = useCommonStore()
-const emits = defineEmits(['changeCountry'])
-const value = ref('中国')
-
+// const emits = defineEmits(['changeCountry'])
+const value = ref(commonStore.language)
 const changeCountry = (e:string)=>{
     console.log(e)
+    commonStore.setLanguageFn(e)
 }
 
 </script>

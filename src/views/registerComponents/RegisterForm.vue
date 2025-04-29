@@ -13,10 +13,7 @@
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
                                     <span class="line-border"></span>
-                                    <el-select placeholder="@gmail.com" style="width: 130px">
-                                        <el-option label="@gmail.com" value="@gmail.com" />
-                                        <el-option label="@qq.com" value="@gmail.com" />
-                                    </el-select>
+                                    <AllEmailView @changeEmail="changeEmail"/>
                                 </div>
                                 <span v-if="item.haveBtn" class="span-code" @click="getVerificationCode"> 
                                     <label v-if="!num">发送验证码</label> 
@@ -30,9 +27,10 @@
                                 </span>
                             </template>
                             <template #prepend v-if="item.haveTelSelect">
-                                <div class="country">
+                                <AllCountryView @changeCountry="changeCountry"/>
+                                <!-- <div class="country">
                                     <vue3-country-intl v-model="countryCode"></vue3-country-intl>
-                                </div>
+                                </div> -->
                             </template>
                         </el-input>
                         <el-select size="large" v-if="item.type === 'select'" v-model="phoneFormModel[item.value]"
@@ -58,10 +56,7 @@
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
                                     <span class="line-border"></span>
-                                    <el-select placeholder="@gmail.com" style="width: 180px">
-                                        <el-option label="@gmail.com" value="@gmail.com" />
-                                        <el-option label="@qq.com" value="@gmail.com" />
-                                    </el-select>
+                                    <AllEmailView @changeEmail="changeEmail"/>
                                 </div>
                                 <span v-if="item.haveBtn" class="span-code" @click="getVerificationCode"> 
                                     <label v-if="!num">发送验证码</label> 
@@ -75,9 +70,7 @@
                                 </span>
                             </template>
                             <template #prepend v-if="item.haveTelSelect">
-                                <div class="country">
-                                    <vue3-country-intl v-model="countryCode"></vue3-country-intl>
-                                </div>
+                                <AllCountryView @changeCountry="changeCountry"/>
                             </template>
                         </el-input>
                         <el-select size="large" v-if="item.type === 'select'" v-model="emailFormModel[item.value]"
@@ -153,11 +146,8 @@
                         </div>
                     </el-col>
                     <el-col :span="8">
-                        <div>
-                            <el-select class="chin-select">
-                                <el-option label="+86" value="+86" />
-                                <el-option label="+101" value="+101" />
-                            </el-select>
+                        <div class="chin-select">
+                            <LanguageView />
                         </div>
                     </el-col>
                 </el-row>
@@ -168,7 +158,10 @@
 </template>
 <script setup lang="ts">
 import type * as Types from "@/apis/type"
-import { ElMessage } from 'element-plus'
+import { ElMessage,ElLoading } from 'element-plus'
+import LanguageView from "@/views/loginComponents/LanguageView.vue"
+import AllCountryView from "@/views/loginComponents/AllCountryView.vue"
+import AllEmailView from "@/views/loginComponents/AllEmailView.vue"
 import { getVerificationCodeApi } from "@/apis/user"
 import { View, Hide } from '@element-plus/icons-vue'
 import { reactive, ref, watch } from 'vue'
@@ -200,8 +193,14 @@ const props = defineProps({
 });
 const emit = defineEmits(['setStep']);
 const num = ref<number>(0)
-const countryCode = ref()
-
+const countryCode = ref("+86")
+const emailCode = ref("@gmail.com")
+const changeCountry = (e:string)=>{
+    countryCode.value = e
+}
+const changeEmail = (e:string)=>{
+    emailCode.value = e
+}
 const phoneFormModel: any = reactive({
     name: '',
     storeName: '',
@@ -274,7 +273,7 @@ const emailFormModelRef = ref<FormInstance>()
 
 const emailFormRules = reactive({
     name: [
-        { required: true, message: '请输入姓名11', trigger: 'blur' },
+        { required: true, message: '请输入姓名', trigger: 'blur' },
         // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
     ],
     storeName: [
@@ -402,20 +401,47 @@ const timer = ref()
 // 发送短信验证码
 const getVerificationCode = async () => {
     console.log("aaaaa", countryCode.value)
-    if(num.value) return false
+    if (num.value) return false
+    if (props.registerStyle === '1') {
+        if (!countryCode.value) {
+            ElMessage.error("请先选择区号！！！")
+            return false
+        }
+    } else {
+        if (!emailCode.value) {
+            ElMessage.error("请先选择邮箱！！！")
+            return false
+        }
+    }
     if (phoneFormModel.account || emailFormModel.account) {
-        await getVerificationCodeApi({
-            "account": props.registerStyle === '1' ? phoneFormModel.account : emailFormModel.account,
-            "type": 101
+        const loading = ElLoading.service({
+            lock: true,
+            text: 'Loading',
+            background: 'rgba(0, 0, 0, 0.7)',
         })
-        num.value = 5
-        timer.value = setInterval(()=>{
-            if(num.value){
-                num.value = num.value -1
-            }else{
-                clearInterval(timer.value)
-            }
-        },1000)
+        const params = {
+            account: '',
+            type: 101
+        }
+        if (props.registerStyle === '1') {
+            params.account = `${countryCode.value.replace('+', '')}-${phoneFormModel.account}`
+        } else {
+            params.account = `${emailFormModel.account}${emailCode.value}`
+        }
+        try {
+            await getVerificationCodeApi(params)
+            loading.close()
+            num.value = 60
+            timer.value = setInterval(() => {
+                if (num.value) {
+                    num.value = num.value - 1
+                } else {
+                    clearInterval(timer.value)
+                }
+            }, 1000)
+        } catch (e) {
+            loading.close()
+        }
     } else {
         ElMessage.error('请先输入手机号码！！！')
     }

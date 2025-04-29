@@ -1,4 +1,16 @@
 
+export const setLanguage = (value: string)=>{
+    return window.localStorage.setItem('language',value)
+}
+
+export const getLanguage = ()=>{
+    return window.localStorage.getItem('language')
+}
+
+export const removeLanguage = ()=>{
+    return window.localStorage.removeItem('language')
+}
+
 export const setToken = (value: string)=>{
     return window.localStorage.setItem('token',value)
 }
@@ -16,7 +28,7 @@ export const setCountryListStorage = (value:any)=>{
 }
 
 export const getCountryListStorage = ()=>{
-    return window.localStorage.getItem('countryList') as any
+    return JSON.parse(window.localStorage.getItem('countryList') || '{}')
 }
 
 export const removeCountryListStorage = ()=>{
@@ -28,7 +40,7 @@ export const setUserInfoStorage = (value:any)=>{
 }
 
 export const getUserInfoStorage = ()=>{
-    return window.localStorage.getItem('userInfo') as any
+    return JSON.parse(window.localStorage.getItem('userInfo') || '{}')
 }
 
 export const removeUserInfoStorage = ()=>{

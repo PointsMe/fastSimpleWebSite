@@ -36,7 +36,7 @@
           </div>
         </el-col>
         <el-col :span="12" class="right-title">
-          <div class="tips">已有账号？ <span @click="toLogin">去登录</span></div>
+          <div class="tips">已有账号？ <span @click="toLogin" style="cursor: pointer;">去登录</span></div>
         </el-col>
       </el-row>
     </div>

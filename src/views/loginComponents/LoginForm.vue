@@ -77,12 +77,11 @@
     </div>
 </template>
 <script setup lang="ts">
-import { ElLoading } from 'element-plus'
 import type * as Types from "@/apis/type"
 import AllEmailView from "./AllEmailView.vue"
 import LanguageView from "./LanguageView.vue"
 import { View, Hide } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage,ElLoading } from 'element-plus'
 import { getVerificationCodeApi,loginApi } from "@/apis/user"
 import { reactive, ref, onMounted, watch } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
@@ -213,7 +212,7 @@ const getVerificationCode = async () => {
             }
             await getVerificationCodeApi(params)
             loading.close()
-            num.value = 5
+            num.value = 60
             timer.value = setInterval(()=>{
                 if(num.value){
                     num.value = num.value -1

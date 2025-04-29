@@ -1,5 +1,5 @@
 import type { AxiosInstance, AxiosRequestConfig } from "axios"
-import { getToken } from "@/utils/cache/cookies"
+import { getLanguage, getToken } from "@/utils/cache/cookies"
 import axios from "axios"
 import { get, merge } from "lodash-es"
 import { ElMessage } from 'element-plus'
@@ -98,6 +98,7 @@ function createInstance() {
 function createRequest(instance: AxiosInstance) {
   return <T>(config: AxiosRequestConfig): Promise<T> => {
     const token = getToken()
+    const language = getLanguage()
     // 默认配置
     const defaultConfig: AxiosRequestConfig = {
       // 接口地址
@@ -106,6 +107,7 @@ function createRequest(instance: AxiosInstance) {
       headers: {
         // 携带 Token
         "Authorization": token ? `Bearer ${token}` : undefined,
+        "accept-language": language,
         "Content-Type": "application/json"
       },
       // 请求体
@@ -117,6 +119,7 @@ function createRequest(instance: AxiosInstance) {
     }
     // 将默认配置 defaultConfig 和传入的自定义配置 config 进行合并成为 mergeConfig
     const mergeConfig = merge(defaultConfig, config)
+    console.log(mergeConfig)
     return instance(mergeConfig)
   }
 }
