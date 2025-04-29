@@ -9,7 +9,7 @@
                                 {{ response.subtitle }}
                             </el-col>
                             <el-col :span="12" class="right sub-title">
-                                <div class="pos-right" @click=joinUsFn>
+                                <div class="pos-right" @click=joinUsFn v-if="!userStore.token">
                                     <el-icon>
                                         <QuestionFilled />
                                     </el-icon>

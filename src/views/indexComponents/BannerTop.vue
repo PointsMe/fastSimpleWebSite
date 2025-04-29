@@ -62,6 +62,7 @@ import { useRouter } from 'vue-router'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { useUserStore } from '@/stores/modules/user'
 import {useCommonStore} from "@/stores/modules/common"
+import {reFlushWindows} from "@/utils/index"
 // 获取路由实例
 const router = useRouter()
 const userStore = useUserStore()
@@ -69,6 +70,8 @@ const commonStore = useCommonStore()
 const handleCommand = (command: string) => {
     dropdownValue.value = command
     commonStore.setLanguageFn(command)
+    reFlushWindows()
+    
 }
 const dropdownValue = ref<string>(commonStore.language || '')
 // 跳转到首页的方法

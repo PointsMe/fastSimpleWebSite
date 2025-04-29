@@ -2,7 +2,7 @@
   <div class="shop-view">
     <div class="top">
       <p>优惠商城</p>
-      <p>
+      <p v-if="!userStore.token">
         注册会员输入邀请码，享受五折优惠
         <span>立即注册</span>&nbsp;&nbsp;&nbsp;
         <el-icon class="icon-right-shop">
@@ -17,12 +17,14 @@
 <script setup lang="ts">
 // import ShoppingIndex from '@/views/shoppingComponents/ShoppingIndex.vue'
 import ShoppingNewIndex from '@/views/shoppingComponents/ShoppingNewIndex.vue'
+import { useUserStore } from '@/stores/modules/user'
 import {
   Right,
 } from '@element-plus/icons-vue'
 defineOptions({
   name: 'shoppingView'
 })
+const userStore = useUserStore()
 </script>
 <style scoped lang="less">
 .shop-view {

@@ -19,3 +19,6 @@ export const debounce = function (fn:Function, delay:number) {
     }
     return _debounce
   }
+  export const reFlushWindows = ()=>{
+    //  window.location.reload()
+  }

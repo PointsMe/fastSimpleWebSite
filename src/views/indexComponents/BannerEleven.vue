@@ -10,15 +10,17 @@
               <el-menu-item index="3">服务支持</el-menu-item>
               <el-menu-item index="4">关于我们</el-menu-item>
               <el-menu-item index="5">联系我们</el-menu-item>
-              <el-menu-item index="6">
-                <el-dropdown>
+              <el-menu-item index="7">
+                <el-dropdown @command="handleCommand" trigger="click">
                   <span class="language-selector">
-                    中文 <el-icon><ArrowDown /></el-icon>
+                    {{ dropdownValue }} <el-icon>
+                      <ArrowDown />
+                    </el-icon>
                   </span>
                   <template #dropdown>
                     <el-dropdown-menu>
-                      <el-dropdown-item>中文</el-dropdown-item>
-                      <el-dropdown-item>English</el-dropdown-item>
+                      <el-dropdown-item v-for="(item, index) in languageList" :command="item.code" :key="index">{{
+                        item.label }}</el-dropdown-item>
                     </el-dropdown-menu>
                   </template>
                 </el-dropdown>
@@ -63,9 +65,7 @@
       </el-row>
     </div>
     <div class="des">
-      Copyright © 2024 PointsMe By Yine Srl, 版权所有 - P.iva: 08435150969 -<span class="line-th"
-        >Termini</span
-      >
+      Copyright © 2024 PointsMe By Yine Srl, 版权所有 - P.iva: 08435150969 -<span class="line-th">Termini</span>
     </div>
     <div class="des-img">
       <img src="@/assets/fastsImages/b-11-3.png" alt="" />
@@ -73,16 +73,29 @@
   </div>
 </template>
 <script setup lang="ts">
+import { languageList } from "@/http/config"
 import { ArrowDown } from '@element-plus/icons-vue'
+import { useCommonStore } from "@/stores/modules/common"
+import { reFlushWindows } from "@/utils/index"
+const commonStore = useCommonStore()
+const dropdownValue = ref<string>(commonStore.language || '')
+const handleCommand = (command: string) => {
+  dropdownValue.value = command
+  commonStore.setLanguageFn(command)
+  reFlushWindows()
+
+}
 </script>
 <style scoped lang="less">
 .banner-11-div {
   width: 100%;
   // height: 585px;
   background: #151515;
+
   .des-img {
     width: 1280px;
     margin: auto;
+
     img {
       display: block;
       width: 1182px;
@@ -90,6 +103,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
       margin: auto;
     }
   }
+
   .des {
     width: 1280px;
     margin: auto;
@@ -100,15 +114,18 @@ import { ArrowDown } from '@element-plus/icons-vue'
     color: #bdbdbd;
     margin-top: 30px;
     margin-bottom: 39px;
+
     .line-th {
       display: inline-block;
       text-decoration: underline;
     }
   }
+
   .top {
     width: 1280px;
     margin: auto;
     border-bottom: 1px solid #ffffff;
+
     .qr-code {
       font-family:
         Source Han Sans SC,
@@ -118,23 +135,29 @@ import { ArrowDown } from '@element-plus/icons-vue'
       color: #ffffff;
       margin-top: 130px;
       text-align: center;
+
       .wx-div {
         text-indent: 30px;
         margin-top: 16px;
       }
+
       .code-div {
         width: 140px;
         margin: auto;
+
         .wx-img {
           width: 100%;
           margin-top: 14px;
+
           img {
             width: 100%;
           }
         }
+
         .code-top {
           position: relative;
           text-align: left;
+
           .line {
             display: block;
             position: absolute;
@@ -148,12 +171,14 @@ import { ArrowDown } from '@element-plus/icons-vue'
         }
       }
     }
+
     .nav-menu {
       flex: 1;
       display: flex;
       justify-content: center;
       margin-top: 210px;
       padding-bottom: 124px;
+
       .language-selector {
         color: #ffffff;
         cursor: pointer;

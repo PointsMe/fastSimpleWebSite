@@ -16,6 +16,7 @@
 <script setup lang="ts">
 import {languageList} from "@/http/config"
 import { useCommonStore } from "@/stores/modules/common"
+import {reFlushWindows} from "@/utils/index"
 defineOptions({
     name: 'languageView'
 })
@@ -26,6 +27,7 @@ const value = ref(commonStore.language)
 const changeCountry = (e:string)=>{
     console.log(e)
     commonStore.setLanguageFn(e)
+    reFlushWindows()
 }
 
 </script>
