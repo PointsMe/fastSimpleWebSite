@@ -1,12 +1,11 @@
 import { pinia } from "@/stores/index"
 import { getCountryListApi } from "@/apis/common"
 import { defineStore } from 'pinia'
-import { languageList } from "@/http/config"
 import {setCountryListStorage,getCountryListStorage,getLanguage,setLanguage,removeLanguage} from "@/utils/cache/cookies"
 import type * as Types from "@/apis/type"
 export const useCommonStore = defineStore("common", () => {
   const countryList = ref<Array<Types.country>>(getCountryListStorage())
-  const language = ref<string | null>(getLanguage() || languageList[0].code)
+  const language = ref<string | null>(getLanguage())
   //获取国家列表
   const getCountryList = async () => {
     const { data } = await getCountryListApi()

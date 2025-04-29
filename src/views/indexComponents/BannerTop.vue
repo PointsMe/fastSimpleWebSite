@@ -17,7 +17,8 @@
                         <el-menu-item index="7">
                             <el-dropdown @command="handleCommand" trigger="click">
                                 <span class="language-selector">
-                                    {{ dropdownValue }} <el-icon>
+                                    {{ languageList.find(iv=>iv.code === commonStore.language)?.label }}
+                                     <el-icon>
                                         <ArrowDown />
                                     </el-icon>
                                 </span>
@@ -68,12 +69,10 @@ const router = useRouter()
 const userStore = useUserStore()
 const commonStore = useCommonStore()
 const handleCommand = (command: string) => {
-    dropdownValue.value = command
     commonStore.setLanguageFn(command)
     reFlushWindows()
     
 }
-const dropdownValue = ref<string>(commonStore.language || '')
 // 跳转到首页的方法
 const goToPage = (value: any) => {
     router.push(`/layout/${value}`)

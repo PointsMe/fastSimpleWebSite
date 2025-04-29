@@ -13,7 +13,8 @@
               <el-menu-item index="7">
                 <el-dropdown @command="handleCommand" trigger="click">
                   <span class="language-selector">
-                    {{ dropdownValue }} <el-icon>
+                    {{ languageList.find(iv=>iv.code === commonStore.language)?.label }}
+                     <el-icon>
                       <ArrowDown />
                     </el-icon>
                   </span>
@@ -78,9 +79,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import { useCommonStore } from "@/stores/modules/common"
 import { reFlushWindows } from "@/utils/index"
 const commonStore = useCommonStore()
-const dropdownValue = ref<string>(commonStore.language || '')
 const handleCommand = (command: string) => {
-  dropdownValue.value = command
   commonStore.setLanguageFn(command)
   reFlushWindows()
 

@@ -1,6 +1,6 @@
 <template>
  <el-select
-        v-model="value"
+        v-model="commonStore.language"
         placeholder="zh"
         @change="changeCountry"
     >
@@ -20,10 +20,8 @@ import {reFlushWindows} from "@/utils/index"
 defineOptions({
     name: 'languageView'
 })
-import { ref } from 'vue'
 const commonStore = useCommonStore()
 // const emits = defineEmits(['changeCountry'])
-const value = ref(commonStore.language)
 const changeCountry = (e:string)=>{
     console.log(e)
     commonStore.setLanguageFn(e)
