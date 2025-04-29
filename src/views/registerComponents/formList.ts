@@ -1,22 +1,25 @@
+import { useCommonStoreOutside } from "@/stores/modules/common"
+const commonStoreOutside = useCommonStoreOutside()
 export const emailFormStep1 =     [
     {
         span: 12,
         label: '',
-        value: 'firstName',
+        value: 'name',
         type: 'input',
-        placeholder:'请输入您的姓'
+        placeholder:'请输入您的姓名'
     },
     {
         span: 12,
         label: '',
-        value: 'lastName',
+        value: 'storeName',
         type: 'input',
-        placeholder:'请输入您的名'
+        placeholder:'请输入您的门店名称',
+        onEventFunction: 'changeStoreName'
     },
     {
         span: 24,
         label: '',
-        value: 'email',
+        value: 'account',
         type: 'input',
         placeholder:'请输入您的邮箱',
         haveEmailSelect: true,
@@ -27,7 +30,7 @@ export const emailFormStep1 =     [
     {
         span: 24,
         label: '',
-        value: 'code',
+        value: 'verificationCode',
         type: 'input',
         placeholder:'请输入您的验证码',
         haveEmailSelect: false,
@@ -60,23 +63,26 @@ export const phoneFormStep1 =[
     {
         span: 12,
         label: '',
-        value: 'firstName',
+        value: 'name',
         type: 'input',
-        placeholder:'请输入您的姓'
+        placeholder:'请输入您的姓姓名',
+        onEventFunction: 'changeName'
     },
     {
         span: 12,
         label: '',
-        value: 'lastName',
+        value: 'storeName',
         type: 'input',
-        placeholder:'请输入您的名'
+        placeholder:'请输入您的门店名称',
+        onEventFunction: 'changeStoreName'
     },
     {
         span: 24,
         label: '',
-        value: 'email',
+        value: 'account',
         type: 'input',
         placeholder:'请输入您的手机号码',
+        onEventFunction: 'changeAccount',
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: false,
@@ -85,7 +91,7 @@ export const phoneFormStep1 =[
     {
         span: 24,
         label: '',
-        value: 'code',
+        value: 'verificationCode',
         type: 'input',
         placeholder:'请输入您的验证码',
         haveEmailSelect: false,
@@ -100,7 +106,8 @@ export const phoneFormStep1 =[
         placeholder:'请输入您的密码',
         haveEmailSelect: false,
         haveBtn: false,
-        haveIcon: true
+        haveIcon: true,
+        typePass: 'password'
     },
     {
         span: 24,
@@ -110,67 +117,88 @@ export const phoneFormStep1 =[
         placeholder:'请再次输入您的密码',
         haveEmailSelect: false,
         haveBtn: false,
-        haveIcon: true
+        haveIcon: true,
+        typePass: 'password'
     },
 ]
 export const formStep2 =     [
     {
         span: 12,
         label: '',
-        value: 'firstName',
+        value: 'name',
         type: 'input',
         placeholder:'公司名称',
     },
     {
         span: 12,
         label: '',
-        value: 'lastName',
+        value: 'vatNumber',
         type: 'input',
         placeholder:'公司税号P.IVA/CF'
     },
     {
         span: 24,
         label: '',
-        value: 'email',
+        value: 'compony',
         type:'select',
+        disabled:true,
         optionsData:[
             {
-                label: '意大利',
-                value: ''
+                label: 'fastSimple compony',
+                value: '1'
             }
         ],
         placeholder:'请选择门店类型',
       
     },
     {
-        span: 12,
+        span: 8,
         label: '',
-        value: 'email',
+        value: 'countryId',
         type:'select',
-        optionsData:[
-            {
-                label: '意大利',
-                value: '1'
-            },
-            {
-                label: '中国',
-                value: '2'
+        onEventFunction: 'changeCountryId',
+        optionsData: (commonStoreOutside.countryList || []).map(item=> {
+            return {
+                label: item.name,
+                value: item.id
             }
-        ],
-        placeholder:'国家，地区',
+        }),
+        placeholder:'国家',
     },
     {
-        span: 12,
+        span: 8,
         label: '',
-        value: 'code',
+        value: 'provinceId',
+        type:'select',
+        optionsData:[],
+        placeholder:'地区',
+    },
+    {
+        span: 8,
+        label: '',
+        value: 'city',
+        type: 'input',
+        placeholder:'城市',
+    },
+    {
+        span: 24,
+        label: '',
+        value: 'zipcode',
         type: 'input',
         placeholder:'邮编',
     },
     {
         span: 24,
         label: '',
-        value: 'password',
+        value: 'address',
         type: 'input',
         placeholder:'街道，门牌',
+    },
+    {
+        span: 24,
+        label: '',
+        value: 'taxCode',
+        type: 'input',
+        placeholder:'接收发票代码CODICE UNIVOCO / 税务邮箱PEC',
     },
 ]

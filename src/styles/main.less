@@ -27,6 +27,7 @@
     margin-top: 30px;
   }
 }
+
 .join-us-modal,.updata-view-modal{
   .el-dialog{
     padding: 0;
@@ -56,7 +57,26 @@
   }
 }
 
+
+.el-radio__input.is-checked + .el-radio__label {
+  color: #FDB522 !important;
+}
+.el-radio__input.is-checked .el-radio__inner {
+  background: #FDB522 !important;
+  border-color: #FDB522 !important;
+}
+
+.el-checkbox__input.is-checked + .el-checkbox__label {
+  color: #FDB522 !important;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  background: #FDB522 !important;
+  border-color: #FDB522 !important;
+}
+
+
 .add-num-div{
+
   .el-input__wrapper{
     .el-input__inner{
       text-align: center;
@@ -159,6 +179,33 @@
           }
 
           .bg-input {
+            .el-input-group__append .el-button, .el-input-group__append .el-select, .el-input-group__prepend .el-button, .el-input-group__prepend .el-select{
+              margin: 0 !important;
+            }
+            .span-code{
+              cursor: pointer;
+            }
+            .el-input-group__prepend{
+              background-color: #1b1b1b !important;
+              padding: 0 !important;
+              .country{
+                .country-intl-input-wrap{
+                  background-color: #1B1B1B;
+                }
+                .vue-country-intl-inputer.dropdown-list-on-top{
+                  background-color: #1b1b1b !important;
+                }
+                .vue-country-intl-inputer .country-intl-input{
+                  background-color: #1b1b1b !important;
+                  border: none !important;
+                  color: #fff !important;
+                }
+                .vue-country-intl-inputer .country-intl-label{
+                  background-color: #1b1b1b !important;
+                }
+              }
+            }
+
             .el-input-group--append .el-input-group__append .el-select .el-select__wrapper {
               box-shadow: none !important;
             }
@@ -183,6 +230,7 @@
             }
             .el-input-group__prepend {
               background-color: #1b1b1b;
+              padding: 0;
             }
             .el-input__wrapper {
               background-color: #1b1b1b !important;

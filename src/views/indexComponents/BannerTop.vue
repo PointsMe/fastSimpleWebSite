@@ -54,10 +54,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { ArrowDown } from '@element-plus/icons-vue'
-
+import { useCommonStore } from '@/stores/modules/common'
 // 获取路由实例
 const router = useRouter()
-
+const commonStore = useCommonStore()
 // 跳转到首页的方法
 const goToPage = (value: any) => {
     router.push(`/layout/${value}`)
@@ -65,6 +65,9 @@ const goToPage = (value: any) => {
 const login = () => {
     router.push(`/module/login`)
 }
+onMounted(()=>{
+    console.log(commonStore.countryList)
+})
 </script>
 <style scoped lang="less">
 .banner-top-div {

@@ -46,5 +46,9 @@ const changeCheckbox = (e: Array<string>)=>{
 
 .grey {
     color: #999999;
+    font-family: DIN, DIN;
+    font-weight: 500;
+    font-size: 18px;
+    color: #999999;
 }
 </style>

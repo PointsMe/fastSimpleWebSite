@@ -2,7 +2,7 @@ export const emailFormStep1 =     [
     {
         span: 24,
         label: '',
-        value: 'email',
+        value: 'account',
         type: 'input',
         placeholder:'请输入您的邮箱',
         haveEmailSelect: true,
@@ -13,7 +13,7 @@ export const emailFormStep1 =     [
     {
         span: 24,
         label: '',
-        value: 'code',
+        value: 'verificationCode',
         type: 'input',
         placeholder:'请输入您的验证码',
         haveEmailSelect: false,
@@ -28,7 +28,8 @@ export const emailFormStep1 =     [
         placeholder:'请输入您的密码',
         haveEmailSelect: false,
         haveBtn: false,
-        haveIcon: true
+        haveIcon: true,
+        typePass:'password'
     },
     {
         span: 24,
@@ -38,7 +39,8 @@ export const emailFormStep1 =     [
         placeholder:'请再次输入您的密码',
         haveEmailSelect: false,
         haveBtn: false,
-        haveIcon: true
+        haveIcon: true,
+        typePass:'password'
     },
 
 ]
@@ -46,7 +48,7 @@ export const phoneFormStep1 =[
     {
         span: 24,
         label: '',
-        value: 'email',
+        value: 'account',
         type: 'input',
         placeholder:'请输入您的手机号码',
         haveEmailSelect: false,
@@ -57,7 +59,7 @@ export const phoneFormStep1 =[
     {
         span: 24,
         label: '',
-        value: 'code',
+        value: 'verificationCode',
         type: 'input',
         placeholder:'请输入您的验证码',
         haveEmailSelect: false,
@@ -72,7 +74,8 @@ export const phoneFormStep1 =[
         placeholder:'请输入您的密码',
         haveEmailSelect: false,
         haveBtn: false,
-        haveIcon: true
+        haveIcon: true,
+        typePass:'password'
     },
     {
         span: 24,
@@ -82,6 +85,7 @@ export const phoneFormStep1 =[
         placeholder:'请再次输入您的密码',
         haveEmailSelect: false,
         haveBtn: false,
-        haveIcon: true
+        haveIcon: true,
+        typePass:'password'
     },
 ]

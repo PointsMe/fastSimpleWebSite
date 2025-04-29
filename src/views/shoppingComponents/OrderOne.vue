@@ -37,7 +37,12 @@
                                 €{{ userStore.discountedPrice }}
                             </span>
                             <div class="pos-abs">
-                                <AddNum :requireChoosed="true" :id="response.id"/>
+                                <AddNum 
+                                :requireChoosed="true" 
+                                :id="response.id"
+                                :mixNum="response.mixNum"
+                                :maxNum="response.maxNum"
+                                />
                             </div>
                         </div>
                         <div>
@@ -55,7 +60,12 @@
                             <div class="num-div" v-if="item.type === 'input'">
                                 {{ item.items[0].unit }}/<span>€{{ item.items[0].sellPrice }}</span>
                                 <div class="pos-abs">
-                                    <AddNum :requireChoosed="item.tips ? true : false" :id="item.id"/>
+                                    <AddNum 
+                                    :requireChoosed="item.tips ? true : false" 
+                                    :id="item.id"
+                                    :mixNum="item.mixNum"
+                                    :maxNum="item.maxNum"
+                                    />
                                 </div>
                             </div>
                             <div class="radio-common" v-if="item.type === 'radio' || item.type === 'checkbox'">
@@ -109,21 +119,20 @@
                                         <span class="i-1"> {{ item.items[0].unit }}/</span><span class="i-2">€ {{
                                             item.items[0].sellPrice }}</span>
                                         <div class="pos-abs">
-                                            <AddNum :require-choosed="false" :id="item.id"/>
+                                            <AddNum 
+                                            :require-choosed="false"
+                                             :id="item.id"
+                                             :mixNum="item.mixNum"
+                                            :maxNum="item.maxNum"
+                                             />
                                         </div>
                                     </div>
-                                    <div class="c-k-a" v-if="item.type === 'checkbox'">
-                                        <CheckboxView 
-                                                :id="item.id"
-                                                :checkbox-list="item.items"
-                                        />
-                                        <!-- <el-checkbox-group>
-                                            <el-checkbox v-for="(itemChil, chilIndex) in item.items" :key="chilIndex"
-                                                :label="itemChil.sellPrice" :value="itemChil.id">
-                                                <span class="num-c">€{{ itemChil.sellPrice }}</span>
-                                            </el-checkbox>
-                                        </el-checkbox-group> -->
-                                    </div>
+                                    <CheckboxView 
+                                            v-if="item.type === 'checkbox'"
+                                            :id="item.id"
+                                            :checkbox-list="item.items"
+                                    >
+                                </CheckboxView>
                                 </el-col>
                             </el-row>
                         </el-row>
@@ -245,10 +254,14 @@ const serverBuyer:any = reactive({
     "name": "SERVER BUYER",
     "subtitle": "服务选购",
     "sellPrice": 800,
+    "mixNum": 1,
+    "maxNum": 999,
     "assorts": [{
         "id": '1',
         "name": "远程指导安装人工费",
         "type": 'input',
+        "mixNum": 0,
+        "maxNum": 999,
         "items": [{
             "id": "产品ID",
             "type": 101,
@@ -261,13 +274,13 @@ const serverBuyer:any = reactive({
         "name": "商品人工导入费",
         "type": 'checkbox',
         "items": [{
-            "id": "产品ID",
+            "id": "1",
             "type": 101,
             "unit": "",    //单位
             "spec": "",  //规格
             "sellPrice": 100
         }, {
-            "id": "产品ID",
+            "id": "2",
             "type": 101,
             "unit": "",    //单位
             "spec": "",  //规格
@@ -277,6 +290,8 @@ const serverBuyer:any = reactive({
         "id": '3',
         "name": "商品人工翻译费",
         "type": 'input',
+        "mixNum": 0,
+        "maxNum": 999,
         "items": [{
             "id": "产品ID",
             "type": 101,
@@ -288,6 +303,8 @@ const serverBuyer:any = reactive({
         "id": '4',
         "name": "人工售后费",
         "type": 'input',
+        "mixNum": 0,
+        "maxNum": 999,
         "items": [{
             "id": "产品ID",
             "type": 101,
@@ -302,10 +319,12 @@ const response:any = reactive({
     "name": "FASTSIMPE BASIC",
     "subtitle": "基础套餐",
     "sellPrice": 800,
+    "mixNum": 1,
+    "maxNum": 999,
     "items": [{   // 固定套餐部分
         "id": "1001-1",
         "name": "平板11寸HUAWEI SE",
-        "price": 230
+        "price": 230,
     },
     {   // 固定套餐部分
         "id": "10热敏打印机",
@@ -379,6 +398,8 @@ const response:any = reactive({
         "id": '4',
         "name": "WIFI SIM卡版路由器",
         "type": 'input',
+        "mixNum": 0,
+        "maxNum": 999,
         "items": [{
             "id": "产品ID",
             "type": 101,
@@ -390,6 +411,8 @@ const response:any = reactive({
         "id": '5',
         "name": "钱箱",
         "type": 'input',
+        "mixNum": 0,
+        "maxNum": 999,
         "items": [{
             "id": "产品ID",
             "type": 101,
@@ -401,6 +424,8 @@ const response:any = reactive({
         "id": '6',
         "name": "热敏打印机",
         "type": 'input',
+        "mixNum": 1,
+        "maxNum": 2,
         "tips": '热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/年（上限2台）',
         "items": [{
             "id": "产品ID",
@@ -414,37 +439,37 @@ const response:any = reactive({
         "name": "SOFATTURA 套餐",
         "type": 'checkboxList',
         "items": [{
-            "id": "产品ID",
+            "id": "1",
             "type": 102,
             "unit": "",
             "spec": "A套餐200张发票",
             "sellPrice": 100
         }, {
-            "id": "产品ID2",
+            "id": "2",
             "type": 102,
             "unit": "",
             "spec": "B套餐200张发票",
             "sellPrice": 200
         }, {
-            "id": "产品ID3",
+            "id": "3",
             "type": 102,
             "unit": "",
             "spec": "C套餐500张发票",
             "sellPrice": 300
         }, {
-            "id": "产品ID4",
+            "id": "4",
             "type": 102,
             "unit": "",
             "spec": "D套餐1000张发票",
             "sellPrice": 500
         }, {
-            "id": "产品ID5",
+            "id": "5",
             "type": 102,
             "unit": "",
             "spec": "E套餐10000张发票",
             "sellPrice": 200
         }, {
-            "id": "产品ID6",
+            "id": "6",
             "type": 102,
             "unit": "",
             "spec": "税号搜索功能",
@@ -803,14 +828,12 @@ const joinUsFn = () => {
                     font-size: 16px;
                     color: #999999;
 
-                    .c-k-a {
-                        .num-c {
+                    .num-c {
                             font-family: DIN, DIN;
                             font-weight: 500;
                             font-size: 18px;
                             color: #999999;
                         }
-                    }
 
                     .all-i {
                         padding-right: 102px;

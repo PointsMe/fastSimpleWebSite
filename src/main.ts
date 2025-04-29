@@ -11,10 +11,15 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import App from './App.vue'
 import router from './router'
+// Add type declaration for vue3-country-intl
+import Vue3CountryIntl from 'vue3-country-intl';
+// 引入css
+import 'vue3-country-intl/lib/vue3-country-intl.css'
+
 // import vue3videoPlay from 'vue3-video-play' // 引入组件
 // import 'vue3-video-play/dist/style.css' // 引入css
 const app = createApp(App)
-
+app.use(Vue3CountryIntl);
 app.use(createPinia())
 app.use(router)
 app.use(ElementPlus)

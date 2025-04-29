@@ -1,6 +1,6 @@
 <template>
     <div class="add-num-div">
-        <span @click="reduce">
+        <span @click="reduceFn">
             <el-icon>
                 <Minus />
             </el-icon>
@@ -8,7 +8,7 @@
         <span>
             <el-input size="small" v-model="inputNum" placeholder="0" @input="changeInput" />
         </span>
-        <span @click="increase">
+        <span @click="increaseFn">
             <el-icon>
                 <Plus />
             </el-icon>
@@ -17,6 +17,7 @@
 </template>
 <script setup lang="ts">
 import { Minus, Plus } from '@element-plus/icons-vue'
+import {debounce} from "@/utils/index"
 defineOptions({
     name: 'addNum'
 })
@@ -26,15 +27,33 @@ const props = defineProps({
         type: Boolean,
         required: false,
     },
+    id: {
+        type: String,
+        required:true
+    },
+    mixNum: {
+        type:Number,
+        require: true
+    },
+    maxNum: {
+        type:Number,
+        require: true
+    }
 });
-const inputNum = ref(1)
+const inputNum = ref<number>(1)
 const changeInput = (e: any) => {
     if (!/^\d+$/.test(e)) {
         inputNum.value = props.requireChoosed ? 1 : 0
     } else {
-        inputNum.value = parseInt(e)
+        if(parseInt(e)){
+            inputNum.value = parseInt(e) > (props.maxNum ?? Infinity) ? (props.maxNum ?? Infinity) : parseInt(e)
+        }else{
+            inputNum.value = props.mixNum ?? Infinity
+        }
     }
 }
+
+
 const reduce = () => {
     if (props.requireChoosed) {
         if (Number(inputNum.value) > 1) {
@@ -45,11 +64,12 @@ const reduce = () => {
             inputNum.value = Number(inputNum.value) - 1
         }
     }
-
 }
 const increase = () => {
-    inputNum.value = Number(inputNum.value) + 1
+    inputNum.value = Number(inputNum.value) > props.maxNum ? Number(inputNum.value) : props.maxNum
 }
+const reduceFn = debounce(reduce, 1000)
+const increaseFn = debounce(increase, 1000)
 </script>
 <style scoped lang="less">
 .add-num-div {

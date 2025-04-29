@@ -1,37 +1,35 @@
 import { pinia } from "@/stores/index"
 // import { getCurrentUserApi } from "@@/apis/users"
 import { defineStore } from 'pinia'
-import { setToken as _setToken, getToken, removeToken } from "@/utils/cache/cookies"
+import { setToken as _setToken, getToken, removeToken,getUserInfoStorage,setUserInfoStorage,removeUserInfoStorage } from "@/utils/cache/cookies"
 
 export const useUserStore = defineStore("user", () => {
-  const token = ref<string>(getToken() || "xxxxxx")
-  const roles = ref<string[]>([])
-  const username = ref<string>("")
-  const discountedPrice = ref<number>(400)
+  const token = ref<string>(getToken() || "")
+  const userInfo = ref<any>(JSON.parse(getUserInfoStorage() || '{}'))
 
   // 设置 Token
   const setToken = (value: string) => {
     _setToken(value)
     token.value = value
   }
-
-  // 获取用户详情
-//   const getInfo = async () => {
-//     const { data } = await getCurrentUserApi()
-//     username.value = data.username
-//     // 验证返回的 roles 是否为一个非空数组，否则塞入一个没有任何作用的默认角色，防止路由守卫逻辑进入无限循环
-//     roles.value = data.roles?.length > 0 ? data.roles : routerConfig.defaultRoles
-//   }
-
+  // 设置 Token
+  const setUserInfo = (data: any) => {
+    setUserInfoStorage(JSON.stringify(data))
+    userInfo.value = data
+  }
 
   // 重置 Token
   const resetToken = () => {
     removeToken()
     token.value = ""
-    roles.value = []
+  }
+    // 重置 Token
+  const resetUserInfo = () => {
+    removeUserInfoStorage()
+    userInfo.value = ""
   }
 
-  return { token, roles,discountedPrice, username, setToken, resetToken }
+  return { token, setToken, resetToken,userInfo,setUserInfo,resetUserInfo }
 })
 
 /**

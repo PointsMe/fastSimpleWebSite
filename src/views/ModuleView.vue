@@ -18,9 +18,14 @@
   </template>
   <script setup lang="ts">
 //   import LoginComponents from '@/views/loginComponents/LoginComponents.vue'
+import { useCommonStore } from "@/stores/modules/common"
+const commonStore = useCommonStore()
   defineOptions({
     name: 'moduleView'
   })
+onMounted(()=>{
+  commonStore.getCountryList()
+})
   </script>
   <style scoped lang="less">
   .login-div {

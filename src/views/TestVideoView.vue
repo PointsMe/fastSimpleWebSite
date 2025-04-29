@@ -10,6 +10,7 @@
       @timeupdate="onTimeupdate"
       @canplay="onCanplay"
     /> -->
+    <vue3-country-intl ref="intl" v-model="countryCode"></vue3-country-intl>
     <div>{{ 
     userStore.token
      }}</div>
@@ -19,10 +20,17 @@
 <script setup lang="ts">
 import { reactive, onMounted } from 'vue'
 import { useUserStore } from "@/stores/modules/user"
+// Interfaces and types
+
+onMounted(() => {
+  console.log('初始化视频')
+})
 const userStore = useUserStore()
 const changeToken = ()=>{
   userStore.setToken('bbbbbbb')
 }
+const countryCode = ref()
+const intl = ref()
 const options = reactive({
   src: 'https://m.suike.cn/19ad7364-c927-4f21-87ed-5f6fa45c70eb', //视频源
   poster: '' //封面
@@ -40,8 +48,6 @@ const onTimeupdate = (ev: any) => {
 const onCanplay = (ev: any) => {
   console.log(ev, '可以播放')
 }
-onMounted(() => {
-  console.log('初始化视频')
-})
+
 </script>
 <style scoped lang="less"></style>

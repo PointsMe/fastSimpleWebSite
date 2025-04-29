@@ -9,10 +9,30 @@ import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // server:{
-  //   host: '0.0.0.0', // 监听所有网络接口
-  //   port: 3000 // 你可以指定一个端口号
-  // },
+
+  server: {
+    // 是否监听所有地址
+    host: true,
+    // 端口号
+    port: 3333,
+    // 端口被占用时，是否直接退出
+    strictPort: false,
+    // 是否自动打开浏览器
+    open: true,
+    // 反向代理
+    proxy: {
+      "/api": {
+        target: "http://192.168.1.101:18801/api",
+        // 是否为 WebSocket
+        ws: false,
+        // 是否允许跨域
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    },
+    // 是否允许跨域
+    cors: true,
+  },
   plugins: [
     vue(),
     vueJsx(),
