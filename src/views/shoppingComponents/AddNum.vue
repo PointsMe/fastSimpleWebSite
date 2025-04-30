@@ -18,55 +18,108 @@
 <script setup lang="ts">
 import { Minus, Plus } from '@element-plus/icons-vue'
 import {debounce} from "@/utils/index"
+import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
+import{precreateApi} from "@/apis/goods"
 defineOptions({
     name: 'addNum'
 })
+const shoppingCartStore = useShoppingCartStore()
+const emits = defineEmits(['changeOrderList'])
 //定义props变量接收defineProps返回值
 const props = defineProps({
-    requireChoosed: {
-        type: Boolean,
-        required: false,
+    parents: {
+        type: Object,
+        required: false
     },
-    id: {
-        type: String,
-        required:true
+    data: {
+        type: Object,
+        required: false
     },
-    mixNum: {
-        type:Number,
-        require: true
-    },
-    maxNum: {
-        type:Number,
-        require: true
-    }
 });
-const inputNum = ref<number>(1)
-const changeInput = (e: any) => {
-    if (!/^\d+$/.test(e)) {
-        inputNum.value = props.requireChoosed ? 1 : 0
+const inputNum = ref<number>(0)
+const changeInput = async (e: any) => {
+    let value = 0
+    if (parseInt(e)) {
+        value = parseInt(e) > (props.parents?.maxSelectCount ?? Infinity) ? (props.parents?.maxSelectCount ?? Infinity) : parseInt(e)
     } else {
-        if(parseInt(e)){
-            inputNum.value = parseInt(e) > (props.maxNum ?? Infinity) ? (props.maxNum ?? Infinity) : parseInt(e)
+        value = props.parents?.minSelectCount ?? 1
+    }
+    const params = shoppingCartStore.cart
+    const current = params.items.find(iv => iv.itemId === props?.data?.id)
+    if (current) {
+        current.count = value
+    } else {
+        params.items.push({
+            "type": props?.data?.type,
+            "itemId": props?.data?.id,
+            "count": value
+        })
+    }
+    shoppingCartStore.setCart(params)
+    const data = await addPrecreate()
+    if (data) {
+        inputNum.value = value
+        emits('changeOrderList', data)
+    }
+}
+
+
+const reduce = async() => {
+    if (Number(inputNum.value) > 0) {
+        const value = Number(inputNum.value) - 1
+        const params = shoppingCartStore.cart
+        const current = params.items.find(iv=>  iv.itemId === props?.data?.id)
+        if(current){
+            current.count = value
         }else{
-            inputNum.value = props.mixNum ?? Infinity
+            params.items.push({
+                "type": props?.data?.type,
+                "itemId": props?.data?.id,
+                "count": value
+            })
+        }
+        shoppingCartStore.setCart(params)
+        const data = await addPrecreate()
+        if(data){
+            inputNum.value = value
+            emits('changeOrderList',data)
         }
     }
 }
-
-
-const reduce = () => {
-    if (props.requireChoosed) {
-        if (Number(inputNum.value) > 1) {
-            inputNum.value = Number(inputNum.value) - 1
-        }
-    } else {
-        if (Number(inputNum.value) > 0) {
-            inputNum.value = Number(inputNum.value) - 1
-        }
+const addPrecreate = async () => {
+    const params = shoppingCartStore.cart
+    const current = params.items.find((iv: any)=> iv.type == '119')
+    if(current){
+        params.type = 102
+    }else{
+        params.type = 100
     }
+    params.items = params.items.filter(iv => iv.count)
+    console.log("请求参数：",params)
+    const { data } = await precreateApi(params)
+    console.log("precreateApi===>",data)
+    return data
+    // return params
 }
-const increase = () => {
-    inputNum.value = Number(inputNum.value) > props.maxNum ? Number(inputNum.value) : props.maxNum
+const increase = async () => {
+    const value = Number(inputNum.value) > (props.parents?.maxSelectCount ?? Infinity) ? (props.parents?.maxSelectCount ?? Infinity) : Number(inputNum.value) + 1
+    const params = shoppingCartStore.cart
+    const current = params.items.find(iv=>  iv.itemId === props?.data?.id)
+    if(current){
+        current.count = value
+    }else{
+        params.items.push({
+            "type": props?.data?.type,
+            "itemId": props?.data?.id,
+            "count": value
+        })
+    }
+    shoppingCartStore.setCart(params)
+    const data = await addPrecreate()
+    if(data){
+        inputNum.value = value
+        emits('changeOrderList',data)
+    }
 }
 const reduceFn = debounce(reduce, 1000)
 const increaseFn = debounce(increase, 1000)

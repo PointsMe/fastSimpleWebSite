@@ -37,71 +37,83 @@
                                 €{{ userStore.discountedPrice }}
                             </span>
                             <div class="pos-abs">
-                                <AddNum 
-                                :requireChoosed="true" 
-                                :id="response.id"
-                                :mixNum="response.mixNum"
-                                :maxNum="response.maxNum"
+                                <AddNum
+                                    :parents="{
+                                        minSelectCount: 1,
+                                        maxSelectCount: 200,
+                                    }"
+                                    :data="{
+                                        id: response.id,
+                                        name: response.name,
+                                        type: 119
+                                    }"
+                                    @changeOrderList="changeOrderList"
                                 />
+                                
                             </div>
                         </div>
-                        <div>
+                        <!-- <div>
                             <span style="color: #FF0000;">*</span>
                             固定套餐数量每增加一套，FASTSIMPLE标配版年费增加€10/年
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="content-list-a" v-for="(item, index) in response.assorts" :key="index">
-                    <el-row v-if="['input', 'radio', 'checkbox'].includes(item.type)">
+                    <el-row v-if="item.items.length < 3">
                         <el-col :span="12" class="left">
-                            {{ item.name }}
+                            <div class="left-i-a">
+                                {{ item.name }}
+                                <label class="sub-left-i-a" v-if="item.items.length === 1 && item.items[0].spec">({{ item.items[0].spec }})</label>
+                            </div>
+                            
                         </el-col>
                         <el-col :span="12" class="right">
-                            <div class="num-div" v-if="item.type === 'input'">
-                                {{ item.items[0].unit }}/<span>€{{ item.items[0].sellPrice }}</span>
-                                <div class="pos-abs">
-                                    <AddNum 
-                                    :requireChoosed="item.tips ? true : false" 
-                                    :id="item.id"
-                                    :mixNum="item.mixNum"
-                                    :maxNum="item.maxNum"
-                                    />
-                                </div>
-                            </div>
-                            <div class="radio-common" v-if="item.type === 'radio' || item.type === 'checkbox'">
-                                <RadioView 
-                                    v-if="item.type === 'radio' && item.items.length > 0" 
-                                     :id="item.id"
-                                    :radio-list="item.items"
-                                />
-                                <CheckboxView 
-                                     v-if="item.type === 'checkbox' && item.items.length > 0"
-                                     :id="item.id"
-                                     :checkbox-list="item.items"
-                                />
-                            </div>
+                            <el-row>
+                                <el-col :span="24" v-for="(itemChil,chilIndex) in item.items" :key="chilIndex">
+                                    <div class="num-div" v-if="item.maxSelectCount > 2">
+                                        <span v-if="itemChil.spec" style="color: #FDB522;">({{ itemChil.spec }})</span>
+                                        <span v-if="itemChil.value">{{ itemChil.value }}</span>
+                                        <span v-if="itemChil.unit">{{ itemChil.unit }}/</span>
+                                        <span>€{{ itemChil.sellPrice }}</span>
+                                        <div class="pos-abs">
+                                            <AddNum 
+                                                :parents="item"
+                                                :data="itemChil"
+                                                @changeOrderList="changeOrderList"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="radio-common" v-if="item.maxSelectCount < 3">
+                                        <span v-if="itemChil.spec && item.items.length > 1">({{ itemChil.spec }})</span>
+                                        <RadioView 
+                                            :parents="item"
+                                            :data="itemChil"
+                                            @changeOrderList="changeOrderList"
+                                            />
+                                    </div>
+                                </el-col>
+                            </el-row>
                         </el-col>
-                        <el-col :span="24" class="right tips" v-if="item.tips">
+                        <!-- <el-col :span="24" class="right tips" v-if="item.tips">
                             <span><label style="color: #FF0000;">*</label>{{ item.tips }}</span>
-                        </el-col>
+                        </el-col> -->
                     </el-row>
-                    <el-row v-if="['checkboxList'].includes(item.type)">
+                    <el-row v-if="item.items.length > 3">
                         <el-col :span="24" class="title-b">{{ item.name }}</el-col>
                         <el-col :span="24">
-                            <el-checkbox-group class="g-b">
-                                <el-checkbox v-for="(itemChil, chilIndex) in item.items" :key="chilIndex"
-                                    :label="itemChil.spec" :value="itemChil.id">
-                                    <div class="c-b">
-                                        {{ itemChil.spec }} /
-                                        <span class="mon">€{{ itemChil.sellPrice }}</span>
-                                    </div>
-                                </el-checkbox>
-                            </el-checkbox-group>
+                            <InvoiceCheckbox 
+                                @changeOrderList="changeOrderList"
+                                :parents="item"
+                            />
                         </el-col>
                     </el-row>
                 </div>
 
-                <div class="content-list content-list-top">
+
+
+
+
+                <!-- <div class="content-list content-list-top">
                     <div class="list-one">
                         <el-row>
                             <el-col :span="12" class="left title">
@@ -119,25 +131,18 @@
                                         <span class="i-1"> {{ item.items[0].unit }}/</span><span class="i-2">€ {{
                                             item.items[0].sellPrice }}</span>
                                         <div class="pos-abs">
-                                            <AddNum 
-                                            :require-choosed="false"
-                                             :id="item.id"
-                                             :mixNum="item.mixNum"
-                                            :maxNum="item.maxNum"
-                                             />
+                                            <AddNum :require-choosed="false" :id="item.id" :mixNum="item.mixNum"
+                                                :maxNum="item.maxNum" />
                                         </div>
                                     </div>
-                                    <CheckboxView 
-                                            v-if="item.type === 'checkbox'"
-                                            :id="item.id"
-                                            :checkbox-list="item.items"
-                                    >
-                                </CheckboxView>
+                                    <CheckboxView v-if="item.type === 'checkbox'" :id="item.id"
+                                        :checkbox-list="item.items">
+                                    </CheckboxView>
                                 </el-col>
                             </el-row>
                         </el-row>
                     </div>
-                </div>
+                </div> -->
             </el-col>
             <el-col :span="8" class="right">
                 <div class="content-list-right">
@@ -155,39 +160,32 @@
                         </el-row>
                     </div>
                     <div class="all-order">
-                        <div class="order-list">
+                        <div class="order-list" v-if="orderList.items.find((iv: any)=> iv.type === 119)">
                             <el-row>
-                                <el-col :span="24" class="left">
-                                    平板11寸HUAWEI SE*1
-                                </el-col>
-                                <el-col :span="24" class="left">
-                                    热敏打印机*1
-                                </el-col>
-                                <el-col :span="24" class="left">
-                                    平板收银防盗支架*1
-                                </el-col>
-                                <el-col :span="20" class="left">
-                                    FASTSIMPLE软件授权费*1
+                                <el-col 
+                                    v-for="(item,index) in orderList.items.find((iv: any)=> iv.type === 119)?.children"
+                                    :span="orderList.items.find((iv: any)=> iv.type === 119)?.children?.length === index + 1 ? 20 : 24" class="left"  :key="index">
+                                    {{ item.name }}
                                 </el-col>
                                 <el-col :span="4" class="right">
-                                    €800
+                                    €{{ orderList.items.find((iv: any)=> iv.type === 119)?.sellPrice }}
                                 </el-col>
                             </el-row>
                         </div>
-                        <div class="order-i">
+                        <div class="order-i" v-for="(item,index) in orderList.items.filter((iv: any)=> iv.type !== 119)" :key="index">
                             <el-row>
                                 <el-col :span="24" class="left">
-                                    FASTSIMPLE标配版年费
+                                    {{ item.name }}
                                 </el-col>
                                 <el-col :span="20" class="left tips">
-                                    1打印机+1平板
+                                    <!-- 1打印机+1平板 -->
                                 </el-col>
                                 <el-col :span="4" class="right tips-1">
-                                    €216
+                                    €{{ item.sellPrice }}
                                 </el-col>
                             </el-row>
                         </div>
-                        <div class="order-i">
+                        <!-- <div class="order-i">
                             <el-row>
                                 <el-col :span="24" class="left">
                                     POS机（刷卡机）*1
@@ -199,17 +197,7 @@
                                     €220
                                 </el-col>
                             </el-row>
-                        </div>
-                        <div class="order-i">
-                            <el-row>
-                                <el-col :span="20" class="left">
-                                    热敏打印机*2
-                                </el-col>
-                                <el-col :span="4" class="right">
-                                    €600
-                                </el-col>
-                            </el-row>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="order-btn">
                         <el-row>
@@ -217,10 +205,10 @@
                                 <span class="word">总计：</span>
                             </el-col>
                             <el-col :span="16" class="right-i">
-                                €1816
+                                €{{ orderList?.totalAmount || 0 }}
                             </el-col>
                             <el-col :span="24">
-                                <el-input class="input-h" placeholder="输入邀请码立减400€" size="large" />
+                                <el-input class="input-h" :placeholder="`输入邀请码立减${userStore.discountedPrice}€`" size="large" />
                             </el-col>
                             <el-col :span="24">
                                 <el-button class="button-h" @click="toPay">立即购买</el-button>
@@ -237,12 +225,15 @@
 <script setup lang="ts">
 import AddNum from "./AddNum.vue"
 import RadioView from "./RadioView.vue"
-import CheckboxView from "./CheckboxView.vue"
+import InvoiceCheckbox from "./InvoiceCheckbox.vue"
 import { QuestionFilled } from '@element-plus/icons-vue'
 import JoinUs from "./JoinUs.vue"
 import UpdateView from "./UpdateView.vue"
 import { useUserStore } from "@/stores/modules/user"
+
+import { getGoodsDetailApi } from "@/apis/goods"
 const userStore = useUserStore()
+
 const JoinUsFnRef = ref()
 const UpdateViewRef = ref()
 const props = defineProps({
@@ -320,174 +311,221 @@ const serverBuyer:any = reactive({
         }]
     }]
 })
-const response:any = reactive({
-    "id": "1001",
-    "name": "FASTSIMPE BASIC",
-    "subtitle": "基础套餐",
-    "sellPrice": 800,
-    "mixNum": 1,
-    "maxNum": 999,
-    "items": [{   // 固定套餐部分
-        "id": "1001-1",
-        "name": "平板11寸HUAWEI SE",
-        "price": 230,
-    },
-    {   // 固定套餐部分
-        "id": "10热敏打印机",
-        "name": "热敏打印机",
-        "price": 300
-    },
-    {   // 固定套餐部分
-        "id": "1001-3",
-        "name": "平板收银防盗支架",
-        "price": 70
-    },
-    {   // 固定套餐部分
-        "id": "1001-4",
-        "name": "FASTSIMPLE软件授权费",
-        "price": 200
-    }
-    ],
-    "assorts": [{
-        "id": '1',
-        "name": "FASTSIMPLE标配版年费（1打印机+1平板）",
-        "type": 'radio',
-        "tips": '二选一',
-        "items": [{
-            "id": "1",
-            "type": 101,
-            "unit": "",    //单位
-            "spec": "购买",  //规格
-            "sellPrice": 216
-        }, {
-            "id": "2",
-            "type": 101,
-            "unit": "",    //单位
-            "spec": "租用/月",  //规格
-            "sellPrice": 20
-        }]
-    }, {
-        "id": '2',
-        "name": "POS机(刷卡机)",
-        "type": 'radio',
-        "tips": '二选一',
-        "items": [{
-            "id": "产品ID",
-            "type": 101,
-            "unit": "",    //单位
-            "spec": "购买",  //规格
-            "sellPrice": 220
-        }, {
-            "id": "产品ID2",
-            "type": 101,
-            "unit": "",    //单位
-            "spec": "租用/月",  //规格
-            "sellPrice": 10
-        }]
-    }, {     // 配套产品
-        "id": '3',
-        "name": "点单收银打印扫码PDA",
-        "type": 'checkbox',
-        "items": [{  // 可能是1个也可能是多个
-            "id": "1",
-            "type": 101,       // 产品类型 101-正常售卖产品，102 - 服务产品(时端), 103 - 租售产品
-            "unit": "",          // 单位 如年月日，个台等，可能为空
-            "spec": "88mm",  //规格，有可能为空
-            "sellPrice": 800,
+const response:any = ref({})
 
-        }, {
-            "id": "2",
-            "spec": "58mm",   // 规格
-            "sellPrice": 600
-        }]
-    }, {
-        "id": '4',
-        "name": "WIFI SIM卡版路由器",
-        "type": 'input',
-        "mixNum": 0,
-        "maxNum": 999,
-        "items": [{
-            "id": "产品ID",
-            "type": 101,
-            "unit": "台",    //单位
-            "spec": "",  //规格
-            "sellPrice": 100
-        }]
-    }, {
-        "id": '5',
-        "name": "钱箱",
-        "type": 'input',
-        "mixNum": 0,
-        "maxNum": 999,
-        "items": [{
-            "id": "产品ID",
-            "type": 101,
-            "unit": "个",    //单位
-            "spec": "个",  //规格
-            "sellPrice": 80
-        }]
-    }, {
-        "id": '6',
-        "name": "热敏打印机",
-        "type": 'input',
-        "mixNum": 1,
-        "maxNum": 2,
-        "tips": '热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/年（上限2台）',
-        "items": [{
-            "id": "产品ID",
-            "type": 101,
-            "unit": "个",    //单位
-            "spec": "个",  //规格
-            "sellPrice": 300,
-        }]
-    }, {
-        "id": '7',
-        "name": "SOFATTURA 套餐",
-        "type": 'checkboxList',
-        "items": [{
-            "id": "1",
-            "type": 102,
-            "unit": "",
-            "spec": "A套餐200张发票",
-            "sellPrice": 100
-        }, {
-            "id": "2",
-            "type": 102,
-            "unit": "",
-            "spec": "B套餐200张发票",
-            "sellPrice": 200
-        }, {
-            "id": "3",
-            "type": 102,
-            "unit": "",
-            "spec": "C套餐500张发票",
-            "sellPrice": 300
-        }, {
-            "id": "4",
-            "type": 102,
-            "unit": "",
-            "spec": "D套餐1000张发票",
-            "sellPrice": 500
-        }, {
-            "id": "5",
-            "type": 102,
-            "unit": "",
-            "spec": "E套餐10000张发票",
-            "sellPrice": 200
-        }, {
-            "id": "6",
-            "type": 102,
-            "unit": "",
-            "spec": "税号搜索功能",
-            "sellPrice": 100
-        }
-        ]
-    }]
-})
-const toPay = () => {
-    console.log("aaaaa")
-    emits('toPay')
+const getData = async()=>{
+    if (props.id) {
+        const {data} = await getGoodsDetailApi(props.id)
+        // const value = {
+        //     "id": "1001",
+        //     "name": "FASTSIMPLE BASIC",
+        //     "subtitle": "基础套餐",
+        //     "sellPrice": 800,
+        //     "items": [
+        //         {
+        //             "id": "100010101",
+        //             "name": "平板11寸HUAWEI SE",
+        //             "price": 230
+        //         },
+        //         {
+        //             "id": "100030101",
+        //             "name": "热敏打印机",
+        //             "price": 300
+        //         },
+        //         {
+        //             "id": "100040101",
+        //             "name": "平板电脑支架",
+        //             "price": 70
+        //         },
+        //         {
+        //             "id": "200010101",
+        //             "name": "FASTSIMPLE软件授权费",
+        //             "price": 200
+        //         }
+        //     ],
+        //     "assorts": [
+        //         {
+        //             "name": "FASTSIMPLE年费",
+        //             "minSelectCount": 1,
+        //             "maxSelectCount": 1,
+        //             "items": [
+        //                 {
+        //                     "id": "200030101",
+        //                     "type": 102,
+        //                     "spec": "1打印机 + 1平板",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 200
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "name": "POS机",
+        //             "minSelectCount": 0,
+        //             "maxSelectCount": 200,
+        //             "items": [
+        //                 {
+        //                     "id": "100070101",
+        //                     "type": 101,
+        //                     "spec": "",
+        //                     "unit": null,
+        //                     "value": null,
+        //                     "sellPrice": 220
+        //                 },
+        //                 {
+        //                     "id": "100070102",
+        //                     "type": 103,
+        //                     "spec": "",
+        //                     "unit": null,
+        //                     "value": "12",
+        //                     "sellPrice": 10
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "name": "点单手印打印扫码PDA",
+        //             "minSelectCount": 0,
+        //             "maxSelectCount": 200,
+        //             "items": [
+        //                 {
+        //                     "id": "100080101",
+        //                     "type": 101,
+        //                     "spec": "80mm",
+        //                     "unit": null,
+        //                     "value": null,
+        //                     "sellPrice": 800
+        //                 },
+        //                 {
+        //                     "id": "100080102",
+        //                     "type": 101,
+        //                     "spec": "58mm",
+        //                     "unit": null,
+        //                     "value": null,
+        //                     "sellPrice": 600
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "name": "WIFI路由器SIM卡版",
+        //             "minSelectCount": 0,
+        //             "maxSelectCount": 200,
+        //             "items": [
+        //                 {
+        //                     "id": "100050101",
+        //                     "type": 101,
+        //                     "spec": "",
+        //                     "unit": null,
+        //                     "value": null,
+        //                     "sellPrice": 100
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "name": "钱箱",
+        //             "minSelectCount": 0,
+        //             "maxSelectCount": 200,
+        //             "items": [
+        //                 {
+        //                     "id": "100090101",
+        //                     "type": 101,
+        //                     "spec": "",
+        //                     "unit": null,
+        //                     "value": null,
+        //                     "sellPrice": 80
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "name": "SOFATTURA发票",
+        //             "minSelectCount": 0,
+        //             "maxSelectCount": 6,
+        //             "items": [
+        //                 {
+        //                     "id": "200020101",
+        //                     "type": 102,
+        //                     "spec": "套餐A(200张)",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 100
+        //                 },
+        //                 {
+        //                     "id": "200020102",
+        //                     "type": 102,
+        //                     "spec": "套餐A(200张)",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 100
+        //                 },{
+        //                     "id": "200020103",
+        //                     "type": 102,
+        //                     "spec": "套餐A(200张)",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 100
+        //                 },{
+        //                     "id": "200020104",
+        //                     "type": 102,
+        //                     "spec": "套餐A(200张)",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 100
+        //                 },{
+        //                     "id": "200020105",
+        //                     "type": 102,
+        //                     "spec": "套餐A(200张)",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 100
+        //                 },{
+        //                     "id": "200020106",
+        //                     "type": 102,
+        //                     "spec": "套餐A(200张)",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 100
+        //                 }
+        //             ]
+        //         },
+        //         {
+        //             "name": "税号搜索",
+        //             "minSelectCount": 0,
+        //             "maxSelectCount": 1,
+        //             "items": [
+        //                 {
+        //                     "id": "200020201",
+        //                     "type": 102,
+        //                     "spec": "",
+        //                     "unit": "年",
+        //                     "value": "1",
+        //                     "sellPrice": 100
+        //                 }
+        //             ]
+        //         }
+        //     ]
+        // }
+        response.value = data
+    }
 }
+
+const orderList = ref<any>({
+    netAmount: 0,
+    taxAmount: 0,
+    totalAmount: 0,
+    discountAmount: 0,
+    finalAmount: 0,
+    items:[]
+})
+
+const changeOrderList = (data:any)=>{
+    console.log("changeOrderList==>",data)
+    orderList.value = data
+}
+
+
+
+
+
+
 const joinUsFn = () => {
     if (JoinUsFnRef.value) {
         JoinUsFnRef.value.showModal()
@@ -496,9 +534,18 @@ const joinUsFn = () => {
     //     UpdateViewRef.value.showModal()
     // }
 }
-// defineExpose({
-//     joinUsFn
-// })
+const toPay = () => {
+    console.log("aaaaa")
+    emits('toPay')
+}
+onMounted(()=>{
+    getData()
+})
+
+defineExpose({
+    joinUsFn,
+    changeOrderList
+})
 </script>
 <style scoped lang="less">
 .order-one {
@@ -575,6 +622,8 @@ const joinUsFn = () => {
             }
 
             .all-order {
+                height: 77%;
+                overflow-y: scroll;
                 .left {
                     text-align: left;
                     font-family: Source Han Sans SC, Source Han Sans SC;
@@ -713,10 +762,16 @@ const joinUsFn = () => {
             }
 
             .left {
-                font-family: Source Han Sans SC, Source Han Sans SC;
-                font-weight: 500;
-                font-size: 16px;
-                color: #1B1B1B;
+                
+                .left-i-a{
+                    font-family: Source Han Sans SC, Source Han Sans SC;
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: #1B1B1B;
+                    .sub-left-i-a{
+                        font-size: 13px;
+                    }
+                }
             }
 
             .right {

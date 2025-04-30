@@ -34,6 +34,8 @@ import OrderTwo from "./OrderTwo.vue"
 import OrderThree from "./OrderThree.vue"
 import DrawerView from "./DrawerView.vue"
 import {getGoodsListApi} from "@/apis/goods"
+import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
+const shoppingCartStore = useShoppingCartStore()
 defineOptions({
     name: 'shoppingNewIndex'
 })
@@ -51,6 +53,18 @@ const tabArr = ref<Array<{
     subtitle: string
     checked: boolean
 }>>([])
+// {
+//     id: '1001',
+//     name: 'FASTSIMPLE BASIC',
+//     subtitle: '基础套餐',
+//     checked: false
+// },
+// {
+//     id: '1002',
+//     name: 'FASTSIMPLE premiun',
+//     subtitle: '升级套餐',
+//     checked: false
+// },hardwareSelection
 const toPayDrawer = ()=>{
     console.log("toPayDrawer=>",DrawerRef)
     if(DrawerRef.value){
@@ -65,6 +79,10 @@ const changeTab = (val: string) => {
         }
     })
     tab.value = val
+    shoppingCartStore.setCart({
+        type:'',
+        items:[]
+    })
 }
 const getData=async()=>{
     const { data } = await getGoodsListApi()

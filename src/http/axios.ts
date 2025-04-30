@@ -106,7 +106,7 @@ function createRequest(instance: AxiosInstance) {
       // 请求头
       headers: {
         // 携带 Token
-        "Authorization": token ? `Bearer ${token}` : undefined,
+        "Authorization": token ? token : undefined,
         "accept-language": language,
         "Content-Type": "application/json"
       },

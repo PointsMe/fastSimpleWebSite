@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
   <div style="width: 300px; margin: auto; margin-top: 200px">
     <!-- <vue3VideoPlay
@@ -10,7 +11,12 @@
       @timeupdate="onTimeupdate"
       @canplay="onCanplay"
     /> -->
-    <vue3-country-intl ref="intl" v-model="countryCode"></vue3-country-intl>
+    <!-- <vue3-country-intl ref="intl" v-model="countryCode"></vue3-country-intl> -->
+    <el-radio-group v-model="radio2">
+      <el-radio @click.native.prevent="clickitem(3)" :label="3"> 备选项</el-radio>
+      <!-- <el-radio @click.native.prevent="clickitem(6)" :label="6"> 备选项</el-radio>
+      <el-radio @click.native.prevent="clickitem(9)" :label="9"> 备选项</el-radio> -->
+  </el-radio-group>
     <div>{{ 
     userStore.token
      }}</div>
@@ -20,8 +26,17 @@
 <script setup lang="ts">
 import { reactive, onMounted } from 'vue'
 import { useUserStore } from "@/stores/modules/user"
+import { values } from 'lodash-es'
 // Interfaces and types
-
+const radio2 = ref()
+const clickitem = (e)=>{
+  console.log(e)
+  if(e === radio2.value){
+    radio2.value = ''
+  }else{
+    radio2.value = e
+  }
+}
 onMounted(() => {
   console.log('初始化视频')
 })
@@ -50,4 +65,9 @@ const onCanplay = (ev: any) => {
 }
 
 </script>
-<style scoped lang="less"></style>
+<style lang="less">
+
+::v-deep .no-focus .el-radio__inner {
+  box-shadow: none !important;
+}
+</style>

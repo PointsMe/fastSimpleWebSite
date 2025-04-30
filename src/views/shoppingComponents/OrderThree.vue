@@ -4,191 +4,34 @@
             <el-col :span="16" class="left">
                 <div class="content-list-left">
                     <div class="left-1">
-                        <el-row class="row-1 row-b">
+                        <el-row class="row-1 row-b" v-for="(item,index) in response" :key="index">
                             <el-col :span="12">
                                 <div class="con">
                                     <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
+                                    {{ item.name }}
                                 </div>
                             </el-col>
                             <el-col :span="12">
                                 <div class="con-r">
                                     <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
+                                        <span>{{ item.unit }}/</span>
+                                        <span>€{{ item.sellPrice }}</span>
                                     </div>
 
                                     <div class="pos-abs">
-                                        <AddNum />
+                                        <AddNum 
+                                           :data="item"
+                                           @changeOrderList="changeOrderList"
+                                        />
                                     </div>
                                 </div>
                             </el-col>
-                        </el-row>
-
-                        <el-row class="row-1 row-b">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-1 row-b">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-1 row-b">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-1 row-b">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-1 row-b">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-1 row-b">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-1 row-b">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-1">
-                            <el-col :span="12">
-                                <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
-                                    平板11寸
-                                </div>
-                            </el-col>
-                            <el-col :span="12">
-                                <div class="con-r">
-                                    <div class="con-l">
-                                        <span>台/</span>
-                                        <span>€230</span>
-                                    </div>
-
-                                    <div class="pos-abs">
-                                        <AddNum />
-                                    </div>
-                                </div>
-                            </el-col>
+                            <!-- <el-col :span="24" class="margin-5"></el-col> -->
                         </el-row>
                     </div>
                 </div>
             </el-col>
-            <el-col :span="8" class="right">
+            <el-col :span="8" class="right margin-5">
                 <div class="content-list-right">
                     <div class="title">
                         <el-row :gutter="12">
@@ -203,7 +46,7 @@
                             </el-col>
                         </el-row>
                     </div>
-                    <div class="all-order">
+                    <!-- <div class="all-order">
                         <div class="order-list">
                             <el-row>
                                 <el-col :span="24" class="left">
@@ -259,6 +102,33 @@
                                 </el-col>
                             </el-row>
                         </div>
+                    </div> -->
+                    <div class="all-order">
+                        <div class="order-list" v-if="orderList.items.find((iv: any)=> iv.type === 119)">
+                            <el-row>
+                                <el-col 
+                                    v-for="(item,index) in orderList.items.find((iv: any)=> iv.type === 119)?.children"
+                                    :span="orderList.items.find((iv: any)=> iv.type === 119)?.children?.length === index + 1 ? 20 : 24" class="left"  :key="index">
+                                    {{ item.name }}
+                                </el-col>
+                                <el-col :span="4" class="right">
+                                    €{{ orderList.items.find((iv: any)=> iv.type === 119)?.sellPrice }}
+                                </el-col>
+                            </el-row>
+                        </div>
+                        <div class="order-i" v-for="(item,index) in orderList.items.filter((iv: any)=> iv.type !== 119)" :key="index">
+                            <el-row>
+                                <el-col :span="24" class="left">
+                                    {{ item.name }}
+                                </el-col>
+                                <el-col :span="20" class="left tips">
+                                    <!-- 1打印机+1平板 -->
+                                </el-col>
+                                <el-col :span="4" class="right tips-1">
+                                    €{{ item.sellPrice }}
+                                </el-col>
+                            </el-row>
+                        </div>
                     </div>
                     <div class="order-btn">
                         <el-row>
@@ -266,7 +136,7 @@
                                 <span class="word">总计：</span>
                             </el-col>
                             <el-col :span="16" class="right-i">
-                                €1816
+                                €{{ orderList?.totalAmount || 0 }}
                             </el-col>
                             <el-col :span="24">
                                 <el-button class="button-h">立即购买</el-button>
@@ -281,8 +151,35 @@
 <script setup lang="ts">
 import AddNum from "./AddNum.vue"
 import { QuestionFilled } from '@element-plus/icons-vue'
+import {getHardwareListApi} from "@/apis/goods"
 defineOptions({
     name: 'orderTwo'
+})
+const response = ref()
+const getData = async()=>{
+    const {data} = await getHardwareListApi()
+    response.value = data
+}
+
+const orderList = ref<any>({
+    netAmount: 0,
+    taxAmount: 0,
+    totalAmount: 0,
+    discountAmount: 0,
+    finalAmount: 0,
+    items:[]
+})
+
+const changeOrderList = (data:any)=>{
+    console.log("changeOrderList==>",data)
+    orderList.value = data
+}
+
+onMounted(()=>{
+    getData()
+})
+defineExpose({
+    changeOrderList
 })
 </script>
 <style scoped lang="less">
@@ -299,7 +196,9 @@ defineOptions({
             display: flex;
             flex-direction: column;
         }
-
+        .margin-5{
+            margin-bottom: 5px;
+        }
         .content-list,
         .content-list-right {
             height: 100%; // 确保内容容器占满高度
@@ -365,6 +264,8 @@ defineOptions({
             }
 
             .all-order {
+                height: 77%;
+                overflow-y: scroll;
                 .left {
                     text-align: left;
                     font-family: Source Han Sans SC, Source Han Sans SC;
@@ -379,6 +280,7 @@ defineOptions({
                     font-weight: 500;
                     font-size: 18px;
                     color: #1A1A1A;
+                    // margin-bottom: 5px;
                 }
 
                 .order-i {
@@ -437,6 +339,10 @@ defineOptions({
             .left-1 {
                 .row-b{
                     margin-bottom: 5px;
+                    // .margin-5{
+                    //     height: 5px;
+                    //     background-color: #F6F6F4;
+                    // }
                 }
                 .row-1 {
                     padding: 12px;

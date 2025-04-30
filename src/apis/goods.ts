@@ -14,3 +14,16 @@ export function getGoodsDetailApi(id:string) {
       method: "post",
     })
   }
+export function getHardwareListApi() {
+    return request<ApiResponseData<any>>({
+    url: `/product/sku/list`,
+    method: "post",
+    })
+}
+export function precreateApi(data:any) {
+    return request<ApiResponseData<any>>({
+    url: `/order/precreate`,
+    method: "post",
+    data: data
+    })
+}
