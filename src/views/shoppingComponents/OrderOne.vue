@@ -245,6 +245,12 @@ import { useUserStore } from "@/stores/modules/user"
 const userStore = useUserStore()
 const JoinUsFnRef = ref()
 const UpdateViewRef = ref()
+const props = defineProps({
+    id:{
+        type:String,
+        require: true
+    }
+})
 const emits = defineEmits(['toPay'])
 defineOptions({
     name: 'orderOne'

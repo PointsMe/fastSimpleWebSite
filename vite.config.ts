@@ -12,7 +12,7 @@ export default defineConfig({
 
   server: {
     // 是否监听所有地址
-    host: false,
+    host: true,
     // 端口号
     port: 3333,
     // 端口被占用时，是否直接退出

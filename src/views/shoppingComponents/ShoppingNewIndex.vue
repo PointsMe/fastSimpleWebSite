@@ -3,50 +3,26 @@
         <div class="content">
             <div class="shopping-tab">
                 <el-row :gutter="6">
-                    <el-col :span="8" class="shopping-col">
-                        <div @click="changeTab('1')"
-                            :class="tab === '1' ? 'shopping-content choosed' : 'shopping-content'">
-                            <p class="t_c">
-                                FASTSIMPLE BASIC
+                    <el-col :span="8" class="shopping-col" v-for="(item,index) in tabArr" :key="index">
+                        <div @click="changeTab(item.id)"
+                            :class="item.checked ? 'shopping-content choosed' : 'shopping-content'">
+                            <p :class="index +1 === tabArr.length ? 't_c l_t_c' : 't_c'">
+                                {{ item.subtitle }}
                             </p>
-                            <p class="t_d">
-                                基础套餐
+                            <p class="t_d" v-if="index + 1 !== tabArr.length">
+                                {{ item.name }}
                             </p>
-                            <span></span>
-                        </div>
-                    </el-col>
-
-                    <el-col :span="8" class="shopping-col">
-                        <div @click="changeTab('2')"
-                            :class="tab === '2' ? 'shopping-content choosed' : 'shopping-content'">
-                            <p class="t_c">
-                                FASTSIMPLE PREMIUN
-                            </p>
-                            <p class="t_d">
-                                升级套餐
-                            </p>
-                            <span></span>
-                        </div>
-                    </el-col>
-
-                    <el-col :span="8" class="shopping-col">
-                        <div @click="changeTab('3')"
-                            :class="tab === '3' ? 'shopping-content choosed' : 'shopping-content'">
-                            <p class="t_c" style="height: 100%;line-height: 3;">
-                                硬件加购
-                            </p>
-                            <!-- <p class="t_d">
-                                基础套餐
-                            </p> -->
                             <span></span>
                         </div>
                     </el-col>
                 </el-row>
             </div>
             <div class="tab-content">
-                <OrderOne v-if="tab === '1'" @toPay="toPayDrawer"/>
-                <OrderTwo v-if="tab === '2'" />
-                <OrderThree v-if="tab === '3'" />
+                <div v-for="(item,index) in tabArr" :key="index">
+                    <OrderOne v-if="!index && item.checked" :id="item.id" @toPay="toPayDrawer"/>
+                    <OrderTwo v-if="index === 1 && item.checked" :id="item.id" @toPay="toPayDrawer"/>
+                    <OrderThree v-if="index === 2 && item.checked" :id="item.id" @toPay="toPayDrawer"/>
+                </div>
             </div>
         </div>
         <DrawerView ref="DrawerRef"/>
@@ -61,8 +37,20 @@ import {getGoodsListApi} from "@/apis/goods"
 defineOptions({
     name: 'shoppingNewIndex'
 })
+const hardwareSelection = {
+    id: '1003',
+    name: '',
+    subtitle: '硬件选购',
+    checked: false
+}
 const DrawerRef = ref();
 const tab = ref<string>('1')
+const tabArr = ref<Array<{
+    id: string
+    name: string
+    subtitle: string
+    checked: boolean
+}>>([])
 const toPayDrawer = ()=>{
     console.log("toPayDrawer=>",DrawerRef)
     if(DrawerRef.value){
@@ -70,12 +58,29 @@ const toPayDrawer = ()=>{
     }
 }
 const changeTab = (val: string) => {
+    tabArr.value = tabArr.value.map(item=>{
+        return {
+            ...item,
+            checked: item.id === val ? true : false
+        }
+    })
     tab.value = val
 }
 const getData=async()=>{
-    const res = await getGoodsListApi()
-    if(res){
-        console.log("res===>",res)
+    const { data } = await getGoodsListApi()
+    if(data && data.length > 0){
+        console.log("res===>",data)
+        const list = data.map((item: any,index: number) =>{
+            return {
+                id: item.id,
+                name: item.name,
+                subtitle: item.subtitle,
+                checked: !index ? true : false
+            }
+        })
+        console.log("list.contact(hardwareSelection)",list)
+        list.push(hardwareSelection)
+        tabArr.value = list
     }
 }
 onMounted(()=>{
@@ -122,6 +127,10 @@ defineExpose({
                         font-size: 20px;
                         color: #FED15F !important;
                     }
+                    .l_t_c{
+                        height: 100%;
+                        line-height: 3;
+                    }
 
                     .t_d {
                         font-family: Source Han Sans SC, Source Han Sans SC;
@@ -158,7 +167,10 @@ defineExpose({
                         font-size: 20px;
                         color: #666666;
                     }
-
+                    .l_t_c{
+                        height: 100%;
+                        line-height: 3;
+                    }
                     .t_d {
                         font-family: Source Han Sans SC, Source Han Sans SC;
                         font-weight: 500;

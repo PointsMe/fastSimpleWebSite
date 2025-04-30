@@ -7,3 +7,10 @@ export function getGoodsListApi() {
     method: "post",
   })
 }
+
+export function getGoodsDetailApi(id:string) {
+    return request<ApiResponseData<any>>({
+      url: `/plan/detail?id=${id}`,
+      method: "post",
+    })
+  }
