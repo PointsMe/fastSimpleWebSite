@@ -209,6 +209,46 @@
           </div>
         </div>
       </div>
+
+      <div class="banner-scroller">
+        <p class="title">新闻</p>
+        <el-carousel class="carousel-div" motion-blur indicator-position="none">
+          <el-carousel-item v-for="item in 4" :key="item">
+            <!-- <h3 class="small justify-center" text="2xl">{{ item }}</h3> -->
+            <el-row :gutter="12">
+              <el-col :span="12">
+                <div class="content">
+                  <p class="title-time">2025年1月12日</p>
+                  <el-row :gutter="12">
+                    <el-col :span="12">
+                      <img src="@/assets/fastsImages/b-2-4.png" alt="">
+                    </el-col>
+                    <el-col :span="12">
+                      <p class="title-f">华为与YINE在米兰举办技术沙龙，聚...</p>
+                      <p class="title-l">近日，全球ICT领导者华为携手意大利数字化管理和智能商店解决方案公司YINE，在意大利科技生态系统的核心城市米兰成...</p>
+                    </el-col>
+                  </el-row>
+                </div>
+              </el-col>
+              <el-col :span="12">
+                <div class="content">
+                  <p class="title-time">2025年1月12日</p>
+                  <el-row :gutter="12">
+                    <el-col :span="12">
+                      <img src="@/assets/fastsImages/b-2-4.png" alt="">
+                    </el-col>
+                    <el-col :span="12">
+                      <p class="title-f">华为与YINE在米兰举办技术沙龙，聚...</p>
+                      <p class="title-l">近日，全球ICT领导者华为携手意大利数字化管理和智能商店解决方案公司YINE，在意大利科技生态系统的核心城市米兰成...</p>
+                    </el-col>
+                  </el-row>
+                </div>
+              </el-col>
+            </el-row>
+            
+          </el-carousel-item>
+        </el-carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -220,14 +260,58 @@
     padding: 0;
   }
 
-  font-family:
-    Source Han Sans SC,
-    Source Han Sans SC;
+  font-family: Source Han Sans SC,
+  Source Han Sans SC;
 
   .my-server {
     width: 1280px;
     margin: auto;
     padding: 120px 0;
+
+    .banner-scroller {
+      width: 100%;
+      text-align: center;
+      .carousel-div{
+        height: 240px;
+        text-align: left;
+        .content{
+          font-family: Source Han Sans SC, Source Han Sans SC;
+          .title-l{
+            font-weight: 400;
+font-size: 16px;
+color: #666666;
+padding-top: 20px;
+          }
+          .title-f{
+
+font-weight: bold;
+font-size: 24px;
+color: #1A1A1A;
+          }
+          .title-time{
+            padding: 20px 0;
+font-weight: 400;
+font-size: 14px;
+color: #1A1A1A;
+          }
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .title{
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-weight: bold;
+        font-size: 52px;
+        color: #1A1A1A;
+        text-align: center;
+        margin: 150px 0 50px 0;
+      }
+      .demonstration {
+        color: var(--el-text-color-secondary);
+      }
+    }
 
     .list-c-6 {
       display: flex;
@@ -262,12 +346,12 @@
         }
 
         div {
-          > p:first-child {
+          >p:first-child {
             font-size: 24px;
             padding-top: 30px;
           }
 
-          > p:last-child {
+          >p:last-child {
             font-size: 14px;
             padding-top: 15px;
           }
@@ -282,18 +366,18 @@
 
       .col-num {
         .content {
-          > p:first-child {
+          >p:first-child {
             font-family: DIN, DIN;
             font-weight: bold;
             font-size: 80px;
             color: #fdb522;
 
-            > span {
+            >span {
               color: #1a1a1a;
             }
           }
 
-          > p:nth-child(2) {
+          >p:nth-child(2) {
             font-family:
               Source Han Sans SC,
               Source Han Sans SC;
@@ -303,7 +387,7 @@
             padding-top: 16px;
           }
 
-          > p:last-child {
+          >p:last-child {
             font-family:
               Source Han Sans SC,
               Source Han Sans SC;
@@ -433,20 +517,20 @@
         background-color: #ffffff;
         padding: 37px 66px 32px 30px;
 
-        > p:first-child {
+        >p:first-child {
           img {
             display: block;
           }
         }
 
-        > p:nth-child(2) {
+        >p:nth-child(2) {
           margin-top: 72px;
           font-weight: bold;
           font-size: 24px;
           color: rgba(0, 0, 0, 0.9);
         }
 
-        > p:last-child {
+        >p:last-child {
           margin-top: 19px;
           font-weight: 400;
           font-size: 16px;
@@ -495,10 +579,12 @@
 
       .col-pen {
         width: 100%;
+
         .content {
           height: 124px;
           width: 100%;
           position: relative;
+
           img {
             position: absolute;
             display: block;
@@ -512,13 +598,13 @@
       }
     }
 
-    > p:first-child {
+    >p:first-child {
       font-weight: bold;
       font-size: 52px;
       color: #1a1a1a;
     }
 
-    > p:last-child {
+    >p:last-child {
       font-weight: 400;
       font-size: 18px;
       color: #000000;
@@ -535,13 +621,13 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    > p:first-child {
+    >p:first-child {
       font-weight: bold;
       font-size: 52px;
       color: #ffffff;
     }
 
-    > p:last-child {
+    >p:last-child {
       font-weight: 400;
       font-size: 18px;
       color: #ffffff;

@@ -2,7 +2,7 @@
   <div class="banner-one">
     <div class="title">
       <span>精选套餐</span>
-      <span>
+      <span style="cursor: pointer;" @click="toShopping">
         更多<el-icon><DArrowRight /></el-icon>
       </span>
     </div>
@@ -32,6 +32,10 @@ import { DArrowRight } from '@element-plus/icons-vue'
 defineOptions({
   name: 'bannerOne'
 })
+const router = useRouter()
+const toShopping = ()=>{
+  router.push("/layout/shopping")
+}
 </script>
 <style scoped lang="less">
 .banner-one {

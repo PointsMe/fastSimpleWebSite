@@ -115,7 +115,7 @@ const formLabelAlign = reactive({
     padding: 120px 320px;
 
     .col-right {
-      height: 480px;
+      // height: 480px;
       width: 100%;
       border: 1px solid #1a1a1a;
       border-radius: 5px;
@@ -134,7 +134,7 @@ const formLabelAlign = reactive({
 
     .col-con {
       position: relative;
-      height: 480px;
+      // height: 480px;
       width: 100%;
 
       .con-left-i {
