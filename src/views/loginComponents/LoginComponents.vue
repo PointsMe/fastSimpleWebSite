@@ -8,14 +8,14 @@
         </el-col>
       </el-row>
       <el-row class="two-title">
-        <el-col :span="12" class="left-title-i">
+        <el-col :span="24" class="left-title-i">
           <div>
             <LoginStyleTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
           </div>
         </el-col>
-        <el-col :span="12" class="right-title">
-          <!-- <div class="tips">已有账号？ <span @click="toLogin">去登录</span></div> -->
-        </el-col>
+        <!-- <el-col :span="12" class="right-title">
+          <div class="tips">已有账号？ <span @click="toLogin">去登录</span></div>
+        </el-col> -->
       </el-row>
     </div>
     <div class="login-form">

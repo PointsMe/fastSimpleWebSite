@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
     <div class="login-form">
         <el-form :model="form" label-width="auto" ref="formRef" :rules="formRules">
@@ -48,8 +49,8 @@
                         <div>
                             <el-checkbox v-model="checked1">
                                 已阅读并同意我们的
-                                <span class="link-span">《隐私条例》</span>和
-                                <span class="link-span">《合同条例》</span>
+                                <span class="link-span" @click.native.prevent="checkBooks(1)">《隐私条例》</span>和
+                                <span class="link-span" @click.native.prevent="checkBooks(2)">《合同条例》</span>
                             </el-checkbox>
                         </div>
                     </el-col>
@@ -92,6 +93,9 @@ const props = defineProps({
         required: true
     }
 });
+const checkBooks = (value:number)=>{
+    ElMessage.success(value === 1 ? '查看隐私条例' : '查看合同条例')
+}
 const changeCountry = (e:string)=>{
     countryCode.value = e
 }

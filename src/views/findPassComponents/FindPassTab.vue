@@ -44,40 +44,41 @@ const changeRegisterStyle = (value: string) => {
     .step-2 {
         width: 100%;
         height: 100%;
-        position: relative;
+        // position: relative;
         color: #BDBDBD;
 
         div {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            // position: absolute;
+            // top: 50%;
+            // transform: translateY(-50%);
             cursor: pointer;
+            float: left;
+            position: relative;
         }
-
         >div:first-child {
-            left: 0;
-
             >span {
                 display: block;
                 position: absolute;
                 bottom: -5px;
                 width: 20px;
                 height: 1px;
-                left: 40px;
+                left: 50%;
+                transform: translateX(-50%);
                 background-color: #fed15f;
             }
         }
 
         >div:last-child {
-            left: 100px;
-
+            // left: 100px;
+            margin-left: 20px;
             >span {
                 display: block;
                 position: absolute;
                 bottom: -5px;
                 width: 20px;
                 height: 1px;
-                left: 25px;
+                left: 50%;
+                transform: translateX(-50%);
                 background-color: #fed15f;
             }
         }
