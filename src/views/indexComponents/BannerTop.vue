@@ -38,7 +38,17 @@
                         <el-dropdown trigger="click">
                             <span class="language-selector">
                                 <img src="@/assets/fastsImages/user.png" alt="">
-                                {{ userStore.userInfo.username }} 
+                                <el-tooltip
+                                    class="box-item"
+                                    effect="dark"
+                                    :content="userStore.userInfo.username"
+                                    placement="top-start"
+                                >
+                                 <div>
+                                  
+                                {{ `${(userStore.userInfo.username).substring(0,3)}...` }} 
+                                 </div>
+                                </el-tooltip>
                                   <!-- 18376614866 -->
                                 <el-icon>
                                     <ArrowDown />
@@ -63,15 +73,14 @@ import { useRouter } from 'vue-router'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { useUserStore } from '@/stores/modules/user'
 import {useCommonStore} from "@/stores/modules/common"
-import {reFlushWindows} from "@/utils/index"
+const current = getCurrentInstance()?.appContext.config.globalProperties as any;
 // 获取路由实例
 const router = useRouter()
 const userStore = useUserStore()
 const commonStore = useCommonStore()
 const handleCommand = (command: string) => {
+    current.$i18n.locale = command
     commonStore.setLanguageFn(command)
-    reFlushWindows()
-    
 }
 // 跳转到首页的方法
 const goToPage = (value: any) => {
@@ -154,8 +163,8 @@ onMounted(() => {
                     gap: 4px;
 
                     img {
-                        width: 36px;
-                        height: 36px;
+                        width: 20px;
+                        height: 20px;
                     }
                 }
 

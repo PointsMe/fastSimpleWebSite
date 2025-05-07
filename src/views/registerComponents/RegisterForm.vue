@@ -159,9 +159,9 @@
 <script setup lang="ts">
 import type * as Types from "@/apis/type"
 import { ElMessage,ElLoading } from 'element-plus'
-import LanguageView from "@/views/loginComponents/LanguageView.vue"
-import AllCountryView from "@/views/loginComponents/AllCountryView.vue"
-import AllEmailView from "@/views/loginComponents/AllEmailView.vue"
+import LanguageView from "@/components/LanguageView.vue"
+import AllCountryView from "@/components/AllCountryView.vue"
+import AllEmailView from "@/components/AllEmailView.vue"
 import { getVerificationCodeApi } from "@/apis/user"
 import { View, Hide } from '@element-plus/icons-vue'
 import { reactive, ref, watch } from 'vue'

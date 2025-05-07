@@ -2,18 +2,18 @@
   <div class="login-com">
     <div class="title">
       <el-row class="top-title">
-        <el-col :span="12" class="left-title"> 找回密码 </el-col>
-        <el-col :span="12" class="right-title">
-          <div class="tips">没有账号？ <span @click="toRegister">去注册</span></div>
+        <el-col :span="16" class="left-title"> {{$t('aboutLogin.findPass')}} </el-col>
+        <el-col :span="8" class="right-title">
+          <div class="tips">{{$t('aboutLogin.noAccout')}} <span @click="toRegister">{{$t('aboutLogin.goRegister')}}</span></div>
         </el-col>
       </el-row>
       <el-row class="two-title">
         <el-col :span="12" class="left-title-i">
           <div class="step-1" v-if="step === '2'">
-            公司信息
+            {{ $t('aboutLogin.componeyMess')}}
           </div>  
           <div  v-if="step === '1'">
-            
+
             <FindPassTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
           </div>
         </el-col>

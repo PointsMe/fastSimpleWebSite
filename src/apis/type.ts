@@ -54,3 +54,4 @@ export type registerType = {
     verificationCode: string,
     company: companyType
 }
+export type loginResponseData = ApiResponseData<{ username: string, roles: string[] }>

@@ -16,18 +16,13 @@
 <script setup lang="ts">
 import {languageList} from "@/http/config"
 import { useCommonStore } from "@/stores/modules/common"
-import {reFlushWindows} from "@/utils/index"
-defineOptions({
-    name: 'languageView'
-})
 const commonStore = useCommonStore()
-// const emits = defineEmits(['changeCountry'])
+const current = getCurrentInstance()?.appContext.config.globalProperties as any;
 const changeCountry = (e:string)=>{
     console.log(e)
     commonStore.setLanguageFn(e)
-    reFlushWindows()
+    current.$i18n.locale = e
 }
-
 </script>
 <style scoped lang="less">
 .all-country{

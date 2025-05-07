@@ -14,6 +14,7 @@ import BannerEleven from '@/views/indexComponents/BannerEleven.vue'
 defineOptions({
   name: 'layoutView'
 })
+
 </script>
 <style scoped lang="less">
 .index-view {

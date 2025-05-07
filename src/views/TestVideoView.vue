@@ -21,12 +21,18 @@
     userStore.token
      }}</div>
      <el-button @click="changeToken">更改token</el-button>
+     <span>{{$t('aboutLogin.loginText')}}</span><br />
+     <LanguageView />
   </div>
 </template>
 <script setup lang="ts">
 import { reactive, onMounted } from 'vue'
 import { useUserStore } from "@/stores/modules/user"
+import LanguageView from "@/components/LanguageView.vue"
 import { values } from 'lodash-es'
+// import { useI18n } from "vue-i18n";
+
+// const { t } = useI18n();
 // Interfaces and types
 const radio2 = ref()
 const clickitem = (e)=>{

@@ -2,9 +2,9 @@
   <div class="login-com">
     <div class="title">
       <el-row class="top-title">
-        <el-col :span="12" class="left-title"> 登录 </el-col>
+        <el-col :span="12" class="left-title"> {{$t('aboutLogin.loginText')}} </el-col>
         <el-col :span="12" class="right-title">
-          <div class="tips">没有账号？ <span @click="toRegister" style="cursor: pointer;">去注册</span></div>
+          <div class="tips">{{$t('aboutLogin.noAccout')}} <span @click="toRegister" style="cursor: pointer;">{{$t('aboutLogin.goRegister')}} </span></div>
         </el-col>
       </el-row>
       <el-row class="two-title">

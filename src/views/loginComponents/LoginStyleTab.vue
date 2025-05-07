@@ -2,12 +2,12 @@
     <div class="tab-register">
         <div class="step-2">
             <div @click="changeRegisterStyle('1')" :class="props.registerStyle === '1' ? 'chooseed' : 'not-choose'">
-                手机号登录
+                {{$t('aboutLogin.telLogin')}}
                 <span v-if="props.registerStyle === '1'">
                 </span>
             </div>
             <div @click="changeRegisterStyle('2')" :class="props.registerStyle === '2' ? 'chooseed' : 'not-choose'">
-                邮箱登录
+                {{$t('aboutLogin.emailLogin')}}
                 <span v-if="props.registerStyle === '2'">
                 </span>
             </div>

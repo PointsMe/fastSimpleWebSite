@@ -5,7 +5,7 @@ import {setCountryListStorage,getCountryListStorage,getLanguage,setLanguage,remo
 import type * as Types from "@/apis/type"
 export const useCommonStore = defineStore("common", () => {
   const countryList = ref<Array<Types.country>>(getCountryListStorage())
-  const language = ref<string | null>(getLanguage())
+  const language = ref<string | null>(getLanguage() || 'zh-US')
   //获取国家列表
   const getCountryList = async () => {
     const { data } = await getCountryListApi()

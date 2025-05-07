@@ -1,10 +1,10 @@
 export const languageList = [
     {
-        code: "zh",
+        code: "zh-US",
         label: '中文简体'
     },
     {
-        code: "en",
+        code: "en-US",
         label: 'English'
     },{
         code: "it",

@@ -77,12 +77,11 @@
 import { languageList } from "@/http/config"
 import { ArrowDown } from '@element-plus/icons-vue'
 import { useCommonStore } from "@/stores/modules/common"
-import { reFlushWindows } from "@/utils/index"
+const current = getCurrentInstance()?.appContext.config.globalProperties as any;
 const commonStore = useCommonStore()
 const handleCommand = (command: string) => {
+  current.$i18n.locale = command
   commonStore.setLanguageFn(command)
-  reFlushWindows()
-
 }
 </script>
 <style scoped lang="less">

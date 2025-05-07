@@ -123,6 +123,9 @@ const increase = async () => {
 }
 const reduceFn = debounce(reduce, 1000)
 const increaseFn = debounce(increase, 1000)
+onMounted(()=>{
+    console.log("onMounted===>",props)
+})
 </script>
 <style scoped lang="less">
 .add-num-div {

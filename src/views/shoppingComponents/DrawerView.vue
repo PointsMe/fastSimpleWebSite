@@ -48,24 +48,21 @@
                                 <el-row :gutter="12">
                                     <el-col :span="12">
                                         <el-form-item label="" prop="name">
-                                            <el-input size="default" v-model="ruleForm.name" />
+                                            <el-input size="default" v-model="ruleForm.name" placeholder="名称" />
                                         </el-form-item>
                                     </el-col>
                                     <el-col :span="12">
                                         <el-form-item label="" prop="tel">
-                                            <el-input  size="default" v-model="ruleForm.tel">
+                                            <el-input size="default" v-model="ruleForm.tel" placeholder="号码">
                                                 <template #prepend>
-                                                    <el-select placeholder="+86" style="width: 100px">
-                                                        <el-option label="+86" value="+86" />
-                                                        <el-option label="+101" value="+101" />
-                                                    </el-select>
+                                                    <AllCountryView @changeCountry="changeCountry" />
                                                 </template>
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
                                     <el-col :span="8">
                                         <el-form-item label="" prop="coutry">
-                                            <el-input  size="default" v-model="ruleForm.coutry" placeholder="国家">
+                                            <el-input size="default" v-model="ruleForm.coutry" placeholder="国家">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
@@ -87,30 +84,30 @@
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="24">
+                                    <el-col :span="24" v-if="![82,92].includes(qrCode)">
                                         <div class="code">
                                             银行卡
                                         </div>
                                     </el-col>
-                                    <el-col :span="12">
+                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
                                         <el-form-item label="">
                                             <el-input size="default" v-model="ruleForm.code" placeholder="选择/输入银行类别">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="12">
+                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
                                         <el-form-item label="">
                                             <el-input size="default" v-model="ruleForm.code" placeholder="请输入银行卡号">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="12">
+                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
                                         <el-form-item label="">
                                             <el-input size="default" v-model="ruleForm.code" placeholder="银行卡有效期">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="12">
+                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
                                         <el-form-item label="">
                                             <el-input size="default" v-model="ruleForm.code" placeholder="CVV/CVC码">
                                             </el-input>
@@ -131,9 +128,28 @@
                             </el-form>
                         </div>
                     </div>
-                    <div class="bottom-pay">
-                            <el-button class="pay-btn" @click="payMoney">立即支付</el-button>
-                        </div>
+                    <div class="bottom-pay" v-if="showPayBtn">
+                            <el-button class="pay-btn" @click="payMoneyFn">立即支付</el-button>
+                    </div>
+                    <div class="qrCode-pay" v-else>
+                        <el-row :gutter="12">
+                            <el-col :span="12">
+                                <div class="left-pay">
+                                    <img class="pay-mon" src="@/assets/fastsImages/wx-pay.png" alt="">
+                                </div>
+                            </el-col>
+                            <el-col :span="12">
+                                <div class="right-pay">
+                                    <p>总计：</p>
+                                    <p>€1652</p>
+                                    <p>
+                                        <img class="pay-mon-icon" src="@/assets/fastsImages/wx-pay-icon.png" alt="">
+                                    </p>
+                                    <p>打开微信APP扫码支付</p>
+                                </div>
+                            </el-col>
+                        </el-row>
+                    </div>
                 </el-col>
                 <el-col :span="9" class="right-content">
                     <div class="title">
@@ -143,14 +159,16 @@
                             </el-col>
                             <el-col :span="12" class="right">
                                 <div class="close">
-                                    <el-icon @click="closeDrawer"><Close /></el-icon>
+                                    <el-icon @click="closeDrawer">
+                                        <Close />
+                                    </el-icon>
                                     <!-- <el-icon><CloseBold /></el-icon> -->
                                 </div>
                             </el-col>
                         </el-row>
                     </div>
                     <div class="order-list">
-                        <el-row  class="row-one">
+                        <el-row class="row-one">
                             <el-col :span="20">
                                 <div class="title-i">
                                     FASTSIMPLE BASIC基础套餐
@@ -165,7 +183,7 @@
                             <el-col :span="24">
                                 <div class="goods-list">
                                     <p>
-                                        平板11寸HUAWEI SE 
+                                        平板11寸HUAWEI SE
                                     </p>
                                     <p>
                                         热敏打印机
@@ -246,7 +264,7 @@
                 </el-col>
             </el-row>
         </el-drawer>
-        <PaySuccess ref="PaySuccessRef"/>
+        <PaySuccess ref="PaySuccessRef" />
         <PayError ref="PayErrorRef" />
     </div>
 </template>
@@ -256,36 +274,50 @@ import adyenPng from "@/assets/fastsImages/adyen.png"
 import guestPng from "@/assets/fastsImages/guest.png"
 import wxPng from "@/assets/fastsImages/wx.png"
 import alipayPng from "@/assets/fastsImages/alipay.png"
-import { CircleCheckFilled,CloseBold,Close } from '@element-plus/icons-vue'
+import { CircleCheckFilled, CloseBold, Close } from '@element-plus/icons-vue'
 import PaySuccess from "./PaySuccess.vue"
 import PayError from './PayError.vue'
+import AllCountryView from "@/components/AllCountryView.vue"
+import { debounce } from "@/utils/index"
 import { ref } from 'vue'
 interface RuleForm {
-    name:string,
-    tel:string,
-    coutry:string,
-    city:string,
-    mail:string,
-    drass:string,
-    code:string,
+    name: string,
+    tel: string,
+    coutry: string,
+    city: string,
+    mail: string,
+    drass: string,
+    code: string,
 }
 const PaySuccessRef = ref();
 const PayErrorRef = ref();
+const countryCode = ref();
 const drawerStatus = ref<boolean>(false)
+const qrCode = ref()
+const showPayBtn = ref<boolean>(true)
+
+
+const changeCountry = (e: string) => {
+    countryCode.value = e
+}
 const showDrawer = () => {
     drawerStatus.value = true
 }
 const closeDrawer = () => {
     drawerStatus.value = false
 }
-const payMoney = ()=>{
+const payMoney = () => {
     // if(PaySuccessRef.value){
     //     PaySuccessRef.value.showModal()
     // }
-    if(PayErrorRef.value){
-        PayErrorRef.value.showModal()
+    // if (PayErrorRef.value) {
+    //     PayErrorRef.value.showModal()
+    // }
+    if([82,92].includes(qrCode.value)){
+        showPayBtn.value = false
     }
 }
+const payMoneyFn = debounce(payMoney, 1000)
 const payStyle = ref<Array<{
     id: number,
     img: string,
@@ -293,25 +325,25 @@ const payStyle = ref<Array<{
     checked: boolean
 }>>([
     {
-        id: 1,
+        id: 102,
         img: adyenPng,
-        name: 'ADYEN',
-        checked: false
-    },
-    {
-        id: 2,
-        img: guestPng,
-        name: 'guest',
+        name: 'PAYPAL',
         checked: true
     },
     {
-        id: 3,
+        id: 101,
+        img: guestPng,
+        name: 'guest',
+        checked: false
+    },
+    {
+        id: 92,
         img: wxPng,
         name: '微信',
         checked: false
     },
     {
-        id: 4,
+        id: 82,
         img: alipayPng,
         name: '支付宝',
         checked: false
@@ -320,17 +352,17 @@ const payStyle = ref<Array<{
 const ruleForm = reactive<RuleForm>({
     name: '',
     tel: '',
-    coutry:'',
-    city:'',
-    mail:'',
-    drass:'',
-    code:''
+    coutry: '',
+    city: '',
+    mail: '',
+    drass: '',
+    code: ''
 })
 const rules = reactive<FormRules<RuleForm>>({
     name: [
-    { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-  ],
+        { required: true, message: 'Please input Activity name', trigger: 'blur' },
+        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    ],
 })
 const ruleFormRef = ref<FormInstance>()
 const choosePayStyle = (val: number) => {
@@ -338,13 +370,27 @@ const choosePayStyle = (val: number) => {
         if (item.id === val) {
             item.checked = true
         } else {
+
             item.checked = false
         }
         return {
             ...item
         }
     })
+    showPayBtn.value = true
 }
+watch(
+    () => payStyle,
+    (newVal:Array<any>) => {
+        let current = newVal.value.find(iv=>iv.checked)
+        console.log("newVal",newVal,current)
+        if(current){
+            qrCode.value = current.id
+        }
+    },
+    {   deep: true,
+        immediate: true } // 关键选项
+);
 defineExpose({
     showDrawer,
 })
@@ -361,20 +407,81 @@ defineExpose({
             padding: 0 50px;
             padding-top: 94px;
             position: relative;
-            .bottom-pay{
-                   position: absolute;
-                   width: calc(100% - 100px);
-                   height: 55px;
-                   bottom: 70px;
-                   left: 50px;
-                    .pay-btn{
-                        width: 100%;
-                        height: 100%;
-                        background: #1B1B1B;
-                        color: #fff;
-                        border-radius: 12px 12px 12px 12px;
+
+            .qrCode-pay {
+                width: 70%;
+                margin: auto;
+
+                .left-pay {
+                    text-align: right;
+                    height: 100%;
+
+                    .pay-mon {
+                        width: 160px;
+                        height: 160px;
+                        display: block;
+                        float: right;
                     }
                 }
+
+                .left-pay::after {
+                    clear: both;
+                }
+
+                .right-pay {
+                    text-align: left;
+                    font-family: Source Han Sans SC, Source Han Sans SC;
+
+                    p {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    >p:first-child {
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #1B1B1B;
+                    }
+
+                    >p:nth-child(2) {
+                        font-family: Inter, Inter;
+                        font-weight: bold;
+                        font-size: 36px;
+                        color: #1B1B1B;
+                    }
+
+                    >p:nth-child(3) {}
+
+                    >p:nth-child(4) {
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: #1A1A1A;
+                    }
+
+                    .pay-mon-icon {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+
+            }
+
+            .bottom-pay {
+                position: absolute;
+                width: calc(100% - 100px);
+                height: 55px;
+                bottom: 70px;
+                left: 50px;
+
+                .pay-btn {
+                    width: 100%;
+                    height: 100%;
+                    background: #1B1B1B;
+                    color: #fff;
+                    border-radius: 12px 12px 12px 12px;
+                }
+            }
+
             .pay-style {
                 >p {
                     font-family: Source Han Sans SC, Source Han Sans SC;
@@ -385,9 +492,9 @@ defineExpose({
                     padding: 0;
                     padding-bottom: 14px;
                 }
-               
-                .form-message{
-                    .code{
+
+                .form-message {
+                    .code {
                         font-family: Source Han Sans SC, Source Han Sans SC;
                         font-weight: 500;
                         font-size: 16px;
@@ -397,9 +504,11 @@ defineExpose({
                         padding-bottom: 14px;
                     }
                 }
-                .title-t{
+
+                .title-t {
                     margin-top: 30px;
                 }
+
                 .col-pay {
                     margin-top: 10px;
 
@@ -497,12 +606,14 @@ defineExpose({
             position: relative;
             width: 100%;
             height: 100%;
-            .order-btn{
+
+            .order-btn {
                 width: calc(100% - 100px);
                 height: 80px;
                 position: absolute;
                 bottom: 50px;
-                .left{
+
+                .left {
                     text-align: left;
                     font-family: Source Han Sans SC, Source Han Sans SC;
                     font-weight: 400;
@@ -510,7 +621,8 @@ defineExpose({
                     color: #666666;
                     line-height: 50px;
                 }
-                .right{
+
+                .right {
                     text-align: right;
                     font-family: Inter, Inter;
                     font-weight: bold;
@@ -518,64 +630,73 @@ defineExpose({
                     color: #1A1A1A;
                 }
             }
-            .order-list{
-                .row-one{
+
+            .order-list {
+                .row-one {
                     margin-top: 24px;
-                    .title-i{
-                    width: 100%;
-                    text-align: left;
-                    font-family: Source Han Sans SC, Source Han Sans SC;
-                    font-weight: 400;
-                    font-size: 16px;
-                    color: #595959;
-                }
-                .money-num{
-                    width: 100%;
-                    text-align: right;
-                    font-family: Source Han Sans SC, Source Han Sans SC;
-                    font-weight: 500;
-                    font-size: 16px;
-                    color: #1A1A1A;
-                    >span:last-child{
-                        margin-left: 20px;
+
+                    .title-i {
+                        width: 100%;
+                        text-align: left;
+                        font-family: Source Han Sans SC, Source Han Sans SC;
+                        font-weight: 400;
+                        font-size: 16px;
+                        color: #595959;
                     }
-                }
-                .goods-list{
-                    font-family: Source Han Sans SC, Source Han Sans SC;
-                    font-weight: 400;
-                    font-size: 14px;
-                    color: #999999;
-                    padding-top: 5px;
-                    p{
+
+                    .money-num {
+                        width: 100%;
+                        text-align: right;
+                        font-family: Source Han Sans SC, Source Han Sans SC;
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: #1A1A1A;
+
+                        >span:last-child {
+                            margin-left: 20px;
+                        }
+                    }
+
+                    .goods-list {
+                        font-family: Source Han Sans SC, Source Han Sans SC;
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #999999;
                         padding-top: 5px;
+
+                        p {
+                            padding-top: 5px;
+                        }
                     }
                 }
-                }
-               
+
             }
-            .title{
+
+            .title {
                 padding-bottom: 26px;
 
                 .left {
-                text-align: left;
-                font-family: Source Han Sans SC, Source Han Sans SC;
-                font-weight: 500;
-                font-size: 24px;
-                color: #1A1A1A;
-            }
-            .close{
-                width: 100%;
-                height: 100%;
-                >.el-icon{
-                    display: block;
-                    position: absolute;
-                    right: 0;
-                    top: -30px;
-                    cursor: pointer;
-                    font-size: 30px;
-                    color: #999999;
+                    text-align: left;
+                    font-family: Source Han Sans SC, Source Han Sans SC;
+                    font-weight: 500;
+                    font-size: 24px;
+                    color: #1A1A1A;
                 }
-            }
+
+                .close {
+                    width: 100%;
+                    height: 100%;
+
+                    >.el-icon {
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        top: -30px;
+                        cursor: pointer;
+                        font-size: 30px;
+                        color: #999999;
+                    }
+                }
             }
         }
     }

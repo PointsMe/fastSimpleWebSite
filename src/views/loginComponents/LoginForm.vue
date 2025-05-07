@@ -1,25 +1,17 @@
 <!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
     <div class="login-form">
-        <el-form :model="form" label-width="auto" ref="formRef" :rules="formRules">
+        <el-form :key="registerStyle" :model="form" label-width="auto" ref="formRef" :rules="formRules">
             <el-row :gutter="12">
                 <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
                     <el-form-item :label="item.label" :prop="item.value">
                         <el-input v-if="item.type === 'input'" size="large" v-model="form[item.value]" :type="`${item.typePass}`"
-                            :placeholder="item.placeholder" class="bg-input">
+                            :placeholder="$t(item.placeholder)" class="bg-input">
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
                                     <span class="line-border"></span>
                                     <AllEmailView @changeEmail="changeEmail"/>
-                                    <!-- <el-select placeholder="@gmail.com" style="width: 130px">
-                                        <el-option label="@gmail.com" value="@gmail.com" />
-                                        <el-option label="@qq.com" value="@gmail.com" />
-                                    </el-select> -->
                                 </div>
-                                <span v-if="item.haveBtn" class="span-code" style="cursor: pointer;" @click="getVerificationCode"> 
-                                    <label v-if="!num">发送验证码</label> 
-                                    <label v-else>{{ num }}s</label> 
-                                </span>
                                 <span v-if="item.haveIcon" class="span-code" @click="changeType(item)">
                                     <el-icon>
                                         <View v-if="item.typePass === 'password'" />
@@ -29,18 +21,10 @@
                             </template>
                             <template #prepend v-if="item.haveTelSelect">
                                 <AllCountryView @changeCountry="changeCountry"/>
-                                <!-- <div class="country">
-                                    
-                                    <vue3-country-intl v-model="countryCode"></vue3-country-intl>
-                                </div> -->
-                                <!-- <el-select placeholder="+86" style="width: 80px">
-                                    <el-option label="+86" value="+86" />
-                                    <el-option label="+101" value="+101" />
-                                </el-select> -->
                             </template>
                         </el-input>
-                        <el-select size="large"  v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="item.placeholder">
-                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="iv.label"
+                        <el-select size="large"  v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="$t(item.placeholder)">
+                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
                         </el-select>
                     </el-form-item>
@@ -49,11 +33,11 @@
         </el-form>
         <div class="login-last">
             <p class="forget-pass">
-                <span @click="forgetPass" style="cursor: pointer;">忘记密码</span>
+                <span @click="forgetPass" style="cursor: pointer;">{{$t('aboutLogin.forgetPassword')}}</span>
             </p>
             <div class="btn-login margin-top-60">
                 <el-button class="el-btn-color" size="large" style="width: 100%" @click="onSubmit">
-                    <span>登录</span>
+                    <span>{{$t('aboutLogin.loginText')}}</span>
                 </el-button>
             </div>
             <div class="checkbox-con">
@@ -61,9 +45,9 @@
                     <el-col :span="16">
                         <div>
                             <el-checkbox v-model="checked1">
-                                已阅读并同意我们的
-                                <span class="link-span" @click.native.prevent="checkBooks(1)">《隐私条例》</span>和
-                                <span class="link-span" @click.native.prevent="checkBooks(2)">《合同条例》</span>
+                                {{$t('aboutLogin.loginTips')}}
+                                <span class="link-span" @click.native.prevent="checkBooks(1)">{{$t('aboutLogin.linkOne')}}</span>{{$t('aboutLogin.linkAnd')}}
+                                <span class="link-span" @click.native.prevent="checkBooks(2)">{{$t('aboutLogin.linkTwo')}}</span>
                             </el-checkbox>
                         </div>
                     </el-col>
@@ -79,15 +63,15 @@
 </template>
 <script setup lang="ts">
 import type * as Types from "@/apis/type"
-import AllEmailView from "./AllEmailView.vue"
-import LanguageView from "./LanguageView.vue"
+import AllEmailView from "@/components/AllEmailView.vue"
+import LanguageView from "@/components/LanguageView.vue"
 import { View, Hide } from '@element-plus/icons-vue'
 import { ElMessage,ElLoading } from 'element-plus'
-import { getVerificationCodeApi,loginApi } from "@/apis/user"
-import { reactive, ref, onMounted, watch } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
-import AllCountryView from "./AllCountryView.vue"
-
+import { loginApi } from "@/apis/user"
+import { reactive, ref, watch,computed } from 'vue'
+import type { FormInstance } from 'element-plus'
+import AllCountryView from "@/components/AllCountryView.vue"
+import { i18n } from '@/lang/index'
 import {
     emailFormStep1,
     phoneFormStep1,
@@ -105,6 +89,16 @@ const props = defineProps({
         required: true
     }
 });
+const formRules = computed(()=>{
+    return {
+        account: [
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'blur' },
+        ],
+        password: [
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputPassword'), trigger: 'blur' },
+        ],
+    }
+})
 const checkBooks = (value:number)=>{
     ElMessage.success(value === 1 ? '查看隐私条例' : '查看合同条例')
 }
@@ -117,24 +111,8 @@ const changeEmail = (e:string)=>{
 const form: any = reactive({
     account: "",
     password: "",
-    verificationCode: "",
 })
 
-
-const formRules = reactive({
-    account: [
-        { required: true, message: `请输入账号`, trigger: 'blur' },
-        // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
-    ],
-    verificationCode: [
-        { required: true, message: '请输入验证码', trigger: 'blur' },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    password: [
-        { required: true, message: '请输入密码', trigger: 'blur' },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-})
 const formRef = ref<FormInstance>()
 
 const emailForm = ref<Array<Types.formTypeOne>>([])
@@ -155,7 +133,7 @@ const onSubmit = async () => {
             if (valid) {
                 console.log(form)
                 if(!checked1.value){
-                    ElMessage.error("请先勾选")
+                    ElMessage.error(i18n.global.t('aboutLogin.pleaseCheckbox'))
                     return Promise.reject(false)
                 }
                 console.log('submit!', form)
@@ -174,62 +152,11 @@ const onSubmit = async () => {
                 userStore.setToken(data.token)
                 userStore.setUserInfo(data.account)
                 router.push('/layout/index')
-
             }else{
                 console.log('error submit!')
             }
         })
    
-}
-const num = ref<number>(0)
-const timer = ref()
-// 发送短信验证码
-const getVerificationCode = async () => {
-    console.log("aaaaa", countryCode.value,emailCode.value)
-    if(num.value) return false
-    if(props.registerStyle === '1'){
-        if(!countryCode.value) {
-        ElMessage.error("请先选择区号！！！")
-        return false
-    }
-    }else{
-        if(!emailCode.value) {
-        ElMessage.error("请先选择邮箱！！！")
-        return false
-    }
-    }
-    if (form.account) {
-        const loading = ElLoading.service({
-            lock: true,
-            text: 'Loading',
-            background: 'rgba(0, 0, 0, 0.7)',
-        })
-        try{
-            const params = {
-                account: '',
-                type: 104
-            }
-            if(props.registerStyle === '1'){
-                params.account = `${countryCode.value.replace('+','')}-${form.account}`
-            }else{
-                params.account =  `${form.account}${emailCode.value}`
-            }
-            await getVerificationCodeApi(params)
-            loading.close()
-            num.value = 60
-            timer.value = setInterval(()=>{
-                if(num.value){
-                    num.value = num.value -1
-                }else{
-                    clearInterval(timer.value)
-                }
-            },1000)
-        }catch(e){
-            loading.close()
-        }
-    } else {
-        ElMessage.error('请先输入手机号码！！！')
-    }
 }
 watch(
     () => props.registerStyle,
@@ -239,13 +166,11 @@ watch(
             if (newVal === '1') {
                 form.account = ""
                 form.password = ""
-                form.verificationCode = ""
                 emailForm.value = phoneFormStep1
             }
             if (newVal === '2') {
                 form.account = ""
                 form.password = ""
-                form.verificationCode = ""
                 emailForm.value = emailFormStep1
             }
         };
