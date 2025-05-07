@@ -2,13 +2,13 @@
   <div class="login-com">
     <div class="title">
       <el-row class="top-title">
-        <el-col :span="12" class="left-title"> 注册账号 </el-col>
+        <el-col :span="12" class="left-title"> {{$t('aboutLogin.registerMember')}} </el-col>
         <el-col :span="12" class="right-title-i">
           <el-row :gutter="12" class="r-t-i-r">
             <el-col :span="8">
               <div class="con">
                 <img src="@/assets/r-1-1.png" alt="">
-                个人信息
+                {{$t('aboutLogin.messagePerson')}} 
               </div>
             </el-col>
             <el-col :span="8">
@@ -20,7 +20,7 @@
               <div :class="step === '1' ? 'con color-step-1' : 'con color-step-2'">
                 <img src="@/assets/r-1-3.png" alt="" v-if="step === '1'">
                 <img src="@/assets/r-1-2.png" alt="" v-if="step === '2'">
-                公司信息
+                {{$t('aboutLogin.componeyMess')}} 
               </div>
             </el-col>
           </el-row>
@@ -29,14 +29,14 @@
       <el-row class="two-title">
         <el-col :span="12" class="left-title-i">
           <div class="step-1" v-if="step === '2'">
-            公司信息
+            {{$t('aboutLogin.componeyMess')}} 
           </div>  
           <div  v-if="step === '1'">
             <RegisterTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
           </div>
         </el-col>
         <el-col :span="12" class="right-title">
-          <div class="tips">已有账号？ <span @click="toLogin" style="cursor: pointer;">去登录</span></div>
+          <div class="tips">{{$t('aboutLogin.haveAccout')}} <span @click="toLogin" style="cursor: pointer;">{{$t('aboutLogin.goLogin')}} </span></div>
         </el-col>
       </el-row>
     </div>

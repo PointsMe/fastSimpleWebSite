@@ -6,22 +6,22 @@ export const emailFormStep1 =     [
         label: '',
         value: 'name',
         type: 'input',
-        placeholder:'请输入您的姓名'
+        placeholder: 'aboutLogin.pleaseInputName',
     },
     {
         span: 12,
         label: '',
         value: 'storeName',
         type: 'input',
-        placeholder:'请输入您的门店名称',
+        placeholder: 'aboutLogin.pleaseInputStoreName',
         onEventFunction: 'changeStoreName'
     },
     {
         span: 24,
         label: '',
-        value: 'account',
+        value: 'emailAccount',
         type: 'input',
-        placeholder:'请输入您的邮箱',
+        placeholder: 'aboutLogin.pleaseInputEmail',
         haveEmailSelect: true,
         haveBtn: false,
         haveIcon: false,
@@ -32,7 +32,7 @@ export const emailFormStep1 =     [
         label: '',
         value: 'verificationCode',
         type: 'input',
-        placeholder:'请输入您的验证码',
+        placeholder: 'aboutLogin.pleaseInputCode',
         haveEmailSelect: false,
         haveBtn: true,
         haveIcon: false
@@ -42,7 +42,7 @@ export const emailFormStep1 =     [
         label: '',
         value: 'password',
         type: 'input',
-        placeholder:'请输入您的密码',
+        placeholder: 'aboutLogin.pleaseInputPassword',
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: true
@@ -52,7 +52,7 @@ export const emailFormStep1 =     [
         label: '',
         value: 'againpassword',
         type: 'input',
-        placeholder:'请再次输入您的密码',
+        placeholder: 'aboutLogin.pleaseInputPasswordAgain',
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: true
@@ -65,7 +65,7 @@ export const phoneFormStep1 =[
         label: '',
         value: 'name',
         type: 'input',
-        placeholder:'请输入您的姓姓名',
+        placeholder: 'aboutLogin.pleaseInputName',
         onEventFunction: 'changeName'
     },
     {
@@ -73,15 +73,15 @@ export const phoneFormStep1 =[
         label: '',
         value: 'storeName',
         type: 'input',
-        placeholder:'请输入您的门店名称',
+        placeholder: 'aboutLogin.pleaseInputStoreName',
         onEventFunction: 'changeStoreName'
     },
     {
         span: 24,
         label: '',
-        value: 'account',
+        value: 'phoneAccount',
         type: 'input',
-        placeholder:'请输入您的手机号码',
+        placeholder: 'aboutLogin.pleaseInputTel',
         onEventFunction: 'changeAccount',
         haveEmailSelect: false,
         haveBtn: false,
@@ -93,7 +93,7 @@ export const phoneFormStep1 =[
         label: '',
         value: 'verificationCode',
         type: 'input',
-        placeholder:'请输入您的验证码',
+        placeholder: 'aboutLogin.pleaseInputCode',
         haveEmailSelect: false,
         haveBtn: true,
         haveIcon: false
@@ -103,7 +103,7 @@ export const phoneFormStep1 =[
         label: '',
         value: 'password',
         type: 'input',
-        placeholder:'请输入您的密码',
+        placeholder: 'aboutLogin.pleaseInputPassword',
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: true,
@@ -114,7 +114,7 @@ export const phoneFormStep1 =[
         label: '',
         value: 'againpassword',
         type: 'input',
-        placeholder:'请再次输入您的密码',
+        placeholder: 'aboutLogin.pleaseInputPasswordAgain',
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: true,
@@ -125,16 +125,16 @@ export const formStep2 =     [
     {
         span: 12,
         label: '',
-        value: 'name',
+        value: 'subName',
         type: 'input',
-        placeholder:'公司名称',
+        placeholder: 'aboutLogin.componeyName',
     },
     {
         span: 12,
         label: '',
         value: 'vatNumber',
         type: 'input',
-        placeholder:'公司税号P.IVA/CF'
+        placeholder: 'aboutLogin.componeyPI',
     },
     {
         span: 24,
@@ -148,7 +148,7 @@ export const formStep2 =     [
                 value: '1'
             }
         ],
-        placeholder:'请选择门店类型',
+        placeholder:'',
       
     },
     {
@@ -163,7 +163,7 @@ export const formStep2 =     [
                 value: item.id
             }
         }),
-        placeholder:'国家',
+        placeholder: 'aboutLogin.countryName',
     },
     {
         span: 8,
@@ -171,34 +171,34 @@ export const formStep2 =     [
         value: 'provinceId',
         type:'select',
         optionsData:[],
-        placeholder:'地区',
+        placeholder: 'aboutLogin.printent',
     },
     {
         span: 8,
         label: '',
         value: 'city',
         type: 'input',
-        placeholder:'城市',
+        placeholder: 'aboutLogin.city',
     },
     {
         span: 24,
         label: '',
         value: 'zipcode',
         type: 'input',
-        placeholder:'邮编',
+        placeholder: 'aboutLogin.cityEmail',
     },
     {
         span: 24,
         label: '',
         value: 'address',
         type: 'input',
-        placeholder:'街道，门牌',
+        placeholder: 'aboutLogin.address',
     },
     {
         span: 24,
         label: '',
         value: 'taxCode',
         type: 'input',
-        placeholder:'接收发票代码CODICE UNIVOCO / 税务邮箱PEC',
+        placeholder: 'aboutLogin.point',
     },
 ]

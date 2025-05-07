@@ -26,7 +26,29 @@ export default {
         againPassWrong: "两次密码不一致",
         findPassSuccess: '密码重置成功，前往登录！！！',
         chooseCountry:'请先选择区号！！！',
-        chooseEmail:'请先选择邮箱！！！'
+        chooseEmail:'请先选择邮箱！！！',
+
+        registerMember: '注册账号',
+        messagePerson: '个人信息',
+        registerTel: '手机号注册',
+        registerEmail: '邮箱注册',
+        haveAccout: '已有账号？',
+        goLogin: '去登录',
+        pleaseInputName:'请输入您的姓名',
+        pleaseInputStoreName:'请输入您的门店名称',
+        nextStep:'下一步',
+        componeyName: '公司名称',
+        componeyPI: '公司税号P.IVA/CF',
+        countryName:'国家',
+        printent: '地区',
+        city:'城市',
+        cityEmail: '邮编',
+        address: '街道，门牌',
+        point:'接收发票代码CODICE UNIVOCO / 税务邮箱PEC',
+        register: '注册',
+        pleaseCountry:'请先选择区号！！！',
+        pleaseEmail:'请先选择邮箱！！！',
+        registerSuccess: '注册成功，即将前往登录！！！'
 
     }
 }

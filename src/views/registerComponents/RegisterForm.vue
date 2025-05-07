@@ -1,7 +1,7 @@
 <template>
     <div class="login-form">
-        <el-form v-if="step === '1' && registerStyle === '1'" :model="phoneFormModel" ref="phoneFormModelRef"
-            :rules="phoneFormRules">
+        <el-form :key="formId" :model="formModel" ref="formModelRef"
+            :rules="formRules">
             <el-row :gutter="12">
                 <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
                     <el-form-item :label="item.label" :prop="item.value">
@@ -9,57 +9,14 @@
                             evt: item?.onEventFunction,
                             data: e
                         })" v-if="item.type === 'input'" size="large" :type="`${item.typePass}`"
-                            v-model="phoneFormModel[item.value]" :placeholder="item.placeholder" class="bg-input">
+                            v-model="formModel[item.value]" :placeholder="$t(item.placeholder)" class="bg-input">
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
                                     <span class="line-border"></span>
                                     <AllEmailView @changeEmail="changeEmail"/>
                                 </div>
                                 <span v-if="item.haveBtn" class="span-code" @click="getVerificationCode"> 
-                                    <label v-if="!num">发送验证码</label> 
-                                    <label v-else>{{ num }}s</label> 
-                                </span>
-                                <span v-if="item.haveIcon" class="span-code" @click="changeType(item)">
-                                    <el-icon>
-                                        <View v-if="item.typePass === 'password'" />
-                                        <Hide v-else />
-                                    </el-icon>
-                                </span>
-                            </template>
-                            <template #prepend v-if="item.haveTelSelect">
-                                <AllCountryView @changeCountry="changeCountry"/>
-                                <!-- <div class="country">
-                                    <vue3-country-intl v-model="countryCode"></vue3-country-intl>
-                                </div> -->
-                            </template>
-                        </el-input>
-                        <el-select size="large" v-if="item.type === 'select'" v-model="phoneFormModel[item.value]"
-                            :placeholder="item.placeholder">
-                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="iv.label"
-                                :value="iv.value" />
-                        </el-select>
-                    </el-form-item>
-                </el-col>
-            </el-row>
-        </el-form>
-       
-        <el-form v-if="step === '1' && registerStyle === '2'" :model="emailFormModel" ref="emailFormModelRef"
-            :rules="emailFormRules">
-            <el-row :gutter="12">
-                <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
-                    <el-form-item :label="item.label" :prop="item.value">
-                        <el-input @change="(e: any) => EventFunction({
-                            evt: item?.onEventFunction,
-                            data: e
-                        })" v-if="item.type === 'input'" size="large" :type="`${item.typePass}`"
-                            v-model="emailFormModel[item.value]" :placeholder="item.placeholder" class="bg-input">
-                            <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
-                                <div v-if="item.haveEmailSelect">
-                                    <span class="line-border"></span>
-                                    <AllEmailView @changeEmail="changeEmail"/>
-                                </div>
-                                <span v-if="item.haveBtn" class="span-code" @click="getVerificationCode"> 
-                                    <label v-if="!num">发送验证码</label> 
+                                    <label v-if="!num">{{$t('aboutLogin.sendCode')}}</label> 
                                     <label v-else>{{ num }}s</label> 
                                 </span>
                                 <span v-if="item.haveIcon" class="span-code" @click="changeType(item)">
@@ -73,53 +30,17 @@
                                 <AllCountryView @changeCountry="changeCountry"/>
                             </template>
                         </el-input>
-                        <el-select size="large" v-if="item.type === 'select'" v-model="emailFormModel[item.value]"
-                            :placeholder="item.placeholder">
-                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="iv.label"
-                                :value="iv.value" />
-                        </el-select>
-                    </el-form-item>
-                </el-col>
-            </el-row>
-        </el-form>
-
-        <el-form v-if="step === '2'" :model="stepTwoModel" ref="stepTwoModelRef" :rules="stepTwoRules">
-            <el-row :gutter="12">
-                <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
-                    <el-form-item :label="item.label" :prop="item.value">
-                        <el-input @change="(e: any) => EventFunction({
+                        <el-select
+                         size="large" 
+                         v-if="item.type === 'select'"
+                          v-model="formModel[item.value]"
+                          @change="(e: any) => EventFunction({
                             evt: item?.onEventFunction,
                             data: e
-                        })" v-if="item.type === 'input'" size="large" :type="`${item.typePass}`"
-                            v-model="stepTwoModel[item.value]" :placeholder="item.placeholder" class="bg-input">
-                            <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
-                                <div v-if="item.haveEmailSelect">
-                                    <span class="line-border"></span>
-                                    <el-select placeholder="@gmail.com" style="width: 130px">
-                                        <el-option label="@gmail.com" value="@gmail.com" />
-                                        <el-option label="@qq.com" value="@gmail.com" />
-                                    </el-select>
-                                </div>
-                                <span v-if="item.haveBtn" class="span-code" @click="getVerificationCode"> 发送验证码 </span>
-                                <span v-if="item.haveIcon" class="span-code" @click="changeType(item)">
-                                    <el-icon>
-                                        <View v-if="item.typePass === 'password'" />
-                                        <Hide v-else />
-                                    </el-icon>
-                                </span>
-                            </template>
-                            <template #prepend v-if="item.haveTelSelect">
-                                <div class="country">
-                                    <vue3-country-intl v-model="countryCode"></vue3-country-intl>
-                                </div>
-                            </template>
-                        </el-input>
-                        <el-select @change="(e: any) => EventFunction({
-                            evt: item?.onEventFunction,
-                            data: e
-                        })" size="large" v-if="item.type === 'select'" :disabled="item.disabled"
-                            v-model="stepTwoModel[item.value]" :placeholder="item.placeholder">
-                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="iv.label"
+                        })"
+                            :disabled="item.disabled"
+                            :placeholder="$t(item.placeholder)">
+                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
                         </el-select>
                     </el-form-item>
@@ -130,8 +51,8 @@
             <!-- <p class="forget-pass">忘记密码</p> -->
             <div :class="props.step === '1' ? 'btn-login margin-top-60' : 'btn-login margin-top-148'">
                 <el-button class="el-btn-color" size="large" style="width: 100%" @click="onSubmit">
-                    <span v-if="props.step === '2'">注册</span>
-                    <span v-if="props.step === '1'">下一步</span>
+                    <span v-if="props.step === '2'">{{$t('aboutLogin.register')}}</span>
+                    <span v-if="props.step === '1'">{{$t('aboutLogin.nextStep')}}</span>
                 </el-button>
             </div>
             <div class="checkbox-con">
@@ -139,9 +60,9 @@
                     <el-col :span="16">
                         <div v-if="props.step === '2'">
                             <el-checkbox v-model="checked1">
-                                已阅读并同意我们的
-                                <span class="link-span">《隐私条例》</span>和
-                                <span class="link-span">《合同条例》</span>
+                                {{$t('aboutLogin.loginTips')}}
+                                <span class="link-span">{{$t('aboutLogin.linkOne')}}</span>{{$t('aboutLogin.linkAnd')}}
+                                <span class="link-span">{{$t('aboutLogin.linkTwo')}}</span>
                             </el-checkbox>
                         </div>
                     </el-col>
@@ -164,10 +85,12 @@ import AllCountryView from "@/components/AllCountryView.vue"
 import AllEmailView from "@/components/AllEmailView.vue"
 import { getVerificationCodeApi } from "@/apis/user"
 import { View, Hide } from '@element-plus/icons-vue'
-import { reactive, ref, watch } from 'vue'
+import { reactive, ref, computed,watch } from 'vue'
 import {getProvinceListApi} from "@/apis/common"
+import {getRandomString} from "@/utils/index"
 import {registerApi} from "@/apis/user"
 import type { FormInstance, FormRules } from 'element-plus'
+import { i18n } from '@/lang/index'
 import {
     emailFormStep1,
     phoneFormStep1,
@@ -192,6 +115,7 @@ const props = defineProps({
 
 });
 const emit = defineEmits(['setStep']);
+const formId = ref<string>(getRandomString(8))
 const num = ref<number>(0)
 const countryCode = ref("+86")
 const emailCode = ref("@gmail.com")
@@ -201,128 +125,17 @@ const changeCountry = (e:string)=>{
 const changeEmail = (e:string)=>{
     emailCode.value = e
 }
-const phoneFormModel: any = reactive({
+const formModel: any = reactive({
     name: '',
     storeName: '',
     account: '',
     verificationCode: '',
     password: '',
-    againpassword: ''
-})
-const phoneFormModelRef = ref<FormInstance>()
+    againpassword: '',
 
-const phoneFormRules = reactive({
-    name: [
-        { required: true, message: '请输入姓名', trigger: 'blur' },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    storeName: [
-        { required: true, message: '请输入门店名称', trigger: 'blur' },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    account: [
-        { required: true, message: '请输入手机号码', trigger: 'blur' },
-        // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
-    ],
-    verificationCode: [
-        { required: true, message: '请输入验证码', trigger: 'blur' },
-        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    password: [
-        {
-            required: true, validator: (rule: any, value: any, callback: any) => {
-                if (value === '') {
-                    callback(new Error('请输入密码'))
-                } else {
-                    if (phoneFormModel.againpassword !== '') {
-                        if (!phoneFormModelRef.value) return
-                        phoneFormModelRef.value.validateField('password')
-                    }
-                    callback()
-                }
-            }, trigger: 'blur'
-        },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    againpassword: [
-        {
-            required: true, validator: (rule: any, value: any, callback: any) => {
-                if (value === '') {
-                    callback(new Error('请再次输入密码'))
-                } else if (value !== phoneFormModel.password) {
-                    callback(new Error("两次密码不一致"))
-                } else {
-                    callback()
-                }
-            }, trigger: 'blur'
-        },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-})
 
-const emailFormModel:any = reactive({
-    name: '',
-    storeName: '',
-    account: '',
-    verificationCode: '',
-    password: '',
-    againpassword: ''
-})
-
-const emailFormModelRef = ref<FormInstance>()
-
-const emailFormRules = reactive({
-    name: [
-        { required: true, message: '请输入姓名', trigger: 'blur' },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    storeName: [
-        { required: true, message: '请输入门店名称', trigger: 'blur' },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    account: [
-        { required: true, message: '请输入邮箱地址', trigger: 'blur' },
-        // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
-    ],
-    verificationCode: [
-        { required: true, message: '请输入验证码', trigger: 'blur' },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    password: [
-        {
-            required: true, validator: (rule: any, value: any, callback: any) => {
-                if (value === '') {
-                    callback(new Error('请输入密码'))
-                } else {
-                    if (emailFormModel.againpassword !== '') {
-                        if (!emailFormModelRef.value) return
-                        emailFormModelRef.value.validateField('password')
-                    }
-                    callback()
-                }
-            }, trigger: 'blur'
-        },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-    againpassword: [
-        {
-            required: true, validator: (rule: any, value: any, callback: any) => {
-                if (value === '') {
-                    callback(new Error('请再次输入密码'))
-                } else if (value !== emailFormModel.password) {
-                    callback(new Error("两次密码不一致"))
-                } else {
-                    callback()
-                }
-            }, trigger: 'blur'
-        },
-        // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-})
-
-const stepTwoModel: any = reactive({
     type: 101,
-    name: "",
+    subName: "",
     vatNumber: "",
     compony: '1',
     taxCode: "",
@@ -332,36 +145,86 @@ const stepTwoModel: any = reactive({
     zipcode: "",
     address: ""
 })
-const stepTwoRules: any = reactive({
+const formModelRef = ref<FormInstance>()
+
+const formRules = computed(()=> {
+    return {
     name: [
-        { required: true, message: '请输入企业名称', trigger: 'blur' },
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputName'), trigger: 'blur' },
+    ],
+    storeName: [
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputStoreName'), trigger: 'blur' },
+    ],
+    phoneAccount: [
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'blur' },
+    ],
+    emailAccount: [
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputEmail'), trigger: 'blur' },
+    ],
+    verificationCode: [
+        { required: true, message:  i18n.global.t('aboutLogin.pleaseInputCode'), trigger: 'blur' },
+        { min: 4, max: 6, message: 'Length should be 4 to 6', trigger: 'blur' },
+    ],
+    password: [
+        {
+            required: true, validator: (rule: any, value: any, callback: any) => {
+                if (value === '') {
+                    callback(new Error(i18n.global.t('aboutLogin.pleaseInputPassword')))
+                } else {
+                    if (formModel.againpassword !== '') {
+                        if (!formModelRef.value) return
+                        formModelRef.value.validateField('password')
+                    }
+                    callback()
+                }
+            }, trigger: 'blur'
+        },
+    ],
+    againpassword: [
+        {
+            required: true, validator: (rule: any, value: any, callback: any) => {
+                if (value === '') {
+                    callback(new Error(i18n.global.t('aboutLogin.pleaseInputPasswordAgain')))
+                } else if (value !== formModel.password) {
+                    callback(new Error(i18n.global.t('aboutLogin.againPassWrong')))
+                } else {
+                    callback()
+                }
+            }, trigger: 'blur'
+        },
+    ],
+
+    
+    subName: [
+        { required: true, message: i18n.global.t('aboutLogin.componeyName'), trigger: 'blur' },
         // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
     ],
     vatNumber: [
-        { required: true, message: '请输入门店名称', trigger: 'blur' },
+        { required: true, message: i18n.global.t('aboutLogin.componeyPI'), trigger: 'blur' },
         // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
     ],
-    taxCode: [
-        { required: true, message: '请输入taxCode', trigger: 'blur' },
-        // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
-    ],
     countryId: [
-        { required: true, message: '请输入countryId', trigger: 'change', },
+        { required: true, message: i18n.global.t('aboutLogin.countryName'), trigger: 'change', },
     ],
     provinceId: [
-        { required: true, message: '请输入provinceId', trigger: 'change' },
+        { required: true, message: i18n.global.t('aboutLogin.printent'), trigger: 'change' },
     ],
     city: [
-        { required: true, message: '请输入city', trigger: 'blur' },
+        { required: true, message: i18n.global.t('aboutLogin.city'), trigger: 'blur' },
     ],
     zipcode: [
-        { required: true, message: '请输入zipcode', trigger: 'blur' },
+        { required: true, message:  i18n.global.t('aboutLogin.cityEmail'), trigger: 'blur' },
     ],
     address: [
-        { required: true, message: '请输入address', trigger: 'blur' },
+        { required: true, message:  i18n.global.t('aboutLogin.address'), trigger: 'blur' },
     ],
+    taxCode: [
+        { required: true, message: i18n.global.t('aboutLogin.point'), trigger: 'blur' },
+        // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
+    ],
+}
 })
-const stepTwoModelRef = ref<FormInstance>()
+
 
 
 const EventFunction = async (event: any) => {
@@ -404,16 +267,16 @@ const getVerificationCode = async () => {
     if (num.value) return false
     if (props.registerStyle === '1') {
         if (!countryCode.value) {
-            ElMessage.error("请先选择区号！！！")
+            ElMessage.error(i18n.global.t('aboutLogin.pleaseCountry'))
             return false
         }
     } else {
         if (!emailCode.value) {
-            ElMessage.error("请先选择邮箱！！！")
+            ElMessage.error(i18n.global.t('aboutLogin.pleaseEmail'))
             return false
         }
     }
-    if (phoneFormModel.account || emailFormModel.account) {
+    if (formModel.phoneAccount || formModel.emailAccount) {
         const loading = ElLoading.service({
             lock: true,
             text: 'Loading',
@@ -424,9 +287,9 @@ const getVerificationCode = async () => {
             type: 101
         }
         if (props.registerStyle === '1') {
-            params.account = `${countryCode.value.replace('+', '')}-${phoneFormModel.account}`
+            params.account = `${countryCode.value.replace('+', '')}-${formModel.phoneAccount}`
         } else {
-            params.account = `${emailFormModel.account}${emailCode.value}`
+            params.account = `${formModel.emailAccount}${emailCode.value}`
         }
         try {
             await getVerificationCodeApi(params)
@@ -443,81 +306,66 @@ const getVerificationCode = async () => {
             loading.close()
         }
     } else {
-        ElMessage.error('请先输入手机号码！！！')
+        ElMessage.error(i18n.global.t('aboutLogin.pleaseInputTel'))
     }
 }
 
-
 const onSubmit = () => {
-    if (props.step === '1') {
-        if (props.registerStyle === '1') {
-            if (!phoneFormModelRef.value) return
-            phoneFormModelRef.value.validate((valid) => {
-                if (valid) {
-                    console.log('submit!', valid, phoneFormModel)
-                    emit('setStep', '2')
-                } else {
-                    console.log('error submit!')
-                }
-            })
-        } else {
-            if (!emailFormModelRef.value) return
-            emailFormModelRef.value.validate((valid) => {
-                if (valid) {
-                    console.log('submit!', valid, emailFormModel)
-                    emit('setStep', '2')
-                } else {
-                    console.log('error submit!')
-                }
-            })
-        }
-
-    } else {
-        if (!stepTwoModelRef.value) return
-        stepTwoModelRef.value.validate(async (valid) => {
+    if (!formModelRef.value) return
+        console.log("====onSubmit===>",formModel)
+        formModelRef.value.validate(async (valid) => {
             if (valid) {
-                if(!checked1.value){
-                    ElMessage.error("请先勾选")
-                    return Promise.reject(false)
-                }
-                console.log('submit!', valid, phoneFormModel, emailFormModel, stepTwoModel)
-                const phoneParams = {
-                    ...phoneFormModel,
-                    company: {
-                        ...stepTwoModel
+                if (props.step === '1') {
+                    emit('setStep', '2')
+                }else{
+                    console.log("请求注册")
+                    if(!checked1.value){
+                        ElMessage.error(i18n.global.t('aboutLogin.pleaseCheckbox'))
+                        return Promise.reject(false)
+                    }
+                    const params = {
+                        "name": formModel.name,
+                        "account": props.step === '1' ? `${countryCode.value.replace('+', '')}-${formModel.phoneAccount}` : `${formModel.emailAccount}${emailCode.value}`,
+                        "password": formModel.password,
+                        "verificationCode": formModel.verificationCode,
+                        company: {
+                            "type": 101,
+                            "name": formModel.subName,
+                            "vatNumber": formModel.vatNumber,
+                            "taxCode": formModel.taxCode,
+                            "countryId": formModel.countryId,
+                            "provinceId": formModel.provinceId,
+                            "city": formModel.city,
+                            "zipcode":formModel.zipcode,
+                            "address": formModel.address,
+                        }
+                    }
+                    console.log('submit!', valid, params)
+                    const { data } = await registerApi(params);
+                    if (data) {
+                        ElMessage.success({
+                            message: i18n.global.t('aboutLogin.registerSuccess'),
+                            duration: 2000
+                        })
+                        userStore.setToken(data.token)
+                        userStore.setUserInfo(data.account)
+                        setTimeout(()=>{
+                            router.push('/layout/index')
+                        },2000)
                     }
                 }
-                const emailParams = {
-                    ...emailFormModel,
-                    company: {
-                        ...stepTwoModel
-                    }
-                }
-                const { data } = await registerApi(props.registerStyle === '1' ? phoneParams : emailParams)
-                if (data) {
-                    ElMessage.success({
-                        message: "注册成功，即将前往登录！！！",
-                        duration: 2000
-                    })
-                    userStore.setToken(data.token)
-                    userStore.setUserInfo(data.account)
-                    setTimeout(()=>{
-                        router.push('/layout/index')
-                    },2000)
-                    
-                }
+                
             } else {
                 console.log('error submit!')
             }
         })
-    }
 }
-
 watch(
     () => props.registerStyle,
     (newVal) => {
         console.log("newVal", newVal)
         if (newVal) {
+            formId.value = getRandomString(8)
             if (newVal === '1') {
                 emailForm.value = phoneFormStep1 as any
             }
@@ -532,6 +380,7 @@ watch(
     () => props.step,
     (newVal) => {
         if (newVal) {
+            formId.value = getRandomString(8)
             if (newVal === '1') {
                 if (props.registerStyle === '1') {
                     emailForm.value = phoneFormStep1 as any
