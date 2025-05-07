@@ -1,14 +1,14 @@
 <template>
   <div class="banner-two">
     <div class="title-content">
-      <div class="title">效率使餐饮企业变得简单</div>
+      <div class="title">{{ $t('bannerTwo.title') }}</div>
       <span></span>
     </div>
     <div class="sub-title-con">
-      FastSimple专为街头小吃、咖啡和快餐车而设计，结合了自助订购、安全的数字支付和简化的队列管理，提供了效率、价格实惠和简单性
+      {{ $t('bannerTwo.subTitle') }}
     </div>
     <div class="title-content-1">
-      <div class="title">为什么选择FastSimple？</div>
+      <div class="title">{{ $t('bannerTwo.whyChoose') }}</div>
       <span></span>
     </div>
     <div class="choose-fast">
@@ -18,8 +18,8 @@
             <p>
               <img src="@/assets/fastsImages/b-2-1.png" alt="" />
             </p>
-            <p>无缝集成</p>
-            <p>利用智能终端提高运作效率。</p>
+            <p>{{ $t('bannerTwo.seamlessIntegration') }}</p>
+            <p>{{ $t('bannerTwo.seamlessIntegrationDesc') }}</p>
           </div>
         </el-col>
         <el-col :span="8">
@@ -27,8 +27,8 @@
             <p>
               <img src="@/assets/fastsImages/b-2-2.png" alt="" />
             </p>
-            <p>多样化的功能</p>
-            <p>优化操作，降低人工成本。</p>
+            <p>{{ $t('bannerTwo.diverseFunctions') }}</p>
+            <p>{{ $t('bannerTwo.diverseFunctionsDesc') }}</p>
           </div>
         </el-col>
         <el-col :span="8">
@@ -36,24 +36,24 @@
             <p>
               <img src="@/assets/fastsImages/b-2-3.png" alt="" />
             </p>
-            <p>增强客户体验</p>
-            <p>减少高峰时段的拥堵，提高满意度。</p>
+            <p>{{ $t('bannerTwo.enhancedExp') }}</p>
+            <p>{{ $t('bannerTwo.enhancedExpDesc') }}</p>
           </div>
         </el-col>
       </el-row>
     </div>
     <div class="point-banner">
-      <h1>关键特性</h1>
-      <p class="sub-title">精简的功能，高效的操作</p>
+      <h1>{{ $t('bannerTwo.keyFeatures') }}</h1>
+      <p class="sub-title">{{ $t('bannerTwo.keyFeaturesSubtitle') }}</p>
       <div class="top-margin-40">
         <el-row :gutter="12">
           <el-col :span="8">
             <div class="one">
               <div></div>
               <div>
-                <p>小巧的平板电脑功能齐全</p>
-                <p>功能强大而轻巧的设备，可实现无缝订购</p>
-                <p>支持手持，站立安装，或壁挂式使用</p>
+                <p>{{ $t('bannerTwo.tabletFeature') }}</p>
+                <p>{{ $t('bannerTwo.tabletFeatureDesc1') }}</p>
+                <p>{{ $t('bannerTwo.tabletFeatureDesc2') }}</p>
               </div>
             </div>
           </el-col>
@@ -61,9 +61,9 @@
             <div class="two">
               <div></div>
               <div>
-                <p>二维码点餐，提高效率</p>
-                <p>顾客只需几秒即可扫描并下单。</p>
-                <p>减少等待时间并提高销量。</p>
+                <p>{{ $t('bannerTwo.qrCodeFeature') }}</p>
+                <p>{{ $t('bannerTwo.qrCodeFeatureDesc1') }}</p>
+                <p>{{ $t('bannerTwo.qrCodeFeatureDesc2') }}</p>
               </div>
             </div>
           </el-col>
@@ -71,9 +71,9 @@
             <div class="three">
               <div></div>
               <div>
-                <p>安全、便捷的在线支付</p>
-                <p>通过加密安全简化交易。</p>
-                <p>降低现金处理成本。</p>
+                <p>{{ $t('bannerTwo.onlinePayment') }}</p>
+                <p>{{ $t('bannerTwo.onlinePaymentDesc1') }}</p>
+                <p>{{ $t('bannerTwo.onlinePaymentDesc2') }}</p>
               </div>
             </div>
           </el-col>
@@ -84,9 +84,9 @@
             <div class="eight">
               <div></div>
               <div>
-                <p>智能队列管理</p>
-                <p>自动排队号码和实时更新。</p>
-                <p>允许灵活安排客户时间。</p>
+                <p>{{ $t('bannerTwo.queueManagement') }}</p>
+                <p>{{ $t('bannerTwo.queueManagementDesc1') }}</p>
+                <p>{{ $t('bannerTwo.queueManagementDesc2') }}</p>
               </div>
             </div>
           </el-col>
@@ -94,9 +94,9 @@
             <div class="seven">
               <div></div>
               <div>
-                <p>实时订单同步</p>
-                <p>与厨房系统无缝集成。</p>
-                <p>减少错误并提高速度。</p>
+                <p>{{ $t('bannerTwo.orderSync') }}</p>
+                <p>{{ $t('bannerTwo.orderSyncDesc1') }}</p>
+                <p>{{ $t('bannerTwo.orderSyncDesc2') }}</p>
               </div>
             </div>
           </el-col>
@@ -104,9 +104,9 @@
             <div class="six">
               <div></div>
               <div>
-                <p>数字发票，打造更绿色的未来</p>
-                <p>生成无纸化发票，实现环保运营。</p>
-                <p>轻松访问交易记录。</p>
+                <p>{{ $t('bannerTwo.digitalInvoice') }}</p>
+                <p>{{ $t('bannerTwo.digitalInvoiceDesc1') }}</p>
+                <p>{{ $t('bannerTwo.digitalInvoiceDesc2') }}</p>
               </div>
             </div>
           </el-col>
@@ -114,9 +114,9 @@
             <div class="five">
               <div></div>
               <div>
-                <p>过敏原筛查</p>
-                <p>顾客可以预先选择过敏原选项，系统会自</p>
-                <p>动过滤危险成分，确保用餐安全。</p>
+                <p>{{ $t('bannerTwo.allergenScreening') }}</p>
+                <p>{{ $t('bannerTwo.allergenScreeningDesc1') }}</p>
+                <p>{{ $t('bannerTwo.allergenScreeningDesc2') }}</p>
               </div>
             </div>
           </el-col>

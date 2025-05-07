@@ -8,12 +8,12 @@
                 <!-- Navigation Menu -->
                 <div class="nav-menu">
                     <el-menu mode="horizontal" :ellipsis="false" class="menu">
-                        <el-menu-item index="1" @click="goToPage('index')">主页</el-menu-item>
-                        <el-menu-item index="2" @click="goToPage('shopping')">商城</el-menu-item>
-                        <el-menu-item index="3" @click="goToPage('news')">新闻</el-menu-item>
-                        <el-menu-item index="4" @click="goToPage('server')">服务支持</el-menu-item>
-                        <el-menu-item index="5" @click="goToPage('about')">关于我们</el-menu-item>
-                        <el-menu-item index="6" @click="goToPage('contact')">联系我们</el-menu-item>
+                        <el-menu-item index="1" @click="goToPage('index')">{{$t('navigation.home')}}</el-menu-item>
+                        <el-menu-item index="2" @click="goToPage('shopping')">{{$t('navigation.shop')}}</el-menu-item>
+                        <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item>
+                        <el-menu-item index="4" @click="goToPage('server')">{{$t('navigation.support')}}</el-menu-item>
+                        <el-menu-item index="5" @click="goToPage('about')">{{$t('navigation.about')}}</el-menu-item>
+                        <el-menu-item index="6" @click="goToPage('contact')">{{$t('navigation.contact')}}</el-menu-item>
                         <el-menu-item index="7">
                             <el-dropdown @command="handleCommand" trigger="click">
                                 <span class="language-selector">
@@ -33,7 +33,7 @@
                     </el-menu>
                 </div>
                 <div class="right-section">
-                    <el-button v-if="!userStore.token" class="login-btn" type="pain" @click="login">登录/注册</el-button>
+                    <el-button v-if="!userStore.token" class="login-btn" type="pain" @click="login">{{$t('user.loginRegister')}}</el-button>
                     <div v-else>
                         <el-dropdown trigger="click">
                             <span class="language-selector">
@@ -56,8 +56,8 @@
                             </span>
                             <template #dropdown>
                                 <el-dropdown-menu>
-                                    <el-dropdown-item>我的订单</el-dropdown-item>
-                                    <el-dropdown-item @click="loginOut">退出登录</el-dropdown-item>
+                                    <el-dropdown-item>{{$t('user.myOrders')}}</el-dropdown-item>
+                                    <el-dropdown-item @click="loginOut">{{$t('user.logout')}}</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>

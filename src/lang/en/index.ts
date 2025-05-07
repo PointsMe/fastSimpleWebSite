@@ -49,5 +49,64 @@ export default {
         pleaseCountry: 'Please select a country code first!!!',
         pleaseEmail: 'Please select an email first!!!',
         registerSuccess: 'Registration successful, redirecting to login!!!'
-    }
+    },
+    // Add to the existing export default object
+navigation: {
+    home: 'Home',
+    shop: 'Shop',
+    news: 'News',
+    support: 'Support',
+    about: 'About Us',
+    contact: 'Contact Us'
+},
+user: {
+    loginRegister: 'Login/Register',
+    myOrders: 'My Orders',
+    logout: 'Logout'
+},
+bannerOne: {
+    featuredPackages: 'Featured Packages',
+    more: 'More'
+  },
+  banner: {
+    fastSimpleTitle: 'FastSimple: Smart Restaurant Solutions for Small Businesses',
+    smartDining: 'Smart Dining',
+    solution: 'Solutions',
+    subTitle: 'Simplify Operations, Enhance Customer Experience, Optimize Costs',
+    contactUs: 'Contact Us'
+  },
+  bannerTwo: {
+    title: "Efficiency Makes Restaurant Business Simple",
+    subTitle: "FastSimple is designed for street food, cafes and food trucks, combining self-ordering, secure digital payments and simplified queue management for efficiency, affordability and simplicity",
+    whyChoose: "Why Choose FastSimple?",
+    seamlessIntegration: "Seamless Integration",
+    seamlessIntegrationDesc: "Utilize smart terminals to improve operational efficiency.",
+    diverseFunctions: "Diverse Functions",
+    diverseFunctionsDesc: "Optimize operations and reduce labor costs.",
+    enhancedExp: "Enhanced Customer Experience",
+    enhancedExpDesc: "Reduce peak time congestion and increase satisfaction.",
+    keyFeatures: "Key Features",
+    keyFeaturesSubtitle: "Streamlined functions, efficient operations",
+    tabletFeature: "Compact Tablets with Full Functionality",
+    tabletFeatureDesc1: "Powerful yet lightweight devices for seamless ordering",
+    tabletFeatureDesc2: "Supports handheld, standing, or wall-mounted use",
+    qrCodeFeature: "QR Code Ordering for Improved Efficiency",
+    qrCodeFeatureDesc1: "Customers can scan and order in seconds.",
+    qrCodeFeatureDesc2: "Reduce wait times and increase sales.",
+    onlinePayment: "Secure, Convenient Online Payments",
+    onlinePaymentDesc1: "Simplify transactions with encrypted security.",
+    onlinePaymentDesc2: "Reduce cash handling costs.",
+    queueManagement: "Smart Queue Management",
+    queueManagementDesc1: "Automatic queue numbers and real-time updates.",
+    queueManagementDesc2: "Allow flexible scheduling for customers.",
+    orderSync: "Real-time Order Synchronization",
+    orderSyncDesc1: "Seamless integration with kitchen systems.",
+    orderSyncDesc2: "Reduce errors and increase speed.",
+    digitalInvoice: "Digital Invoices for a Greener Future",
+    digitalInvoiceDesc1: "Generate paperless invoices for eco-friendly operations.",
+    digitalInvoiceDesc2: "Easy access to transaction records.",
+    allergenScreening: "Allergen Screening",
+    allergenScreeningDesc1: "Customers can pre-select allergen options, and the system will",
+    allergenScreeningDesc2: "automatically filter dangerous ingredients, ensuring dining safety."
+  }
 }

@@ -1,9 +1,9 @@
 <template>
   <div class="banner-one">
     <div class="title">
-      <span>精选套餐</span>
+      <span>{{ $t('bannerOne.featuredPackages') }}</span>
       <span style="cursor: pointer;" @click="toShopping">
-        更多<el-icon><DArrowRight /></el-icon>
+        {{ $t('bannerOne.more') }}<el-icon><DArrowRight /></el-icon>
       </span>
     </div>
     <div>

@@ -50,5 +50,63 @@ export default {
         pleaseEmail:'请先选择邮箱！！！',
         registerSuccess: '注册成功，即将前往登录！！！'
 
-    }
+    },
+    navigation: {
+    home: '主页',
+    shop: '商城',
+    news: '新闻',
+    support: '服务支持',
+    about: '关于我们',
+    contact: '联系我们'
+},
+user: {
+    loginRegister: '登录/注册',
+    myOrders: '我的订单',
+    logout: '退出登录'
+},
+bannerOne: {
+    featuredPackages: '精选套餐',
+    more: '更多'
+  },
+  banner: {
+    fastSimpleTitle: 'FastSimple：小型企业的',
+    smartDining: '智能餐饮',
+    solution: '解决方案',
+    subTitle: '简化运营，提升客户体验，优化成本',
+    contactUs: '联系我们'
+  },
+  bannerTwo: {
+    title: "效率使餐饮企业变得简单",
+    subTitle: "FastSimple专为街头小吃、咖啡和快餐车而设计，结合了自助订购、安全的数字支付和简化的队列管理，提供了效率、价格实惠和简单性",
+    whyChoose: "为什么选择FastSimple？",
+    seamlessIntegration: "无缝集成",
+    seamlessIntegrationDesc: "利用智能终端提高运作效率。",
+    diverseFunctions: "多样化的功能",
+    diverseFunctionsDesc: "优化操作，降低人工成本。",
+    enhancedExp: "增强客户体验",
+    enhancedExpDesc: "减少高峰时段的拥堵，提高满意度。",
+    keyFeatures: "关键特性",
+    keyFeaturesSubtitle: "精简的功能，高效的操作",
+    tabletFeature: "小巧的平板电脑功能齐全",
+    tabletFeatureDesc1: "功能强大而轻巧的设备，可实现无缝订购",
+    tabletFeatureDesc2: "支持手持，站立安装，或壁挂式使用",
+    qrCodeFeature: "二维码点餐，提高效率",
+    qrCodeFeatureDesc1: "顾客只需几秒即可扫描并下单。",
+    qrCodeFeatureDesc2: "减少等待时间并提高销量。",
+    onlinePayment: "安全、便捷的在线支付",
+    onlinePaymentDesc1: "通过加密安全简化交易。",
+    onlinePaymentDesc2: "降低现金处理成本。",
+    queueManagement: "智能队列管理",
+    queueManagementDesc1: "自动排队号码和实时更新。",
+    queueManagementDesc2: "允许灵活安排客户时间。",
+    orderSync: "实时订单同步",
+    orderSyncDesc1: "与厨房系统无缝集成。",
+    orderSyncDesc2: "减少错误并提高速度。",
+    digitalInvoice: "数字发票，打造更绿色的未来",
+    digitalInvoiceDesc1: "生成无纸化发票，实现环保运营。",
+    digitalInvoiceDesc2: "轻松访问交易记录。",
+    allergenScreening: "过敏原筛查",
+    allergenScreeningDesc1: "顾客可以预先选择过敏原选项，系统会自",
+    allergenScreeningDesc2: "动过滤危险成分，确保用餐安全。"
+  }
 }

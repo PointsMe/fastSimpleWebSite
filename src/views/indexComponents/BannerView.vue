@@ -4,14 +4,14 @@
       <div class="content">
         <img class="icon-title" src="@/assets/fastsImages/Vector.png" alt="" />
         <div class="title">
-          FastSimple：小型企业的
-          <span>智能餐饮</span>
-          解决方案
+          {{ $t('banner.fastSimpleTitle') }}
+          <span>{{ $t('banner.smartDining') }}</span>
+          {{ $t('banner.solution') }}
         </div>
         <div class="sub-title">
-          简化运营，提升客户体验，优化成本
+          {{ $t('banner.subTitle') }}
           <el-button class="tel-btn" type="pain"
-            >联系我们<el-icon><Right /></el-icon
+            >{{ $t('banner.contactUs') }}<el-icon><Right /></el-icon
           ></el-button>
         </div>
         <div class="bg-title"></div>
@@ -19,6 +19,9 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import { Right } from '@element-plus/icons-vue'
+</script>
 <style scoped lang="less">
 .banner-view-div {
   width: 100%;
