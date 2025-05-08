@@ -235,5 +235,83 @@ bannerOne: {
     wechat: "WeChat",
     copyright: "Copyright © 2024 PointsMe By Yine Srl, All Rights Reserved",
     terms: "Terms"
-  }
+  },
+  shopping: {
+    title: "Discount Mall",
+    membershipPromotion: "Register as a member and enter an invitation code to enjoy 50% off",
+    registerNow: "Register Now"
+  },
+  serverView: {
+    ourServices: "Our Services",
+    serviceDesc: "Meeting the needs of various merchants, ensuring efficient and accurate operation of general merchandise and food wholesale warehouses",
+    customerSatisfaction: "Customer Satisfaction",
+    onlineCourses: "Comprehensive online courses designed to help food service professionals enhance their skills and operational efficiency",
+    intelligentSupport: "Intelligent Customer Support",
+    fullTimeSupport: "24/7 intelligent support, solving your business needs anytime, anywhere",
+    quickResponse: "Fast Response, Full Tracking",
+    responseProcess: "Service process starts within 2 minutes, real-time progress tracking, ensuring quick problem resolution"
+  },
+  aboutView: {
+    whoWeAre: 'Who are we? Why do we exist?',
+    companyDescription: 'Yine s.r.l. was born in Milan, the core of the Italian technology ecosystem, and has been dedicated to the research and development of digital management and intelligent store solutions since its establishment in 2013.\nThe company is committed to providing customers with more convenient, efficient, intelligent, and secure integrated restaurant store SaaS services. As a leader in the full-chain ecosystem, our products cover the entire lifecycle of restaurants and enterprises, helping businesses build data-driven, refined, and visual operational management models to create long-term value.',
+    globalExpertise: 'Global Expertise, Trusted Partnerships',
+    technicalSupport: 'Providing powerful technical support and market-driven solutions for enterprises',
+    companyCulture: 'Company Culture',
+    customerFirst: {
+      title: 'Customer First',
+      description: 'We are committed to providing excellent products and services, continuously listening to customer needs, and enhancing customer experience and business value through innovative technologies and solutions.'
+    },
+    innovationDriven: {
+      title: 'Innovation Driven',
+      description: 'Innovation is at the core of our values. We encourage employees to go beyond boundaries, explore new possibilities, and drive sustainable development through constantly innovative technologies and services.'
+    },
+    teamwork: {
+      title: 'Teamwork',
+      description: 'We value the contribution of every team member, creating an open and honest team culture to achieve greater success for our customers and partners.'
+    },
+    socialResponsibility: {
+      title: 'Social Responsibility',
+      description: 'As a responsible corporate citizen, we actively promote green and sustainable development, give back to society through technology and social activities, and contribute to industry and social progress.'
+    },
+    excellence: {
+      title: 'Pursuit of Excellence',
+      description: 'We adhere to the highest standards, focus on every detail of our products and services, continuously exceed customer expectations, and become a globally trusted brand.'
+    },
+    vision: {
+      title: 'Vision',
+      description: 'To become a leading technology solutions provider, empowering global enterprises with intelligent management and sustainable development.'
+    },
+    mission: {
+      title: 'Mission',
+      description: 'To drive customer success and create a better future through technological innovation and excellent service.'
+    },
+    ourServices: {
+      title: 'Our Services',
+      subtitle: 'Meeting the needs of various merchants, ensuring efficient and accurate operation of general merchandise and food wholesale warehouses.'
+    },
+    satisfaction: {
+      title: 'Customer Satisfaction',
+      description: 'Comprehensive online courses designed to help food service professionals enhance their skills and operational efficiency.'
+    },
+    support: {
+      title: 'Intelligent Customer Support',
+      description: '24/7 intelligent support, solving your business needs anytime, anywhere.'
+    },
+    response: {
+      title: 'Quick Response, Full Tracking',
+      description: 'Service process initiated within 2 minutes, real-time progress tracking, ensuring quick problem resolution.'
+    },
+    channelSupport: {
+      title: 'Multi-channel Support through Remote and On-site Services',
+      description: 'Remote and AI service support. Multiple support channels, from remote phone guidance to on-site assistance, designed to support your business growth.'
+    },
+    internalDevelopment: {
+      title: 'Fully In-house Development with Expert Technical Support',
+      description: 'In-house R&D ensures quality service, with a professional team providing comprehensive technical and customer support.'
+    },
+    news: 'News',
+    newsDate: 'January 12, 2025',
+    newsTitle: 'Huawei and YINE Hold Technical Salon in Milan, Focusing...',
+    newsContent: 'Recently, global ICT leader Huawei joined hands with Italian digital management and smart store solutions company YINE to host a technical salon in Milan, the core city of the Italian technology ecosystem...'
+  },
 }

@@ -5,14 +5,17 @@ import {setCountryListStorage,getCountryListStorage,getLanguage,setLanguage,remo
 import type * as Types from "@/apis/type"
 export const useCommonStore = defineStore("common", () => {
   const countryList = ref<Array<Types.country>>(getCountryListStorage())
-  const language = ref<string | null>(getLanguage() || 'zh-US')
+  const language = ref<string>(getLanguage() || 'zh-US')
+  const showOrderListView = ref<boolean>(false)
   //获取国家列表
   const getCountryList = async () => {
     const { data } = await getCountryListApi()
     countryList.value = data
     setCountryListStorage(data)
   }
-
+  const setShowOrderListView = (status: boolean)=>{
+    showOrderListView.value = status;
+  }
   // 设置 Token
   const setLanguageFn = (value: string) => {
     setLanguage(value)
@@ -23,7 +26,7 @@ export const useCommonStore = defineStore("common", () => {
     language.value = ""
   }
 
-  return { countryList, language,getCountryList,setLanguageFn,resetLanguageFn }
+  return { countryList, language,showOrderListView,setShowOrderListView,getCountryList,setLanguageFn,resetLanguageFn }
 })
 
 

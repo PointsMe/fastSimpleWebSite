@@ -3,28 +3,28 @@
     <div class="con-job">
       <div class="title-content">
         <div class="title">
-          <span class="con">{{ $t('bannerFour.idealBusiness') }}</span>
+          <span class="con">{{ $t("bannerFour.idealBusiness") }}</span>
           <span class="line"></span>
-          {{ $t('bannerFour.idealBusiness') }}
+          {{ $t("bannerFour.idealBusiness") }}
         </div>
       </div>
-      <div class="sub-title">{{ $t('bannerFour.solutionForSmallBusinesses') }}</div>
+      <div class="sub-title">{{ $t("bannerFour.solutionForSmallBusinesses") }}</div>
     </div>
     <div class="con-list"></div>
     <div class="pay-style">
       <div class="title-content">
-        <div class="title">{{ $t('bannerFour.flexiblePayment') }}</div>
+        <div class="title">{{ $t("bannerFour.flexiblePayment") }}</div>
         <span></span>
       </div>
-      <div class="sub-title">{{ $t('bannerFour.multiplePaymentOptions') }}</div>
+      <div class="sub-title">{{ $t("bannerFour.multiplePaymentOptions") }}</div>
       <div class="pay-list">
         <el-row :gutter="12">
           <el-col :span="12">
             <el-row>
               <el-col :span="8"> </el-col>
               <el-col :span="16" class="height-50">
-                <div class="title">{{ $t('bannerFour.multiplePaymentMethods') }}</div>
-                <div class="sub-t">{{ $t('bannerFour.satisfyCustomerPreferences') }}</div>
+                <div class="title">{{ $t("bannerFour.multiplePaymentMethods") }}</div>
+                <div class="sub-t">{{ $t("bannerFour.satisfyCustomerPreferences") }}</div>
               </el-col>
             </el-row>
             <el-row>
@@ -91,16 +91,22 @@
       <div class="pay-options">
         <div class="title">
           <el-row class="row-line">
-            <el-col :span="['zh-US','en-US'].includes(commonStore.language) ? 9 : 7" class="col-relative">
+            <el-col
+              :span="['zh-US', 'en-US'].includes(commonStore.language) ? 9 : 7"
+              class="col-relative"
+            >
               <div class="line"></div>
             </el-col>
-            <el-col :span="['zh-US','en-US'].includes(commonStore.language) ? 6 : 10">
+            <el-col :span="['zh-US', 'en-US'].includes(commonStore.language) ? 6 : 10">
               <div class="name">
-                <p>{{ $t('bannerFour.billingOptions') }}</p>
-                <p>{{ $t('bannerFour.adaptToVariousScenarios') }}</p>
+                <p>{{ $t("bannerFour.billingOptions") }}</p>
+                <p>{{ $t("bannerFour.adaptToVariousScenarios") }}</p>
               </div>
             </el-col>
-            <el-col :span="['zh-US','en-US'].includes(commonStore.language) ? 9 : 7" class="col-relative">
+            <el-col
+              :span="['zh-US', 'en-US'].includes(commonStore.language) ? 9 : 7"
+              class="col-relative"
+            >
               <div class="line"></div>
             </el-col>
           </el-row>
@@ -110,25 +116,25 @@
             <el-col :span="6">
               <div class="col-one">
                 <span>01</span>
-                {{ $t('bannerFour.provideAllPayments') }}
+                {{ $t("bannerFour.provideAllPayments") }}
               </div>
             </el-col>
             <el-col :span="6">
               <div class="col-one">
                 <span>02</span>
-                {{ $t('bannerFour.splitEvenly') }}
+                {{ $t("bannerFour.splitEvenly") }}
               </div>
             </el-col>
             <el-col :span="6">
               <div class="col-one">
                 <span>03</span>
-                {{ $t('bannerFour.payAsNeeded') }}
+                {{ $t("bannerFour.payAsNeeded") }}
               </div>
             </el-col>
             <el-col :span="6">
               <div class="col-one">
                 <span>04</span>
-                {{ $t('bannerFour.billingPerOrder') }}
+                {{ $t("bannerFour.billingPerOrder") }}
               </div>
             </el-col>
           </el-row>
@@ -138,22 +144,22 @@
             <el-col :span="8">
               <div class="con-a">
                 <img src="@/assets/fastsImages/b-4-11.png" alt="" />
-                <p class="f-p">{{ $t('bannerFour.currencySupport') }}</p>
-                <p class="s-p">{{ $t('bannerFour.currencySupportDesc') }}</p>
+                <p class="f-p">{{ $t("bannerFour.currencySupport") }}</p>
+                <p class="s-p">{{ $t("bannerFour.currencySupportDesc") }}</p>
               </div>
             </el-col>
             <el-col :span="8">
               <div class="con-a">
                 <img src="@/assets/fastsImages/b-4-12.png" alt="" />
-                <p class="f-p">{{ $t('bannerFour.paymentScenarios') }}</p>
-                <p class="s-p">{{ $t('bannerFour.paymentScenariosDesc') }}</p>
+                <p class="f-p">{{ $t("bannerFour.paymentScenarios") }}</p>
+                <p class="s-p">{{ $t("bannerFour.paymentScenariosDesc") }}</p>
               </div>
             </el-col>
             <el-col :span="8">
               <div class="con-a">
                 <img src="@/assets/fastsImages/b-4-13.png" alt="" />
-                <p class="f-p">{{ $t('bannerFour.eInvoicing') }}</p>
-                <p class="s-p">{{ $t('bannerFour.eInvoicingDesc') }}</p>
+                <p class="f-p">{{ $t("bannerFour.eInvoicing") }}</p>
+                <p class="s-p">{{ $t("bannerFour.eInvoicingDesc") }}</p>
               </div>
             </el-col>
           </el-row>
@@ -163,8 +169,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useCommonStore } from "@/stores/modules/common"
-const commonStore = useCommonStore()
+import { useCommonStore } from "@/stores/modules/common";
+const commonStore = useCommonStore();
 // console.log("useCommonStore==>",commonStore.language)
 </script>
 <style scoped lang="less">
@@ -311,7 +317,7 @@ const commonStore = useCommonStore()
     height: 164px;
     margin: auto;
     margin-top: 80px;
-    background-image: url('@/assets/fastsImages/b-4-1.png');
+    background-image: url("@/assets/fastsImages/b-4-1.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -345,7 +351,7 @@ const commonStore = useCommonStore()
         height: 100%;
         position: relative;
         color: #ffffff;
-        .con{
+        .con {
           position: absolute;
           z-index: 2;
           bottom: 0;
@@ -362,10 +368,8 @@ const commonStore = useCommonStore()
           bottom: 10px;
           // left: 0px;
           z-index: 1;
+        }
       }
-      }
-
-      
     }
   }
 }

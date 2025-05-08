@@ -2,36 +2,36 @@
   <div class="server-view-div">
     <div class="my-server">
       <el-row :gutter="12" class="row-server">
-        <el-col :span="5" class="col-1-m">
-          <div class="title">我们的服务</div>
+        <el-col :span="6" class="col-1-m">
+          <div class="title">{{ $t('serverView.ourServices') }}</div>
         </el-col>
-        <el-col :span="9" class="col-2-m">
+        <el-col :span="['zh-US'].includes(commonStore.language) ? 8 : 5" class="col-2-m">
           <div class="line"></div>
         </el-col>
-        <el-col :span="10" class="col-3-m">
-          <div class="sub-title">满足各类商户需求，确保百货和食品批发仓库高效、准确运营</div>
+        <el-col :span="['zh-US'].includes(commonStore.language) ? 10 : 13" class="col-3-m">
+          <div class="sub-title">{{ $t('serverView.serviceDesc') }}</div>
         </el-col>
       </el-row>
       <el-row :gutter="12" class="row-num">
         <el-col :span="8" class="col-num">
           <div class="content">
             <p>1500<span>+</span></p>
-            <p>客户满意度</p>
-            <p>全面的在线课程，旨在帮助餐饮专业人士提升技能和运营效率</p>
+            <p>{{ $t('serverView.customerSatisfaction') }}</p>
+            <p>{{ $t('serverView.onlineCourses') }}</p>
           </div>
         </el-col>
         <el-col :span="8" class="col-num">
           <div class="content">
             <p>7×24<span>h</span></p>
-            <p>智能客户支持</p>
-            <p>全天候智能支持，随时随地解决您的业务需求</p>
+            <p>{{ $t('serverView.intelligentSupport') }}</p>
+            <p>{{ $t('serverView.fullTimeSupport') }}</p>
           </div>
         </el-col>
         <el-col :span="8" class="col-num">
           <div class="content">
             <p>2<span>min</span></p>
-            <p>快速响应，全程跟踪</p>
-            <p>2分钟内启动服务流程，实时跟踪进度，确保快速解决问题</p>
+            <p>{{ $t('serverView.quickResponse') }}</p>
+            <p>{{ $t('serverView.responseProcess') }}</p>
           </div>
         </el-col>
       </el-row>
@@ -41,8 +41,8 @@
             <img src="@/assets/headset-fill.png" alt="" />
           </div>
           <div>
-            <p>通过远程和现场服务提供全渠道支持</p>
-            <p>远程和AI服务支持。多种支持渠道，从远程电话指导到现场协助，旨在支持您的业务增长</p>
+            <p>{{ $t('bannerNine.features.omniChannel.title') }}</p>
+            <p>{{ $t('bannerNine.features.omniChannel.description') }}</p>
           </div>
         </div>
         <div class="flex1 flex1-g">
@@ -50,14 +50,18 @@
             <img src="@/assets/fastsImages/b-9-2.png" alt="" />
           </div>
           <div>
-            <p>完全内部开发，拥有专家技术支持</p>
-            <p>内部研发确保优质服务，专业团队提供全面的技术和客户支持</p>
+            <p>{{ $t('bannerNine.features.inHouse.title') }}</p>
+            <p>{{ $t('bannerNine.features.inHouse.description') }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import { useCommonStore } from "@/stores/modules/common"
+const commonStore = useCommonStore()
+</script>
 <style scoped lang="less">
 .server-view-div {
   margin-top: 90px;

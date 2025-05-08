@@ -5,11 +5,12 @@
         <el-col :span="12">
           <div class="nav-menu">
             <el-menu mode="horizontal" :ellipsis="false" class="menu">
-              <el-menu-item index="1">{{ $t('navigation.home') }}</el-menu-item>
-              <el-menu-item index="2">{{ $t('navigation.shop') }}</el-menu-item>
-              <el-menu-item index="3">{{ $t('navigation.support') }}</el-menu-item>
-              <el-menu-item index="4">{{ $t('navigation.about') }}</el-menu-item>
-              <el-menu-item index="5">{{ $t('navigation.contact') }}</el-menu-item>
+              <el-menu-item index="1" @click="goToPage('index')">{{$t('navigation.home')}}</el-menu-item>
+              <el-menu-item index="2" @click="goToPage('shopping')">{{$t('navigation.shop')}}</el-menu-item>
+              <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item>
+              <el-menu-item index="4" @click="goToPage('server')">{{$t('navigation.support')}}</el-menu-item>
+              <el-menu-item index="5" @click="goToPage('about')">{{$t('navigation.about')}}</el-menu-item>
+              <el-menu-item index="6" @click="goToPage('contact')">{{$t('navigation.contact')}}</el-menu-item>
               <el-menu-item index="7">
                 <el-dropdown @command="handleCommand" trigger="click">
                   <span class="language-selector">
@@ -75,13 +76,19 @@
 </template>
 <script setup lang="ts">
 import { languageList } from "@/http/config"
+import { useRouter } from 'vue-router'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { useCommonStore } from "@/stores/modules/common"
 const current = getCurrentInstance()?.appContext.config.globalProperties as any;
 const commonStore = useCommonStore()
+const router = useRouter()
 const handleCommand = (command: string) => {
   current.$i18n.locale = command
   commonStore.setLanguageFn(command)
+}
+// 跳转到首页的方法
+const goToPage = (value: any) => {
+    router.push(`/layout/${value}`)
 }
 </script>
 <style scoped lang="less">

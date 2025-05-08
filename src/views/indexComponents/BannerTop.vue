@@ -56,7 +56,7 @@
                             </span>
                             <template #dropdown>
                                 <el-dropdown-menu>
-                                    <el-dropdown-item>{{$t('user.myOrders')}}</el-dropdown-item>
+                                    <el-dropdown-item @click="toMyOrder">{{$t('user.myOrders')}}</el-dropdown-item>
                                     <el-dropdown-item @click="loginOut">{{$t('user.logout')}}</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
@@ -93,6 +93,9 @@ const loginOut = () => {
     userStore.resetToken()
     userStore.resetUserInfo()
     router.push(`/module/login`)
+}
+const toMyOrder = ()=> {
+    commonStore.setShowOrderListView(true)
 }
 onMounted(() => {
     console.log(userStore.userInfo)

@@ -4,6 +4,7 @@
     <RouterView />
     <BannerTen />
     <BannerEleven />
+    <OrderView ref="OrderViewRef" />
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 import BannerTop from '@/views/indexComponents/BannerTop.vue'
 import BannerTen from '@/views/indexComponents/BannerTen.vue'
 import BannerEleven from '@/views/indexComponents/BannerEleven.vue'
+import OrderView from './orderView.vue'
 defineOptions({
   name: 'layoutView'
 })

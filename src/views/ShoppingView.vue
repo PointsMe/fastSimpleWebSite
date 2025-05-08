@@ -1,14 +1,14 @@
 <template>
   <div class="shop-view">
     <div class="top">
-      <p>优惠商城</p>
-      <p v-if="!userStore.token">
-        注册会员输入邀请码，享受五折优惠
-        <span>立即注册</span>&nbsp;&nbsp;&nbsp;
+      <p>{{ $t('shopping.title') }}</p>
+      <span v-if="!userStore.token">
+        {{ $t('shopping.membershipPromotion') }}
+        <span>{{ $t('shopping.registerNow') }}</span>&nbsp;&nbsp;&nbsp;
         <el-icon class="icon-right-shop">
           <Right />
         </el-icon>
-      </p>
+      </span>
     </div>
     <!-- <ShoppingIndex /> -->
     <ShoppingNewIndex />
@@ -55,24 +55,30 @@ const userStore = useUserStore()
       color: #f6f6f4;
     }
 
-    > p:nth-child(2) {
+    > span {
       font-family: Inter, Inter;
       font-weight: 500;
       font-size: 18px;
       color: #ffffff;
       margin-top: 14px;
       padding-bottom: 12px;
-      width: 400px;
-      border-bottom: 1px solid #fff;
-      position: relative;
-
+      position: relative; /* 使伪元素能够相对于它定位 */
       .icon-right-shop {
         display: block;
         position: absolute;
-        right: 0;
+        right: -10px;
         top: 0;
         transform: translateY(30%);
       }
+    }
+    > span::after {
+        content: ''; /* 创建伪元素 */
+        position: absolute; /* 绝对定位 */
+        left: 0; /* 与原始元素左对齐 */
+        bottom: 0; /* 与原始元素底部对齐 */
+        width: 100%; /* 宽度为100%，即与原始元素相同 */
+        height: 1px; /* 下划线的高度 */
+        background-color: #ffffff; /* 下划线的颜色 */
     }
   }
 }
