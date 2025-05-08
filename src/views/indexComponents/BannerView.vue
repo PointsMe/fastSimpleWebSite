@@ -4,7 +4,7 @@
       <div class="content">
         <img class="icon-title" src="@/assets/fastsImages/Vector.png" alt="" />
         <div class="title">
-          {{ $t('banner.fastSimpleTitle') }}
+          {{ $t('banner.fastSimpleTitle') }}<br />
           <span>{{ $t('banner.smartDining') }}</span>
           {{ $t('banner.solution') }}
         </div>
@@ -48,7 +48,7 @@ import { Right } from '@element-plus/icons-vue'
         justify-content: center;
         position: absolute;
         left: -220px;
-        bottom: -600px;
+        bottom: -550px;
       }
       .icon-title {
         display: block;
@@ -74,7 +74,7 @@ import { Right } from '@element-plus/icons-vue'
         }
       }
       .title {
-        width: 800px;
+        // width: 800px;
         font-weight: bold;
         font-size: 72px;
         color: rgba(255, 255, 255, 0.9);

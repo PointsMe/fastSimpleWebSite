@@ -2,8 +2,11 @@
   <div class="banner-6-div">
     <div class="con-job">
       <div class="title-content">
-        <div class="title">{{ $t('bannerSix.digitalTaxCompliance') }}</div>
-        <span></span>
+        <div class="title">
+          <span class="con">{{ $t('bannerSix.digitalTaxCompliance') }}</span>
+          <span class="line"></span>
+          {{ $t('bannerSix.digitalTaxCompliance') }}
+        </div>
       </div>
       <div class="sub-title">{{ $t('bannerSix.tailoredSolution') }}</div>
     </div>
@@ -40,8 +43,11 @@
     </div>
     <div class="con-job">
       <div class="title-content">
-        <div class="title">{{ $t('bannerSix.regulations') }}</div>
-        <span style="left: 0.4rem; width: 0.5rem"></span>
+        <div class="title">
+          <span class="con">{{ $t('bannerSix.regulations') }}</span>
+          <span class="line"></span>
+          {{ $t('bannerSix.regulations') }}
+        </div>
       </div>
       <div class="sub-title">
         {{ $t('bannerSix.regulationDetails') }}
@@ -56,6 +62,7 @@
     width: 1280px;
     margin: auto;
     text-align: center;
+    margin-top: 40px;
     margin-bottom: 150px;
     .con-con {
       width: 100%;
@@ -83,6 +90,7 @@
         bottom: -20px;
         left: 50%;
         transform: translateX(-50%);
+        width: 120%;
         p {
           margin: 0;
           padding: 0;
@@ -103,7 +111,7 @@
   .con-job {
     width: 1280px;
     margin: auto;
-    text-align: center;
+    // text-align: center;
     .sub-title {
       text-align: center;
       font-weight: 400;
@@ -113,30 +121,42 @@
     .title-content {
       position: relative;
       height: 80px;
-      width: 544px;
+      // width: 100%;
       margin: auto;
       margin-top: 150px;
+      display: block;
+      text-align: center;
+      display: flex;
+      justify-content: center;
       .title {
         font-weight: bold;
         font-size: 52px;
         color: #1a1a1a;
-        width: 100%;
+        width: auto;
         height: 100%;
-        position: absolute;
-        z-index: 2;
-        bottom: 0;
+        position: relative;
+        color: #ffffff;
+        .con{
+          position: absolute;
+          z-index: 2;
+          bottom: 0;
+          font-weight: bold;
+          font-size: 52px;
+          color: #1a1a1a;
+        }
+        .line {
+          display: block;
+          width: 204px;
+          height: 16px;
+          background: #fed15f;
+          position: absolute;
+          bottom: 10px;
+          // left: 0px;
+          z-index: 1;
+      }
       }
 
-      > span {
-        display: block;
-        width: 204px;
-        height: 16px;
-        background: #fed15f;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        z-index: 1;
-      }
+      
     }
   }
 }

@@ -2,8 +2,11 @@
   <div class="banner-4-div">
     <div class="con-job">
       <div class="title-content">
-        <div class="title">{{ $t('bannerFour.idealBusiness') }}</div>
-        <span></span>
+        <div class="title">
+          <span class="con">{{ $t('bannerFour.idealBusiness') }}</span>
+          <span class="line"></span>
+          {{ $t('bannerFour.idealBusiness') }}
+        </div>
       </div>
       <div class="sub-title">{{ $t('bannerFour.solutionForSmallBusinesses') }}</div>
     </div>
@@ -18,8 +21,8 @@
         <el-row :gutter="12">
           <el-col :span="12">
             <el-row>
-              <el-col :span="12"> </el-col>
-              <el-col :span="12" class="height-50">
+              <el-col :span="8"> </el-col>
+              <el-col :span="16" class="height-50">
                 <div class="title">{{ $t('bannerFour.multiplePaymentMethods') }}</div>
                 <div class="sub-t">{{ $t('bannerFour.satisfyCustomerPreferences') }}</div>
               </el-col>
@@ -88,16 +91,16 @@
       <div class="pay-options">
         <div class="title">
           <el-row class="row-line">
-            <el-col :span="10" class="col-relative">
+            <el-col :span="['zh-US','en-US'].includes(commonStore.language) ? 9 : 7" class="col-relative">
               <div class="line"></div>
             </el-col>
-            <el-col :span="4">
+            <el-col :span="['zh-US','en-US'].includes(commonStore.language) ? 6 : 10">
               <div class="name">
                 <p>{{ $t('bannerFour.billingOptions') }}</p>
                 <p>{{ $t('bannerFour.adaptToVariousScenarios') }}</p>
               </div>
             </el-col>
-            <el-col :span="10" class="col-relative">
+            <el-col :span="['zh-US','en-US'].includes(commonStore.language) ? 9 : 7" class="col-relative">
               <div class="line"></div>
             </el-col>
           </el-row>
@@ -159,6 +162,11 @@
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import { useCommonStore } from "@/stores/modules/common"
+const commonStore = useCommonStore()
+// console.log("useCommonStore==>",commonStore.language)
+</script>
 <style scoped lang="less">
 .banner-4-div {
   width: 100%;
@@ -207,6 +215,7 @@
         }
       }
       .title {
+        margin-top: 150px;
         .row-line {
           height: 60px;
           .col-relative {
@@ -321,30 +330,42 @@
     .title-content {
       position: relative;
       height: 80px;
-      width: 544px;
+      // width: 100%;
       margin: auto;
-      margin-top: 100px;
+      margin-top: 150px;
+      display: block;
+      text-align: center;
+      display: flex;
+      justify-content: center;
       .title {
         font-weight: bold;
         font-size: 52px;
         color: #1a1a1a;
-        width: 100%;
+        width: auto;
         height: 100%;
-        position: absolute;
-        z-index: 2;
-        bottom: 0;
+        position: relative;
+        color: #ffffff;
+        .con{
+          position: absolute;
+          z-index: 2;
+          bottom: 0;
+          font-weight: bold;
+          font-size: 52px;
+          color: #1a1a1a;
+        }
+        .line {
+          display: block;
+          width: 204px;
+          height: 16px;
+          background: #fed15f;
+          position: absolute;
+          bottom: 10px;
+          // left: 0px;
+          z-index: 1;
+      }
       }
 
-      > span {
-        display: block;
-        width: 204px;
-        height: 16px;
-        background: #fed15f;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        z-index: 1;
-      }
+      
     }
   }
 }

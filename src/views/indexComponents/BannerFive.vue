@@ -2,11 +2,11 @@
   <div class="banner-5-div">
     <div class="content">
       <el-row>
-        <el-col :span="12" class="left">
+        <el-col :span="14" class="left">
           <div class="title">{{ $t('bannerFive.exclusiveHardware') }}</div>
           <div class="sub-title">{{ $t('bannerFive.reasonablePrice') }}</div>
         </el-col>
-        <el-col :span="12" class="right">
+        <el-col :span="10" class="right">
           <div class="one-div">
             <span>{{ $t('bannerFive.limitedTimeOffer') }}</span>
             <span>{{ $t('bannerFive.discountedPrice') }}</span>

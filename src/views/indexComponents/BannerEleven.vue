@@ -36,7 +36,7 @@
                 <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
-                    <span class="line"></span>
+                    <!-- <span class="line"></span> -->
                   </div>
                   <div class="wx-img">
                     <p>
@@ -50,7 +50,7 @@
                 <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
-                    <span class="line"></span>
+                    <!-- <span class="line"></span> -->
                   </div>
                   <div class="wx-img">
                     <p>

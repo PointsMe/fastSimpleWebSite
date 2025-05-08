@@ -1,15 +1,21 @@
 <template>
   <div class="banner-two">
     <div class="title-content">
-      <div class="title">{{ $t('bannerTwo.title') }}</div>
-      <span></span>
+      <div class="title">
+          <span class="con">{{ $t('bannerTwo.title') }}</span>
+          <span class="line"></span>
+          {{ $t('bannerTwo.title') }}
+      </div>
     </div>
     <div class="sub-title-con">
       {{ $t('bannerTwo.subTitle') }}
     </div>
     <div class="title-content-1">
-      <div class="title">{{ $t('bannerTwo.whyChoose') }}</div>
-      <span></span>
+      <div class="title">
+          <span class="con">{{ $t('bannerTwo.whyChoose') }}</span>
+          <span class="line"></span>
+          {{ $t('bannerTwo.whyChoose') }}
+      </div>
     </div>
     <div class="choose-fast">
       <el-row>
@@ -281,61 +287,85 @@ defineOptions({
   }
 
   .title-content {
-    position: relative;
-    width: 574px;
-    height: 64px;
-    margin-left: 428px;
-    margin-top: 150px;
-
-    .title {
-      font-weight: bold;
-      font-size: 52px;
-      color: #1a1a1a;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 2;
-    }
-
-    > span {
+      position: relative;
+      height: 80px;
+      // width: 100%;
+      margin: auto;
+      margin-top: 150px;
       display: block;
-      width: 204px;
-      height: 16px;
-      background: #fed15f;
-      position: absolute;
-      bottom: -5px;
-      right: 0;
-      z-index: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      .title {
+        font-weight: bold;
+        font-size: 52px;
+        color: #1a1a1a;
+        width: auto;
+        height: 100%;
+        position: relative;
+        color: #ffffff;
+        .con{
+          position: absolute;
+          z-index: 2;
+          bottom: 0;
+          font-weight: bold;
+          font-size: 52px;
+          color: #1a1a1a;
+        }
+        .line {
+          display: block;
+          width: 204px;
+          height: 16px;
+          background: #fed15f;
+          position: absolute;
+          bottom: 10px;
+          // left: 0px;
+          z-index: 1;
+      }
+      }
+
+      
     }
-  }
 
   .title-content-1 {
-    position: relative;
-    margin-left: 662px;
-    margin-right: 662px;
-    margin-top: 200px;
-    height: 64px;
-
-    .title {
-      font-weight: bold;
-      font-size: 52px;
-      color: #1a1a1a;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 2;
-    }
-
-    > span {
+      position: relative;
+      height: 80px;
+      // width: 100%;
+      margin: auto;
+      margin-top: 150px;
       display: block;
-      width: 204px;
-      height: 16px;
-      background: #fed15f;
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      z-index: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      .title {
+        font-weight: bold;
+        font-size: 52px;
+        color: #1a1a1a;
+        width: auto;
+        height: 100%;
+        position: relative;
+        color: #ffffff;
+        .con{
+          position: absolute;
+          z-index: 2;
+          bottom: 0;
+          font-weight: bold;
+          font-size: 52px;
+          color: #1a1a1a;
+        }
+        .line {
+          display: block;
+          width: 204px;
+          height: 16px;
+          background: #fed15f;
+          position: absolute;
+          bottom: 10px;
+          // left: 0px;
+          z-index: 1;
+      }
+      }
+
+      
     }
-  }
 }
 </style>

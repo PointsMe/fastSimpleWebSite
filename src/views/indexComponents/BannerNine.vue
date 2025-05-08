@@ -9,7 +9,7 @@
       <p>{{ $t('bannerNine.supportSubtitle') }}</p>
     </div>
     <div class="top-f">
-      <el-row :gutter="12">
+      <el-row :gutter="12" class="line-height-row">
         <el-col :span="8">
           <div class="current-f">
             <p>{{ $t('bannerNine.services.selfService.title') }}</p>
@@ -32,6 +32,7 @@
             <p>{{ $t('bannerNine.services.remoteSupport.description') }}</p>
           </div>
         </el-col>
+
       </el-row>
     </div>
 
@@ -116,12 +117,17 @@
     width: 1280px;
     margin: auto;
     margin-top: 60px;
-
+    .line-height-row{
+      .el-col {
+          display: flex;
+          flex-direction: column;
+        }
+    }
     .current-f {
       text-align: center;
       padding: 16px 26px;
       border-left: 1px solid #1b1b1b;
-
+      height: 100%;
       > p:first-child {
         font-weight: bold;
         font-size: 24px;

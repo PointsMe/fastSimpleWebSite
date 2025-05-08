@@ -45,26 +45,26 @@
   .current-target {
     .current-two {
       position: relative;
-      height: 129px;
+      // height: 129px;
       width: 100%;
       text-align: left;
-
+      padding-bottom: 15px;
       .content {
         // padding: 24px;
         font-weight: 400;
         font-size: 18px;
         color: #666666;
-        padding-left: 426px;
+        padding-left: 456px;
         padding-top: 45px;
         padding-right: 24px;
       }
 
       .border-a {
         width: 836px;
-        height: 93px;
+        height: 129px;
         border-right: 1px solid #1b1b1b;
         border-bottom: 1px solid #1b1b1b;
-        border-radius: 5px;
+        border-radius: 5px 0 5px 5px;
         position: absolute;
         right: 0;
         bottom: 0;
@@ -73,7 +73,7 @@
 
     .current-one {
       position: relative;
-      height: 129px;
+      // height: 129px;
       width: 100%;
 
       .num {
@@ -87,7 +87,7 @@
       }
 
       .content {
-        padding: 24px;
+        padding: 24px 45px 24px 24px;
 
         p {
           margin: 0;
@@ -112,7 +112,7 @@
         height: 129px;
         border-left: 1px solid #1b1b1b;
         border-top: 1px solid #1b1b1b;
-        border-radius: 5px;
+        border-radius: 5px 0 0 5px;
         position: absolute;
         left: 0;
         top: 0;
