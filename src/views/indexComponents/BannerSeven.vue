@@ -1,8 +1,8 @@
 <template>
   <div class="banner-7-div">
     <div class="content">
-      <div class="title">税务管理的完美解决方案</div>
-      <div class="sub-title">我们的解决方案帮助企业</div>
+      <div class="title">{{ $t('bannerSeven.perfectSolution') }}</div>
+      <div class="sub-title">{{ $t('bannerSeven.helpBusinesses') }}</div>
       <div class="list">
         <el-row>
           <el-col :span="8">
@@ -22,7 +22,7 @@
           </el-col>
         </el-row>
         <div class="con-con">
-          FastSimple专为街头小吃、咖啡和快餐车而设计，结合了自助订购、安全的数字支付和简化的队列管理，提供了效率、价格实惠和简单性
+          {{ $t('bannerSeven.description') }}
         </div>
       </div>
     </div>

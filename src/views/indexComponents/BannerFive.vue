@@ -3,22 +3,22 @@
     <div class="content">
       <el-row>
         <el-col :span="12" class="left">
-          <div class="title">独家硬件包</div>
-          <div class="sub-title">价格合理，效率高，随时可用</div>
+          <div class="title">{{ $t('bannerFive.exclusiveHardware') }}</div>
+          <div class="sub-title">{{ $t('bannerFive.reasonablePrice') }}</div>
         </el-col>
         <el-col :span="12" class="right">
           <div class="one-div">
-            <span>限时提供 800€</span>
-            <span>400€</span>
+            <span>{{ $t('bannerFive.limitedTimeOffer') }}</span>
+            <span>{{ $t('bannerFive.discountedPrice') }}</span>
           </div>
           <div class="two-div">
-            *附加系统费用<span class="color-a">20€/月</span> (包括一台平板电脑和一台打印机)
+            {{ $t('bannerFive.additionalFee') }}<span class="color-a">{{ $t('bannerFive.monthlyFee') }}</span> {{ $t('bannerFive.feeDescription') }}
           </div>
         </el-col>
       </el-row>
       <el-row class="margin-top-50">
-        <el-col :span="12" class="left-a"> 前往商城，<span class="color-a">查看更多</span> </el-col>
-        <el-col :span="12" class="right-a"> *图片仅供参考。具体型号请联系客服 </el-col>
+        <el-col :span="12" class="left-a"> {{ $t('bannerFive.goToShop') }}<span class="color-a">{{ $t('bannerFive.viewMore') }}</span> </el-col>
+        <el-col :span="12" class="right-a"> {{ $t('bannerFive.imageDisclaimer') }} </el-col>
       </el-row>
       <el-row :gutter="12">
         <el-col :span="8">

@@ -4,12 +4,12 @@
       <el-row>
         <el-col :span="10" class="col-con">
           <div class="col-left">
-            <p>联系我们</p>
-            <p>与我们联系以获取专家支持和合作机会</p>
+            <p>{{ $t('bannerTen.contactUs') }}</p>
+            <p>{{ $t('bannerTen.contactDescription') }}</p>
           </div>
           <div class="con-left-i">
-            <p>邮箱: info@yine.it</p>
-            <p>地址: Via Procaccini 11, 20154 – Milano (MI)</p>
+            <p>{{ $t('bannerTen.email') }}: info@yine.it</p>
+            <p>{{ $t('bannerTen.address') }}: Via Procaccini 11, 20154 – Milano (MI)</p>
           </div>
         </el-col>
         <el-col :span="14">
@@ -22,60 +22,60 @@
             >
               <el-row :gutter="12">
                 <el-col :span="12">
-                  <el-form-item label="姓名" :label-position="'top'">
+                  <el-form-item :label="$t('bannerTen.form.name')" :label-position="'top'">
                     <el-input
                       class="bg-input"
-                      placeholder="请输入您的姓"
+                      :placeholder="$t('bannerTen.form.namePlaceholder')"
                       size="large"
                       v-model="formLabelAlign.name"
                     />
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                  <el-form-item label="邮箱" :label-position="'top'">
+                  <el-form-item :label="$t('bannerTen.form.email')" :label-position="'top'">
                     <el-input
                       class="bg-input"
-                      placeholder="请输入您的邮箱"
+                      :placeholder="$t('bannerTen.form.emailPlaceholder')"
                       size="large"
-                      v-model="formLabelAlign.name"
+                      v-model="formLabelAlign.email"
                     />
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                  <el-form-item label="电话" :label-position="'top'">
+                  <el-form-item :label="$t('bannerTen.form.phone')" :label-position="'top'">
                     <el-input
                       class="bg-input"
-                      placeholder="请输入您的电话"
+                      :placeholder="$t('bannerTen.form.phonePlaceholder')"
                       size="large"
-                      v-model="formLabelAlign.name"
+                      v-model="formLabelAlign.tel"
                     />
                   </el-form-item>
                 </el-col>
                 <el-col :span="12">
-                  <el-form-item label="公司" :label-position="'top'">
+                  <el-form-item :label="$t('bannerTen.form.company')" :label-position="'top'">
                     <el-input
                       class="bg-input"
-                      placeholder="请输入您的公司"
+                      :placeholder="$t('bannerTen.form.companyPlaceholder')"
                       size="large"
-                      v-model="formLabelAlign.name"
+                      v-model="formLabelAlign.componey"
                     />
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
-                  <el-form-item label="消息" :label-position="'top'">
+                  <el-form-item :label="$t('bannerTen.form.message')" :label-position="'top'">
                     <el-input
                       :rows="6"
                       class="bg-input"
                       type="textarea"
-                      placeholder="请输入"
+                      :placeholder="$t('bannerTen.form.messagePlaceholder')"
                       size="large"
-                      v-model="formLabelAlign.name"
+                      v-model="formLabelAlign.message"
                     />
                   </el-form-item>
                 </el-col>
                 <el-col :span="24">
                   <div class="btn-div">
-                    <el-button class="btn">发送消息</el-button>
+                    <el-button class="btn">{{ $t('bannerTen.form.sendMessage') }}</el-button>
                   </div>
                 </el-col>
               </el-row>

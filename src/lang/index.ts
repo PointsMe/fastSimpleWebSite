@@ -2,10 +2,18 @@ import {getLanguage} from "@/utils/cache/cookies"
 import { createI18n } from 'vue-i18n'
 import zh from './zh/index' 
 import en from './en/index'
+import it from './it/index'
+import fr from './fr/index'
+import de from './de/index'
+import es from './es/index'
 /* 这里必须是messages名称 */
 const messages = {
     'zh-US' : zh,
-    'en-US' : en
+    'en-US' : en,
+    'it' : it,
+    'fr' : fr,
+    'de' : de,
+    'es' : es,
 }
 
 const i18n = createI18n({

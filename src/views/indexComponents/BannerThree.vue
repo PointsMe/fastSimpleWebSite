@@ -1,25 +1,25 @@
 <template>
   <div class="b-3-div">
-    <div class="title">多语言支持</div>
-    <div class="sub-title">支持7种语言，为客户和员工提供国际服务</div>
+    <div class="title">{{ $t('bannerThree.title') }}</div>
+    <div class="sub-title">{{ $t('bannerThree.subTitle') }}</div>
     <div class="con-lan">
       <el-row>
         <el-col :span="8">
           <div class="col-lang">
             <img src="@/assets/fastsImages/b-3-2.png" alt="" />
-            <span>Hello</span>
+            <span>{{ $t('bannerThree.greetings.english') }}</span>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="col-lang">
             <img src="@/assets/fastsImages/b-3-3.png" alt="" />
-            <span>Bonjour</span>
+            <span>{{ $t('bannerThree.greetings.french') }}</span>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="col-lang">
             <img src="@/assets/fastsImages/b-3-4.png" alt="" />
-            <span>Hallo</span>
+            <span>{{ $t('bannerThree.greetings.german') }}</span>
           </div>
         </el-col>
       </el-row>
@@ -27,25 +27,32 @@
         <el-col :span="8">
           <div class="col-lang1">
             <img src="@/assets/fastsImages/b-3-5.png" alt="" />
-            <span>你好</span>
+            <span>{{ $t('bannerThree.greetings.chinese') }}</span>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="col-lang1">
             <img src="@/assets/fastsImages/b-3-6.png" alt="" />
-            <span>Ciao</span>
+            <span>{{ $t('bannerThree.greetings.italian') }}</span>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="col-lang1">
             <img src="@/assets/fastsImages/b-3-7.png" alt="" />
-            <span>Hola</span>
+            <span>{{ $t('bannerThree.greetings.spanish') }}</span>
           </div>
         </el-col>
       </el-row>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+defineOptions({
+  name: 'bannerThree'
+})
+</script>
+
 <style scoped lang="less">
 .b-3-div {
   height: 618px;

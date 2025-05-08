@@ -1,36 +1,35 @@
 <template>
   <div class="banner-9-div">
     <div class="top">
-      <p>简化税务管理</p>
-      <p>选择我们的智能解决方案，以保持您的业务领先，毫不费力地遵守西班牙不断变化的税收法规。</p>
+      <p>{{ $t('bannerNine.title') }}</p>
+      <p>{{ $t('bannerNine.subtitle') }}</p>
     </div>
     <div class="top-t">
-      <p>全面支持安心工作</p>
-      <p>确保餐厅运作顺畅</p>
+      <p>{{ $t('bannerNine.supportTitle') }}</p>
+      <p>{{ $t('bannerNine.supportSubtitle') }}</p>
     </div>
     <div class="top-f">
       <el-row :gutter="12">
         <el-col :span="8">
           <div class="current-f">
-            <p>自助服务</p>
+            <p>{{ $t('bannerNine.services.selfService.title') }}</p>
             <p>
-              平台可自动创建符合 FatturaPA
-              标准的XML结构电子发票，并对接SDI通道，实现B2B/B2C发票合法合规流转
+              {{ $t('bannerNine.services.selfService.description') }}
             </p>
           </div>
         </el-col>
 
         <el-col :span="8">
           <div class="current-f">
-            <p>现场和远程支持</p>
-            <p>免费设置和启动支持，无忧开业。</p>
+            <p>{{ $t('bannerNine.services.onSiteSupport.title') }}</p>
+            <p>{{ $t('bannerNine.services.onSiteSupport.description') }}</p>
           </div>
         </el-col>
 
         <el-col :span="8">
           <div class="current-f">
-            <p>通过微信进行远程支持</p>
-            <p>与技术人员实时沟通解决问题。</p>
+            <p>{{ $t('bannerNine.services.remoteSupport.title') }}</p>
+            <p>{{ $t('bannerNine.services.remoteSupport.description') }}</p>
           </div>
         </el-col>
       </el-row>
@@ -42,8 +41,8 @@
           <img src="@/assets/fastsImages/b-9-1.png" alt="" />
         </div>
         <div>
-          <p>通过远程和现场服务提供全渠道支持</p>
-          <p>远程和AI服务支持。多种支持渠道，从远程电话指导到现场协助，旨在支持您的业务增长</p>
+          <p>{{ $t('bannerNine.features.omniChannel.title') }}</p>
+          <p>{{ $t('bannerNine.features.omniChannel.description') }}</p>
         </div>
       </div>
       <div class="flex1 flex1-g">
@@ -51,8 +50,8 @@
           <img src="@/assets/fastsImages/b-9-2.png" alt="" />
         </div>
         <div>
-          <p>完全内部开发，拥有专家技术支持</p>
-          <p>内部研发确保优质服务，专业团队提供全面的技术和客户支持</p>
+          <p>{{ $t('bannerNine.features.inHouse.title') }}</p>
+          <p>{{ $t('bannerNine.features.inHouse.description') }}</p>
         </div>
       </div>
     </div>

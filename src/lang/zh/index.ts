@@ -108,5 +108,132 @@ bannerOne: {
     allergenScreening: "过敏原筛查",
     allergenScreeningDesc1: "顾客可以预先选择过敏原选项，系统会自",
     allergenScreeningDesc2: "动过滤危险成分，确保用餐安全。"
+  },
+  bannerThree: {
+    title: "多语言支持",
+    subTitle: "支持7种语言，为客户和员工提供国际服务",
+    greetings: {
+        english: "Hello",
+        french: "Bonjour",
+        german: "Hallo",
+        chinese: "你好",
+        italian: "Ciao",
+        spanish: "Hola"
+    }
+  },
+  bannerFour: {
+    idealBusiness: "FastSimple的理想业务",
+    solutionForSmallBusinesses: "为中小型企业量身定做的解决方案",
+    flexiblePayment: "灵活的支付",
+    multiplePaymentOptions: "多种付款选择与集成电子发票",
+    multiplePaymentMethods: "多种支付方式",
+    satisfyCustomerPreferences: "更能满足客户多样化的喜好。",
+    billingOptions: "计费选项",
+    adaptToVariousScenarios: "适应各种场景",
+    provideAllPayments: "提供支付所有",
+    splitEvenly: "平分秋色",
+    payAsNeeded: "Pay-as-needed",
+    billingPerOrder: "每个订单计费",
+    currencySupport: "多种货币的支持",
+    currencySupportDesc: "轻松处理各种货币的交易，以满足全球业务需求",
+    paymentScenarios: "多种支付场景",
+    paymentScenariosDesc: "可适应就餐、外卖等支付场景，提升客户满意度",
+    eInvoicing: "集成E-Invoicing",
+    eInvoicingDesc: "与税务机关的直接连接消除了对第三方平台的需求，简化了流程并确保合规性"
+  },
+  bannerFive: {
+    exclusiveHardware: "独家硬件包",
+    reasonablePrice: "价格合理，效率高，随时可用",
+    limitedTimeOffer: "限时提供 800€",
+    discountedPrice: "400€",
+    additionalFee: "*附加系统费用",
+    monthlyFee: "20€/月",
+    feeDescription: "(包括一台平板电脑和一台打印机)",
+    goToShop: "前往商城，",
+    viewMore: "查看更多",
+    imageDisclaimer: "*图片仅供参考。具体型号请联系客服"
+  },
+  bannerSix: {
+    digitalTaxCompliance: "数字税务合规变得容易",
+    tailoredSolution: "为中小型企业量身定做的解决方案",
+    autoDataSubmission: "自动提交数据",
+    instantDataTransmission: "即时向税务机关发送交易数据",
+    regulations: "法规是怎么说的？",
+    regulationDetails: "根据开具电子收据的规定，商户必须使用符合意大利税务局规定规格的税控收银机。这些设备生成合法的收据，并允许客户选择是否接收打印副本"
+  },
+  bannerSeven: {
+    perfectSolution: "税务管理的完美解决方案",
+    helpBusinesses: "我们的解决方案帮助企业",
+    description: "FastSimple专为街头小吃、咖啡和快餐车而设计，结合了自助订购、安全的数字支付和简化的队列管理，提供了效率、价格实惠和简单性"
+  },
+  bannerEight: {
+    invoiceTitle: {
+      first: "西班牙的自动发票",
+      second: "轻松遵守税务法规"
+    },
+    invoiceDescription: "我们的订购系统现在为西班牙企业提供自动发票生成和报告服务。该系统自动生成具有唯一代码和QR码的税务发票，确保合法性和可验证性。相关信息实时传递给税务机关，消除人工流程，提高效率。",
+    taxSystemTitle: {
+      first: "与先进的税收系统完全集成",
+      second: "与先进的税收系统完全集成"
+    },
+    taxSystemDescription: "与TicketBAI和Veri Factu系统完全集成，由西班牙省级税务机关认证和批准。符合2024年财政改革法案，并支持新的Facturación Electrónica强制性法规。"
+  },
+  
+  bannerNine: {
+    title: "简化税务管理",
+    subtitle: "选择我们的智能解决方案，以保持您的业务领先，毫不费力地遵守西班牙不断变化的税收法规。",
+    supportTitle: "全面支持安心工作",
+    supportSubtitle: "确保餐厅运作顺畅",
+    services: {
+      selfService: {
+        title: "自助服务",
+        description: "平台可自动创建符合 FatturaPA 标准的XML结构电子发票，并对接SDI通道，实现B2B/B2C发票合法合规流转"
+      },
+      onSiteSupport: {
+        title: "现场和远程支持",
+        description: "免费设置和启动支持，无忧开业。"
+      },
+      remoteSupport: {
+        title: "通过微信进行远程支持",
+        description: "与技术人员实时沟通解决问题。"
+      }
+    },
+    features: {
+      omniChannel: {
+        title: "通过远程和现场服务提供全渠道支持",
+        description: "远程和AI服务支持。多种支持渠道，从远程电话指导到现场协助，旨在支持您的业务增长"
+      },
+      inHouse: {
+        title: "完全内部开发，拥有专家技术支持",
+        description: "内部研发确保优质服务，专业团队提供全面的技术和客户支持"
+      }
+    }
+  },
+  
+  bannerTen: {
+    contactUs: "联系我们",
+    contactDescription: "与我们联系以获取专家支持和合作机会",
+    email: "邮箱",
+    address: "地址",
+    form: {
+      name: "姓名",
+      namePlaceholder: "请输入您的姓",
+      email: "邮箱",
+      emailPlaceholder: "请输入您的邮箱",
+      phone: "电话",
+      phonePlaceholder: "请输入您的电话",
+      company: "公司",
+      companyPlaceholder: "请输入您的公司",
+      message: "消息",
+      messagePlaceholder: "请输入",
+      sendMessage: "发送消息"
+    }
+  },
+  
+  bannerEleven: {
+    technicalAdvisor: "技术顾问",
+    wechat: "微信",
+    copyright: "Copyright © 2024 PointsMe By Yine Srl, 版权所有",
+    terms: "Termini"
   }
 }

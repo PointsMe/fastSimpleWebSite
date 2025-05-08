@@ -2,10 +2,10 @@
   <div class="banner-6-div">
     <div class="con-job">
       <div class="title-content">
-        <div class="title">数字税务合规变得容易</div>
+        <div class="title">{{ $t('bannerSix.digitalTaxCompliance') }}</div>
         <span></span>
       </div>
-      <div class="sub-title">为中小型企业量身定做的解决方案</div>
+      <div class="sub-title">{{ $t('bannerSix.tailoredSolution') }}</div>
     </div>
     <div class="list-number">
       <el-row>
@@ -13,8 +13,8 @@
           <div class="con-con">
             <div class="bg-num bg-num1"></div>
             <div class="con-con-b">
-              <p>自动提交数据</p>
-              <p>即时向税务机关发送交易数据</p>
+              <p>{{ $t('bannerSix.autoDataSubmission') }}</p>
+              <p>{{ $t('bannerSix.instantDataTransmission') }}</p>
             </div>
           </div>
         </el-col>
@@ -22,8 +22,8 @@
           <div class="con-con">
             <div class="bg-num bg-num2"></div>
             <div class="con-con-b">
-              <p>自动提交数据</p>
-              <p>即时向税务机关发送交易数据</p>
+              <p>{{ $t('bannerSix.autoDataSubmission') }}</p>
+              <p>{{ $t('bannerSix.instantDataTransmission') }}</p>
             </div>
           </div>
         </el-col>
@@ -31,8 +31,8 @@
           <div class="con-con">
             <div class="bg-num bg-num3"></div>
             <div class="con-con-b">
-              <p>自动提交数据</p>
-              <p>即时向税务机关发送交易数据</p>
+              <p>{{ $t('bannerSix.autoDataSubmission') }}</p>
+              <p>{{ $t('bannerSix.instantDataTransmission') }}</p>
             </div>
           </div>
         </el-col>
@@ -40,11 +40,11 @@
     </div>
     <div class="con-job">
       <div class="title-content">
-        <div class="title">法规是怎么说的？</div>
+        <div class="title">{{ $t('bannerSix.regulations') }}</div>
         <span style="left: 0.4rem; width: 0.5rem"></span>
       </div>
       <div class="sub-title">
-        根据开具电子收据的规定，商户必须使用符合意大利税务局规定规格的税控收银机。这些设备生成合法的收据，并允许客户选择是否接收打印副本
+        {{ $t('bannerSix.regulationDetails') }}
       </div>
     </div>
   </div>

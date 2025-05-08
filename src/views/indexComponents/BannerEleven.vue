@@ -5,11 +5,11 @@
         <el-col :span="12">
           <div class="nav-menu">
             <el-menu mode="horizontal" :ellipsis="false" class="menu">
-              <el-menu-item index="1">主页</el-menu-item>
-              <el-menu-item index="2">商城</el-menu-item>
-              <el-menu-item index="3">服务支持</el-menu-item>
-              <el-menu-item index="4">关于我们</el-menu-item>
-              <el-menu-item index="5">联系我们</el-menu-item>
+              <el-menu-item index="1">{{ $t('navigation.home') }}</el-menu-item>
+              <el-menu-item index="2">{{ $t('navigation.shop') }}</el-menu-item>
+              <el-menu-item index="3">{{ $t('navigation.support') }}</el-menu-item>
+              <el-menu-item index="4">{{ $t('navigation.about') }}</el-menu-item>
+              <el-menu-item index="5">{{ $t('navigation.contact') }}</el-menu-item>
               <el-menu-item index="7">
                 <el-dropdown @command="handleCommand" trigger="click">
                   <span class="language-selector">
@@ -35,7 +35,7 @@
               <el-col :span="12">
                 <div class="code-div">
                   <div class="code-top">
-                    技术顾问
+                    {{ $t('bannerEleven.technicalAdvisor') }}
                     <span class="line"></span>
                   </div>
                   <div class="wx-img">
@@ -44,12 +44,12 @@
                     </p>
                   </div>
                 </div>
-                <div class="wx-div">微信:wxid_g1oajzv7yyu922</div>
+                <div class="wx-div">{{ $t('bannerEleven.wechat') }}:wxid_g1oajzv7yyu922</div>
               </el-col>
               <el-col :span="12">
                 <div class="code-div">
                   <div class="code-top">
-                    技术顾问
+                    {{ $t('bannerEleven.technicalAdvisor') }}
                     <span class="line"></span>
                   </div>
                   <div class="wx-img">
@@ -58,7 +58,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="wx-div" style="text-indent: 0">微信:PM3242850588</div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:PM3242850588</div>
               </el-col>
             </el-row>
           </div>
@@ -66,7 +66,7 @@
       </el-row>
     </div>
     <div class="des">
-      Copyright © 2024 PointsMe By Yine Srl, 版权所有 - P.iva: 08435150969 -<span class="line-th">Termini</span>
+      {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 -<span class="line-th">{{ $t('bannerEleven.terms') }}</span>
     </div>
     <div class="des-img">
       <img src="@/assets/fastsImages/b-11-3.png" alt="" />

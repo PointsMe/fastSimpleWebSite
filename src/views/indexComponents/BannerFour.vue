@@ -2,26 +2,26 @@
   <div class="banner-4-div">
     <div class="con-job">
       <div class="title-content">
-        <div class="title">FastSimple的理想业务</div>
+        <div class="title">{{ $t('bannerFour.idealBusiness') }}</div>
         <span></span>
       </div>
-      <div class="sub-title">为中小型企业量身定做的解决方案</div>
+      <div class="sub-title">{{ $t('bannerFour.solutionForSmallBusinesses') }}</div>
     </div>
     <div class="con-list"></div>
     <div class="pay-style">
       <div class="title-content">
-        <div class="title">灵活的支付</div>
+        <div class="title">{{ $t('bannerFour.flexiblePayment') }}</div>
         <span></span>
       </div>
-      <div class="sub-title">多种付款选择与集成电子发票</div>
+      <div class="sub-title">{{ $t('bannerFour.multiplePaymentOptions') }}</div>
       <div class="pay-list">
         <el-row :gutter="12">
           <el-col :span="12">
             <el-row>
               <el-col :span="12"> </el-col>
               <el-col :span="12" class="height-50">
-                <div class="title">多种支付方式</div>
-                <div class="sub-t">更能满足客户多样化的喜好。</div>
+                <div class="title">{{ $t('bannerFour.multiplePaymentMethods') }}</div>
+                <div class="sub-t">{{ $t('bannerFour.satisfyCustomerPreferences') }}</div>
               </el-col>
             </el-row>
             <el-row>
@@ -93,8 +93,8 @@
             </el-col>
             <el-col :span="4">
               <div class="name">
-                <p>计费选项</p>
-                <p>适应各种场景</p>
+                <p>{{ $t('bannerFour.billingOptions') }}</p>
+                <p>{{ $t('bannerFour.adaptToVariousScenarios') }}</p>
               </div>
             </el-col>
             <el-col :span="10" class="col-relative">
@@ -107,25 +107,25 @@
             <el-col :span="6">
               <div class="col-one">
                 <span>01</span>
-                提供支付所有
+                {{ $t('bannerFour.provideAllPayments') }}
               </div>
             </el-col>
             <el-col :span="6">
               <div class="col-one">
                 <span>02</span>
-                平分秋色
+                {{ $t('bannerFour.splitEvenly') }}
               </div>
             </el-col>
             <el-col :span="6">
               <div class="col-one">
                 <span>03</span>
-                Pay-as-needed
+                {{ $t('bannerFour.payAsNeeded') }}
               </div>
             </el-col>
             <el-col :span="6">
               <div class="col-one">
                 <span>04</span>
-                每个订单计费
+                {{ $t('bannerFour.billingPerOrder') }}
               </div>
             </el-col>
           </el-row>
@@ -135,24 +135,22 @@
             <el-col :span="8">
               <div class="con-a">
                 <img src="@/assets/fastsImages/b-4-11.png" alt="" />
-                <p class="f-p">多种货币的支持</p>
-                <p class="s-p">轻松处理各种货币的交易，以满足全球业务需求</p>
+                <p class="f-p">{{ $t('bannerFour.currencySupport') }}</p>
+                <p class="s-p">{{ $t('bannerFour.currencySupportDesc') }}</p>
               </div>
             </el-col>
             <el-col :span="8">
               <div class="con-a">
                 <img src="@/assets/fastsImages/b-4-12.png" alt="" />
-                <p class="f-p">多种支付场景</p>
-                <p class="s-p">可适应就餐、外卖等支付场景，提升客户满意度</p>
+                <p class="f-p">{{ $t('bannerFour.paymentScenarios') }}</p>
+                <p class="s-p">{{ $t('bannerFour.paymentScenariosDesc') }}</p>
               </div>
             </el-col>
             <el-col :span="8">
               <div class="con-a">
                 <img src="@/assets/fastsImages/b-4-13.png" alt="" />
-                <p class="f-p">集成E-Invoicing</p>
-                <p class="s-p">
-                  与税务机关的直接连接消除了对第三方平台的需求，简化了流程并确保合规性
-                </p>
+                <p class="f-p">{{ $t('bannerFour.eInvoicing') }}</p>
+                <p class="s-p">{{ $t('bannerFour.eInvoicingDesc') }}</p>
               </div>
             </el-col>
           </el-row>

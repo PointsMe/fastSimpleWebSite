@@ -4,15 +4,15 @@
       <div class="current-one">
         <div class="border-a"></div>
         <div class="content">
-          <p>西班牙的自动发票</p>
-          <p>轻松遵守税务法规</p>
+          <p>{{ $t('bannerEight.invoiceTitle.first') }}</p>
+          <p>{{ $t('bannerEight.invoiceTitle.second') }}</p>
         </div>
         <div class="num">01</div>
       </div>
       <div class="current-two">
         <div class="border-a"></div>
         <div class="content">
-          我们的订购系统现在为西班牙企业提供自动发票生成和报告服务。该系统自动生成具有唯一代码和QR码的税务发票，确保合法性和可验证性。相关信息实时传递给税务机关，消除人工流程，提高效率。
+          {{ $t('bannerEight.invoiceDescription') }}
         </div>
       </div>
     </div>
@@ -21,17 +21,15 @@
       <div class="current-one">
         <div class="border-a"></div>
         <div class="content">
-          <p>与先进的税收系统完全集成</p>
-          <p>与先进的税收系统完全集成</p>
+          <p>{{ $t('bannerEight.taxSystemTitle.first') }}</p>
+          <p>{{ $t('bannerEight.taxSystemTitle.second') }}</p>
         </div>
         <div class="num">02</div>
       </div>
       <div class="current-two">
         <div class="border-a"></div>
         <div class="content">
-          与TicketBAI和Veri
-          Factu系统完全集成，由西班牙省级税务机关认证和批准。符合2024年财政改革法案，并支持新的Facturación
-          Electrónica强制性法规。
+          {{ $t('bannerEight.taxSystemDescription') }}
         </div>
       </div>
     </div>
