@@ -65,10 +65,10 @@ const tabArr = ref<Array<{
 //     subtitle: '升级套餐',
 //     checked: false
 // },hardwareSelection
-const toPayDrawer = ()=>{
-    console.log("toPayDrawer=>",DrawerRef)
+const toPayDrawer = (orderList:any)=>{
+    console.log("toPayDrawer=>",shoppingCartStore.cart)
     if(DrawerRef.value){
-        DrawerRef.value.showDrawer()
+        DrawerRef.value.showDrawer(orderList)
     }
 }
 const changeTab = (val: string) => {

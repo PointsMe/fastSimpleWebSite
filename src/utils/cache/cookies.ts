@@ -23,6 +23,18 @@ export const removeToken = ()=>{
     return window.localStorage.removeItem('token')
 }
 
+export const setOrderId = (value: string)=>{
+    return window.localStorage.setItem('orderId',value)
+}
+
+export const getOrderId = ()=>{
+    return window.localStorage.getItem('orderId')
+}
+
+export const removeOrderId = ()=>{
+    return window.localStorage.removeItem('orderId')
+}
+
 export const setCountryListStorage = (value:any)=>{
     return window.localStorage.setItem('countryList',JSON.stringify(value))
 }

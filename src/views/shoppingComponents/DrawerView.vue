@@ -44,16 +44,16 @@
                             收货信息
                         </p>
                         <div class="form-message">
-                            <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="auto">
+                            <el-form ref="ruleFormRef" :model="formModel" :rules="rules" label-width="auto">
                                 <el-row :gutter="12">
                                     <el-col :span="12">
-                                        <el-form-item label="" prop="name">
-                                            <el-input size="default" v-model="ruleForm.name" placeholder="名称" />
+                                        <el-form-item label="" prop="contactName">
+                                            <el-input size="default" v-model="formModel.contactName" placeholder="名称" />
                                         </el-form-item>
                                     </el-col>
                                     <el-col :span="12">
-                                        <el-form-item label="" prop="tel">
-                                            <el-input size="default" v-model="ruleForm.tel" placeholder="号码">
+                                        <el-form-item label="" prop="contactPhone">
+                                            <el-input size="default" v-model="formModel.contactPhone" placeholder="号码">
                                                 <template #prepend>
                                                     <AllCountryView @changeCountry="changeCountry" />
                                                 </template>
@@ -61,30 +61,30 @@
                                         </el-form-item>
                                     </el-col>
                                     <el-col :span="8">
-                                        <el-form-item label="" prop="coutry">
-                                            <el-input size="default" v-model="ruleForm.coutry" placeholder="国家">
+                                        <el-form-item label="" prop="country">
+                                            <el-input size="default" v-model="formModel.country" placeholder="国家">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
                                     <el-col :span="8">
-                                        <el-form-item label="" prop="tel">
-                                            <el-input size="default" v-model="ruleForm.city" placeholder="城市">
+                                        <el-form-item label="" prop="city">
+                                            <el-input size="default" v-model="formModel.city" placeholder="城市">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
                                     <el-col :span="8">
-                                        <el-form-item label="" prop="mail">
-                                            <el-input size="default" v-model="ruleForm.mail" placeholder="邮编">
+                                        <el-form-item label="">
+                                            <el-input size="default" v-model="formModel.mail" placeholder="邮编">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
                                     <el-col :span="24">
-                                        <el-form-item label="">
-                                            <el-input size="default" v-model="ruleForm.drass" placeholder="收货地址">
+                                        <el-form-item label="" prop="address">
+                                            <el-input size="default" v-model="formModel.address" placeholder="收货地址">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="24" v-if="![82,92].includes(qrCode)">
+                                    <!-- <el-col :span="24" v-if="![82,92].includes(qrCode)">
                                         <div class="code">
                                             银行卡
                                         </div>
@@ -106,13 +106,13 @@
                                             <el-input size="default" v-model="ruleForm.code" placeholder="银行卡有效期">
                                             </el-input>
                                         </el-form-item>
-                                    </el-col>
-                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
+                                    </el-col> -->
+                                    <!-- <el-col :span="24" v-if="![82,92].includes(qrCode)">
                                         <el-form-item label="">
-                                            <el-input size="default" v-model="ruleForm.code" placeholder="CVV/CVC码">
+                                            <el-input size="default" v-model="formModel.inviteCode" placeholder="CVV/CVC码">
                                             </el-input>
                                         </el-form-item>
-                                    </el-col>
+                                    </el-col> -->
                                     <el-col :span="24">
                                         <div class="code">
                                             推荐码
@@ -120,7 +120,7 @@
                                     </el-col>
                                     <el-col :span="24">
                                         <el-form-item label="">
-                                            <el-input size="default" v-model="ruleForm.code" placeholder="输入推荐码">
+                                            <el-input size="default" v-model="formModel.inviteCode" placeholder="输入推荐码">
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
@@ -168,85 +168,43 @@
                         </el-row>
                     </div>
                     <div class="order-list">
-                        <el-row class="row-one">
+                        <el-row class="row-one" v-for="(item,index) in (orderList.items).filter((iv:any)=>iv.type === 119)" :key="index">
                             <el-col :span="20">
                                 <div class="title-i">
-                                    FASTSIMPLE BASIC基础套餐
+                                    {{ item.name }}
                                 </div>
                             </el-col>
                             <el-col :span="4">
                                 <div class="money-num">
-                                    <span>*1</span>
-                                    <span>€400</span>
+                                    <span>*{{ item.value || 1 }}</span>
+                                    <span>€{{ item.sellPrice }}</span>
+                                </div>
+                            </el-col>
+                            <el-col :span="24">
+                                <div class="goods-list">
+                                    <p v-for="(itemChild,indexChild) in item.children" :key="indexChild">
+                                        {{ itemChild.name }}
+                                    </p>
+                                </div>
+                            </el-col>
+                        </el-row>
+                        <el-row class="row-one" v-for="(item,index) in (orderList.items).filter((iv:any)=>iv.type !== 119)" :key="index">
+                            <el-col :span="20">
+                                <div class="title-i">
+                                    {{ item.name }}
+                                </div>
+                            </el-col>
+                            <el-col :span="4">
+                                <div class="money-num">
+                                    <span>*{{ item.value || 1 }}</span>
+                                    <span>€{{ item.sellPrice }}</span>
                                 </div>
                             </el-col>
                             <el-col :span="24">
                                 <div class="goods-list">
                                     <p>
-                                        平板11寸HUAWEI SE
+                                        {{ item.unit }}
                                     </p>
-                                    <p>
-                                        热敏打印机
-                                    </p>
-                                    <p>
-                                        平板收银防盗支架
-                                    </p>
-                                    <p>
-                                        FASTSIMPLE软件授权费
-                                    </p>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-one">
-                            <el-col :span="20">
-                                <div class="title-i">
-                                    FASTSIMPLE标配版年费（1打印机+1平板）
-                                </div>
-                            </el-col>
-                            <el-col :span="4">
-                                <div class="money-num">
-                                    <span>*1</span>
-                                    <span>€216</span>
-                                </div>
-                            </el-col>
-                            <el-col :span="24">
-                                <div class="goods-list">
-                                    <p>
-                                        年付
-                                    </p>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-one">
-                            <el-col :span="20">
-                                <div class="title-i">
-                                    POS机(刷卡机)
-                                </div>
-                            </el-col>
-                            <el-col :span="4">
-                                <div class="money-num">
-                                    <span>*1</span>
-                                    <span>€220</span>
-                                </div>
-                            </el-col>
-                            <el-col :span="24">
-                                <div class="goods-list">
-                                    <p>
-                                        购买
-                                    </p>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <el-row class="row-one">
-                            <el-col :span="20">
-                                <div class="title-i">
-                                    热敏打印机
-                                </div>
-                            </el-col>
-                            <el-col :span="4">
-                                <div class="money-num">
-                                    <span>*2</span>
-                                    <span>€600</span>
                                 </div>
                             </el-col>
                         </el-row>
@@ -257,7 +215,7 @@
                                 <span>总计</span>
                             </el-col>
                             <el-col :span="12" class="right">
-                                €1652
+                                €{{ orderList.totalAmount }}
                             </el-col>
                         </el-row>
                     </div>
@@ -270,38 +228,76 @@
 </template>
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import adyenPng from "@/assets/fastsImages/adyen.png"
 import guestPng from "@/assets/fastsImages/guest.png"
 import wxPng from "@/assets/fastsImages/wx.png"
 import alipayPng from "@/assets/fastsImages/alipay.png"
-import { CircleCheckFilled, CloseBold, Close } from '@element-plus/icons-vue'
+import { CircleCheckFilled, Close } from '@element-plus/icons-vue'
 import PaySuccess from "./PaySuccess.vue"
 import PayError from './PayError.vue'
 import AllCountryView from "@/components/AllCountryView.vue"
 import { debounce } from "@/utils/index"
 import { ref } from 'vue'
+import { createApi,payApi,orderListApi } from "@/apis/goods"
+import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
 interface RuleForm {
-    name: string,
-    tel: string,
-    coutry: string,
+    contactName: string,
+    contactPhone: string,
+    country: string,
     city: string,
     mail: string,
-    drass: string,
-    code: string,
+    address: string,
+    inviteCode: string,
 }
 const PaySuccessRef = ref();
 const PayErrorRef = ref();
-const countryCode = ref();
+const countryCode = ref('+86');
 const drawerStatus = ref<boolean>(false)
 const qrCode = ref()
 const showPayBtn = ref<boolean>(true)
-
-
+const ruleFormRef = ref<FormInstance>()
+const formModel = ref<RuleForm>({
+    contactName: '',
+    contactPhone: '',
+    country: '',
+    city: '',
+    mail: '',
+    address: '',
+    inviteCode: ''
+})
+const rules = reactive<FormRules<RuleForm>>({
+    contactName: [
+        { required: true, message: 'Please input contactName', trigger: 'blur' },
+    ],
+    contactPhone: [
+        { required: true, message: 'Please input contactPhone', trigger: 'blur' },
+    ],
+    country: [
+        { required: true, message: 'Please input country', trigger: 'blur' },
+    ],
+    city: [
+        { required: true, message: 'Please input city', trigger: 'blur' },
+    ],
+    // mail: [
+    //     { required: true, message: 'Please input mail', trigger: 'blur' },
+    // ],
+    address: [
+        { required: true, message: 'Please input address', trigger: 'blur' },
+    ],
+    // inviteCode: [
+    //     { required: true, message: 'Please input Activity name', trigger: 'blur' },
+    // ],
+})
+const shoppingCartStore = useShoppingCartStore()
 const changeCountry = (e: string) => {
     countryCode.value = e
 }
-const showDrawer = () => {
+const orderList = ref<any>({})
+const showDrawer = (data:any) => {
     drawerStatus.value = true
+    orderList.value = data
+    console.log("orderList===>",orderList.value,data)
 }
 const closeDrawer = () => {
     drawerStatus.value = false
@@ -313,9 +309,46 @@ const payMoney = () => {
     // if (PayErrorRef.value) {
     //     PayErrorRef.value.showModal()
     // }
-    if([82,92].includes(qrCode.value)){
-        showPayBtn.value = false
+    // if([82,92].includes(qrCode.value)){
+    //     showPayBtn.value = false
+    // }
+    if(!countryCode.value){
+        return ElMessage.warning("请选择国家")
     }
+    if (!ruleFormRef.value) return;
+    if(payStyle.value.find(iv=>iv.checked)?.id !== 101){
+        return ElMessage.warning("请选择付款方式")
+    }
+    ruleFormRef.value.validate(async (valid) => {
+            if (valid) {
+                const cart = shoppingCartStore.cart;
+                console.log("valid",valid)
+                const params = {
+                    ...cart,
+                    deliveryAddress: {
+                        ...formModel.value,
+                        contactPhone: `${countryCode.value.replace('+','')}-${formModel.value.contactPhone}`
+                    },
+                    inviteCode: formModel.value.inviteCode
+                }
+                console.log("params===>",params)
+                const {data} = await createApi(params)
+                console.log("data===>",data)
+                if(data.id){
+                    shoppingCartStore.setOrderId(data.id)
+                    const res = await payApi({
+                        orderId: data.id,
+                        paymode: payStyle.value.find(iv=>iv.checked)?.id
+                    })
+                    if(res){
+                        getOrderList()
+                    }
+                    // PaySuccessRef.value.showModal()
+                }else{
+                    // PayErrorRef.value.showModal()
+                }
+            }
+    })
 }
 const payMoneyFn = debounce(payMoney, 1000)
 const payStyle = ref<Array<{
@@ -349,28 +382,12 @@ const payStyle = ref<Array<{
         checked: false
     },
 ])
-const ruleForm = reactive<RuleForm>({
-    name: '',
-    tel: '',
-    coutry: '',
-    city: '',
-    mail: '',
-    drass: '',
-    code: ''
-})
-const rules = reactive<FormRules<RuleForm>>({
-    name: [
-        { required: true, message: 'Please input Activity name', trigger: 'blur' },
-        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-    ],
-})
-const ruleFormRef = ref<FormInstance>()
+
 const choosePayStyle = (val: number) => {
     payStyle.value = payStyle.value.map(item => {
         if (item.id === val) {
             item.checked = true
         } else {
-
             item.checked = false
         }
         return {
@@ -379,10 +396,30 @@ const choosePayStyle = (val: number) => {
     })
     showPayBtn.value = true
 }
+const getOrderList = async () => {
+    const timer = setInterval(async () => {
+        const {data} = await orderListApi()
+        console.log("data===>",data)
+        const current = data.list.find((iv:any)=>iv.id === shoppingCartStore.orderId)
+        if(current){
+            clearInterval(timer)
+            if(current.state === 101){
+                PayErrorRef.value.showModal()
+               
+            }else if(current.state === 102){ 
+                if(current.paymentState === 109){//101 创建 （待审核） 102 已接单 109 已结束 111 已取消
+                    PaySuccessRef.value.showModal()
+                }else{
+                    PayErrorRef.value.showModal()
+                }
+            }
+        }
+    }, 1000)
+}
 watch(
-    () => payStyle,
+    () => payStyle.value,
     (newVal:Array<any>) => {
-        let current = newVal.value.find(iv=>iv.checked)
+        let current = newVal.find(iv=>iv.checked)
         console.log("newVal",newVal,current)
         if(current){
             qrCode.value = current.id
@@ -391,6 +428,12 @@ watch(
     {   deep: true,
         immediate: true } // 关键选项
 );
+onMounted(()=>{
+    console.log("cart===>",shoppingCartStore.cart)
+    if(shoppingCartStore.orderId){
+        getOrderList()
+    }
+})
 defineExpose({
     showDrawer,
 })

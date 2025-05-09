@@ -18,8 +18,9 @@ export const languageList = [
     },{
         code: "es",
         label: 'Español'
-    },{
-        code: "ca",
-        label: 'Català'
-    }
+    },
+    // {
+    //     code: "ca",
+    //     label: 'Català'
+    // }
 ]

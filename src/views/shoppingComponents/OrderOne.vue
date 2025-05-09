@@ -108,11 +108,6 @@
                         </el-col>
                     </el-row>
                 </div>
-
-
-
-
-
                 <!-- <div class="content-list content-list-top">
                     <div class="list-one">
                         <el-row>
@@ -536,7 +531,7 @@ const joinUsFn = () => {
 }
 const toPay = () => {
     console.log("aaaaa")
-    emits('toPay')
+    emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
 }
 onMounted(()=>{
     getData()

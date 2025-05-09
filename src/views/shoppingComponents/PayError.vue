@@ -30,10 +30,10 @@
                 <div class="dialog-footer">
                     <el-row :gutter="12">
                         <el-col :span="12">
-                            <el-button class="cancel" @click="centerDialogVisible = false">返回商城</el-button>
+                            <el-button class="cancel" @click="closeDrawer">返回商城</el-button>
                         </el-col>
                         <el-col :span="12">
-                            <el-button class="sure" type="primary" @click="centerDialogVisible = false">
+                            <el-button class="sure" type="primary" @click="againPay">
                                 重新支付
                             </el-button>
                         </el-col>
@@ -49,13 +49,21 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Close } from '@element-plus/icons-vue'
-
+import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
+const shoppingCartStore = useShoppingCartStore()
 const centerDialogVisible = ref(false)
 const showModal = () => {
     centerDialogVisible.value = true
 }
 const closeDrawer = () => {
+    shoppingCartStore.resetOrderId()
     centerDialogVisible.value = false
+}
+/*
+    重新支付 
+*/
+const againPay = () => {
+    // centerDialogVisible.value = false
 }
 defineExpose({
     showModal

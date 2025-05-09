@@ -22,10 +22,10 @@
                 <div class="dialog-footer">
                     <el-row :gutter="12">
                         <el-col :span="12">
-                            <el-button class="cancel" @click="centerDialogVisible = false">查看订单</el-button>
+                            <el-button class="cancel" @click="checkOrder">查看订单</el-button>
                         </el-col>
                         <el-col :span="12">
-                            <el-button class="sure" type="primary" @click="centerDialogVisible = false">
+                            <el-button class="sure" type="primary" @click="closeDrawer">
                                 确认(5s)
                             </el-button>
                         </el-col>
@@ -41,13 +41,20 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Close } from '@element-plus/icons-vue'
-
+import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
+const shoppingCartStore = useShoppingCartStore()
+import { useCommonStore } from '@/stores/modules/common'
+const commonStore = useCommonStore()
 const centerDialogVisible = ref(false)
 const showModal = () => {
     centerDialogVisible.value = true
 }
+const checkOrder = () => {
+    commonStore.setShowOrderListView(true)
+}
 const closeDrawer = ()=>{
     centerDialogVisible.value = false
+    shoppingCartStore.resetOrderId()
 }
 defineExpose({
     showModal

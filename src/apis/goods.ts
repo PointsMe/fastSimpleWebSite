@@ -27,3 +27,27 @@ export function precreateApi(data:any) {
     data: data
     })
 }
+export function createApi(data:any) {
+    return request<ApiResponseData<any>>({
+    url: `/order/create`,
+    method: "post",
+    data: data
+    })
+}
+export function payApi(data:any) {
+    return request<ApiResponseData<any>>({
+    url: `/trade/create`,
+    method: "post",
+    data: data
+    })
+}
+export function orderListApi() {
+    return request<ApiResponseData<any>>({
+    url: `/me/order/page`,
+    method: "post",
+    data: {
+      "page": 1, 
+      "size": 100 
+    }
+    })
+}

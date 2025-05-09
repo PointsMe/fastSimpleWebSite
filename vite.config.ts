@@ -22,7 +22,7 @@ export default defineConfig({
     // 反向代理
     proxy: {
       "/api": {
-        target: "http://192.168.1.171:18801/api",
+        target: "http://192.168.1.101:18801/api",
         // 是否为 WebSocket
         ws: false,
         // 是否允许跨域

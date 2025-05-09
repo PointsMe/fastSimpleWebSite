@@ -1,5 +1,6 @@
 import { pinia } from "@/stores/index"
 import { defineStore } from 'pinia'
+import { setOrderId as setOrderIdStorage,getOrderId as getOrderIdStorage,removeOrderId as removeOrderIdStorage } from "@/utils/cache/cookies"
 export const useShoppingCartStore = defineStore("shoppingCart", () => {
   const cart = ref<{
     type: Number | string
@@ -8,8 +9,13 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
     type:'',
     items:[]
   })
+  const orderId = ref<string>(getOrderIdStorage() || '')
   const setCart = (value: any) => {
     cart.value = value
+  }
+  const setOrderId = (value: string) => {
+    setOrderIdStorage(value)
+    orderId.value = value
   }
   const resetCart = () => {
     cart.value = {
@@ -17,8 +23,12 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
         items:[]
       }
   }
+  const resetOrderId = () => {
+    removeOrderIdStorage()
+    orderId.value = ''
+  }
 
-  return { cart, setCart,resetCart }
+  return { cart, setCart,resetCart,orderId,setOrderId,resetOrderId }
 })
 
 

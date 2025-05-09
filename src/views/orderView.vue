@@ -21,24 +21,32 @@
           >
         </div>
         <div class="order-list">
-          <div v-if="haveOrder" class="current-one">
+          <div v-if="orderList.length > 0" class="current-one">
             <el-collapse>
-              <el-collapse-item title="Consistency" name="1">
+              <el-collapse-item title="Consistency" v-for="(item,index) in orderList" :key="index" :name="index + 1">
                 <template #title>
                   <div>
                     <el-row class="order-row-one">
                       <el-col :span="16">
                         <div class="title-left">
                           <span>订单号:</span>
-                          <span>6622626569852626</span>
-                          <span>已完成</span>
+                          <span>{{ item.id }}</span>
+                          <span>
+                             <label v-if="item.paymentState === 101">创建 （待审核）</label>
+                             <label v-if="item.paymentState === 102">已接单</label>
+                             <label v-if="item.paymentState === 109">已结束</label>
+                             <label v-if="item.paymentState === 111">已取消</label>
+                          </span>
                         </div>
                       </el-col>
                       <el-col :span="8">
                         <div class="title-right">2025-3-16</div>
                       </el-col>
                     </el-row>
-                    <div class="order-title">Fastsimple Basic <span>基础套餐</span></div>
+                    <div class="order-title" v-if="item.items.find((iv:any)=>iv.type === 119)">
+                      {{ item.items.find((iv:any)=>iv.type === 119).name }}
+                      <!-- <span>基础套餐</span> -->
+                     </div>
                     <div class="order-info">商品信息</div>
                   </div>
                 </template>
@@ -140,6 +148,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
+import { orderListApi } from "@/apis/goods";
 import { ElMessageBox } from "element-plus";
 import { useCommonStore } from "@/stores/modules/common";
 interface TabListType {
@@ -149,7 +158,6 @@ interface TabListType {
 }
 const commonStore = useCommonStore();
 const dialogVisible = ref<boolean>(false);
-const haveOrder = ref(true)
 const tabList = ref<Array<TabListType>>([
   {
     name: "全部",
@@ -172,6 +180,7 @@ const tabList = ref<Array<TabListType>>([
     checked: false,
   },
 ]);
+const orderList = ref<Array<any>>([])
 const handleClose = (done: () => void) => {
   commonStore.setShowOrderListView(false);
   done();
@@ -184,17 +193,19 @@ const changeTab = (item: TabListType) => {
     };
   });
 };
-const close = () => {
-  commonStore.setShowOrderListView(false);
-};
-const submit = () => {
-  commonStore.setShowOrderListView(false);
-};
+const getOrderList = async () => {
+  const {data} = await orderListApi()
+  console.log("data===>",data)
+  orderList.value = data.list
+}
 watch(
   () => commonStore.showOrderListView,
   (newVal) => {
     console.log("newVal", newVal);
     dialogVisible.value = newVal;
+    if(newVal){
+      getOrderList()
+    }
   },
   { immediate: true } // 关键选项
 );
