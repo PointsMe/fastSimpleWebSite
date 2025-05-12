@@ -40,7 +40,7 @@ const inputNum = ref<number>(0)
 const changeInput = async (e: any) => {
     let value = 0
     if (parseInt(e)) {
-        value = parseInt(e) > (props.parents?.maxSelectCount ?? Infinity) ? (props.parents?.maxSelectCount ?? Infinity) : parseInt(e)
+        value = parseInt(e) > props.parents?.maxSelectCount  ? props.parents?.maxSelectCount : parseInt(e)
     } else {
         value = props.parents?.minSelectCount ?? 1
     }
@@ -65,8 +65,10 @@ const changeInput = async (e: any) => {
 
 
 const reduce = async() => {
+    console.log("reduce===>",props.parents,inputNum.value)
     if (Number(inputNum.value) > 0) {
-        const value = Number(inputNum.value) - 1
+        const value = Number(inputNum.value) > props.parents?.minSelectCount ? Number(inputNum.value) - 1  : props.parents?.minSelectCount
+        // const value = Number(inputNum.value) - 1
         const params = shoppingCartStore.cart
         const current = params.items.find(iv=>  iv.itemId === props?.data?.id)
         if(current){
@@ -88,7 +90,7 @@ const reduce = async() => {
 }
 const addPrecreate = async () => {
     const params = shoppingCartStore.cart
-    const current = params.items.find((iv: any)=> iv.type == '119')
+    const current = params.items.find((iv: any)=> iv.type === 119)
     if(current){
         params.type = 102
     }else{
@@ -102,7 +104,8 @@ const addPrecreate = async () => {
     // return params
 }
 const increase = async () => {
-    const value = Number(inputNum.value) > (props.parents?.maxSelectCount ?? Infinity) ? (props.parents?.maxSelectCount ?? Infinity) : Number(inputNum.value) + 1
+    console.log("increase===>",props.parents,inputNum.value)
+    const value = Number(inputNum.value) + 1 > props.parents?.maxSelectCount ? props.parents?.maxSelectCount : Number(inputNum.value) + 1
     const params = shoppingCartStore.cart
     const current = params.items.find(iv=>  iv.itemId === props?.data?.id)
     if(current){
@@ -121,10 +124,10 @@ const increase = async () => {
         emits('changeOrderList',data)
     }
 }
-const reduceFn = debounce(reduce, 1000)
-const increaseFn = debounce(increase, 1000)
+const reduceFn = debounce(reduce, 500)
+const increaseFn = debounce(increase, 500)
 onMounted(()=>{
-    console.log("onMounted===>",props)
+
 })
 </script>
 <style scoped lang="less">

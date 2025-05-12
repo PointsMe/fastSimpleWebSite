@@ -7,6 +7,7 @@ export const useCommonStore = defineStore("common", () => {
   const countryList = ref<Array<Types.country>>(getCountryListStorage())
   const language = ref<string>(getLanguage() || 'zh-US')
   const showOrderListView = ref<boolean>(false)
+  const showOrderDetailView = ref<boolean>(false)
   //获取国家列表
   const getCountryList = async () => {
     const { data } = await getCountryListApi()
@@ -15,6 +16,9 @@ export const useCommonStore = defineStore("common", () => {
   }
   const setShowOrderListView = (status: boolean)=>{
     showOrderListView.value = status;
+  }
+  const setShowOrderDetailView = (status: boolean)=>{
+    showOrderDetailView.value = status;
   }
   // 设置 Token
   const setLanguageFn = (value: string) => {
@@ -26,7 +30,7 @@ export const useCommonStore = defineStore("common", () => {
     language.value = ""
   }
 
-  return { countryList, language,showOrderListView,setShowOrderListView,getCountryList,setLanguageFn,resetLanguageFn }
+  return { countryList, language,showOrderListView,showOrderDetailView,setShowOrderListView,setShowOrderDetailView,getCountryList,setLanguageFn,resetLanguageFn }
 })
 
 

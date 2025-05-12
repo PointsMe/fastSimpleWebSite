@@ -41,13 +41,20 @@ export function payApi(data:any) {
     data: data
     })
 }
-export function orderListApi() {
+export function orderListApi(orderId:string = "") {
     return request<ApiResponseData<any>>({
     url: `/me/order/page`,
     method: "post",
     data: {
       "page": 1, 
-      "size": 100 
+      "size": 100,
+      id: orderId
     }
     })
+}
+export function paymodesApi() {
+  return request<ApiResponseData<any>>({
+  url: `/trade/paymodes`,
+  method: "post",
+  })
 }

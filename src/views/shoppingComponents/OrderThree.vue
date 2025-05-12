@@ -139,7 +139,7 @@
                                 €{{ orderList?.totalAmount || 0 }}
                             </el-col>
                             <el-col :span="24">
-                                <el-button class="button-h">立即购买</el-button>
+                                <el-button class="button-h" @click="toPay">立即购买</el-button>
                             </el-col>
                         </el-row>
                     </div>
@@ -152,9 +152,11 @@
 import AddNum from "./AddNum.vue"
 import { QuestionFilled } from '@element-plus/icons-vue'
 import {getHardwareListApi} from "@/apis/goods"
+import { ElMessage } from "element-plus"
 defineOptions({
     name: 'orderTwo'
 })
+const emits = defineEmits(['toPay'])
 const response = ref()
 const getData = async()=>{
     const {data} = await getHardwareListApi()
@@ -174,7 +176,15 @@ const changeOrderList = (data:any)=>{
     console.log("changeOrderList==>",data)
     orderList.value = data
 }
-
+const toPay = () => {
+    console.log("aaaaa")
+    if(orderList.value.items.length > 0){
+        emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
+    }else{
+        ElMessage.warning("请先选择商品")
+    }
+ 
+}
 onMounted(()=>{
     getData()
 })

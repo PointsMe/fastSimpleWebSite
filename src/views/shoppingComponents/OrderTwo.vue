@@ -40,7 +40,7 @@
                                 <AddNum
                                     :parents="{
                                         minSelectCount: 1,
-                                        maxSelectCount: 200,
+                                        maxSelectCount: 1,
                                     }"
                                     :data="{
                                         id: response.id,
@@ -230,7 +230,7 @@ import { QuestionFilled } from '@element-plus/icons-vue'
 import JoinUs from "./JoinUs.vue"
 import UpdateView from "./UpdateView.vue"
 import { useUserStore } from "@/stores/modules/user"
-
+import { ElMessage } from "element-plus"
 import { getGoodsDetailApi } from "@/apis/goods"
 const userStore = useUserStore()
 
@@ -346,7 +346,11 @@ const joinUsFn = () => {
 }
 const toPay = () => {
     console.log("aaaaa")
-    emits('toPay')
+    if(orderList.value.items.find((iv:any)=>iv.type === 119)){
+        emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
+    }else{
+        ElMessage.warning("请先选择套餐")
+    }
 }
 onMounted(()=>{
     getData()

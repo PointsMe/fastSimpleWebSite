@@ -34,12 +34,10 @@
                         </el-col>
                         <el-col :span="12">
                             <el-button class="sure" type="primary" @click="againPay">
-                                重新支付
+                                订单详情
                             </el-button>
                         </el-col>
                     </el-row>
-
-
                 </div>
             </template>
 
@@ -50,9 +48,12 @@
 import { ref } from 'vue'
 import { Close } from '@element-plus/icons-vue'
 import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
+import { useCommonStore } from '@/stores/modules/common'
 const shoppingCartStore = useShoppingCartStore()
+const commonStore = useCommonStore()
 const centerDialogVisible = ref(false)
-const showModal = () => {
+const showModal = (orderId:string) => {
+    shoppingCartStore.setOrderId(orderId);
     centerDialogVisible.value = true
 }
 const closeDrawer = () => {
@@ -64,6 +65,8 @@ const closeDrawer = () => {
 */
 const againPay = () => {
     // centerDialogVisible.value = false
+    centerDialogVisible.value = false;
+    commonStore.setShowOrderDetailView(true);
 }
 defineExpose({
     showModal
