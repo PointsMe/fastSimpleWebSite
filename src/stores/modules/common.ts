@@ -4,15 +4,19 @@ import { defineStore } from 'pinia'
 import {setCountryListStorage,getCountryListStorage,getLanguage,setLanguage,removeLanguage} from "@/utils/cache/cookies"
 import type * as Types from "@/apis/type"
 export const useCommonStore = defineStore("common", () => {
-  const countryList = ref<Array<Types.country>>(getCountryListStorage())
+  const countryList = ref<Array<Types.country>>(getCountryListStorage() || [])
   const language = ref<string>(getLanguage() || 'zh-US')
   const showOrderListView = ref<boolean>(false)
   const showOrderDetailView = ref<boolean>(false)
   //获取国家列表
   const getCountryList = async () => {
-    const { data } = await getCountryListApi()
-    countryList.value = data
-    setCountryListStorage(data)
+    try {
+      const { data } = await getCountryListApi()
+      countryList.value = data
+      setCountryListStorage(data)
+    } catch (error) {
+      console.log(error)
+    }
   }
   const setShowOrderListView = (status: boolean)=>{
     showOrderListView.value = status;

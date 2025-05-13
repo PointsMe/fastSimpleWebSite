@@ -55,6 +55,7 @@ import PayError from "./PayError.vue";
 import PaySuccess from "./PaySuccess.vue";
 import { getGoodsListApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { getToken } from "@/utils/cache/cookies";
 const shoppingCartStore = useShoppingCartStore();
 defineOptions({
   name: "shoppingNewIndex",
@@ -129,16 +130,18 @@ const getData = async () => {
 onMounted(() => {
   getData().then(() => {
     console.log("onMounted=>", router.currentRoute.value.query);
-    if (
-      router.currentRoute.value?.query?.status &&
-      router.currentRoute.value?.query?.status === "false"
+    if (getToken()) {
+      if (
+        router.currentRoute.value?.query?.status &&
+        router.currentRoute.value?.query?.status === "false"
     ) {
       PayErrorRef.value.showModal(router.currentRoute.value?.query?.orderId);
     } else if (
       router.currentRoute.value?.query?.status &&
       router.currentRoute.value?.query?.status === "true"
     ) {
-      PaySuccessRef.value.showModal(router.currentRoute.value?.query?.orderId);
+        PaySuccessRef.value.showModal(router.currentRoute.value?.query?.orderId);
+      }
     }
   });
 });

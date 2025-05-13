@@ -7,7 +7,7 @@
                         <el-row class="row-1 row-b" v-for="(item,index) in response" :key="index">
                             <el-col :span="12">
                                 <div class="con">
-                                    <img src="@/assets/fastsImages/goods-img.png" alt="">
+                                    <img :src="item.imageUrl" alt="">
                                     {{ item.name }}
                                 </div>
                             </el-col>

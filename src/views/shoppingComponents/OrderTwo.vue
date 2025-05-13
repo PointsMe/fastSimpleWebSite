@@ -98,7 +98,7 @@
                             <span><label style="color: #FF0000;">*</label>{{ item.tips }}</span>
                         </el-col> -->
                     </el-row>
-                    <el-row v-if="item.items.length > 3">
+                    <el-row v-if="item.items.length > 2">
                         <el-col :span="24" class="title-b">{{ item.name }}</el-col>
                         <el-col :span="24">
                             <InvoiceCheckbox 
