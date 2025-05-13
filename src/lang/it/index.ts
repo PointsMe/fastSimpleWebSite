@@ -11,7 +11,7 @@ export default {
         pleaseCheckbox:'Seleziona prima la casella',
         forgetPassword:'Password dimenticata',
         loginTips:'Ho letto e accetto',
-        // linkOne:'«Informativa sulla privacy»',
+        linkOne:'«Informativa sulla privacy»',
         // linkOne:'«Informativa sulla privacy»',
         linkAnd: 'e',
         linkTwo: '«Termini contrattuali»',
