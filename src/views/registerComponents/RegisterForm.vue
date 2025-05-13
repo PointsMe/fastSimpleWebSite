@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
     <div class="login-form">
         <el-form :key="formId" :model="formModel" ref="formModelRef"
@@ -61,8 +62,9 @@
                         <div v-if="props.step === '2'">
                             <el-checkbox v-model="checked1">
                                 {{$t('aboutLogin.loginTips')}}
-                                <span class="link-span">{{$t('aboutLogin.linkOne')}}</span>{{$t('aboutLogin.linkAnd')}}
-                                <span class="link-span">{{$t('aboutLogin.linkTwo')}}</span>
+                                <span class="link-span" @click.native.prevent="checkBooks(1)">{{$t('aboutLogin.linkOne')}}</span>
+                                <!-- {{$t('aboutLogin.linkAnd')}}
+                                <span class="link-span">{{$t('aboutLogin.linkTwo')}}</span> -->
                             </el-checkbox>
                         </div>
                     </el-col>
@@ -98,7 +100,9 @@ import {
 } from "./formList"
 import { useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/modules/user"
+import { useCommonStore } from "@/stores/modules/common"
 const userStore = useUserStore()
+const commonStore = useCommonStore()
 // 获取路由实例
 const router = useRouter()
 
@@ -224,7 +228,11 @@ const formRules = computed(()=> {
     ],
 }
 })
-
+const checkBooks = (value:number)=>{
+    if(['it','es'].includes(commonStore.language)){
+        router.push('/word')
+    }
+}
 
 
 const EventFunction = async (event: any) => {
