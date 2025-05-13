@@ -7,7 +7,7 @@
             <el-menu mode="horizontal" :ellipsis="false" class="menu">
               <el-menu-item index="1" @click="goToPage('index')">{{$t('navigation.home')}}</el-menu-item>
               <el-menu-item index="2" @click="goToPage('shopping')">{{$t('navigation.shop')}}</el-menu-item>
-              <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item>
+              <!-- <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item> -->
               <el-menu-item index="4" @click="goToPage('server')">{{$t('navigation.support')}}</el-menu-item>
               <el-menu-item index="5" @click="goToPage('about')">{{$t('navigation.about')}}</el-menu-item>
               <el-menu-item index="6" @click="goToPage('contact')">{{$t('navigation.contact')}}</el-menu-item>
@@ -88,7 +88,7 @@ const handleCommand = (command: string) => {
 }
 // 跳转到首页的方法
 const goToPage = (value: any) => {
-    router.push(`/layout/${value}`)
+    router.push(`/${value}`)
 }
 </script>
 <style scoped lang="less">

@@ -12,6 +12,9 @@
     </el-checkbox-group>
 </template>
 <script setup lang="ts">
+import {useUserStore} from "@/stores/modules/user"
+import { ElMessage } from 'element-plus'
+const userStore = useUserStore()
 const props = defineProps({
     checkboxList: {
         type: Array<{
@@ -28,6 +31,9 @@ const props = defineProps({
 })
 const checkList = ref<Array<string>>([])
 const changeCheckbox = (e: Array<string>)=>{
+    if(!userStore.token){
+        return ElMessage.warning("请先登录")
+    }
     console.log(e)
     checkList.value = e
 }

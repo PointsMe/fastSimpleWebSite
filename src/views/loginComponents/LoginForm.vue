@@ -46,8 +46,9 @@
                         <div>
                             <el-checkbox v-model="checked1">
                                 {{$t('aboutLogin.loginTips')}}
-                                <span class="link-span" @click.native.prevent="checkBooks(1)">{{$t('aboutLogin.linkOne')}}</span>{{$t('aboutLogin.linkAnd')}}
-                                <span class="link-span" @click.native.prevent="checkBooks(2)">{{$t('aboutLogin.linkTwo')}}</span>
+                                <span class="link-span" @click.native.prevent="checkBooks(1)">{{$t('aboutLogin.linkOne')}}</span>
+                                <!-- {{$t('aboutLogin.linkAnd')}}
+                                <span class="link-span" @click.native.prevent="checkBooks(2)">{{$t('aboutLogin.linkTwo')}}</span> -->
                             </el-checkbox>
                         </div>
                     </el-col>
@@ -70,6 +71,7 @@ import { ElMessage,ElLoading } from 'element-plus'
 import { loginApi } from "@/apis/user"
 import { reactive, ref, watch,computed } from 'vue'
 import type { FormInstance } from 'element-plus'
+import { useCommonStore } from "@/stores/modules/common"
 import AllCountryView from "@/components/AllCountryView.vue"
 import { i18n } from '@/lang/index'
 import {
@@ -78,6 +80,7 @@ import {
 } from "./formList"
 import { useUserStore } from "@/stores/modules/user"
 const userStore = useUserStore()
+const commonStore = useCommonStore()
 const countryCode = ref('+86')
 const emailCode = ref('@gmail.com')
 // 获取路由实例
@@ -92,15 +95,17 @@ const props = defineProps({
 const formRules = computed(()=>{
     return {
         account: [
-            { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'blur' },
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel') },
         ],
         password: [
-            { required: true, message: i18n.global.t('aboutLogin.pleaseInputPassword'), trigger: 'blur' },
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputPassword')},
         ],
     }
 })
 const checkBooks = (value:number)=>{
-    ElMessage.success(value === 1 ? '查看隐私条例' : '查看合同条例')
+    if(['it','es'].includes(commonStore.language)){
+        router.push('/word')
+    }
 }
 const changeCountry = (e:string)=>{
     countryCode.value = e
@@ -151,7 +156,7 @@ const onSubmit = async () => {
                 console.log("onSubmit===>",data)
                 userStore.setToken(data.token)
                 userStore.setUserInfo(data.account)
-                router.push('/layout/index')
+                router.push('/index')
             }else{
                 console.log('error submit!')
             }

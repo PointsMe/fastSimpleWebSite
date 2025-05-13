@@ -38,3 +38,10 @@ export function getProvinceListApi(data: any) {
 //       },
 //     })
 //   }
+export function addNotificationApi(data: any) {
+  return request<Types.countryResponseData>({
+    url: "https://boss.pointsme.it/api/v3/lark/notification",
+    method: "post",
+    data:data,
+  })
+}

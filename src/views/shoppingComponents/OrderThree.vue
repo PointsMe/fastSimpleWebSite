@@ -11,7 +11,7 @@
                                     {{ item.name }}
                                 </div>
                             </el-col>
-                            <el-col :span="12">
+                            <el-col :span="24">
                                 <div class="con-r">
                                     <div class="con-l">
                                         <span>{{ item.unit }}/</span>
@@ -177,7 +177,7 @@ const changeOrderList = (data:any)=>{
     orderList.value = data
 }
 const toPay = () => {
-    console.log("aaaaa")
+    console.log("aaaaa",orderList.value.items)
     if(orderList.value.items.length > 0){
         emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
     }else{

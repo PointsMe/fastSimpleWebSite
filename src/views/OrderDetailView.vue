@@ -49,7 +49,7 @@
                         </div>
                       </el-col>
                       <el-col :span="8">
-                        <div class="title-right">{{ item.autoCancelAt }}</div>
+                        <div class="title-right">{{ item.createdAt }}</div>
                       </el-col>
                     </el-row>
                     <div
@@ -94,6 +94,22 @@
                       </el-col>
                     </el-row>
                     <div class="order-total">
+                        <el-button
+                        v-if="item.state === 101"
+                        class="btn-re-pay"
+                        size="small"
+                        type="success"
+                        @click="rePay(item)"
+                        >重新支付</el-button
+                      >
+                      <el-button
+                         v-if="item.state === 101"
+                        class="btn-cancel-order"
+                        size="small"
+                        type="danger"
+                        @click="cancelOrder(item)"
+                        >取消订单</el-button
+                      >
                       总计：<span>€{{ item.totalAmount }}</span>
                     </div>
                   </div>
@@ -107,7 +123,7 @@
                     </div>
                     <div class="wuliu-info-content">
                       详细地址：{{
-                        `${item?.deliveryAddress?.country}-${item?.deliveryAddress?.province}-${item?.deliveryAddress?.city}-${item?.deliveryAddress?.address}`
+                        `${item?.deliveryAddress?.country}-${item?.deliveryAddress?.city}-${item?.deliveryAddress?.address}`
                       }}
                     </div>
                     <div class="wuliu-info-name">
@@ -136,8 +152,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import moment from "moment";
-import { orderListApi } from "@/apis/goods";
-import { ElMessageBox } from "element-plus";
+import { orderListApi,cancelOrderApi,payApi } from "@/apis/goods";
+import { ElMessageBox,ElLoading } from "element-plus";
 import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 const shoppingCartStore = useShoppingCartStore();
@@ -147,6 +163,7 @@ const activeNames = ref<Array<number>>([1]);
 const orderList = ref<Array<any>>([]);
 const sourceOrderList = ref<Array<any>>([]);
 const handleClose = (done: () => void) => {
+  shoppingCartStore.resetOrderId();
   commonStore.setShowOrderDetailView(false);
   done();
 };
@@ -158,10 +175,64 @@ const getOrderList = async () => {
     return {
       ...iv,
       autoCancelAt: moment(iv.autoCancelAt).format("YYYY-MM-DD HH:mm:ss"),
+      createdAt: moment(iv.createdAt).format("YYYY-MM-DD HH:mm:ss"),
     };
   });
   orderList.value = arr;
   sourceOrderList.value = arr;
+};
+const cancelOrder = async (item: any) => {
+  console.log("item===>", item);
+  ElMessageBox.confirm("确定取消订单吗？", "提示", {
+    confirmButtonText: "确定",
+    cancelButtonText: "取消",
+    type: "warning",
+  }).then(async () => {
+    const loading = ElLoading.service({
+      lock: true,
+      text: "loading",
+      background: "rgba(0, 0, 0, 0.7)",
+    });
+    try {
+      const { data } = await cancelOrderApi(item.id);
+      console.log("data===>", data);
+      getOrderList();
+    } catch (error) {
+      console.log("error===>", error);
+    } finally {
+      loading.close();
+    }
+  });
+};
+const rePay = (item: any) => {
+  console.log("item===>", item);
+  ElMessageBox.confirm("确定重新支付吗？", "提示", {
+    confirmButtonText: "确定",
+    cancelButtonText: "取消",
+    type: "warning",
+  }).then(async () => {
+    console.log("item===>", item);
+    const loading = ElLoading.service({
+      lock: true,
+      text: "loading",
+      background: "rgba(0, 0, 0, 0.7)",
+    });
+    try {
+      const res = await payApi({
+        orderId: item.id,
+        paymode: item?.payMode || 101,
+      });
+    if (res.data.redirectUrl) {
+      // loading.value.close();
+        // PayIframeViewRef.value.showPayIframeView(res.data.redirectUrl);
+        window.open(res.data.redirectUrl, "_blank");
+        // getOrderList();
+      }
+    } catch (error) {
+      console.log("error===>", error);
+      loading.close();
+    }
+  });
 };
 watch(
   () => commonStore.showOrderDetailView,
@@ -254,6 +325,22 @@ watch(
         .order-info-list {
           border-bottom: 1px solid #e5e5e5;
           .order-total {
+            .btn-re-pay {
+              margin-left: 20px;
+              float: left;
+              margin-top: 20px;
+              background-color: #fdb522;
+              border: none;
+              // color: #fff;
+            }
+            .btn-cancel-order {
+              margin-left: 20px;
+              float: left;
+              margin-top: 20px;
+              background-color: #f56c6c;
+              border: none;
+              // color: #fff;
+            }
             text-align: right;
             padding-right: 20px;
             padding-bottom: 20px;

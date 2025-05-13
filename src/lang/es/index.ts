@@ -11,6 +11,7 @@ export default {
         pleaseCheckbox: 'Selecciona primero esta casilla',
         forgetPassword: 'Contraseña olvidada',
         loginTips: 'He leído y acepto la',
+        // linkOne: 'Política de privacidad',
         linkOne: 'Política de privacidad',
         linkAnd: 'y los',
         linkTwo: 'Términos de servicio',
@@ -231,5 +232,9 @@ export default {
         wechat: "WeChat",
         copyright: "Copyright © 2024 PointsMe By Yine Srl, Todos los derechos reservados",
         terms: "Términos"
+    },
+    wordTips: {
+        title: 'Términos y Condiciones para la prestación de Servicios Fastsimple',
+        updateDate: 'Fecha de actualización: 13 de mayo de 2025'
     }
 }

@@ -27,7 +27,7 @@
         </el-col>
       </el-row>
       <el-row class="two-title">
-        <el-col :span="12" class="left-title-i">
+        <el-col :span="14" class="left-title-i">
           <div class="step-1" v-if="step === '2'">
             {{$t('aboutLogin.componeyMess')}} 
           </div>  
@@ -35,7 +35,7 @@
             <RegisterTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
           </div>
         </el-col>
-        <el-col :span="12" class="right-title">
+        <el-col :span="10" class="right-title">
           <div class="tips">{{$t('aboutLogin.haveAccout')}} <span @click="toLogin" style="cursor: pointer;">{{$t('aboutLogin.goLogin')}} </span></div>
         </el-col>
       </el-row>

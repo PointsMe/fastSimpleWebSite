@@ -11,7 +11,8 @@ export default {
         pleaseCheckbox:'Seleziona prima la casella',
         forgetPassword:'Password dimenticata',
         loginTips:'Ho letto e accetto',
-        linkOne:'«Informativa sulla privacy»',
+        // linkOne:'«Informativa sulla privacy»',
+        // linkOne:'«Informativa sulla privacy»',
         linkAnd: 'e',
         linkTwo: '«Termini contrattuali»',
 
@@ -315,4 +316,8 @@ bannerOne: {
     newsTitle: 'Huawei e YINE organizzano un salotto tecnologico a Milano, riunendo...',
     newsContent: 'Recentemente, il leader globale ICT Huawei, insieme a YINE, azienda italiana di gestione digitale e soluzioni per negozi intelligenti, hanno tenuto a Milano, città centrale dell\'ecosistema tecnologico italiano...'
   },
+  wordTips: {
+    title: 'Termini e Condizioni per l’erogazione dei Servizi Fastsimple',
+    updateDate: 'Data di aggiornamento: 13 maggio 2025'
+  }
 }

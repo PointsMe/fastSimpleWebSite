@@ -32,7 +32,7 @@ const changeRegisterStyle = (value: string) => {
 .tab-register {
     height: 40px;
     width: 100%;
-
+    line-height: 40px;
     .not-choose {
         color: #BDBDBD;
     }

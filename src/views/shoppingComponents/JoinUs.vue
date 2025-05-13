@@ -2,7 +2,7 @@
     <div class="join-us-modal">
         <el-dialog v-model="visible" :show-close="false" width="31.25%" :close-on-click-modal="false"
             :destroy-on-close="true">
-            <template #header="{ close, titleId, titleClass }">
+            <template #header="{ close }">
                 <div class="my-header">
                     <el-icon class="el-icon--left" @click="close">
                         <Close />
@@ -29,10 +29,10 @@
                 <div class="footer-btns">
                     <el-row :gutter="12">
                         <el-col :span="12">
-                            <el-button class="btns">立即注册</el-button>
+                            <el-button class="btns" @click="goRegister">立即注册</el-button>
                         </el-col>
                         <el-col :span="12">
-                            <el-input  class="btns-i" placeholder="输入邀请码" />
+                            <el-input v-model="inviteCode" class="btns-i" placeholder="输入邀请码" />
                     
                         </el-col>
                         <el-col :span="24" class="tips">
@@ -46,11 +46,16 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { CircleCloseFilled, Close } from '@element-plus/icons-vue'
-
+import { Close } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const visible = ref(false)
+const inviteCode = ref('')
 const showModal = () => {
     visible.value = true
+}
+const goRegister = () => {
+    router.push('/module/register')
 }
 defineExpose({
     showModal

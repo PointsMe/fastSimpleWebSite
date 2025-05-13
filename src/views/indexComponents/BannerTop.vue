@@ -10,7 +10,7 @@
                     <el-menu mode="horizontal" :ellipsis="false" class="menu">
                         <el-menu-item index="1" @click="goToPage('index')">{{$t('navigation.home')}}</el-menu-item>
                         <el-menu-item index="2" @click="goToPage('shopping')">{{$t('navigation.shop')}}</el-menu-item>
-                        <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item>
+                        <!-- <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item> -->
                         <el-menu-item index="4" @click="goToPage('server')">{{$t('navigation.support')}}</el-menu-item>
                         <el-menu-item index="5" @click="goToPage('about')">{{$t('navigation.about')}}</el-menu-item>
                         <el-menu-item index="6" @click="goToPage('contact')">{{$t('navigation.contact')}}</el-menu-item>
@@ -73,18 +73,20 @@ import { useRouter } from 'vue-router'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { useUserStore } from '@/stores/modules/user'
 import {useCommonStore} from "@/stores/modules/common"
+import { useShoppingCartStore } from "@/stores/modules/shoppingCart"
 const current = getCurrentInstance()?.appContext.config.globalProperties as any;
 // 获取路由实例
 const router = useRouter()
 const userStore = useUserStore()
 const commonStore = useCommonStore()
+const shoppingCartStore = useShoppingCartStore()
 const handleCommand = (command: string) => {
     current.$i18n.locale = command
     commonStore.setLanguageFn(command)
 }
 // 跳转到首页的方法
 const goToPage = (value: any) => {
-    router.push(`/layout/${value}`)
+    router.push(`/${value}`)
 }
 const login = () => {
     router.push(`/module/login`)
@@ -92,6 +94,8 @@ const login = () => {
 const loginOut = () => {
     userStore.resetToken()
     userStore.resetUserInfo()
+    shoppingCartStore.resetCart()
+    shoppingCartStore.resetOrderId()
     router.push(`/module/login`)
 }
 const toMyOrder = ()=> {

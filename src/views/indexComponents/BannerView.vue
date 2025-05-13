@@ -10,7 +10,7 @@
         </div>
         <div class="sub-title">
           {{ $t('banner.subTitle') }}
-          <el-button class="tel-btn" type="pain"
+          <el-button class="tel-btn" type="pain" @click="goContactUs"
             >{{ $t('banner.contactUs') }}<el-icon><Right /></el-icon
           ></el-button>
         </div>
@@ -21,6 +21,11 @@
 </template>
 <script setup lang="ts">
 import { Right } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const goContactUs = () => {
+  router.push('/contact')
+}
 </script>
 <style scoped lang="less">
 .banner-view-div {

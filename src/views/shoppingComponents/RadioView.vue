@@ -16,8 +16,11 @@
 <script setup lang="ts">
 import{precreateApi} from "@/apis/goods"
 import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
+import {useUserStore} from "@/stores/modules/user"
+import { ElMessage } from 'element-plus'
 const emits = defineEmits(['changeOrderList'])
 const shoppingCartStore = useShoppingCartStore()
+const userStore = useUserStore()
 const props = defineProps({
     parents: {
         type: Object,
@@ -45,6 +48,9 @@ const addPrecreate = async () => {
 }
 const clickitem = async(e: any) => {
     console.log(e)
+    if(!userStore.token){
+        return ElMessage.warning("请先登录")
+    }
     const params = shoppingCartStore.cart
     if (e === radio1.value) {
         params.items = params.items.filter(iv => iv.itemId !== e)

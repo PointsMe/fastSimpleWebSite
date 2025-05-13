@@ -40,7 +40,7 @@ export const setCountryListStorage = (value:any)=>{
 }
 
 export const getCountryListStorage = ()=>{
-    return JSON.parse(window.localStorage.getItem('countryList') || '{}')
+    return JSON.parse(window.localStorage.getItem('countryList') || '[]')
 }
 
 export const removeCountryListStorage = ()=>{

@@ -28,7 +28,10 @@
 <script setup lang="ts">
 import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
 import{precreateApi} from "@/apis/goods"
+import {useUserStore} from "@/stores/modules/user"
+import { ElMessage } from 'element-plus'
 const shoppingCartStore = useShoppingCartStore()
+const userStore = useUserStore()
 const emits = defineEmits(['changeOrderList'])
 const props = defineProps({
     parents: {
@@ -39,6 +42,9 @@ const props = defineProps({
 const checkList = ref([])
 const changeCheckBox = async(e:any)=>{
     console.log(e)
+    if(!userStore.token){
+        return ElMessage.warning("请先登录")
+    }
     const params = shoppingCartStore.cart
     params.items = params.items.filter(iv => {
         if (!props.parents.items.map((iv:any)=> iv.id).includes(iv.itemId)) {
@@ -78,6 +84,9 @@ const addPrecreate = async () => {
     return data
 }
 const clickitem = async(e: any) => {
+    if(!userStore.token){
+        return ElMessage.warning("请先登录")
+    }
     console.log(e)
     const params = shoppingCartStore.cart
     params.items = params.items.filter(iv => {

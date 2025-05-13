@@ -11,7 +11,8 @@ export default {
         pleaseCheckbox: 'Please check this box first',
         forgetPassword: 'Forgot Password',
         loginTips: 'I have read and agree to our',
-        linkOne: 'Privacy Policy',
+        linkOne: 'User Policy',
+        // linkOne: 'Privacy Policy',
         linkAnd: 'and',
         linkTwo: 'Terms of Service',
 

@@ -115,10 +115,10 @@ const form: any = reactive({
 const formRules = computed(()=>{
     return {
     account: [
-        { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'blur' },
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel')},
     ],
     verificationCode: [
-        { required: true, message: i18n.global.t('aboutLogin.pleaseInputCode'), trigger: 'blur' },
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputCode') },
     ],
     password: [
         {
@@ -128,11 +128,11 @@ const formRules = computed(()=>{
                 } else {
                     if (form.againpassword !== '') {
                         if (!formRef.value) return
-                        formRef.value.validateField('password')
+                        formRef.value.validateField('againpassword')
                     }
                     callback()
                 }
-            }, trigger: 'blur'
+            }
         },
     ],
     againpassword: [
@@ -145,7 +145,7 @@ const formRules = computed(()=>{
                 } else {
                     callback()
                 }
-            }, trigger: 'blur'
+            }
         },
     ],
 }

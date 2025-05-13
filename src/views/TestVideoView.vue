@@ -35,7 +35,7 @@ import { values } from 'lodash-es'
 // const { t } = useI18n();
 // Interfaces and types
 const radio2 = ref()
-const clickitem = (e)=>{
+const clickitem = (e:any)=>{
   console.log(e)
   if(e === radio2.value){
     radio2.value = ''

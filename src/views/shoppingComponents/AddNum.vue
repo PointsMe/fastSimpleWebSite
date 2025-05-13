@@ -19,11 +19,14 @@
 import { Minus, Plus } from '@element-plus/icons-vue'
 import {debounce} from "@/utils/index"
 import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
+import {useUserStore} from "@/stores/modules/user"
 import{precreateApi} from "@/apis/goods"
+import { ElMessage } from 'element-plus'
 defineOptions({
     name: 'addNum'
 })
 const shoppingCartStore = useShoppingCartStore()
+const userStore = useUserStore()
 const emits = defineEmits(['changeOrderList'])
 //定义props变量接收defineProps返回值
 const props = defineProps({
@@ -38,6 +41,9 @@ const props = defineProps({
 });
 const inputNum = ref<number>(0)
 const changeInput = async (e: any) => {
+    if(!userStore.token){
+        return ElMessage.warning("请先登录")
+    }
     let value = 0
     if (parseInt(e)) {
         value = parseInt(e) > props.parents?.maxSelectCount  ? props.parents?.maxSelectCount : parseInt(e)
@@ -66,6 +72,9 @@ const changeInput = async (e: any) => {
 
 const reduce = async() => {
     console.log("reduce===>",props.parents,inputNum.value)
+    if(!userStore.token){
+        return ElMessage.warning("请先登录")
+    }
     if (Number(inputNum.value) > 0) {
         const value = Number(inputNum.value) > props.parents?.minSelectCount ? Number(inputNum.value) - 1  : props.parents?.minSelectCount
         // const value = Number(inputNum.value) - 1
@@ -89,6 +98,9 @@ const reduce = async() => {
     }
 }
 const addPrecreate = async () => {
+    if(!userStore.token){
+        return ElMessage.warning("请先登录")
+    }
     const params = shoppingCartStore.cart
     const current = params.items.find((iv: any)=> iv.type === 119)
     if(current){

@@ -173,7 +173,7 @@ const formRules = computed(()=> {
                 } else {
                     if (formModel.againpassword !== '') {
                         if (!formModelRef.value) return
-                        formModelRef.value.validateField('password')
+                        formModelRef.value.validateField('againpassword')
                     }
                     callback()
                 }
@@ -350,7 +350,7 @@ const onSubmit = () => {
                         userStore.setToken(data.token)
                         userStore.setUserInfo(data.account)
                         setTimeout(()=>{
-                            router.push('/layout/index')
+                            router.push('/index')
                         },2000)
                     }
                 }

@@ -1,12 +1,12 @@
 export default [
     {
-      path: '/layout',
+      path: '/',
       name: 'layoutView',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/LayoutView.vue'),
-      redirect: '/layout/index',
+      redirect: '/index',
       children: [
         {
           path: 'index',
@@ -135,6 +135,14 @@ export default [
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/TestVideoView.vue')
+    },
+    {
+      path: '/word',
+      name: 'wordView',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/DIalogDocxView.vue')
     }
 ]
     

@@ -1,14 +1,14 @@
 <template>
   <div class="about-view">
     <div class="top">
-      <p>{{ $t('aboutView.whoWeAre') }}</p>
+      <p>{{ $t("aboutView.whoWeAre") }}</p>
       <p>
-        {{ $t('aboutView.companyDescription') }}
+        {{ $t("aboutView.companyDescription") }}
       </p>
     </div>
     <div class="pen">
-      <p>{{ $t('aboutView.globalExpertise') }}</p>
-      <p>{{ $t('aboutView.technicalSupport') }}</p>
+      <p>{{ $t("aboutView.globalExpertise") }}</p>
+      <p>{{ $t("aboutView.technicalSupport") }}</p>
       <el-row :gutter="12" class="row-pen">
         <el-col :span="12" class="col-con">
           <el-row :gutter="12">
@@ -73,7 +73,7 @@
     </div>
 
     <div class="componey">
-      <div class="title">{{ $t('aboutView.companyCulture') }}</div>
+      <div class="title">{{ $t("aboutView.companyCulture") }}</div>
       <div class="content">
         <el-row :gutter="12">
           <el-col :span="8">
@@ -81,8 +81,8 @@
               <p>
                 <img src="@/assets/fastsImages/about-10.png" alt="" />
               </p>
-              <p>{{ $t('aboutView.customerFirst.title') }}</p>
-              <p>{{ $t('aboutView.customerFirst.description') }}</p>
+              <p>{{ $t("aboutView.customerFirst.title") }}</p>
+              <p>{{ $t("aboutView.customerFirst.description") }}</p>
             </div>
           </el-col>
           <el-col :span="8">
@@ -90,8 +90,8 @@
               <p>
                 <img src="@/assets/fastsImages/about-11.png" alt="" />
               </p>
-              <p>{{ $t('aboutView.innovationDriven.title') }}</p>
-              <p>{{ $t('aboutView.innovationDriven.description') }}</p>
+              <p>{{ $t("aboutView.innovationDriven.title") }}</p>
+              <p>{{ $t("aboutView.innovationDriven.description") }}</p>
             </div>
           </el-col>
           <el-col :span="8">
@@ -99,8 +99,8 @@
               <p>
                 <img src="@/assets/fastsImages/about-12.png" alt="" />
               </p>
-              <p>{{ $t('aboutView.teamwork.title') }}</p>
-              <p>{{ $t('aboutView.teamwork.description') }}</p>
+              <p>{{ $t("aboutView.teamwork.title") }}</p>
+              <p>{{ $t("aboutView.teamwork.description") }}</p>
             </div>
           </el-col>
         </el-row>
@@ -111,8 +111,8 @@
               <p>
                 <img src="@/assets/fastsImages/about-13.png" alt="" />
               </p>
-              <p>{{ $t('aboutView.socialResponsibility.title') }}</p>
-              <p>{{ $t('aboutView.socialResponsibility.description') }}</p>
+              <p>{{ $t("aboutView.socialResponsibility.title") }}</p>
+              <p>{{ $t("aboutView.socialResponsibility.description") }}</p>
             </div>
           </el-col>
           <el-col :span="8">
@@ -120,8 +120,8 @@
               <p>
                 <img src="@/assets/fastsImages/about-14.png" alt="" />
               </p>
-              <p>{{ $t('aboutView.excellence.title') }}</p>
-              <p>{{ $t('aboutView.excellence.description') }}</p>
+              <p>{{ $t("aboutView.excellence.title") }}</p>
+              <p>{{ $t("aboutView.excellence.description") }}</p>
             </div>
           </el-col>
           <el-col :span="4"> </el-col>
@@ -131,48 +131,51 @@
 
     <div class="dream">
       <div class="content">
-        <span class="t_i"> {{ $t('aboutView.vision.title') }} </span>
+        <span class="t_i"> {{ $t("aboutView.vision.title") }} </span>
         <span class="line"></span>
-        <span class="tips"> {{ $t('aboutView.vision.description') }} </span>
+        <span class="tips"> {{ $t("aboutView.vision.description") }} </span>
       </div>
       <div class="content-i">
-        <span class="t_i"> {{ $t('aboutView.mission.title') }} </span>
+        <span class="t_i"> {{ $t("aboutView.mission.title") }} </span>
         <span class="line"></span>
-        <span class="tips"> {{ $t('aboutView.mission.description') }} </span>
+        <span class="tips"> {{ $t("aboutView.mission.description") }} </span>
       </div>
     </div>
     <div class="my-server">
       <el-row :gutter="12" class="row-server">
         <el-col :span="['zh-US'].includes(commonStore.language) ? 5 : 7" class="col-1-m">
-          <div class="title">{{ $t('aboutView.ourServices.title') }}</div>
+          <div class="title">{{ $t("aboutView.ourServices.title") }}</div>
         </el-col>
         <el-col :span="['zh-US'].includes(commonStore.language) ? 9 : 7" class="col-2-m">
           <div class="line"></div>
         </el-col>
-        <el-col :span="['zh-US'].includes(commonStore.language) ? 10 : 10" class="col-3-m">
-          <div class="sub-title">{{ $t('aboutView.ourServices.subtitle') }}</div>
+        <el-col
+          :span="['zh-US'].includes(commonStore.language) ? 10 : 10"
+          class="col-3-m"
+        >
+          <div class="sub-title">{{ $t("aboutView.ourServices.subtitle") }}</div>
         </el-col>
       </el-row>
       <el-row :gutter="12" class="row-num">
         <el-col :span="8" class="col-num">
           <div class="content">
             <p>1500<span>+</span></p>
-            <p>{{ $t('aboutView.satisfaction.title') }}</p>
-            <p>{{ $t('aboutView.satisfaction.description') }}</p>
+            <p>{{ $t("aboutView.satisfaction.title") }}</p>
+            <p>{{ $t("aboutView.satisfaction.description") }}</p>
           </div>
         </el-col>
         <el-col :span="8" class="col-num">
           <div class="content">
             <p>7×24<span>h</span></p>
-            <p>{{ $t('aboutView.support.title') }}</p>
-            <p>{{ $t('aboutView.support.description') }}</p>
+            <p>{{ $t("aboutView.support.title") }}</p>
+            <p>{{ $t("aboutView.support.description") }}</p>
           </div>
         </el-col>
         <el-col :span="8" class="col-num">
           <div class="content">
             <p>2<span>min</span></p>
-            <p>{{ $t('aboutView.response.title') }}</p>
-            <p>{{ $t('aboutView.response.description') }}</p>
+            <p>{{ $t("aboutView.response.title") }}</p>
+            <p>{{ $t("aboutView.response.description") }}</p>
           </div>
         </el-col>
       </el-row>
@@ -182,8 +185,8 @@
             <img src="@/assets/headset-fill.png" alt="" />
           </div>
           <div>
-            <p>{{ $t('aboutView.channelSupport.title') }}</p>
-            <p>{{ $t('aboutView.channelSupport.description') }}</p>
+            <p>{{ $t("aboutView.channelSupport.title") }}</p>
+            <p>{{ $t("aboutView.channelSupport.description") }}</p>
           </div>
         </div>
         <div class="flex1 flex1-g">
@@ -191,41 +194,41 @@
             <img src="@/assets/fastsImages/b-9-2.png" alt="" />
           </div>
           <div>
-            <p>{{ $t('aboutView.internalDevelopment.title') }}</p>
-            <p>{{ $t('aboutView.internalDevelopment.description') }}</p>
+            <p>{{ $t("aboutView.internalDevelopment.title") }}</p>
+            <p>{{ $t("aboutView.internalDevelopment.description") }}</p>
           </div>
         </div>
       </div>
 
       <div class="banner-scroller">
-        <p class="title">{{ $t('aboutView.news') }}</p>
+        <p class="title">{{ $t("aboutView.news") }}</p>
         <el-carousel class="carousel-div" motion-blur indicator-position="none">
           <el-carousel-item v-for="item in 4" :key="item">
             <el-row :gutter="12">
               <el-col :span="12">
                 <div class="content">
-                  <p class="title-time">{{ $t('aboutView.newsDate') }}</p>
+                  <p class="title-time">{{ $t("aboutView.newsDate") }}</p>
                   <el-row :gutter="12">
                     <el-col :span="12">
-                      <img src="@/assets/fastsImages/b-2-4.png" alt="">
+                      <img src="@/assets/fastsImages/b-2-4.png" alt="" />
                     </el-col>
                     <el-col :span="12">
-                      <p class="title-f">{{ $t('aboutView.newsTitle') }}</p>
-                      <p class="title-l">{{ $t('aboutView.newsContent') }}</p>
+                      <p class="title-f">{{ $t("aboutView.newsTitle") }}</p>
+                      <p class="title-l">{{ $t("aboutView.newsContent") }}</p>
                     </el-col>
                   </el-row>
                 </div>
               </el-col>
               <el-col :span="12">
                 <div class="content">
-                  <p class="title-time">{{ $t('aboutView.newsDate') }}</p>
+                  <p class="title-time">{{ $t("aboutView.newsDate") }}</p>
                   <el-row :gutter="12">
                     <el-col :span="12">
-                      <img src="@/assets/fastsImages/b-2-4.png" alt="">
+                      <img src="@/assets/fastsImages/b-2-4.png" alt="" />
                     </el-col>
                     <el-col :span="12">
-                      <p class="title-f">{{ $t('aboutView.newsTitle') }}</p>
-                      <p class="title-l">{{ $t('aboutView.newsContent') }}</p>
+                      <p class="title-f">{{ $t("aboutView.newsTitle") }}</p>
+                      <p class="title-l">{{ $t("aboutView.newsContent") }}</p>
                     </el-col>
                   </el-row>
                 </div>
@@ -238,8 +241,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useCommonStore } from "@/stores/modules/common"
-const commonStore = useCommonStore()
+import { useCommonStore } from "@/stores/modules/common";
+const commonStore = useCommonStore();
 </script>
 <style scoped lang="less">
 .about-view {
@@ -248,8 +251,7 @@ const commonStore = useCommonStore()
     padding: 0;
   }
 
-  font-family: Source Han Sans SC,
-  Source Han Sans SC;
+  font-family: Source Han Sans SC, Source Han Sans SC;
 
   .my-server {
     width: 1280px;
@@ -259,40 +261,39 @@ const commonStore = useCommonStore()
     .banner-scroller {
       width: 100%;
       text-align: center;
-      .carousel-div{
+      .carousel-div {
         height: 240px;
         text-align: left;
-        .content{
+        .content {
           font-family: Source Han Sans SC, Source Han Sans SC;
-          .title-l{
+          .title-l {
             font-weight: 400;
-font-size: 16px;
-color: #666666;
-padding-top: 20px;
+            font-size: 16px;
+            color: #666666;
+            padding-top: 20px;
           }
-          .title-f{
-
-font-weight: bold;
-font-size: 24px;
-color: #1A1A1A;
+          .title-f {
+            font-weight: bold;
+            font-size: 24px;
+            color: #1a1a1a;
           }
-          .title-time{
+          .title-time {
             padding: 20px 0;
-font-weight: 400;
-font-size: 14px;
-color: #1A1A1A;
+            font-weight: 400;
+            font-size: 14px;
+            color: #1a1a1a;
           }
-          img{
+          img {
             width: 100%;
             height: 100%;
           }
         }
       }
-      .title{
+      .title {
         font-family: Source Han Sans SC, Source Han Sans SC;
         font-weight: bold;
         font-size: 52px;
-        color: #1A1A1A;
+        color: #1a1a1a;
         text-align: center;
         margin: 150px 0 50px 0;
       }
@@ -334,12 +335,12 @@ color: #1A1A1A;
         }
 
         div {
-          >p:first-child {
+          > p:first-child {
             font-size: 24px;
             padding-top: 30px;
           }
 
-          >p:last-child {
+          > p:last-child {
             font-size: 14px;
             padding-top: 15px;
           }
@@ -354,31 +355,27 @@ color: #1A1A1A;
 
       .col-num {
         .content {
-          >p:first-child {
+          > p:first-child {
             font-family: DIN, DIN;
             font-weight: bold;
             font-size: 80px;
             color: #fdb522;
 
-            >span {
+            > span {
               color: #1a1a1a;
             }
           }
 
-          >p:nth-child(2) {
-            font-family:
-              Source Han Sans SC,
-              Source Han Sans SC;
+          > p:nth-child(2) {
+            font-family: Source Han Sans SC, Source Han Sans SC;
             font-weight: bold;
             font-size: 24px;
             color: #1a1a1a;
             padding-top: 16px;
           }
 
-          >p:last-child {
-            font-family:
-              Source Han Sans SC,
-              Source Han Sans SC;
+          > p:last-child {
+            font-family: Source Han Sans SC, Source Han Sans SC;
             font-weight: 400;
             font-size: 16px;
             color: #666666;
@@ -498,10 +495,9 @@ color: #1A1A1A;
     .content {
       width: 1280px;
       margin: auto;
-      .el-col{
-        display:flex;
-        flex-direction: column; 
-
+      .el-col {
+        display: flex;
+        flex-direction: column;
       }
       .row-i {
         margin-top: 16px;
@@ -511,20 +507,20 @@ color: #1A1A1A;
         background-color: #ffffff;
         padding: 37px 66px 32px 30px;
         height: 100%;
-        >p:first-child {
+        > p:first-child {
           img {
             display: block;
           }
         }
 
-        >p:nth-child(2) {
+        > p:nth-child(2) {
           margin-top: 72px;
           font-weight: bold;
           font-size: 24px;
           color: rgba(0, 0, 0, 0.9);
         }
 
-        >p:last-child {
+        > p:last-child {
           margin-top: 19px;
           font-weight: 400;
           font-size: 16px;
@@ -592,13 +588,13 @@ color: #1A1A1A;
       }
     }
 
-    >p:first-child {
+    > p:first-child {
       font-weight: bold;
       font-size: 52px;
       color: #1a1a1a;
     }
 
-    >p:last-child {
+    > p:last-child {
       font-weight: 400;
       font-size: 18px;
       color: #000000;
@@ -610,18 +606,18 @@ color: #1A1A1A;
     height: 406px;
     width: 100%;
     padding: 120px 320px;
-    background-image: url('@/assets/fastsImages/about-bg.png');
+    background-image: url("@/assets/fastsImages/about-bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    >p:first-child {
+    > p:first-child {
       font-weight: bold;
       font-size: 52px;
       color: #ffffff;
     }
 
-    >p:last-child {
+    > p:last-child {
       font-weight: 400;
       font-size: 18px;
       color: #ffffff;

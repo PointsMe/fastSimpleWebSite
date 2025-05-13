@@ -4,7 +4,7 @@
       <p>{{ $t('shopping.title') }}</p>
       <span v-if="!userStore.token">
         {{ $t('shopping.membershipPromotion') }}
-        <span>{{ $t('shopping.registerNow') }}</span>&nbsp;&nbsp;&nbsp;
+        <span style="color: #fed15f;cursor: pointer;" @click="goRegister">{{ $t('shopping.registerNow') }}</span>&nbsp;&nbsp;&nbsp;
         <el-icon class="icon-right-shop">
           <Right />
         </el-icon>
@@ -21,10 +21,15 @@ import { useUserStore } from '@/stores/modules/user'
 import {
   Right,
 } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
 defineOptions({
   name: 'shoppingView'
 })
 const userStore = useUserStore()
+const router = useRouter()
+const goRegister = () => {
+  router.push('/module/register')
+}
 </script>
 <style scoped lang="less">
 .shop-view {

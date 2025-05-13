@@ -34,7 +34,7 @@ defineOptions({
 })
 const router = useRouter()
 const toShopping = ()=>{
-  router.push("/layout/shopping")
+  router.push("/shopping")
 }
 </script>
 <style scoped lang="less">
