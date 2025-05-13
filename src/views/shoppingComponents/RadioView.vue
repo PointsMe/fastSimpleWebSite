@@ -4,7 +4,7 @@
         <el-radio v-for="(itemChil, chilIndex) in props.parents.items" 
         :key="chilIndex" 
         :value="itemChil.id" 
-         @click.native.prevent="clickitem(itemChil.id)" :label="itemChil.unit"
+         @click.native.prevent="clickitem(itemChil.id,false)" :label="itemChil.unit"
         >
             <div class="radio-con">
                 {{ itemChil.value }}{{ itemChil.unit }}/<span :class="!chilIndex ? 'oragin' : 'grey'">€{{
@@ -46,8 +46,11 @@ const addPrecreate = async () => {
     console.log("precreateApi===>",data)
     return data
 }
-const clickitem = async(e: any) => {
+const clickitem = async(e: any,isAdd:boolean) => {
     console.log(e)
+    if(props.parents.maxSelectCount === props.parents.minSelectCount  && !isAdd){
+        return 
+    }
     if(!userStore.token){
         return ElMessage.warning("请先登录")
     }
@@ -75,6 +78,12 @@ const clickitem = async(e: any) => {
     }
     
 }
+onMounted(()=>{
+    console.log("props.data===>",props.data,props.parents)
+    if(props.parents.maxSelectCount === props.parents.minSelectCount){
+        clickitem(props.parents.items[0].id,true)
+    }
+})
 </script>
 <style scoped lang="less">
 .radio-con {

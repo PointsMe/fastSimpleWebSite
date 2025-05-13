@@ -131,18 +131,42 @@
                         </div>
                     </div>
                     <div class="order-btn">
-                        <el-row>
-                            <el-col :span="8" class="left-i">
-                                <span class="word">总计：</span>
-                            </el-col>
-                            <el-col :span="16" class="right-i">
-                                €{{ orderList?.totalAmount || 0 }}
-                            </el-col>
-                            <el-col :span="24">
-                                <el-button class="button-h" @click="toPay">立即购买</el-button>
-                            </el-col>
-                        </el-row>
-                    </div>
+            <el-row class="order-btn-row">
+              <el-col :span="12" class="left-i-sub"> 商品总额 </el-col>
+              <el-col :span="12" class="right-i-sub">
+                €{{ orderList?.totalAmount || 0 }}
+              </el-col>
+              <el-col :span="12" class="left-i-sub"> 折扣金额 </el-col>
+              <el-col :span="12" class="right-i-sub">
+                €{{ orderList?.discountAmount || 0 }}
+              </el-col>
+              <el-col :span="12" class="left-i-sub"> IVA税费 </el-col>
+              <el-col :span="12" class="right-i-sub">
+                €{{ orderList?.taxAmount || 0 }}
+              </el-col>
+            </el-row>
+            <el-row>
+              <el-col :span="4" class="left-i">
+                <span class="word">总计：</span>
+              </el-col>
+              <el-col :span="20" class="right-i">
+                <span>
+                  €{{ orderList?.finalAmount || 0 }}<label class="word-1">+ IVA</label>
+                </span>
+              </el-col>
+              <el-col :span="24">
+                <el-input
+                  class="input-h"
+                  v-model="inviteCode"
+                  :placeholder="`输入邀请码立减${userStore.discountedPrice}€`"
+                  size="large"
+                />
+              </el-col>
+              <el-col :span="24">
+                <el-button class="button-h" @click="toPay">立即购买</el-button>
+              </el-col>
+            </el-row>
+          </div>
                 </div>
             </el-col>
         </el-row>
@@ -151,13 +175,18 @@
 <script setup lang="ts">
 import AddNum from "./AddNum.vue"
 import { QuestionFilled } from '@element-plus/icons-vue'
-import {getHardwareListApi} from "@/apis/goods"
+import {getHardwareListApi,precreateApi} from "@/apis/goods"
 import { ElMessage } from "element-plus"
+import { useUserStore } from "@/stores/modules/user"
+import { useShoppingCartStore } from "@/stores/modules/shoppingCart"
 defineOptions({
     name: 'orderTwo'
 })
 const emits = defineEmits(['toPay'])
 const response = ref()
+const userStore = useUserStore()
+const shoppingCartStore = useShoppingCartStore()
+const inviteCode = ref("")
 const getData = async()=>{
     const {data} = await getHardwareListApi()
     response.value = data
@@ -176,15 +205,36 @@ const changeOrderList = (data:any)=>{
     console.log("changeOrderList==>",data)
     orderList.value = data
 }
-const toPay = () => {
-    console.log("aaaaa",orderList.value.items)
-    if(orderList.value.items.length > 0){
+
+const toPay = async () => {
+  console.log("aaaaa");
+  if(orderList.value.items.length > 0){
+    // emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
+    if(!inviteCode.value){
         emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
-    }else{
-        ElMessage.warning("请先选择商品")
+        return
     }
- 
-}
+    const params = shoppingCartStore.cart;
+    const current = params.items.find((iv: any) => iv.type === 119);
+    if (current) {
+      params.type = 102;
+    } else {
+      params.type = 100;
+    }
+    params.items = params.items.filter((iv) => iv.count);
+    const { data } = await precreateApi({
+      ...params,
+      inviteCode: inviteCode.value,
+    });
+    ElMessage.success("折扣金额已更新!!!");
+    orderList.value = data
+    setTimeout(() => {
+      emits("toPay", data);
+    }, 2000);
+  } else {
+    ElMessage.warning("请先选择商品");
+  }
+};
 onMounted(()=>{
     getData()
 })
@@ -226,52 +276,65 @@ defineExpose({
             position: relative;
 
             .order-btn {
-                position: absolute;
-                width: 100%;
-                bottom: 0;
-                left: 0;
-                padding: 0px 30px 30px 30px;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding: 0px 30px 30px 30px;
+        .order-btn-row {
+          font-size: 16px;
+          .left-i-sub {
+            text-align: left;
+          }
+          .right-i-sub {
+            text-align: right;
+          }
+        }
 
-                .input-h {
-                    text-align: center;
-                    height: 60px;
-                    margin-top: 16px;
-                }
+        .input-h {
+          text-align: center;
+          height: 60px;
+          margin-top: 16px;
+        }
 
-                .button-h {
-                    text-align: center;
-                    height: 60px;
-                    background: #1B1B1B;
-                    margin-top: 10px;
-                    font-family: Inter, Inter;
-                    font-weight: 500;
-                    font-size: 16px;
-                    color: #FFFFFF;
-                }
+        .button-h {
+          text-align: center;
+          height: 60px;
+          background: #1b1b1b;
+          margin-top: 10px;
+          font-family: Inter, Inter;
+          font-weight: 500;
+          font-size: 16px;
+          color: #ffffff;
+        }
 
-                .left-i {
-                    text-align: left;
-                    font-family: Source Han Sans SC, Source Han Sans SC;
-                    font-weight: 400;
-                    font-size: 16px;
-                    color: #1B1B1B;
-                    position: relative;
+        .left-i {
+          text-align: left;
+          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-weight: 400;
+          font-size: 16px;
+          color: #1b1b1b;
+          position: relative;
 
-                    .word {
-                        position: absolute;
-                        bottom: 10px;
-                        left: 0;
-                    }
-                }
+          .word {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+          }
+        }
 
-                .right-i {
-                    text-align: right;
-                    font-family: Inter, Inter;
-                    font-weight: bold;
-                    font-size: 48px;
-                    color: #1A1A1A;
-                }
-            }
+        .right-i {
+          text-align: right;
+          font-family: Inter, Inter;
+          font-weight: bold;
+          font-size: 48px;
+          color: #1a1a1a;
+          .word-1 {
+            font-size: 24px;
+            color: #999999;
+          }
+        }
+      }
 
             .all-order {
                 height: 77%;

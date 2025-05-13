@@ -76,12 +76,35 @@
                   </el-col>
                   <el-col :span="8">
                     <el-form-item label="" prop="country">
-                      <el-input
-                        size="default"
+                      <el-select
                         v-model="formModel.country"
                         placeholder="国家"
+                        size="default"
+                        @change="changeCountrySelect"
                       >
-                      </el-input>
+                        <el-option
+                          v-for="item in commonStore.countryList"
+                          :key="item.id"
+                          :label="item.name"
+                          :value="item.id"
+                        />
+                      </el-select>
+                    </el-form-item>
+                  </el-col>
+                  <el-col :span="8">
+                    <el-form-item label="" prop="province">
+                      <el-select
+                        v-model="formModel.province"
+                        placeholder="省份"
+                        size="default"
+                      >
+                        <el-option
+                          v-for="item in provinceList"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
+                        />
+                      </el-select>
                     </el-form-item>
                   </el-col>
                   <el-col :span="8">
@@ -90,16 +113,6 @@
                         size="default"
                         v-model="formModel.city"
                         placeholder="城市"
-                      >
-                      </el-input>
-                    </el-form-item>
-                  </el-col>
-                  <el-col :span="8">
-                    <el-form-item label="">
-                      <el-input
-                        size="default"
-                        v-model="formModel.mail"
-                        placeholder="邮编"
                       >
                       </el-input>
                     </el-form-item>
@@ -252,11 +265,29 @@
             </el-row>
           </div>
           <div class="order-btn">
+            <el-row class="order-btn-row">
+              <el-col :span="12" class="left-i-sub"> 商品总额 </el-col>
+              <el-col :span="12" class="right-i-sub">
+                €{{ orderList?.totalAmount || 0 }}
+              </el-col>
+              <el-col :span="12" class="left-i-sub"> 折扣金额 </el-col>
+              <el-col :span="12" class="right-i-sub">
+                €{{ orderList?.discountAmount || 0 }}
+              </el-col>
+              <el-col :span="12" class="left-i-sub"> IVA税费 </el-col>
+              <el-col :span="12" class="right-i-sub">
+                €{{ orderList?.taxAmount || 0 }}
+              </el-col>
+            </el-row>
             <el-row>
               <el-col :span="12" class="left">
                 <span>总计</span>
               </el-col>
-              <el-col :span="12" class="right"> €{{ orderList.totalAmount }} </el-col>
+              <el-col :span="12" class="right">
+                <span>
+                  €{{ orderList?.finalAmount || 0 }}<label class="word-1">+ IVA</label>
+                </span>
+              </el-col>
             </el-row>
           </div>
         </el-col>
@@ -283,14 +314,16 @@ import { ref } from "vue";
 import { createApi, payApi, orderListApi, paymodesApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import PayIframeView from "./PayIframeView.vue";
+import { useCommonStore } from "@/stores/modules/common";
+import { getProvinceListApi } from "@/apis/common";
 interface RuleForm {
   contactName: string;
   contactPhone: string;
   country: string;
   city: string;
-  mail: string;
   address: string;
   inviteCode: string;
+  province: string;
 }
 const PaySuccessRef = ref();
 const PayErrorRef = ref();
@@ -298,7 +331,7 @@ const PayIframeViewRef = ref();
 const countryCode = ref("+86");
 const drawerStatus = ref<boolean>(false);
 const qrCode = ref();
-const loading = ref<any>(null)
+const loading = ref<any>(null);
 const showPayBtn = ref<boolean>(true);
 const ruleFormRef = ref<FormInstance>();
 const formModel = ref<RuleForm>({
@@ -306,10 +339,12 @@ const formModel = ref<RuleForm>({
   contactPhone: "",
   country: "",
   city: "",
-  mail: "",
   address: "",
   inviteCode: "",
+  province: "",
 });
+const provinceList = ref<any[]>([]);
+const commonStore = useCommonStore();
 const rules = reactive<FormRules<RuleForm>>({
   contactName: [{ required: true, message: "Please input contactName", trigger: "blur" }],
   contactPhone: [
@@ -317,6 +352,7 @@ const rules = reactive<FormRules<RuleForm>>({
   ],
   country: [{ required: true, message: "Please input country", trigger: "blur" }],
   city: [{ required: true, message: "Please input city", trigger: "blur" }],
+  province: [{ required: true, message: "Please input province", trigger: "blur" }],
   // mail: [
   //     { required: true, message: 'Please input mail', trigger: 'blur' },
   // ],
@@ -325,6 +361,19 @@ const rules = reactive<FormRules<RuleForm>>({
   //     { required: true, message: 'Please input Activity name', trigger: 'blur' },
   // ],
 });
+const changeCountrySelect = async (e: string) => {
+  console.log("e===>", e);
+  const { data } = await getProvinceListApi({
+    countryId: e,
+  });
+  const arr = data.map((iv) => {
+    return {
+      label: iv.name,
+      value: iv.id,
+    };
+  });
+  provinceList.value = arr;
+};
 const shoppingCartStore = useShoppingCartStore();
 const changeCountry = (e: string) => {
   countryCode.value = e;
@@ -387,7 +436,7 @@ const payMoney = () => {
           if (res.data.redirectUrl) {
             // loading.value.close();
             // PayIframeViewRef.value.showPayIframeView(res.data.redirectUrl);
-            window.open(res.data.redirectUrl, '_blank');
+            window.open(res.data.redirectUrl, "_blank");
             // getOrderList();
           }
           // PaySuccessRef.value.showModal()
@@ -492,9 +541,9 @@ watch(
 );
 onMounted(() => {
   console.log("cart===>", shoppingCartStore.cart);
-//   if (shoppingCartStore.orderId) {
-//     getOrderList();
-//   }
+  //   if (shoppingCartStore.orderId) {
+  //     getOrderList();
+  //   }
   paymodesFn();
 });
 defineExpose({
@@ -714,10 +763,18 @@ defineExpose({
 
       .order-btn {
         width: calc(100% - 100px);
-        height: 80px;
+        // height: 80px;
         position: absolute;
         bottom: 50px;
-
+        .order-btn-row {
+          font-size: 16px;
+          .left-i-sub {
+            text-align: left;
+          }
+          .right-i-sub {
+            text-align: right;
+          }
+        }
         .left {
           text-align: left;
           font-family: Source Han Sans SC, Source Han Sans SC;
@@ -733,6 +790,10 @@ defineExpose({
           font-weight: bold;
           font-size: 28px;
           color: #1a1a1a;
+          .word-1 {
+            font-size: 16px;
+            color: #999999;
+          }
         }
       }
 

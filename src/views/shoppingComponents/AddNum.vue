@@ -139,7 +139,10 @@ const increase = async () => {
 const reduceFn = debounce(reduce, 500)
 const increaseFn = debounce(increase, 500)
 onMounted(()=>{
-
+    if(props.data?.type === 119){
+        inputNum.value = 1
+        increaseFn()
+    }
 })
 </script>
 <style scoped lang="less">

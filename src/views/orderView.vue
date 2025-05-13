@@ -115,25 +115,38 @@
                       </el-col>
                     </el-row>
                     <div class="order-total">
-                      <el-button
-                        v-if="item.state === 101"
-                        class="btn-re-pay"
-                        size="small"
-                        type="success"
-                        @click="rePay(item)"
-                        >重新支付</el-button
-                      >
-                      <el-button
-                        v-if="item.state === 101"
-                        class="btn-cancel-order"
-                        size="small"
-                        type="danger"
-                        @click="cancelOrder(item)"
-                        >取消订单</el-button
-                      >
-                      <span>
-                        总计：<span>€{{ item.totalAmount }}</span>
-                      </span>
+                      <el-row>
+                        <el-col :span="12">
+                          <el-button
+                            v-if="item.state === 101"
+                            class="btn-re-pay"
+                            size="small"
+                            type="success"
+                            @click="rePay(item)"
+                            >重新支付</el-button
+                          >
+                          <el-button
+                            v-if="item.state === 101"
+                            class="btn-cancel-order"
+                            size="small"
+                            type="danger"
+                            @click="cancelOrder(item)"
+                            >取消订单</el-button
+                          >
+                        </el-col>
+                        <el-col :span="12">
+                          <el-row>
+                            <el-col :span="16"> 商品总额 </el-col>
+                            <el-col :span="8"> €{{ item.totalAmount }} </el-col>
+                            <el-col :span="16"> 折扣金额 </el-col>
+                            <el-col :span="8"> €{{ item.discountAmount }} </el-col>
+                            <el-col :span="16"> IVA税费 </el-col>
+                            <el-col :span="8"> €{{ item.taxRate }} </el-col>
+                            <el-col :span="16" class="total-amount"> 总计： </el-col>
+                            <el-col :span="8" class="total-amount"> €{{ item.finalAmount }} </el-col>
+                          </el-row>
+                        </el-col>
+                      </el-row>
                     </div>
                   </div>
                   <div class="wuliu-info">
@@ -175,8 +188,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import moment from "moment";
-import { orderListApi, cancelOrderApi,payApi } from "@/apis/goods";
-import { ElMessageBox,ElLoading } from "element-plus";  
+import { orderListApi, cancelOrderApi, payApi } from "@/apis/goods";
+import { ElMessageBox, ElLoading } from "element-plus";
 import { useCommonStore } from "@/stores/modules/common";
 interface TabListType {
   id: number;
@@ -277,8 +290,8 @@ const rePay = (item: any) => {
         orderId: item.id,
         paymode: item?.payMode || 101,
       });
-    if (res.data.redirectUrl) {
-      // loading.value.close();
+      if (res.data.redirectUrl) {
+        // loading.value.close();
         // PayIframeViewRef.value.showPayIframeView(res.data.redirectUrl);
         window.open(res.data.redirectUrl, "_blank");
         // getOrderList();
@@ -393,6 +406,12 @@ watch(
         .order-info-list {
           border-bottom: 1px solid #e5e5e5;
           .order-total {
+            .total-amount{
+              font-family: Source Han Sans SC, Source Han Sans SC;
+              font-weight: 400;
+              font-size: 24px;
+              color: #1a1a1a;
+            }
             .btn-re-pay {
               margin-left: 20px;
               float: left;
