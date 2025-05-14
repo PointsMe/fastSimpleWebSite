@@ -220,6 +220,7 @@ onMounted(() => {
   }
   .title {
     position: relative;
+    margin-bottom: 20px;
     > span:first-child {
       font-weight: bold;
       font-size: 52px;

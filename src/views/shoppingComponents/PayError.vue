@@ -49,6 +49,8 @@ import { ref } from 'vue'
 import { Close } from '@element-plus/icons-vue'
 import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
 import { useCommonStore } from '@/stores/modules/common'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const shoppingCartStore = useShoppingCartStore()
 const commonStore = useCommonStore()
 const centerDialogVisible = ref(false)
@@ -57,6 +59,7 @@ const showModal = (orderId:string) => {
     centerDialogVisible.value = true
 }
 const closeDrawer = () => {
+    router.replace("/shopping");
     shoppingCartStore.resetOrderId()
     centerDialogVisible.value = false
 }
@@ -64,6 +67,7 @@ const closeDrawer = () => {
     重新支付 
 */
 const againPay = () => {
+    router.replace("/shopping");
     // centerDialogVisible.value = false
     centerDialogVisible.value = false;
     commonStore.setShowOrderDetailView(true);

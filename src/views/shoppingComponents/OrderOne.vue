@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
   <div class="order-one">
     <el-row :gutter="6" class="row-list">
@@ -211,7 +212,7 @@
                             </el-row>
                         </div> -->
           </div>
-          <div class="order-btn">
+          <div class="order-btn" v-if="orderList.items.length > 0">
             <el-row class="order-btn-row">
               <el-col :span="12" class="left-i-sub"> 商品总额 </el-col>
               <el-col :span="12" class="right-i-sub">
@@ -239,6 +240,8 @@
                 <el-input
                   class="input-h"
                   v-model="inviteCode"
+                  @input="changeInviteCode"
+                  @keydown.enter.native="enterEvent($event)"
                   :placeholder="`输入邀请码立减${userStore.discountedPrice}€`"
                   size="large"
                 />
@@ -267,6 +270,7 @@ import { ElMessage } from "element-plus";
 import { getGoodsDetailApi, precreateApi } from "@/apis/goods";
 import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { debounce } from "lodash";
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
@@ -580,13 +584,13 @@ const joinUsFn = () => {
   //     UpdateViewRef.value.showModal()
   // }
 };
-const toPay = async () => {
-  console.log("aaaaa====>", orderList.value);
-  if (orderList.value.items.find((iv: any) => iv.type === 119)) {
-    if(!inviteCode.value){
-        emits("toPay", JSON.parse(JSON.stringify(orderList.value)));
-        return
-    }
+const enterEvent = (event: any) => {
+  console.log("enterEvent==>", event);
+  blurInviteCode(event.target.value);
+};
+const blurInviteCode = async (value: any) => {
+  console.log("blurInviteCode==>", value, inviteCode.value);
+  if (inviteCode.value && inviteCode.value.length > 4) {
     const params = shoppingCartStore.cart;
     const current = params.items.find((iv: any) => iv.type === 119);
     if (current) {
@@ -599,11 +603,31 @@ const toPay = async () => {
       ...params,
       inviteCode: inviteCode.value,
     });
+    orderList.value = data;
     ElMessage.success("折扣金额已更新!!!");
-    orderList.value = data
-    setTimeout(() => {
-      emits("toPay", data);
-    }, 2000);
+  }else{
+    ElMessage.warning("请输入正确的邀请码");
+  }
+ 
+};
+const blurInviteCodeFn = debounce(blurInviteCode, 1000);
+const changeInviteCode = (value: any) => {
+    
+  // 限制输入为数字和字母
+  const val = value
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .trim();
+    inviteCode.value = val.substring(0, 8);
+    console.log("changeInviteCode==>", val);
+    if(val.length > 4 && val.length < 9){
+        blurInviteCodeFn(event)
+    }
+
+};
+const toPay = async () => {
+  console.log("aaaaa====>", orderList.value);
+  if (orderList.value.items.find((iv: any) => iv.type === 119)) {
+    emits("toPay", JSON.parse(JSON.stringify(orderList.value)));
   } else {
     ElMessage.warning("请先选择套餐");
   }

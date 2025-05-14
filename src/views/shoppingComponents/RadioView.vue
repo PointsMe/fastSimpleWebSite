@@ -7,7 +7,8 @@
          @click.native.prevent="clickitem(itemChil.id,false)" :label="itemChil.unit"
         >
             <div class="radio-con">
-                {{ itemChil.value }}{{ itemChil.unit }}/<span :class="!chilIndex ? 'oragin' : 'grey'">€{{
+                <label v-if="itemChil.value || itemChil.unit">{{ itemChil.value }}{{ itemChil.unit }}/</label>
+                <span :class="!chilIndex ? 'oragin' : 'grey'">€{{
                     itemChil.sellPrice }}</span>
             </div>
         </el-radio>

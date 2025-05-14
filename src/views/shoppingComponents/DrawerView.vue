@@ -372,6 +372,8 @@ const changeCountrySelect = async (e: string) => {
       value: iv.id,
     };
   });
+  formModel.value.province = '';
+  ruleFormRef.value?.resetFields(['province']);
   provinceList.value = arr;
 };
 const shoppingCartStore = useShoppingCartStore();

@@ -46,16 +46,20 @@ import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 const shoppingCartStore = useShoppingCartStore();
 import { useCommonStore } from "@/stores/modules/common";
 const commonStore = useCommonStore();
+import { useRouter } from "vue-router";
+const router = useRouter();
 const centerDialogVisible = ref(false);
 const showModal = (orderId:string) => {
   shoppingCartStore.setOrderId(orderId);
   centerDialogVisible.value = true;
 };
 const checkOrder = () => {
+  router.replace("/shopping");
   centerDialogVisible.value = false;
   commonStore.setShowOrderDetailView(true);
 };
 const closeDrawer = () => {
+  router.replace("/shopping");
   shoppingCartStore.resetOrderId();
   centerDialogVisible.value = false;
 };

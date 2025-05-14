@@ -14,7 +14,7 @@
                             <el-col :span="24">
                                 <div class="con-r">
                                     <div class="con-l">
-                                        <span>{{ item.unit }}/</span>
+                                        <span v-if="item.unit">{{ item.unit }}/</span>
                                         <span>€{{ item.sellPrice }}</span>
                                     </div>
 
@@ -136,10 +136,10 @@
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> 折扣金额 </el-col>
+              <!-- <el-col :span="12" class="left-i-sub"> 折扣金额 </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
-              </el-col>
+              </el-col> -->
               <el-col :span="12" class="left-i-sub"> IVA税费 </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
@@ -154,14 +154,14 @@
                   €{{ orderList?.finalAmount || 0 }}<label class="word-1">+ IVA</label>
                 </span>
               </el-col>
-              <el-col :span="24">
+              <!-- <el-col :span="24">
                 <el-input
                   class="input-h"
                   v-model="inviteCode"
                   :placeholder="`输入邀请码立减${userStore.discountedPrice}€`"
                   size="large"
                 />
-              </el-col>
+              </el-col> -->
               <el-col :span="24">
                 <el-button class="button-h" @click="toPay">立即购买</el-button>
               </el-col>
@@ -209,31 +209,8 @@ const changeOrderList = (data:any)=>{
 const toPay = async () => {
   console.log("aaaaa");
   if(orderList.value.items.length > 0){
-    // emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
-    if(!inviteCode.value){
-        emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
-        return
-    }
-    const params = shoppingCartStore.cart;
-    const current = params.items.find((iv: any) => iv.type === 119);
-    if (current) {
-      params.type = 102;
-    } else {
-      params.type = 100;
-    }
-    params.items = params.items.filter((iv) => iv.count);
-    const { data } = await precreateApi({
-      ...params,
-      inviteCode: inviteCode.value,
-    });
-    ElMessage.success("折扣金额已更新!!!");
-    orderList.value = data
-    setTimeout(() => {
-      emits("toPay", data);
-    }, 2000);
-  } else {
-    ElMessage.warning("请先选择商品");
-  }
+    emits('toPay',JSON.parse(JSON.stringify(orderList.value)))
+}
 };
 onMounted(()=>{
     getData()

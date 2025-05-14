@@ -157,7 +157,7 @@
           </div>
           <div v-else class="current-none">
             <img src="@/assets/fastsImages/no-order.png" alt="" />
-            <p>目前没有订单记录</p>
+            <p>查询不到该订单信息</p>
           </div>
         </div>
       </div>
