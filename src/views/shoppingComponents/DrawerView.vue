@@ -5,14 +5,14 @@
         <el-col :span="15" class="left-content">
           <div class="title">
             <el-row>
-              <el-col :span="12" class="left"> 结算 </el-col>
+              <el-col :span="12" class="left">{{ $t('shoppingCart.checkout') }}</el-col>
               <el-col :span="12" class="right">
                 <!-- 15584566249 -->
               </el-col>
             </el-row>
           </div>
           <div class="pay-style">
-            <p>请选择付款方式</p>
+            <p>{{ $t('shoppingCart.selectPaymentMethod') }}</p>
             <el-row :gutter="12">
               <el-col
                 :span="12"
@@ -43,7 +43,7 @@
                 </div>
               </el-col>
             </el-row>
-            <p class="title-t">收货信息</p>
+            <p class="title-t">{{ $t('shoppingCart.shippingInfo') }}</p>
             <div class="form-message">
               <el-form
                 ref="ruleFormRef"
@@ -57,7 +57,7 @@
                       <el-input
                         size="default"
                         v-model="formModel.contactName"
-                        placeholder="名称"
+                        :placeholder="$t('shoppingCart.name')"
                       />
                     </el-form-item>
                   </el-col>
@@ -66,7 +66,7 @@
                       <el-input
                         size="default"
                         v-model="formModel.contactPhone"
-                        placeholder="号码"
+                        :placeholder="$t('shoppingCart.phone')"
                       >
                         <template #prepend>
                           <AllCountryView @changeCountry="changeCountry" />
@@ -78,7 +78,7 @@
                     <el-form-item label="" prop="country">
                       <el-select
                         v-model="formModel.country"
-                        placeholder="国家"
+                        :placeholder="$t('shoppingCart.country')"
                         size="default"
                         @change="changeCountrySelect"
                       >
@@ -95,7 +95,7 @@
                     <el-form-item label="" prop="province">
                       <el-select
                         v-model="formModel.province"
-                        placeholder="省份"
+                        :placeholder="$t('shoppingCart.province')"
                         size="default"
                       >
                         <el-option
@@ -112,7 +112,7 @@
                       <el-input
                         size="default"
                         v-model="formModel.city"
-                        placeholder="城市"
+                        :placeholder="$t('shoppingCart.city')"
                       >
                       </el-input>
                     </el-form-item>
@@ -122,49 +122,20 @@
                       <el-input
                         size="default"
                         v-model="formModel.address"
-                        placeholder="收货地址"
+                        :placeholder="$t('shoppingCart.address')"
                       >
                       </el-input>
                     </el-form-item>
                   </el-col>
-                  <!-- <el-col :span="24" v-if="![82,92].includes(qrCode)">
-                                        <div class="code">
-                                            银行卡
-                                        </div>
-                                    </el-col>
-                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
-                                        <el-form-item label="">
-                                            <el-input size="default" v-model="ruleForm.code" placeholder="选择/输入银行类别">
-                                            </el-input>
-                                        </el-form-item>
-                                    </el-col>
-                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
-                                        <el-form-item label="">
-                                            <el-input size="default" v-model="ruleForm.code" placeholder="请输入银行卡号">
-                                            </el-input>
-                                        </el-form-item>
-                                    </el-col>
-                                    <el-col :span="12" v-if="![82,92].includes(qrCode)">
-                                        <el-form-item label="">
-                                            <el-input size="default" v-model="ruleForm.code" placeholder="银行卡有效期">
-                                            </el-input>
-                                        </el-form-item>
-                                    </el-col> -->
-                  <!-- <el-col :span="24" v-if="![82,92].includes(qrCode)">
-                                        <el-form-item label="">
-                                            <el-input size="default" v-model="formModel.inviteCode" placeholder="CVV/CVC码">
-                                            </el-input>
-                                        </el-form-item>
-                                    </el-col> -->
                   <el-col :span="24">
-                    <div class="code">推荐码</div>
+                    <div class="code">{{ $t('shoppingCart.referralCode') }}</div>
                   </el-col>
                   <el-col :span="24">
                     <el-form-item label="">
                       <el-input
                         size="default"
                         v-model="formModel.inviteCode"
-                        placeholder="输入推荐码"
+                        :placeholder="$t('shoppingCart.enterReferralCode')"
                       >
                       </el-input>
                     </el-form-item>
@@ -174,7 +145,7 @@
             </div>
           </div>
           <div class="bottom-pay" v-if="showPayBtn">
-            <el-button class="pay-btn" @click="payMoneyFn">立即支付</el-button>
+            <el-button class="pay-btn" @click="payMoneyFn">{{ $t('shoppingCart.payNow') }}</el-button>
           </div>
           <div class="qrCode-pay" v-else>
             <el-row :gutter="12">
@@ -185,7 +156,7 @@
               </el-col>
               <el-col :span="12">
                 <div class="right-pay">
-                  <p>总计：</p>
+                  <p>{{ $t('shoppingCart.total') }}：</p>
                   <p>€1652</p>
                   <p>
                     <img
@@ -194,7 +165,7 @@
                       alt=""
                     />
                   </p>
-                  <p>打开微信APP扫码支付</p>
+                  <p>{{ $t('shoppingCart.scanWechatPay') }}</p>
                 </div>
               </el-col>
             </el-row>
@@ -203,13 +174,12 @@
         <el-col :span="9" class="right-content">
           <div class="title">
             <el-row>
-              <el-col :span="12" class="left"> 结算清单 </el-col>
+              <el-col :span="12" class="left">{{ $t('shoppingCart.orderSummary') }}</el-col>
               <el-col :span="12" class="right">
                 <div class="close">
                   <el-icon @click="closeDrawer">
                     <Close />
                   </el-icon>
-                  <!-- <el-icon><CloseBold /></el-icon> -->
                 </div>
               </el-col>
             </el-row>
@@ -266,22 +236,22 @@
           </div>
           <div class="order-btn">
             <el-row class="order-btn-row">
-              <el-col :span="12" class="left-i-sub"> 商品总额 </el-col>
+              <el-col :span="12" class="left-i-sub">{{ $t('shoppingCart.subtotal') }}</el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> 折扣金额 </el-col>
+              <el-col :span="12" class="left-i-sub">{{ $t('shoppingCart.discount') }}</el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> IVA税费 </el-col>
+              <el-col :span="12" class="left-i-sub">{{ $t('shoppingCart.tax') }}</el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
               </el-col>
             </el-row>
             <el-row>
               <el-col :span="12" class="left">
-                <span>总计</span>
+                <span>{{ $t('shoppingCart.totalAmount') }}</span>
               </el-col>
               <el-col :span="12" class="right">
                 <span>

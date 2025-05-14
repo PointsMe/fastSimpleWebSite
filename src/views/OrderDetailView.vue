@@ -8,7 +8,7 @@
       :before-close="handleClose"
     >
       <template #title>
-        <h3 class="title-dialog">订单详情</h3>
+        <h3 class="title-dialog">{{ $t('orderDetail.title') }}</h3>
       </template>
       <div class="content">
         <div class="order-list">
@@ -25,27 +25,27 @@
                     <el-row class="order-row-one">
                       <el-col :span="16">
                         <div class="title-left">
-                          <span class="sp-1">订单号:</span>
+                          <span class="sp-1">{{ $t('orderDetail.orderNumber') }}:</span>
                           <span class="sp-2">{{ item.number }}</span>
-                          <span class="sp-3" v-if="item.state === 101">待付款</span>
+                          <span class="sp-3" v-if="item.state === 101">{{ $t('orderDetail.pendingPayment') }}</span>
                           <span
                             class="sp-3"
                             v-if="item.state === 102 && item.deliveryState === 103"
-                            >待发货</span
+                            >{{ $t('orderDetail.pendingShipment') }}</span
                           >
                           <span
                             class="sp-3"
                             style="background: #91baff"
                             v-if="item.state === 102 && item.deliveryState === 101"
-                            >已发货</span
+                            >{{ $t('orderDetail.shipped') }}</span
                           >
                           <span
                             class="sp-3"
                             style="background: #b7c268"
                             v-if="item.state === 109"
-                            >已结束</span
+                            >{{ $t('orderDetail.completed') }}</span
                           >
-                          <span class="sp-3" v-if="item.state === 111">已取消</span>
+                          <span class="sp-3" v-if="item.state === 111">{{ $t('orderDetail.cancelled') }}</span>
                         </div>
                       </el-col>
                       <el-col :span="8">
@@ -58,12 +58,12 @@
                     >
                       {{ item.items.find((iv:any)=>iv.type === 119).name }}
                     </div>
-                    <div class="order-title" v-else>硬件选购</div>
+                    <div class="order-title" v-else>{{ $t('orderDetail.hardwareSelection') }}</div>
                     <div class="order-info">
                       <span v-if="item.items.find((iv:any)=>iv.type === 119)"
-                        >套餐信息</span
+                        >{{ $t('orderDetail.packageInfo') }}</span
                       >
-                      <span v-else>商品信息</span>
+                      <span v-else>{{ $t('orderDetail.productInfo') }}</span>
                     </div>
                   </div>
                 </template>
@@ -102,7 +102,7 @@
                             size="small"
                             type="success"
                             @click="rePay(item)"
-                            >重新支付</el-button
+                            >{{ $t('orderDetail.repay') }}</el-button
                           >
                           <el-button
                             v-if="item.state === 101"
@@ -110,18 +110,18 @@
                             size="small"
                             type="danger"
                             @click="cancelOrder(item)"
-                            >取消订单</el-button
+                            >{{ $t('orderDetail.cancelOrder') }}</el-button
                           >
                         </el-col>
                         <el-col :span="12">
                           <el-row>
-                            <el-col :span="16"> 商品总额 </el-col>
+                            <el-col :span="16"> {{ $t('orderDetail.totalAmount') }} </el-col>
                             <el-col :span="8"> €{{ item.totalAmount }} </el-col>
-                            <el-col :span="16"> 折扣金额 </el-col>
+                            <el-col :span="16"> {{ $t('orderDetail.discountAmount') }} </el-col>
                             <el-col :span="8"> €{{ item.discountAmount }} </el-col>
-                            <el-col :span="16"> IVA税费 </el-col>
+                            <el-col :span="16"> {{ $t('orderDetail.taxRate') }} </el-col>
                             <el-col :span="8"> €{{ item.taxRate }} </el-col>
-                            <el-col :span="16" class="total-amount"> 总计： </el-col>
+                            <el-col :span="16" class="total-amount"> {{ $t('orderDetail.total') }}： </el-col>
                             <el-col :span="8" class="total-amount"> €{{ item.finalAmount }} </el-col>
                           </el-row>
                         </el-col>
@@ -129,26 +129,26 @@
                     </div>
                   </div>
                   <div class="wuliu-info">
-                    <div class="wuliu-info-title">物流信息</div>
+                    <div class="wuliu-info-title">{{ $t('orderDetail.logisticsInfo') }}</div>
                     <div class="wuliu-info-content">
-                      收件人：{{ item?.deliveryAddress?.contactName }}
+                      {{ $t('orderDetail.recipient') }}：{{ item?.deliveryAddress?.contactName }}
                     </div>
                     <div class="wuliu-info-content">
-                      电话号码：{{ item?.deliveryAddress?.contactPhone }}
+                      {{ $t('orderDetail.phoneNumber') }}：{{ item?.deliveryAddress?.contactPhone }}
                     </div>
                     <div class="wuliu-info-content">
-                      详细地址：{{
+                      {{ $t('orderDetail.detailedAddress') }}：{{
                         `${item?.deliveryAddress?.country}-${item?.deliveryAddress?.city}-${item?.deliveryAddress?.address}`
                       }}
                     </div>
                     <div class="wuliu-info-name">
                       <span v-if="item.state === 102 && item.deliveryState === 103"
-                        >等待发货</span
+                        >{{ $t('orderDetail.waitingForShipment') }}</span
                       >
                       <span v-if="item.state === 102 && item.deliveryState === 101"
-                        >已发货</span
+                        >{{ $t('orderDetail.shipped') }}</span
                       >
-                      （联系客服：88546331224）
+                      （{{ $t('orderDetail.contactCustomerService') }}：88546331224）
                     </div>
                   </div>
                 </div>
@@ -157,7 +157,7 @@
           </div>
           <div v-else class="current-none">
             <img src="@/assets/fastsImages/no-order.png" alt="" />
-            <p>查询不到该订单信息</p>
+            <p>{{ $t('orderDetail.noOrderRecords') }}</p>
           </div>
         </div>
       </div>

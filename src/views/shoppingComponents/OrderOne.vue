@@ -14,7 +14,7 @@
                   <el-icon>
                     <QuestionFilled />
                   </el-icon>
-                  注册会员输入邀请码后，能享受€{{ userStore.discountedPrice }}优惠哦
+                  {{ $t('orderOne.registerMember', { price: userStore.discountedPrice }) }}
                 </div>
               </el-col>
             </el-row>
@@ -33,9 +33,9 @@
           </div>
           <div class="list-one-j">
             <div>
-              <span>正常价:</span>
+              <span>{{ $t('orderOne.normalPrice') }}</span>
               <span class="normal"> €{{ response.sellPrice }} </span>
-              <span class="m-f-20">邀请价:</span>
+              <span class="m-f-20">{{ $t('orderOne.invitePrice') }}</span>
               <span class="origin"> €{{ userStore.discountedPrice }} </span>
               <div class="pos-abs">
                 <AddNum
@@ -158,7 +158,7 @@
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
-              <el-col :span="4" class="col-a"> 总计 </el-col>
+              <el-col :span="4" class="col-a"> {{ $t('orderOne.total') }} </el-col>
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
@@ -214,22 +214,22 @@
           </div>
           <div class="order-btn" v-if="orderList.items.length > 0">
             <el-row class="order-btn-row">
-              <el-col :span="12" class="left-i-sub"> 商品总额 </el-col>
+              <el-col :span="12" class="left-i-sub"> {{ $t('orderOne.totalAmount') }} </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> 折扣金额 </el-col>
+              <el-col :span="12" class="left-i-sub"> {{ $t('orderOne.discountAmount') }} </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> IVA税费 </el-col>
+              <el-col :span="12" class="left-i-sub"> {{ $t('orderOne.taxAmount') }} </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
               </el-col>
             </el-row>
             <el-row>
               <el-col :span="8" class="left-i">
-                <span class="word">总计：</span>
+                <span class="word">{{ $t('orderOne.finalAmount') }}：</span>
               </el-col>
               <el-col :span="16" class="right-i">
                 <span>
@@ -242,12 +242,12 @@
                   v-model="inviteCode"
                   @input="changeInviteCode"
                   @keydown.enter.native="enterEvent($event)"
-                  :placeholder="`输入邀请码立减${userStore.discountedPrice}€`"
+                  :placeholder="$t('orderOne.enterInviteCode', { price: userStore.discountedPrice })"
                   size="large"
                 />
               </el-col>
               <el-col :span="24">
-                <el-button class="button-h" @click="toPay">立即购买</el-button>
+                <el-button class="button-h" @click="toPay">{{ $t('orderOne.buyNow') }}</el-button>
               </el-col>
             </el-row>
           </div>
@@ -271,6 +271,7 @@ import { getGoodsDetailApi, precreateApi } from "@/apis/goods";
 import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { debounce } from "lodash";
+import { i18n } from '@/lang/index'
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
@@ -604,11 +605,10 @@ const blurInviteCode = async (value: any) => {
       inviteCode: inviteCode.value,
     });
     orderList.value = data;
-    ElMessage.success("折扣金额已更新!!!");
-  }else{
-    ElMessage.warning("请输入正确的邀请码");
+    ElMessage.success(i18n.global.t('orderOne.discountUpdated'));
+  } else {
+    ElMessage.warning(i18n.global.t('orderOne.pleaseEnterCorrectCode'));
   }
- 
 };
 const blurInviteCodeFn = debounce(blurInviteCode, 1000);
 const changeInviteCode = (value: any) => {
@@ -629,7 +629,7 @@ const toPay = async () => {
   if (orderList.value.items.find((iv: any) => iv.type === 119)) {
     emits("toPay", JSON.parse(JSON.stringify(orderList.value)));
   } else {
-    ElMessage.warning("请先选择套餐");
+    ElMessage.warning(i18n.global.t('orderOne.pleaseSelectPackage'));
   }
 };
 onMounted(() => {

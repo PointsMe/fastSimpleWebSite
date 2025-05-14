@@ -236,5 +236,68 @@ export default {
     wordTips: {
         title: 'Términos y Condiciones para la prestación de Servicios Fastsimple',
         updateDate: 'Fecha de actualización: 13 de mayo de 2025'
-    }
+    },
+    shoppingCart: {
+        checkout: 'Pago',
+        selectPaymentMethod: 'Por favor seleccione el método de pago',
+        shippingInfo: 'Información de envío',
+        name: 'Nombre',
+        phone: 'Teléfono',
+        country: 'País',
+        province: 'Provincia',
+        city: 'Ciudad',
+        address: 'Dirección de envío',
+        referralCode: 'Código de referido',
+        enterReferralCode: 'Ingrese código de referido',
+        payNow: 'Pagar ahora',
+        total: 'Total',
+        scanWechatPay: 'Abra WeChat APP para escanear y pagar',
+        orderSummary: 'Resumen del pedido',
+        subtotal: 'Subtotal',
+        discount: 'Descuento',
+        tax: 'IVA',
+        totalAmount: 'Total'
+    },
+    orderOne: {
+        registerMember: 'Registrarse como miembro y ingresar un código de invitación para disfrutar de un descuento del 50%',
+        normalPrice: 'Precio normal:',
+        invitePrice: 'Precio de invitación:',
+        total: 'Total',
+        productAmount: 'Cantidad de productos',
+        discountAmount: 'Cantidad de descuento',
+        taxAmount: 'Cantidad de IVA',
+        totalAmount: 'Total',
+        enterInviteCode: 'Ingrese un código de invitación para disfrutar de un descuento de {price}€',
+        buyNow: 'Comprar ahora',
+        pleaseSelectPackage: 'Por favor seleccione el paquete primero',
+        pleaseEnterCorrectCode: 'Por favor ingrese el código correcto',
+        discountUpdated: 'Cantidad de descuento actualizada!!!',
+        enterCorrectCode: 'Por favor ingrese el código correcto'
+    },
+    orderTwo: { 
+        registerMember: 'Registrarse como miembro y ingresar un código de invitación para disfrutar de un descuento del 50%',
+        normalPrice: 'Precio normal:',
+        invitePrice: 'Precio de invitación:',
+        total: 'Total',
+        productAmount: 'Cantidad de productos',
+        discountAmount: 'Cantidad de descuento',
+        taxAmount: 'Cantidad de IVA',
+        totalAmount: 'Total',
+        enterInviteCode: 'Ingrese un código de invitación para disfrutar de un descuento de {price}€',
+        buyNow: 'Comprar ahora',
+        pleaseSelectPackage: 'Por favor seleccione el paquete primero',
+        pleaseEnterCorrectCode: 'Por favor ingrese el código correcto',
+        inviteCodeUpdated: 'Cantidad de descuento actualizada!!!',
+        enterCorrectCode: 'Por favor ingrese el código correcto'
+    },
+    orderThree: {
+        total: 'Total',
+        totalAmount: 'Cantidad de productos',
+        taxAmount: 'Cantidad de IVA',
+        finalAmount: 'Total',
+        buyNow: 'Comprar ahora',
+        enterInviteCode: 'Ingrese un código de invitación para disfrutar de un descuento de {price}€',
+        pleaseSelectItems: 'Por favor seleccione el paquete primero',
+        pleaseEnterCorrectCode: 'Por favor ingrese el código correcto'
+    }               
 }

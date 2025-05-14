@@ -14,7 +14,7 @@
                   <el-icon>
                     <QuestionFilled />
                   </el-icon>
-                  注册会员输入邀请码后，能享受€{{ userStore.discountedPrice }}优惠哦
+                  {{ $t('orderTwo.registerMember', { price: userStore.discountedPrice }) }}
                 </div>
               </el-col>
             </el-row>
@@ -33,9 +33,9 @@
           </div>
           <div class="list-one-j">
             <div>
-              <span>正常价:</span>
+              <span>{{ $t('orderTwo.normalPrice') }}</span>
               <span class="normal"> €{{ response.sellPrice }} </span>
-              <span class="m-f-20">邀请价:</span>
+              <span class="m-f-20">{{ $t('orderTwo.invitePrice') }}:</span>
               <span class="origin"> €{{ userStore.discountedPrice }} </span>
               <div class="pos-abs">
                 <AddNum
@@ -52,10 +52,6 @@
                 />
               </div>
             </div>
-            <!-- <div>
-                            <span style="color: #FF0000;">*</span>
-                            固定套餐数量每增加一套，FASTSIMPLE标配版年费增加€10/年
-                        </div> -->
           </div>
         </div>
         <div
@@ -109,9 +105,6 @@
                 </el-col>
               </el-row>
             </el-col>
-            <!-- <el-col :span="24" class="right tips" v-if="item.tips">
-                            <span><label style="color: #FF0000;">*</label>{{ item.tips }}</span>
-                        </el-col> -->
           </el-row>
           <el-row v-if="item.items.length > 2">
             <el-col :span="24" class="title-b">{{ item.name }}</el-col>
@@ -120,37 +113,6 @@
             </el-col>
           </el-row>
         </div>
-
-        <!-- <div class="content-list content-list-top">
-                    <div class="list-one">
-                        <el-row>
-                            <el-col :span="12" class="left title">
-                                {{ serverBuyer.subtitle }}
-                            </el-col>
-                        </el-row>
-
-                    </div>
-                    <div class="list-one-i none-m-b">
-                        <el-row>
-                            <el-row style="width: 100%;" v-for="(item, index) in serverBuyer.assorts" :key="index">
-                                <el-col :span="12" class="left">{{ item.name }}</el-col>
-                                <el-col :span="12" class="right">
-                                    <div class="all-i" v-if="item.type === 'input'">
-                                        <span class="i-1"> {{ item.items[0].unit }}/</span><span class="i-2">€ {{
-                                            item.items[0].sellPrice }}</span>
-                                        <div class="pos-abs">
-                                            <AddNum :require-choosed="false" :id="item.id" :mixNum="item.mixNum"
-                                                :maxNum="item.maxNum" />
-                                        </div>
-                                    </div>
-                                    <CheckboxView v-if="item.type === 'checkbox'" :id="item.id"
-                                        :checkbox-list="item.items">
-                                    </CheckboxView>
-                                </el-col>
-                            </el-row>
-                        </el-row>
-                    </div>
-                </div> -->
       </el-col>
       <el-col :span="8" class="right">
         <div class="content-list-right">
@@ -159,7 +121,7 @@
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
-              <el-col :span="4" class="col-a"> 总计 </el-col>
+              <el-col :span="4" class="col-a"> {{ $t('orderTwo.total') }} </el-col>
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
@@ -199,38 +161,25 @@
                 <el-col :span="4" class="right tips-1"> €{{ item.sellPrice }} </el-col>
               </el-row>
             </div>
-            <!-- <div class="order-i">
-                            <el-row>
-                                <el-col :span="24" class="left">
-                                    POS机（刷卡机）*1
-                                </el-col>
-                                <el-col :span="20" class="left tips">
-                                    购买
-                                </el-col>
-                                <el-col :span="4" class="right tips-1">
-                                    €220
-                                </el-col>
-                            </el-row>
-                        </div> -->
           </div>
           <div class="order-btn" v-if="orderList.items.length > 0">
             <el-row class="order-btn-row">
-              <el-col :span="12" class="left-i-sub"> 商品总额 </el-col>
+              <el-col :span="12" class="left-i-sub"> {{ $t('orderTwo.productAmount') }} </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> 折扣金额 </el-col>
+              <el-col :span="12" class="left-i-sub"> {{ $t('orderTwo.discountAmount') }} </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> IVA税费 </el-col>
+              <el-col :span="12" class="left-i-sub"> {{ $t('orderTwo.taxAmount') }} </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
               </el-col>
             </el-row>
             <el-row>
               <el-col :span="8" class="left-i">
-                <span class="word">总计：</span>
+                <span class="word">{{ $t('orderTwo.total') }}：</span>
               </el-col>
               <el-col :span="16" class="right-i">
                 <span>
@@ -242,13 +191,13 @@
                   class="input-h"
                   v-model="inviteCode"
                   @keydown.enter.native="enterEvent($event)"
-                    @input="changeInviteCode"
-                  :placeholder="`输入邀请码立减${userStore.discountedPrice}€`"
+                  @input="changeInviteCode"
+                  :placeholder="$t('orderTwo.enterInviteCode', { price: userStore.discountedPrice })"
                   size="large"
                 />
               </el-col>
               <el-col :span="24">
-                <el-button class="button-h" @click="toPay">立即购买</el-button>
+                <el-button class="button-h" @click="toPay">{{ $t('orderTwo.buyNow') }}</el-button>
               </el-col>
             </el-row>
           </div>
@@ -270,7 +219,8 @@ import { useUserStore } from "@/stores/modules/user";
 import { ElMessage } from "element-plus";
 import { getGoodsDetailApi, precreateApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
-import { debounce } from "lodash";
+import { debounce } from "lodash"; 
+import { i18n } from '@/lang/index'
 const userStore = useUserStore();
 const shoppingCartStore = useShoppingCartStore();
 
@@ -286,85 +236,85 @@ const emits = defineEmits(["toPay"]);
 defineOptions({
   name: "orderOne",
 });
-const serverBuyer: any = reactive({
-  id: "1002",
-  name: "SERVER BUYER",
-  subtitle: "服务选购",
-  sellPrice: 800,
-  mixNum: 1,
-  maxNum: 999,
-  assorts: [
-    {
-      id: "1",
-      name: "远程指导安装人工费",
-      type: "input",
-      mixNum: 0,
-      maxNum: 999,
-      items: [
-        {
-          id: "产品ID",
-          type: 101,
-          unit: "小时", //单位
-          spec: "", //规格
-          sellPrice: 230,
-        },
-      ],
-    },
-    {
-      id: "2",
-      name: "商品人工导入费",
-      type: "checkbox",
-      items: [
-        {
-          id: "1",
-          type: 101,
-          unit: "", //单位
-          spec: "", //规格
-          sellPrice: 100,
-        },
-        {
-          id: "2",
-          type: 101,
-          unit: "", //单位
-          spec: "", //规格
-          sellPrice: 200,
-        },
-      ],
-    },
-    {
-      id: "3",
-      name: "商品人工翻译费",
-      type: "input",
-      mixNum: 0,
-      maxNum: 999,
-      items: [
-        {
-          id: "产品ID",
-          type: 101,
-          unit: "语言", //单位
-          spec: "", //规格
-          sellPrice: 50,
-        },
-      ],
-    },
-    {
-      id: "4",
-      name: "人工售后费",
-      type: "input",
-      mixNum: 0,
-      maxNum: 999,
-      items: [
-        {
-          id: "产品ID",
-          type: 101,
-          unit: "30分钟", //单位
-          spec: "", //规格
-          sellPrice: 10,
-        },
-      ],
-    },
-  ],
-});
+// const serverBuyer: any = reactive({
+//   id: "1002",
+//   name: "SERVER BUYER",
+//   subtitle: "服务选购",
+//   sellPrice: 800,
+//   mixNum: 1,
+//   maxNum: 999,
+//   assorts: [
+//     {
+//       id: "1",
+//       name: "远程指导安装人工费",
+//       type: "input",
+//       mixNum: 0,
+//       maxNum: 999,
+//       items: [
+//         {
+//           id: "产品ID",
+//           type: 101,
+//           unit: "小时", //单位
+//           spec: "", //规格
+//           sellPrice: 230,
+//         },
+//       ],
+//     },
+//     {
+//       id: "2",
+//       name: "商品人工导入费",
+//       type: "checkbox",
+//       items: [
+//         {
+//           id: "1",
+//           type: 101,
+//           unit: "", //单位
+//           spec: "", //规格
+//           sellPrice: 100,
+//         },
+//         {
+//           id: "2",
+//           type: 101,
+//           unit: "", //单位
+//           spec: "", //规格
+//           sellPrice: 200,
+//         },
+//       ],
+//     },
+//     {
+//       id: "3",
+//       name: "商品人工翻译费",
+//       type: "input",
+//       mixNum: 0,
+//       maxNum: 999,
+//       items: [
+//         {
+//           id: "产品ID",
+//           type: 101,
+//           unit: "语言", //单位
+//           spec: "", //规格
+//           sellPrice: 50,
+//         },
+//       ],
+//     },
+//     {
+//       id: "4",
+//       name: "人工售后费",
+//       type: "input",
+//       mixNum: 0,
+//       maxNum: 999,
+//       items: [
+//         {
+//           id: "产品ID",
+//           type: 101,
+//           unit: "30分钟", //单位
+//           spec: "", //规格
+//           sellPrice: 10,
+//         },
+//       ],
+//     },
+//   ],
+// });
 const response: any = ref({});
 
 const getData = async () => {
@@ -416,15 +366,13 @@ const blurInviteCode = async (value: any) => {
       inviteCode: inviteCode.value,
     });
     orderList.value = data;
-    ElMessage.success("折扣金额已更新!!!");
-  }else{
-    ElMessage.warning("请输入正确的邀请码");
+    ElMessage.success(i18n.global.t('orderTwo.inviteCodeUpdated'));
+  } else {
+    ElMessage.warning(i18n.global.t('orderTwo.enterCorrectCode'));
   }
- 
 };
 const blurInviteCodeFn = debounce(blurInviteCode, 1000);
 const changeInviteCode = (value: any) => {
-    
   // 限制输入为数字和字母
   const val = value
     .replace(/[^a-zA-Z0-9]/g, "")
@@ -441,7 +389,7 @@ const toPay = async () => {
   if (orderList.value.items.find((iv: any) => iv.type === 119)) {
     emits("toPay", JSON.parse(JSON.stringify(orderList.value)));
   } else {
-    ElMessage.warning("请先选择套餐");
+    ElMessage.warning(i18n.global.t('orderTwo.selectPackage'));
   }
 };
 onMounted(() => {
