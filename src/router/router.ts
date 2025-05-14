@@ -137,12 +137,20 @@ export default [
       component: () => import('../views/TestVideoView.vue')
     },
     {
-      path: '/word',
-      name: 'wordView',
+      path: '/regulations',
+      name: 'regulationsView',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/DIalogDocxView.vue')
+      component: () => import('../views/DocxRegulationsView.vue')
+    },
+    {
+      path: '/privice',
+      name: 'priviceView',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/DocxPriviceView.vue')
     }
 ]
     

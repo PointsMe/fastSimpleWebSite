@@ -1,5 +1,6 @@
 export default {
     aboutLogin:{
+        back: 'Back',
         loginText: 'Login',
         noAccout: 'No account?',
         goRegister: 'Register',
@@ -11,10 +12,9 @@ export default {
         pleaseCheckbox: 'Please check this box first',
         forgetPassword: 'Forgot Password',
         loginTips: 'I have read and agree to our',
-        linkOne: 'User Policy',
-        // linkOne: 'Privacy Policy',
+        linkOne: '《User Policy》',
         linkAnd: 'and',
-        linkTwo: 'Terms of Service',
+        linkTwo: '《Terms of Service》',
 
         componeyMess: "Company Information",
         findPass: 'Recover Password',
@@ -315,10 +315,16 @@ bannerOne: {
     newsTitle: 'Huawei and YINE Hold Technical Salon in Milan, Focusing...',
     newsContent: 'Recently, global ICT leader Huawei joined hands with Italian digital management and smart store solutions company YINE to host a technical salon in Milan, the core city of the Italian technology ecosystem...'
   },
-  wordTips: {
-    title: 'Terms and Conditions for Quick Service',
-    updateDate: 'Update date: May 13, 2025'
+  priviceTips: {
+    title: 'Privacy Policy for FastSimple',
+    updateDate: 'Updated on May 13, 2025'
   },
+  regulationsTips: {
+    title: 'Contract Terms for FastSimple', 
+    updateDate: 'Updated on May 13, 2025'
+  },
+
+
   orderView: {
     myOrders: 'My Orders',
     all: 'All',

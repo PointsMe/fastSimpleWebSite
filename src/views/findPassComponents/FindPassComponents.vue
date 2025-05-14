@@ -1,5 +1,9 @@
 <template>
   <div class="login-com">
+  <div class="title-box">
+      <span @click="toLogin">{{$t('aboutLogin.back')}}</span>
+      <el-icon><ArrowRightBold /></el-icon>
+  </div>
     <div class="title">
       <el-row class="top-title">
         <el-col :span="16" class="left-title"> {{$t('aboutLogin.findPass')}} </el-col>
@@ -29,6 +33,7 @@
 </template>
 <script setup lang="ts">
 import FindPassForm from './FindPassForm.vue'
+import { ArrowRightBold } from '@element-plus/icons-vue'
 import FindPassTab from './FindPassTab.vue'
 import { useRouter } from 'vue-router'
 // 获取路由实例
@@ -60,7 +65,21 @@ defineExpose({
 .login-com {
   width: 100%;
   height: 100%;
-
+  .title-box{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    color: #fff;
+    text-align: right;
+    >span{
+      cursor: pointer;
+    }
+    .el-icon{
+      // color: #fff;
+    }
+  }
   .title {
     .top-title {
       height: 40px;

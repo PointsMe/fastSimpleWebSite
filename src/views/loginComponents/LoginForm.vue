@@ -47,8 +47,8 @@
                             <el-checkbox v-model="checked1">
                                 {{$t('aboutLogin.loginTips')}}
                                 <span class="link-span" @click.native.prevent="checkBooks(1)">{{$t('aboutLogin.linkOne')}}</span>
-                                <!-- {{$t('aboutLogin.linkAnd')}}
-                                <span class="link-span" @click.native.prevent="checkBooks(2)">{{$t('aboutLogin.linkTwo')}}</span> -->
+                                {{$t('aboutLogin.linkAnd')}}
+                                <span class="link-span" @click.native.prevent="checkBooks(2)">{{$t('aboutLogin.linkTwo')}}</span>
                             </el-checkbox>
                         </div>
                     </el-col>
@@ -104,7 +104,11 @@ const formRules = computed(()=>{
 })
 const checkBooks = (value:number)=>{
     if(['it','es'].includes(commonStore.language)){
-        router.push('/word')
+        if(value === 1){
+            router.push('/privice')
+        }else{
+            router.push('/regulations')
+        }
     }
 }
 const changeCountry = (e:string)=>{

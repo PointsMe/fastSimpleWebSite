@@ -1,5 +1,6 @@
 export default {
     aboutLogin:{
+        back: '返回',
         loginText: '登录',
         noAccout: '没有账号？',
         goRegister:'去注册',
@@ -12,7 +13,6 @@ export default {
         forgetPassword:'忘记密码',
         loginTips:'已阅读并同意我们的',
         linkOne:'《用户条例》',
-        // linkOne:'《隐私条例》',
         linkAnd: '和',
         linkTwo: '《合同条例》',
 
@@ -318,10 +318,16 @@ bannerOne: {
     newsTitle: '华为与YINE在米兰举办技术沙龙，聚...',
     newsContent: '近日，全球ICT领导者华为携手意大利数字化管理和智能商店解决方案公司YINE，在意大利科技生态系统的核心城市米兰成...'
   },
-  wordTips: {
-    title: '提供快速服务的条款和条件',
+  priviceTips: {
+    title: '提供快速服务的隐私条例',
     updateDate: '更新日期：2025年5月13日'
   },
+  regulationsTips: {
+    title: '提供快速服务的合同条例',
+    updateDate: '更新日期：2025年5月13日'
+  },
+  
+
   orderView: {
     myOrders: '我的订单',
     all: '全部',

@@ -3,11 +3,11 @@
   <div class="title">
       <div>
         <el-icon><Document /></el-icon>
-        <span>{{ $t('wordTips.title') }}</span>
+        <span>{{ $t('regulationsTips.title') }}</span>
       </div>
-      <div>
+      <!-- <div>
         {{ $t('wordTips.updateDate') }}
-      </div>
+      </div> -->
   </div>
     <div class="content" v-html="content"></div>
   </div>
@@ -21,7 +21,8 @@ const commonStore = useCommonStore();
 const content = ref('');
 async function extractContent() {
     try {
-        let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/${commonStore.language}.docx`;
+        let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/${commonStore.language}-regulations.docx`;
+        // let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/it-privice.docx`;
         console.log(url);
         const response = await fetch(url);
         console.log(response);
@@ -64,11 +65,6 @@ onMounted(() => {
             .el-icon{
                 color: #FDB522;
             }
-        }
-        >div:last-child{
-            font-weight: 500;
-            font-size: 18px;
-            color: #666666;
         }
     }
   .content{

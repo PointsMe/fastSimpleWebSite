@@ -1,54 +1,55 @@
 export default {
-    aboutLogin:{
+    aboutLogin: {
+        back: 'Retour',
         loginText: 'Connexion',
-        noAccout: 'Vous n\'avez pas de compte?',
+        noAccout: 'Pas de compte ?',
         goRegister: 'S\'inscrire',
         telLogin: 'Connexion par téléphone',
         emailLogin: 'Connexion par email',
-        pleaseInputTel: 'Veuillez saisir votre numéro de téléphone',
-        pleaseInputEmail: 'Veuillez saisir votre email',
-        pleaseInputPassword: 'Veuillez saisir votre mot de passe',
-        pleaseCheckbox: 'Veuillez cocher cette case d\'abord',
+        pleaseInputTel: 'Veuillez entrer votre numéro de téléphone',
+        pleaseInputEmail: 'Veuillez entrer votre email',
+        pleaseInputPassword: 'Veuillez entrer votre mot de passe',
+        pleaseCheckbox: 'Veuillez cocher la case',
         forgetPassword: 'Mot de passe oublié',
-        loginTips: 'J\'ai lu et j\'accepte la',
-        linkOne: 'Politique de confidentialité',
-        linkAnd: 'et les',
-        linkTwo: 'Conditions d\'utilisation',
+        loginTips: 'J\'ai lu et accepté nos',
+        linkOne: '《Conditions d\'utilisation》',
+        linkAnd: 'et',
+        linkTwo: '《Conditions du contrat》',
 
         componeyMess: "Informations de l'entreprise",
         findPass: 'Récupérer le mot de passe',
-        findPassTel: 'Récupérer par téléphone',
-        findPassEmail: 'Récupérer par email',
-        pleaseInputCode: 'Veuillez saisir le code de vérification',
+        findPassTel: 'Récupération par téléphone',
+        findPassEmail: 'Récupération par email',
+        pleaseInputCode: 'Veuillez entrer votre code de vérification',
         sendCode: 'Envoyer le code',
-        pleaseInputPasswordAgain: 'Veuillez saisir à nouveau le mot de passe',
+        pleaseInputPasswordAgain: 'Veuillez entrer à nouveau votre mot de passe',
         sureBtn: 'Confirmer',
         againPassWrong: "Les mots de passe ne correspondent pas",
-        findPassSuccess: 'Mot de passe réinitialisé avec succès, redirection vers la connexion!!!',
-        chooseCountry: 'Veuillez d\'abord sélectionner un indicatif international!!!',
-        chooseEmail: 'Veuillez d\'abord sélectionner un email!!!',
+        findPassSuccess: 'Mot de passe réinitialisé avec succès, veuillez vous connecter !',
+        chooseCountry: 'Veuillez d\'abord sélectionner l\'indicatif !',
+        chooseEmail: 'Veuillez d\'abord sélectionner l\'email !',
 
         registerMember: 'Créer un compte',
         messagePerson: 'Informations personnelles',
-        registerTel: 'S\'inscrire par téléphone',
-        registerEmail: 'S\'inscrire par email',
-        haveAccout: 'Vous avez déjà un compte?',
-        goLogin: 'Aller à la connexion',
-        pleaseInputName: 'Veuillez saisir votre nom',
-        pleaseInputStoreName: 'Veuillez saisir le nom de votre magasin',
-        nextStep: 'Étape suivante',
+        registerTel: 'Inscription par téléphone',
+        registerEmail: 'Inscription par email',
+        haveAccout: 'Vous avez déjà un compte ?',
+        goLogin: 'Se connecter',
+        pleaseInputName: 'Veuillez entrer votre nom',
+        pleaseInputStoreName: 'Veuillez entrer le nom de votre magasin',
+        nextStep: 'Suivant',
         componeyName: 'Nom de l\'entreprise',
-        componeyPI: 'Numéro de TVA/Numéro fiscal',
+        componeyPI: 'Numéro de TVA/CF de l\'entreprise',
         countryName: 'Pays',
         printent: 'Région',
         city: 'Ville',
         cityEmail: 'Code postal',
-        address: 'Rue, Numéro',
-        point: 'Code unique / Email certifié',
+        address: 'Rue, numéro',
+        point: 'Code unique / Email fiscal PEC',
         register: 'S\'inscrire',
-        pleaseCountry: 'Veuillez d\'abord sélectionner un indicatif international!!!',
-        pleaseEmail: 'Veuillez d\'abord sélectionner un email!!!',
-        registerSuccess: 'Inscription terminée, redirection vers la connexion!!!'
+        pleaseCountry: 'Veuillez d\'abord sélectionner l\'indicatif !',
+        pleaseEmail: 'Veuillez d\'abord sélectionner l\'email !',
+        registerSuccess: 'Inscription réussie, redirection vers la connexion !'
     },
     navigation: {
         home: 'Accueil',
@@ -68,49 +69,49 @@ export default {
         more: 'Plus'
     },
     banner: {
-        fastSimpleTitle: 'FastSimple: Solutions Intelligentes pour Petits Restaurants',
-        smartDining: 'Restauration',
-        solution: 'Intelligente',
-        subTitle: 'Simplifiez les opérations, améliorez l\'expérience client, optimisez les coûts',
+        fastSimpleTitle: 'FastSimple : La solution de',
+        smartDining: 'restauration intelligente',
+        solution: 'pour les petites entreprises',
+        subTitle: 'Simplifiez vos opérations, améliorez l\'expérience client, optimisez les coûts',
         contactUs: 'Contactez-nous'
     },
     bannerTwo: {
-        title: "L'efficacité rend la gestion de restaurant simple",
-        subTitle: "FastSimple est conçu pour la street food, les cafés et les food trucks, combinant commande autonome, paiements numériques sécurisés et gestion simplifiée des files d'attente pour l'efficacité, la commodité et la simplicité",
-        whyChoose: "Pourquoi choisir FastSimple?",
-        seamlessIntegration: "Intégration parfaite",
-        seamlessIntegrationDesc: "Utilisez des terminaux intelligents pour améliorer l'efficacité opérationnelle.",
-        diverseFunctions: "Fonctions diverses",
-        diverseFunctionsDesc: "Optimisez les opérations et réduisez les coûts de main-d'œuvre.",
+        title: "L'efficacité simplifie la restauration",
+        subTitle: "FastSimple est conçu pour les food-trucks, cafés et stands de restauration rapide, combinant commande en libre-service, paiement numérique sécurisé et gestion simplifiée des files d'attente pour offrir efficacité, prix abordables et simplicité",
+        whyChoose: "Pourquoi choisir FastSimple ?",
+        seamlessIntegration: "Intégration transparente",
+        seamlessIntegrationDesc: "Améliorez l'efficacité opérationnelle avec des terminaux intelligents.",
+        diverseFunctions: "Fonctions diversifiées",
+        diverseFunctionsDesc: "Optimisez les opérations, réduisez les coûts de main-d'œuvre.",
         enhancedExp: "Expérience client améliorée",
-        enhancedExpDesc: "Réduisez la congestion aux heures de pointe et augmentez la satisfaction.",
-        keyFeatures: "Caractéristiques principales",
-        keyFeaturesSubtitle: "Fonctions simplifiées, opérations efficaces",
-        tabletFeature: "Tablettes compactes aux fonctionnalités complètes",
-        tabletFeatureDesc1: "Appareils puissants mais légers pour des commandes sans interruption",
-        tabletFeatureDesc2: "Compatible avec utilisation manuelle, sur support ou murale",
-        qrCodeFeature: "Commandes par QR Code pour plus d'efficacité",
-        qrCodeFeatureDesc1: "Les clients peuvent scanner et commander en quelques secondes.",
-        qrCodeFeatureDesc2: "Réduisez les temps d'attente et augmentez les ventes.",
-        onlinePayment: "Paiements en ligne sécurisés et pratiques",
-        onlinePaymentDesc1: "Simplifiez les transactions avec une sécurité cryptée.",
-        onlinePaymentDesc2: "Réduisez les coûts de gestion d'espèces.",
-        queueManagement: "Gestion intelligente des files d'attente",
+        enhancedExpDesc: "Réduisez l'encombrement aux heures de pointe, augmentez la satisfaction.",
+        keyFeatures: "Caractéristiques clés",
+        keyFeaturesSubtitle: "Fonctions optimisées, opérations efficaces",
+        tabletFeature: "Tablette compacte et polyvalente",
+        tabletFeatureDesc1: "Appareil puissant et léger pour une commande fluide",
+        tabletFeatureDesc2: "Support pour utilisation à la main, sur pied ou murale",
+        qrCodeFeature: "Commande par QR code, efficacité accrue",
+        qrCodeFeatureDesc1: "Les clients commandent en quelques secondes par scan.",
+        qrCodeFeatureDesc2: "Réduit les temps d'attente et augmente les ventes.",
+        onlinePayment: "Paiement en ligne sécurisé et pratique",
+        onlinePaymentDesc1: "Transactions simplifiées avec cryptage sécurisé.",
+        onlinePaymentDesc2: "Réduit les coûts de gestion des espèces.",
+        queueManagement: "Gestion intelligente des files",
         queueManagementDesc1: "Numéros de file automatiques et mises à jour en temps réel.",
-        queueManagementDesc2: "Permettez une planification flexible pour les clients.",
+        queueManagementDesc2: "Permet une planification flexible du temps des clients.",
         orderSync: "Synchronisation des commandes en temps réel",
-        orderSyncDesc1: "Intégration parfaite avec les systèmes de cuisine.",
-        orderSyncDesc2: "Réduisez les erreurs et augmentez la vitesse.",
-        digitalInvoice: "Factures numériques pour un avenir plus vert",
-        digitalInvoiceDesc1: "Générez des factures sans papier pour des opérations écologiques.",
-        digitalInvoiceDesc2: "Accès facile aux registres de transactions.",
-        allergenScreening: "Filtrage des allergènes",
-        allergenScreeningDesc1: "Les clients peuvent présélectionner les options d'allergènes et le système",
-        allergenScreeningDesc2: "filtrera automatiquement les ingrédients dangereux, garantissant la sécurité alimentaire."
+        orderSyncDesc1: "Intégration transparente avec le système de cuisine.",
+        orderSyncDesc2: "Réduit les erreurs et augmente la vitesse.",
+        digitalInvoice: "Facture numérique pour un avenir plus vert",
+        digitalInvoiceDesc1: "Génère des factures sans papier pour des opérations écologiques.",
+        digitalInvoiceDesc2: "Accès facile aux historiques de transactions.",
+        allergenScreening: "Dépistage des allergènes",
+        allergenScreeningDesc1: "Les clients peuvent pré-sélectionner les options d'allergènes, le système",
+        allergenScreeningDesc2: "filtre automatiquement les ingrédients dangereux pour assurer la sécurité."
     },
     bannerThree: {
         title: "Support multilingue",
-        subTitle: "Support en 7 langues pour fournir un service international aux clients et au personnel",
+        subTitle: "Support de 7 langues pour servir les clients et le personnel international",
         greetings: {
             english: "Hello",
             french: "Bonjour",
@@ -121,75 +122,75 @@ export default {
         }
     },
     bannerFour: {
-        idealBusiness: "Entreprises idéales pour FastSimple",
-        solutionForSmallBusinesses: "Solutions sur mesure pour petites et moyennes entreprises",
+        idealBusiness: "Entreprise idéale pour FastSimple",
+        solutionForSmallBusinesses: "Solution sur mesure pour les petites et moyennes entreprises",
         flexiblePayment: "Paiement flexible",
-        multiplePaymentOptions: "Multiples options de paiement avec facturation électronique intégrée",
+        multiplePaymentOptions: "Options de paiement multiples avec facturation électronique intégrée",
         multiplePaymentMethods: "Méthodes de paiement multiples",
-        satisfyCustomerPreferences: "Satisfait mieux les diverses préférences des clients.",
+        satisfyCustomerPreferences: "Satisfait mieux les préférences diverses des clients.",
         billingOptions: "Options de facturation",
-        adaptToVariousScenarios: "Adaptable à divers scénarios",
+        adaptToVariousScenarios: "S'adapte à divers scénarios",
         provideAllPayments: "Fournit tous les paiements",
-        splitEvenly: "Diviser équitablement",
-        payAsNeeded: "Payer selon les besoins",
+        splitEvenly: "Division égale",
+        payAsNeeded: "Paiement à la demande",
         billingPerOrder: "Facturation par commande",
         currencySupport: "Support multi-devises",
-        currencySupportDesc: "Gérez facilement les transactions dans diverses devises pour répondre aux besoins commerciaux mondiaux",
-        paymentScenarios: "Multiples scénarios de paiement",
-        paymentScenariosDesc: "Adaptable aux scénarios de restauration, à emporter et autres paiements, améliorant la satisfaction client",
+        currencySupportDesc: "Gérez facilement les transactions en différentes devises pour répondre aux besoins commerciaux mondiaux",
+        paymentScenarios: "Scénarios de paiement multiples",
+        paymentScenariosDesc: "S'adapte aux scénarios de paiement sur place et à emporter, améliore la satisfaction client",
         eInvoicing: "Facturation électronique intégrée",
-        eInvoicingDesc: "Connexion directe avec les autorités fiscales élimine le besoin de plateformes tierces, simplifiant les processus et assurant la conformité"
+        eInvoicingDesc: "La connexion directe avec les autorités fiscales élimine le besoin de plateformes tierces, simplifie les processus et assure la conformité"
     },
     bannerFive: {
         exclusiveHardware: "Pack matériel exclusif",
-        reasonablePrice: "Prix raisonnable, haute efficacité, disponible à tout moment",
-        limitedTimeOffer: "Offre à durée limitée 800€",
+        reasonablePrice: "Prix raisonnable, efficacité élevée, disponible immédiatement",
+        limitedTimeOffer: "Offre limitée 800€",
         discountedPrice: "400€",
-        additionalFee: "*Frais supplémentaires du système",
+        additionalFee: "*Frais système supplémentaires",
         monthlyFee: "20€/mois",
-        feeDescription: "(Comprend une tablette et une imprimante)",
-        goToShop: "Aller à la boutique, ",
-        viewMore: "voir plus",
-        imageDisclaimer: "*Les images sont pour référence seulement. Contactez le service client pour les modèles spécifiques"
+        feeDescription: "(inclut une tablette et une imprimante)",
+        goToShop: "Aller à la boutique,",
+        viewMore: "Voir plus",
+        imageDisclaimer: "*L'image est à titre indicatif. Contactez le service client pour le modèle spécifique"
     },
     bannerSix: {
-        digitalTaxCompliance: "Conformité fiscale numérique simplifiée",
-        tailoredSolution: "Solution sur mesure pour petites et moyennes entreprises",
+        digitalTaxCompliance: "La conformité fiscale numérique simplifiée",
+        tailoredSolution: "Solution sur mesure pour les petites et moyennes entreprises",
         autoDataSubmission: "Soumission automatique des données",
         instantDataTransmission: "Transmission instantanée des données de transaction aux autorités fiscales",
-        regulations: "Que disent les réglementations?",
-        regulationDetails: "Selon les réglementations pour les reçus électroniques, les commerçants doivent utiliser des caisses enregistreuses fiscales conformes aux spécifications de l'autorité fiscale italienne. Ces appareils génèrent des reçus légaux et permettent aux clients de choisir s'ils souhaitent recevoir une copie imprimée"
+        regulations: "Que disent les réglementations ?",
+        regulationDetails: "Selon les réglementations sur les reçus électroniques, les commerçants doivent utiliser des caisses enregistreuses conformes aux spécifications de l'administration fiscale italienne. Ces appareils génèrent des reçus légaux et permettent aux clients de choisir de recevoir une copie imprimée"
     },
     bannerSeven: {
         perfectSolution: "Solution parfaite pour la gestion fiscale",
-        helpBusinesses: "Nos solutions aident les entreprises",
-        description: "FastSimple est conçu pour la street food, les cafés et les food trucks, combinant commande autonome, paiements numériques sécurisés et gestion simplifiée des files d'attente pour l'efficacité, la commodité et la simplicité"
+        helpBusinesses: "Notre solution aide les entreprises",
+        description: "FastSimple est conçu pour les food-trucks, cafés et stands de restauration rapide, combinant commande en libre-service, paiement numérique sécurisé et gestion simplifiée des files d'attente pour offrir efficacité, prix abordables et simplicité"
     },
     bannerEight: {
         invoiceTitle: {
-            first: "Facturation automatisée pour l'Espagne",
-            second: "Conformité fiscale sans effort"
+            first: "Facturation automatique en Espagne",
+            second: "Conformité facile aux réglementations fiscales"
         },
-        invoiceDescription: "Notre système de commande offre désormais la génération et le reporting automatiques des factures pour les entreprises espagnoles. Le système génère automatiquement des factures fiscales avec des codes uniques et des codes QR, garantissant la légalité et la vérifiabilité. Les informations sont transmises aux autorités fiscales en temps réel, éliminant les processus manuels et améliorant l'efficacité.",
+        invoiceDescription: "Notre système de commande offre maintenant la génération automatique de factures et les services de reporting pour les entreprises espagnoles. Le système génère automatiquement des factures fiscales avec un code unique et un QR code, garantissant la légalité et la vérifiabilité. Les informations pertinentes sont transmises en temps réel aux autorités fiscales, éliminant les processus manuels et améliorant l'efficacité.",
         taxSystemTitle: {
-            first: "Intégration complète avec des systèmes fiscaux avancés",
-            second: "Entièrement intégré aux systèmes fiscaux avancés"
+            first: "Intégration complète avec les systèmes fiscaux avancés",
+            second: "Intégration complète avec les systèmes fiscaux avancés"
         },
-        taxSystemDescription: "Entièrement intégré aux systèmes TicketBAI et Veri Factu, certifié et approuvé par les autorités fiscales provinciales espagnoles. Conforme à la Loi de Réforme Fiscale 2024 et soutient les nouvelles réglementations obligatoires de Facturation Électronique."
+        taxSystemDescription: "Intégration complète avec les systèmes TicketBAI et Veri Factu, certifiés et approuvés par les autorités fiscales provinciales espagnoles. Conforme à la réforme fiscale 2024 et prend en charge les nouvelles réglementations obligatoires de Facturación Electrónica."
     },
     bannerNine: {
-        title: "Gestion fiscale simplifiée",
-        subtitle: "Choisissez nos solutions intelligentes pour maintenir votre entreprise à jour, en respectant sans effort les réglementations fiscales espagnoles en constante évolution.",
-        supportTitle: "Support complet pour la tranquillité d'esprit",
-        supportSubtitle: "Assurer des opérations de restauration fluides",
+        title: "Simplifiez la gestion fiscale",
+        subtitle: "Choisissez notre solution intelligente pour maintenir votre entreprise à la pointe et respecter facilement les réglementations fiscales espagnoles en constante évolution.",
+        supportTitle: "Support complet pour travailler en toute sérénité",
+        supportSubtitle: "Assure le bon fonctionnement du restaurant",
         services: {
             selfService: {
-                title: "Libre-service",
-                description: "La plateforme crée automatiquement des factures électroniques structurées en XML conformes aux normes FatturaPA et se connecte aux canaux SDI pour la circulation légale des factures B2B/B2C."
+                title: "Service libre-service",
+                description: "La plateforme crée automatiquement des factures électroniques conformes aux normes FatturaPA en structure XML et s'intègre au canal SDI pour une circulation légale et conforme des factures B2B/B2C"
             },
             onSiteSupport: {
                 title: "Support sur site et à distance",
-                description: "Support gratuit pour la configuration et le démarrage pour une ouverture sans souci."
+                description: "Support gratuit pour l'installation et le démarrage, démarrage sans souci."
             },
             remoteSupport: {
                 title: "Support à distance via WeChat",
@@ -198,31 +199,33 @@ export default {
         },
         features: {
             omniChannel: {
-                title: "Support multicanal via services à distance et sur site",
-                description: "Support de service à distance et IA. Canaux de support multiples, de l'assistance téléphonique à distance au support sur site, conçus pour soutenir la croissance de votre entreprise."
+                title: "Support omnicanal via services à distance et sur site",
+                description: "Support par services à distance et IA. Canaux de support multiples, du guidage téléphonique à distance à l'assistance sur site, visant à soutenir la croissance de votre entreprise"
             },
             inHouse: {
                 title: "Développement entièrement interne avec support technique expert",
-                description: "Recherche et développement internes garantissent un service de qualité, avec une équipe professionnelle fournissant un support technique et client complet."
+                description: "Le développement interne garantit un service de qualité, une équipe professionnelle fournit un support technique et client complet"
             }
         }
     },
     bannerTen: {
         contactUs: "Contactez-nous",
-        contactDescription: "Contactez-nous pour un support expert et des opportunités de coopération",
+        contactDescription: "Contactez-nous pour un support expert et des opportunités de collaboration",
         email: "Email",
         address: "Adresse",
         form: {
             name: "Nom",
-            namePlaceholder: "Entrez votre nom",
+            namePlaceholder: "Veuillez entrer votre nom",
             email: "Email",
-            emailPlaceholder: "Entrez votre email",
+            emailPlaceholder: "Veuillez entrer votre email",
             phone: "Téléphone",
-            phonePlaceholder: "Entrez votre numéro de téléphone",
+            phonePlaceholder: "Veuillez entrer votre numéro de téléphone",
             company: "Entreprise",
-            companyPlaceholder: "Entrez votre entreprise",
+            companyPlaceholder: "Veuillez entrer votre entreprise",
+            address: "Adresse",
+            addressPlaceholder: "Veuillez entrer votre adresse",
             message: "Message",
-            messagePlaceholder: "Entrez",
+            messagePlaceholder: "Veuillez entrer",
             sendMessage: "Envoyer le message"
         }
     },
@@ -232,92 +235,205 @@ export default {
         copyright: "Copyright © 2024 PointsMe By Yine Srl, Tous droits réservés",
         terms: "Conditions"
     },
+    shopping: {
+        title: "Boutique promotionnelle",
+        membershipPromotion: "Inscrivez-vous en tant que membre et entrez le code d'invitation pour bénéficier d'une réduction de 50%",
+        registerNow: "S'inscrire maintenant"
+    },
+    serverView: {
+        ourServices: "Nos services",
+        serviceDesc: "Répond aux besoins de divers commerçants, assure un fonctionnement efficace et précis des entrepôts de gros et d'alimentation",
+        customerSatisfaction: "Satisfaction client",
+        onlineCourses: "Cours en ligne complets visant à aider les professionnels de la restauration à améliorer leurs compétences et leur efficacité opérationnelle",
+        intelligentSupport: "Support client intelligent",
+        fullTimeSupport: "Support intelligent 24/7, résout vos besoins commerciaux à tout moment",
+        quickResponse: "Réponse rapide, suivi complet",
+        responseProcess: "Lancement du processus de service en 2 minutes, suivi en temps réel de la progression, garantit une résolution rapide des problèmes"
+    },
+    aboutView: {
+        whoWeAre: 'Qui sommes-nous ? Pourquoi existons-nous ?',
+        companyDescription: 'Yine s.r.l. est née au cœur de l\'écosystème technologique italien - Milan, depuis sa création en 2013, elle s\'est consacrée au développement de solutions de gestion numérique et de magasins intelligents.\nL\'entreprise s\'engage à fournir des services SaaS de restaurant plus pratiques, efficaces, intelligents et sécurisés. En tant que leader de l\'écosystème complet, les produits couvrent tout le cycle de vie des restaurants et des entreprises, aidant les entreprises à construire un modèle de gestion opérationnelle piloté par les données, précis et visible, créant une valeur à long terme.',
+        globalExpertise: 'Expertise mondiale, partenariats de confiance',
+        technicalSupport: 'Fournit un support technique puissant et des solutions axées sur le marché aux entreprises',
+        companyCulture: 'Culture d\'entreprise',
+        customerFirst: {
+            title: 'Le client d\'abord',
+            description: 'Nous nous engageons à fournir des produits et services exceptionnels, à écouter constamment les besoins des clients et à améliorer l\'expérience et la valeur commerciale des clients grâce à des technologies et solutions innovantes.'
+        },
+        innovationDriven: {
+            title: 'Innovation',
+            description: 'L\'innovation est au cœur de nos valeurs. Nous encourageons les employés à dépasser les limites, à explorer de nouvelles possibilités et à promouvoir le développement durable grâce à des technologies et services en constante innovation.'
+        },
+        teamwork: {
+            title: 'Travail d\'équipe',
+            description: 'Nous valorisons la contribution de chaque membre de l\'équipe, créons une culture d\'équipe ouverte et honnête, et obtenons un plus grand succès pour nos clients et partenaires.'
+        },
+        socialResponsibility: {
+            title: 'Responsabilité sociale',
+            description: 'En tant qu\'entreprise citoyenne responsable, nous promouvons activement le développement vert et durable, contribuons à la société par la technologie et les activités sociales, et apportons une contribution à l\'avancement de l\'industrie et de la société'
+        },
+        excellence: {
+            title: 'Excellence',
+            description: 'Nous adhérons aux normes les plus élevées, nous concentrons sur chaque détail des produits et services, dépassons constamment les attentes des clients et devenons une marque digne de confiance dans le monde'
+        },
+        vision: {
+            title: 'Vision',
+            description: 'Devenir un fournisseur leader de solutions technologiques, permettant aux entreprises mondiales de gérer intelligemment et de se développer durablement'
+        },
+        mission: {
+            title: 'Mission',
+            description: 'Promouvoir le succès des clients et créer un meilleur avenir grâce à l\'innovation technologique et à l\'excellence du service'
+        },
+        ourServices: {
+            title: 'Nos services',
+            subtitle: 'Répond aux besoins de divers commerçants, assure un fonctionnement efficace et précis des entrepôts de gros et d\'alimentation'
+        },
+        satisfaction: {
+            title: 'Satisfaction client',
+            description: 'Cours en ligne complets visant à aider les professionnels de la restauration à améliorer leurs compétences et leur efficacité opérationnelle'
+        },
+        support: {
+            title: 'Support client intelligent',
+            description: 'Support intelligent 24/7, résout vos besoins commerciaux à tout moment'
+        },
+        response: {
+            title: 'Réponse rapide, suivi complet',
+            description: 'Lancement du processus de service en 2 minutes, suivi en temps réel de la progression, garantit une résolution rapide des problèmes'
+        },
+        channelSupport: {
+            title: 'Support omnicanal via services à distance et sur site',
+            description: 'Support par services à distance et IA. Canaux de support multiples, du guidage téléphonique à distance à l\'assistance sur site, visant à soutenir la croissance de votre entreprise'
+        },
+        internalDevelopment: {
+            title: 'Développement entièrement interne avec support technique expert',
+            description: 'Le développement interne garantit un service de qualité, une équipe professionnelle fournit un support technique et client complet'
+        },
+        news: 'Actualités',
+        newsDate: '12 janvier 2025',
+        newsTitle: 'Huawei et YINE organisent un salon technologique à Milan...',
+        newsContent: 'Récemment, le leader mondial des TIC Huawei et la société italienne de solutions de gestion numérique et de magasins intelligents YINE ont organisé un salon technologique à Milan, au cœur de l\'écosystème technologique italien...'
+    },
+    
+    priviceTips: {
+        title: 'Politique de confidentialité pour FastSimple',
+        updateDate: 'Date de mise à jour : 13 mai 2025'
+    },
+    regulationsTips: {
+        title: 'Conditions générales pour la fourniture de services rapides',   
+        updateDate: 'Date de mise à jour : 13 mai 2025'
+    },
+    
+
+    orderView: {
+        myOrders: 'Mes commandes',
+        all: 'Tout',
+        pendingPayment: 'En attente de paiement',
+        pendingShipment: 'En attente d\'expédition',
+        completed: 'Terminé',
+        orderNumber: 'Numéro de commande',
+        shipped: 'Expédié',
+        cancelled: 'Annulé',
+        hardwareSelection: 'Sélection de matériel',
+        packageInfo: 'Informations sur le forfait',
+        productInfo: 'Informations sur le produit',
+        repay: 'Payer à nouveau',
+        cancelOrder: 'Annuler la commande',
+        totalAmount: 'Montant total des marchandises',
+        discountAmount: 'Montant de la remise',
+        taxRate: 'TVA',
+        total: 'Total',
+        logisticsInfo: 'Informations logistiques',
+        recipient: 'Destinataire',
+        phoneNumber: 'Numéro de téléphone',
+        detailedAddress: 'Adresse détaillée',
+        waitingForShipment: 'En attente d\'expédition',
+        contactCustomerService: 'Contacter le service client',
+        noOrderRecords: 'Aucun enregistrement de commande pour le moment'
+    },
     orderDetail: {
-        title: 'Détails de la Commande',
-        orderNumber: 'Numéro de Commande',
-        pendingPayment: 'En Attente de Paiement',
-        pendingShipment: 'En Attente d\'Expédition',
+        title: 'Détails de la commande',
+        orderNumber: 'Numéro de commande',
+        pendingPayment: 'En attente de paiement',
+        pendingShipment: 'En attente d\'expédition',
         shipped: 'Expédié',
         completed: 'Terminé',
         cancelled: 'Annulé',
-        hardwareSelection: 'Sélection de Matériel',
-        packageInfo: 'Informations sur le Forfait',
-        productInfo: 'Informations sur le Produit',
-        repay: 'Repayer',
-        cancelOrder: 'Annuler la Commande',
-        totalAmount: 'Montant Total',
-        discountAmount: 'Remise',
+        hardwareSelection: 'Sélection de matériel',
+        packageInfo: 'Informations sur le forfait',
+        productInfo: 'Informations sur le produit',
+        repay: 'Payer à nouveau',
+        cancelOrder: 'Annuler la commande',
+        totalAmount: 'Montant total des marchandises',
+        discountAmount: 'Montant de la remise',
         taxRate: 'TVA',
         total: 'Total',
-        logisticsInfo: 'Informations Logistiques',
+        logisticsInfo: 'Informations logistiques',
         recipient: 'Destinataire',
-        phoneNumber: 'Numéro de Téléphone',
-        detailedAddress: 'Adresse Détaillée',
-        waitingForShipment: 'En Attente d\'Expédition',
-        contactCustomerService: 'Contacter le Service Client',
-        noOrderRecords: 'Aucun Enregistrement de Commande'
+        phoneNumber: 'Numéro de téléphone',
+        detailedAddress: 'Adresse détaillée',
+        waitingForShipment: 'En attente d\'expédition',
+        contactCustomerService: 'Contacter le service client',
+        noOrderRecords: 'Impossible de trouver les informations de cette commande'
     },
     shoppingCart: {
         checkout: 'Paiement',
         selectPaymentMethod: 'Veuillez sélectionner le mode de paiement',
         shippingInfo: 'Informations de livraison',
         name: 'Nom',
-        phone: 'Téléphone',
+        phone: 'Numéro',
         country: 'Pays',
         province: 'Province',
         city: 'Ville',
         address: 'Adresse de livraison',
         referralCode: 'Code de parrainage',
-        enterReferralCode: 'Entrez le code de parrainage',
+        enterReferralCode: 'Entrer le code de parrainage',
         payNow: 'Payer maintenant',
         total: 'Total',
-        scanWechatPay: 'Ouvrez WeChat APP pour scanner et payer',
+        scanWechatPay: 'Ouvrez WeChat pour scanner et payer',
         orderSummary: 'Récapitulatif de la commande',
-        subtotal: 'Sous-total',
-        discount: 'Remise',
+        subtotal: 'Sous-total des marchandises',
+        discount: 'Montant de la remise',
         tax: 'TVA',
-        totalAmount: 'Montant total'
+        totalAmount: 'Total'
     },
     orderOne: {
-        registerMember: 'Créer un compte',
-        normalPrice: 'Prix normal:',
-        invitePrice: 'Prix de parrainage:',
+        registerMember: 'Inscrivez-vous en tant que membre et entrez le code d\'invitation pour bénéficier d\'une réduction de {price}€',
+        normalPrice: 'Prix normal :',
+        invitePrice: 'Prix avec invitation :',
         total: 'Total',
-        productAmount: 'Quantité de produits',
-        discountAmount: 'Quantité de remise',
-        taxAmount: 'Quantité de TVA',
-        totalAmount: 'Total',
-        enterInviteCode: 'Entrez un code de parrainage pour obtenir un rabais de {price}€',
+        totalAmount: 'Montant total des marchandises',
+        discountAmount: 'Montant de la remise',
+        taxAmount: 'TVA',
+        finalAmount: 'Total',
         buyNow: 'Acheter maintenant',
-        pleaseSelectPackage: 'Veuillez d\'abord sélectionner un paquet',
-        pleaseEnterCorrectCode: 'Veuillez entrer un code correct',
-        discountUpdated: 'Quantité de remise actualisée!!!',
-        enterCorrectCode: 'Veuillez entrer un code correct'
+        enterInviteCode: 'Entrez le code d\'invitation pour une réduction de {price}€',
+        pleaseSelectPackage: 'Veuillez d\'abord sélectionner un forfait',
+        discountUpdated: 'Le montant de la remise a été mis à jour !!!',
+        pleaseEnterCorrectCode: 'Veuillez entrer un code d\'invitation correct'
     },
-    orderTwo: { 
-        registerMember: 'Créer un compte',
-        normalPrice: 'Prix normal:',
-        invitePrice: 'Prix de parrainage:',
+    orderTwo: {
+        registerMember: 'Inscrivez-vous en tant que membre et entrez le code d\'invitation pour bénéficier d\'une réduction de {price}€',
+        normalPrice: 'Prix normal :',
+        invitePrice: 'Prix avec invitation :',
         total: 'Total',
-        productAmount: 'Quantité de produits',
-        discountAmount: 'Quantité de remise',
-        taxAmount: 'Quantité de TVA',
+        productAmount: 'Montant total des marchandises',
+        discountAmount: 'Montant de la remise',
+        taxAmount: 'TVA',
         totalAmount: 'Total',
-        enterInviteCode: 'Entrez un code de parrainage pour obtenir un rabais de {price}€',
+        enterInviteCode: 'Entrez le code d\'invitation pour une réduction de {price}€',
         buyNow: 'Acheter maintenant',
-        pleaseSelectPackage: 'Veuillez d\'abord sélectionner un paquet',
-        pleaseEnterCorrectCode: 'Veuillez entrer un code correct',
-        inviteCodeUpdated: 'Quantité de remise actualisée!!!',
-        enterCorrectCode: 'Veuillez entrer un code correct'
+        selectPackage: 'Veuillez d\'abord sélectionner un forfait',
+        inviteCodeUpdated: 'Le montant de la remise a été mis à jour !!!',
+        enterCorrectCode: 'Veuillez entrer un code d\'invitation correct'
     },
     orderThree: {
         total: 'Total',
-        totalAmount: 'Quantité de produits',
-        taxAmount: 'Quantité de TVA',
+        totalAmount: 'Montant total des marchandises',
+        taxAmount: 'TVA',
         finalAmount: 'Total',
         buyNow: 'Acheter maintenant',
-        enterInviteCode: 'Entrez un code de parrainage pour obtenir un rabais de {price}€',
-        pleaseSelectItems: 'Veuillez d\'abord sélectionner un paquet',
-        pleaseEnterCorrectCode: 'Veuillez entrer un code correct'
-    }           
+        enterInviteCode: 'Entrez le code d\'invitation pour une réduction de {price}€',
+        pleaseSelectItems: 'Veuillez d\'abord sélectionner des articles',
+        pleaseEnterCorrectCode: 'Veuillez entrer un code d\'invitation correct'
+    }
 }

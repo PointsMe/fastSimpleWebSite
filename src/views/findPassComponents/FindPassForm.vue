@@ -82,6 +82,8 @@ import {
 } from "./formList"
 import { useUserStore } from "@/stores/modules/user"
 import { i18n } from '@/lang/index'
+import { useCommonStore } from "@/stores/modules/common"
+const commonStore = useCommonStore()
 const userStore = useUserStore()
 const countryCode = ref('+86')
 const emailCode = ref('@gmail.com')
@@ -95,7 +97,13 @@ const props = defineProps({
     }
 });
 const checkBooks = (value:number)=>{
-    ElMessage.success(value === 1 ? '查看隐私条例' : '查看合同条例')
+    if(['it','es'].includes(commonStore.language)){
+        if(value === 1){
+            router.push('/privice')
+        }else{
+            router.push('/regulations')
+        }
+    }
 }
 const changeCountry = (e:string)=>{
     countryCode.value = e
