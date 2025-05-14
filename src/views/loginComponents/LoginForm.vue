@@ -95,10 +95,10 @@ const props = defineProps({
 const formRules = computed(()=>{
     return {
         account: [
-            { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel') },
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'),trigger: 'change' },
         ],
         password: [
-            { required: true, message: i18n.global.t('aboutLogin.pleaseInputPassword')},
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputPassword'),trigger: 'change'},
         ],
     }
 })
@@ -128,7 +128,7 @@ const checked1 = ref()
 const changeType = (e: Types.formTypeOne) => {
     const current = emailForm.value.find((iv) => iv.value === e.value)
     if (current) {
-        current.typePass = current?.typePass === 'password' ? undefined : 'password'
+        current.typePass = current?.typePass !== 'password' ?'password' : undefined
     }
     console.log("===emailForm===",emailForm)
 }

@@ -159,7 +159,7 @@ const checked1 = ref()
 const changeType = (e: Types.formTypeOne) => {
     const current = emailForm.value.find((iv) => iv.value === e.value)
     if (current) {
-        current.typePass = current?.typePass === 'password' ? undefined : 'password'
+        current.typePass = current?.typePass !== 'password' ?'password' : undefined
     }
     console.log("===emailForm===", emailForm)
 }

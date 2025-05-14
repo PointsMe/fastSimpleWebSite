@@ -57,7 +57,13 @@
   margin: 0;
   font-weight: normal;
 }
-
+@font-face {
+  font-family: 'DIN, DIN';
+  src: url('/public/fonts/DIN-Regular.otf') format('woff2'),;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载体验 */
+}
 body {
   min-height: 100vh;
   color: var(--color-text);
@@ -67,6 +73,7 @@ body {
     background-color 0.5s;
   line-height: 1.6;
   font-family:
+    DIN,
     Inter,
     -apple-system,
     BlinkMacSystemFont,

@@ -69,9 +69,8 @@ defineExpose({
 
     .left-title {
       text-align: left;
-      font-family:
-        Source Han Sans SC,
-        Source Han Sans SC;
+      font-family: DIN, DIN;
+      // font-family: Source Han Sans SC;
       font-weight: 500;
       font-size: 32px;
       color: #ffffff;

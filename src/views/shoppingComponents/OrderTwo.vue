@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
   <div class="order-two">
     <el-row :gutter="6" class="row-list">
@@ -240,8 +241,8 @@
                 <el-input
                   class="input-h"
                   v-model="inviteCode"
+                  @keydown.enter.native="enterEvent($event)"
                     @input="changeInviteCode"
-                  @blur="blurInviteCode"
                   :placeholder="`输入邀请码立减${userStore.discountedPrice}€`"
                   size="large"
                 />
@@ -395,6 +396,10 @@ const joinUsFn = () => {
   //     UpdateViewRef.value.showModal()
   // }
 };
+const enterEvent = (event: any) => {
+  console.log("enterEvent==>", event);
+  blurInviteCode(event.target.value);
+};
 const blurInviteCode = async (value: any) => {
   console.log("blurInviteCode==>", value, inviteCode.value);
   if (inviteCode.value && inviteCode.value.length > 4) {
@@ -429,6 +434,7 @@ const changeInviteCode = (value: any) => {
     if(val.length > 4 && val.length < 9){
         blurInviteCodeFn(event)
     }
+
 };
 const toPay = async () => {
   console.log("aaaaa====>", orderList.value);
