@@ -8,16 +8,19 @@
           <el-col :span="8">
             <div class="list-con">
               <img src="@/assets/fastsImages/b-7-1.png" alt="" />
+              <span>{{ $t('bannerSeven.invoiceTitle.first') }}</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="list-con">
               <img src="@/assets/fastsImages/b-7-2.png" alt="" />
+              <span>{{ $t('bannerSeven.invoiceTitle.second') }}</span>
             </div>
           </el-col>
           <el-col :span="8">
             <div class="list-con">
               <img src="@/assets/fastsImages/b-7-3.png" alt="" />
+              <span>{{ $t('bannerSeven.invoiceTitle.third') }}</span>
             </div>
           </el-col>
         </el-row>
@@ -47,9 +50,22 @@
         padding-bottom: 120px;
       }
       .list-con {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
         img {
+          display: inline-block;
           height: 64px;
-          width: 248px;
+          // width: 248px;
+        }
+        span {
+          font-weight: 400;
+          font-size: 18px;
+          color: #1a1a1a;
+          display: inline-block;
+          margin-left: 20px;
         }
       }
     }

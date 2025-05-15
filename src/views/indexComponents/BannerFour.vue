@@ -10,7 +10,9 @@
       </div>
       <div class="sub-title">{{ $t("bannerFour.solutionForSmallBusinesses") }}</div>
     </div>
-    <div class="con-list"></div>
+    <div class="con-list">
+      <ImgView />
+    </div>
     <div class="pay-style">
       <div class="title-content">
         <div class="title">{{ $t("bannerFour.flexiblePayment") }}</div>
@@ -170,6 +172,7 @@
 </template>
 <script setup lang="ts">
 import { useCommonStore } from "@/stores/modules/common";
+import ImgView from "./ImgView.vue";
 const commonStore = useCommonStore();
 // console.log("useCommonStore==>",commonStore.language)
 </script>
@@ -317,11 +320,12 @@ const commonStore = useCommonStore();
     height: 164px;
     margin: auto;
     margin-top: 80px;
-    background-image: url("@/assets/fastsImages/b-4-1.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
+    overflow: hidden;
+    // background-image: url("@/assets/fastsImages/b-4-1.png");
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // text-align: center;
   }
   .con-job {
     width: 1280px;

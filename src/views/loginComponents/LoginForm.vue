@@ -41,8 +41,8 @@
                 </el-button>
             </div>
             <div class="checkbox-con">
-                <el-row :gutter="12">
-                    <el-col :span="16">
+                <el-row>
+                    <el-col :span="24">
                         <div>
                             <el-checkbox v-model="checked1">
                                 {{$t('aboutLogin.loginTips')}}
@@ -52,7 +52,7 @@
                             </el-checkbox>
                         </div>
                     </el-col>
-                    <el-col :span="8">
+                    <el-col :span="24">
                         <div class="chin-select">
                             <LanguageView />
                         </div>
@@ -201,7 +201,9 @@ const forgetPass = ()=>{
             font-size: 12px;
             color: #8f8f8f;
             margin-top: 33px;
-
+            .chin-select{
+                margin-top: 10px;
+            }
             .link-span {
                 color: #4c8afd;
             }

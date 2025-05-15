@@ -45,7 +45,7 @@
             </div>
             <div class="checkbox-con">
                 <el-row :gutter="12">
-                    <el-col :span="16">
+                    <el-col :span="24">
                         <div>
                             <el-checkbox v-model="checked1">
                                 {{ $t('aboutLogin.loginTips')}}
@@ -54,7 +54,7 @@
                             </el-checkbox>
                         </div>
                     </el-col>
-                    <el-col :span="8">
+                    <el-col :span="24">
                         <div class="chin-select">
                             <LanguageView />
                         </div>
@@ -133,6 +133,8 @@ const formRules = computed(()=>{
             required: true, validator: (rule: any, value: any, callback: any) => {
                 if (value === '') {
                     callback(new Error(i18n.global.t('aboutLogin.pleaseInputPassword')))
+                }else if((value.length < 6 || value.length > 16)){
+                    callback(new Error(i18n.global.t('aboutLogin.passwordLength')))
                 } else {
                     if (form.againpassword !== '') {
                         if (!formRef.value) return
@@ -148,7 +150,9 @@ const formRules = computed(()=>{
             required: true, validator: (rule: any, value: any, callback: any) => {
                 if (value === '') {
                     callback(new Error(i18n.global.t('aboutLogin.pleaseInputPasswordAgain')))
-                } else if (value !== form.password) {
+                }else if((value.length < 6 || value.length > 16)){
+                    callback(new Error(i18n.global.t('aboutLogin.passwordLength')))
+                }  else if (value !== form.password) {
                     callback(new Error(i18n.global.t('aboutLogin.againPassWrong')))
                 } else {
                     callback()
@@ -156,6 +160,7 @@ const formRules = computed(()=>{
             }
         },
     ],
+
 }
 })
 const formRef = ref<FormInstance>()
@@ -287,7 +292,9 @@ watch(
             font-size: 12px;
             color: #8f8f8f;
             margin-top: 33px;
-
+            .chin-select{
+                margin-top: 10px;
+            }
             .link-span {
                 color: #4c8afd;
             }

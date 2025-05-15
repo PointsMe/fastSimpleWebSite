@@ -348,7 +348,7 @@ watch(
         padding-left: 20px;
         font-family: Source Han Sans SC, Source Han Sans SC;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 20px;
         color: #1e1e1e;
         > span {
           font-weight: 400;
@@ -406,6 +406,7 @@ watch(
         .order-info-list {
           border-bottom: 1px solid #e5e5e5;
           .order-total {
+            margin-top: 20px;
             .total-amount{
               font-family: Source Han Sans SC, Source Han Sans SC;
               font-weight: 400;
@@ -484,15 +485,15 @@ watch(
               display: inline-block;
             }
             .sp-3 {
-              height: 30px;
-              line-height: 30px;
+              height:25px;
+              line-height: 25px;
               border-radius: 6px 6px 6px 6px;
               background: #fdb522;
               color: #fff;
               padding: 0 10px;
               margin-left: 10px;
               font-weight: 400;
-              font-size: 14px;
+              font-size: 12px;
             }
           }
         }
@@ -510,7 +511,7 @@ watch(
         margin-left: 30px;
         font-family: Source Han Sans SC, Source Han Sans SC;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 16px;
         color: #666666;
       }
       > span:first-child {
@@ -534,7 +535,7 @@ watch(
   .title-dialog {
     font-family: Inter, Inter;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 24px;
     color: #1a1a1a;
   }
 }

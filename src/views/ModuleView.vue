@@ -36,8 +36,6 @@ onMounted(()=>{
       position: relative;
       .right-login {
         width: 630px;
-        // height: 100vh;
-        height: 650px;
         margin: auto;
         position: absolute;
         position: absolute;

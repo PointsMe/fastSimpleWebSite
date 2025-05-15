@@ -3,31 +3,20 @@
     <div class="title">
       <el-row class="top-title">
         <el-col :span="12" class="left-title"> {{$t('aboutLogin.registerMember')}} </el-col>
-        <el-col :span="12" class="right-title-i">
-          <el-row :gutter="12" class="r-t-i-r">
-            <el-col :span="8">
-              <div class="con">
-                <img src="@/assets/r-1-1.png" alt="">
-                {{$t('aboutLogin.messagePerson')}} 
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="line">
-                <span :class="step === '1' ? 'color-step-1-span':'color-step-2-span'"></span>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div :class="step === '1' ? 'con color-step-1' : 'con color-step-2'">
-                <img src="@/assets/r-1-3.png" alt="" v-if="step === '1'">
-                <img src="@/assets/r-1-2.png" alt="" v-if="step === '2'">
-                {{$t('aboutLogin.componeyMess')}} 
-              </div>
-            </el-col>
-          </el-row>
+        <el-col :span="24" class="right-title-i">
+          <div class="r-t-i-r-1">
+            <img src="@/assets/r-1-1.png" alt="">
+            <span class="color-step-2">{{$t('aboutLogin.messagePerson')}}</span>
+            <span :class="step === '1' ? 'line color-step-1 color-step-1-span':'line color-step-2 color-step-2-span'">
+            </span>
+            <img src="@/assets/r-1-3.png" alt="" v-if="step === '1'">
+            <img src="@/assets/r-1-2.png" alt="" v-if="step === '2'">
+            <span :class="step === '1' ? 'color-step-1' : 'color-step-2'">{{$t('aboutLogin.componeyMess')}}</span>
+          </div>
         </el-col>
       </el-row>
       <el-row class="two-title">
-        <el-col :span="12" class="left-title-i">
+        <el-col :span="24" class="left-title-i">
           <div class="step-1" v-if="step === '2'">
             {{$t('aboutLogin.componeyMess')}} 
           </div>  
@@ -35,7 +24,7 @@
             <RegisterTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
           </div>
         </el-col>
-        <el-col :span="12" class="right-title">
+        <el-col :span="24" class="right-title">
           <div class="tips">{{$t('aboutLogin.haveAccout')}} <span @click="toLogin" style="cursor: pointer;">{{$t('aboutLogin.goLogin')}} </span></div>
         </el-col>
       </el-row>
@@ -82,7 +71,7 @@ defineExpose({
     }
 
     .two-title {
-      margin-top: 80px;
+      margin-top: 60px;
     }
 
     .left-title {
@@ -107,47 +96,48 @@ defineExpose({
     }
 
     .right-title-i {
-      .line {
-        position: relative;
-        width: 100%;
-        height: 100%;
-
-        >span {
+      .r-t-i-r-1{
+          display: flex;
+          align-items: center;
+          justify-content: left;
+          gap: 10px;
+          font-size: 16px;
+        .line{
+          display: block;
+          position: relative;
+          width: 100px;
+          height: 1px;
+          // background-color: #bdbdbd;
+        }
+        .line::after{
+          content: '';
           display: block;
           width: 100%;
           height: 1px;
           position: absolute;
-          bottom: 50%;
+          top: 50%;
+          transform: translateY(50%);
         }
-        .color-step-1-span{
+          img{
+            width: 20px;
+            height: 20px;
+          }
+          label{
+            font-size: 14px;
+            color: #bdbdbd;
+          }
+        }
+      .color-step-1-span{
         background-color: #999999;
       }
       .color-step-2-span{
         background-color: #FED15F;
-      }
-
       }
       .color-step-1{
         color: #999999 !important;
       }
       .color-step-2{
         color: #FED15F !important;
-      }
-      .con {
-        position: relative;
-        font-weight: 400;
-        font-size: 16px;
-        text-align: left;
-        text-indent: 28px;
-        color: #FED15F;
-        >img {
-          display: block;
-          position: absolute;
-          left: 0;
-          top: 8px;
-          width: 24px;
-          height: 24px;
-        }
       }
     }
 

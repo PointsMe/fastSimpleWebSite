@@ -70,6 +70,7 @@ export default defineConfig({
   },
  // 打包配置
  build: {
+  emptyOutDir: true,
   // 清除console和debugger
   terserOptions: {
     compress: {

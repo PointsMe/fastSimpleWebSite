@@ -1,18 +1,18 @@
 <template>
   <div class="login-com">
-  <div class="title-box">
-      <span @click="toLogin">{{$t('aboutLogin.back')}}</span>
-      <el-icon><ArrowRightBold /></el-icon>
-  </div>
     <div class="title">
       <el-row class="top-title">
         <el-col :span="16" class="left-title"> {{$t('aboutLogin.findPass')}} </el-col>
         <el-col :span="8" class="right-title">
-          <div class="tips">{{$t('aboutLogin.noAccout')}} <span @click="toRegister">{{$t('aboutLogin.goRegister')}}</span></div>
+          <div class="title-box">
+            <span @click="toLogin">{{$t('aboutLogin.back')}}</span>
+            <el-icon><ArrowRightBold /></el-icon>
+        </div>
+          <!-- <div class="tips">{{$t('aboutLogin.noAccout')}} <span @click="toRegister">{{$t('aboutLogin.goRegister')}}</span></div> -->
         </el-col>
       </el-row>
       <el-row class="two-title">
-        <el-col :span="12" class="left-title-i">
+        <el-col :span="24" class="left-title-i">
           <div class="step-1" v-if="step === '2'">
             {{ $t('aboutLogin.componeyMess')}}
           </div>  
@@ -21,9 +21,9 @@
             <FindPassTab :registerStyle="registerStyle"  @setRegisterStyle="setRegisterStyle"/>
           </div>
         </el-col>
-        <el-col :span="12" class="right-title">
-          <!-- <div class="tips">已有账号？ <span @click="toLogin">去登录</span></div> -->
-        </el-col>
+        <!-- <el-col :span="12" class="right-title">
+          <div class="tips">已有账号？ <span @click="toLogin">去登录</span></div>
+        </el-col> -->
       </el-row>
     </div>
     <div class="login-form">
@@ -65,21 +65,6 @@ defineExpose({
 .login-com {
   width: 100%;
   height: 100%;
-  .title-box{
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    gap: 10px;
-    color: #fff;
-    text-align: right;
-    >span{
-      cursor: pointer;
-    }
-    .el-icon{
-      // color: #fff;
-    }
-  }
   .title {
     .top-title {
       height: 40px;
@@ -163,7 +148,23 @@ defineExpose({
       font-size: 14px;
       color: #bdbdbd;
       position: relative;
-
+      .title-box{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    color: #bdbdbd;
+    text-align: right;
+    font-size: 14px;
+    font-family: Inter, Inter;
+    >span{
+      cursor: pointer;
+    }
+    .el-icon{
+      // color: #fff;
+    }
+  }
       .tips {
         position: absolute;
         right: 0;

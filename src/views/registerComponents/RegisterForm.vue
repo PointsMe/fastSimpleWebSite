@@ -6,7 +6,9 @@
             <el-row :gutter="12">
                 <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
                     <el-form-item :label="item.label" :prop="item.value">
-                        <el-input @change="(e: any) => EventFunction({
+                        <el-input 
+                        controls-position="right"
+                        @change="(e: any) => EventFunction({
                             evt: item?.onEventFunction,
                             data: e
                         })" v-if="item.type === 'input'" size="large" :type="`${item.typePass}`"
@@ -41,7 +43,7 @@
                         })"
                             :disabled="item.disabled"
                             :placeholder="$t(item.placeholder)">
-                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
+                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="iv.label"
                                 :value="iv.value" />
                         </el-select>
                     </el-form-item>
@@ -49,7 +51,10 @@
             </el-row>
         </el-form>
         <div class="login-last">
-            <!-- <p class="forget-pass">忘记密码</p> -->
+            <div class="title-box" v-if="props.step === '2'">
+                <span @click="toBack">{{$t('aboutLogin.previousStep')}}</span>
+                <el-icon><ArrowRightBold /></el-icon>
+            </div>
             <div :class="props.step === '1' ? 'btn-login margin-top-60' : 'btn-login margin-top-148'">
                 <el-button class="el-btn-color" size="large" style="width: 100%" @click="onSubmit">
                     <span v-if="props.step === '2'">{{$t('aboutLogin.register')}}</span>
@@ -101,6 +106,7 @@ import {
 import { useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/modules/user"
 import { useCommonStore } from "@/stores/modules/common"
+import { ArrowRightBold } from '@element-plus/icons-vue'
 const userStore = useUserStore()
 const commonStore = useCommonStore()
 // 获取路由实例
@@ -132,7 +138,8 @@ const changeEmail = (e:string)=>{
 const formModel: any = reactive({
     name: '',
     storeName: '',
-    account: '',
+    phoneAccount:'',
+    emailAccount:'',
     verificationCode: '',
     password: '',
     againpassword: '',
@@ -174,7 +181,9 @@ const formRules = computed(()=> {
             required: true, validator: (rule: any, value: any, callback: any) => {
                 if (value === '') {
                     callback(new Error(i18n.global.t('aboutLogin.pleaseInputPassword')))
-                } else {
+                }else if((value.length < 6 || value.length > 16)){
+                    callback(new Error(i18n.global.t('aboutLogin.passwordLength')))
+                }else {
                     if (formModel.againpassword !== '') {
                         if (!formModelRef.value) return
                         formModelRef.value.validateField('againpassword')
@@ -189,6 +198,8 @@ const formRules = computed(()=> {
             required: true, validator: (rule: any, value: any, callback: any) => {
                 if (value === '') {
                     callback(new Error(i18n.global.t('aboutLogin.pleaseInputPasswordAgain')))
+                }else if((value.length < 6 || value.length > 16)){
+                    callback(new Error(i18n.global.t('aboutLogin.passwordLength')))
                 } else if (value !== formModel.password) {
                     callback(new Error(i18n.global.t('aboutLogin.againPassWrong')))
                 } else {
@@ -237,8 +248,9 @@ const checkBooks = (value:number)=>{
         }
     }
 }
-
-
+const toBack = ()=>{
+    emit('setStep', '1')
+}
 const EventFunction = async (event: any) => {
     console.log("EventFunction==>",event)
     switch (event.evt) {
@@ -256,6 +268,7 @@ const EventFunction = async (event: any) => {
                     }
                 })
                 currentData.optionsData = arr
+                formModel.value.provinceId = arr[0].value
             }
             break
         default:
@@ -337,9 +350,10 @@ const onSubmit = () => {
                     }
                     const params = {
                         "name": formModel.name,
-                        "account": props.step === '1' ? `${countryCode.value.replace('+', '')}-${formModel.phoneAccount}` : `${formModel.emailAccount}${emailCode.value}`,
+                        "account": props.registerStyle === '1' ? `${countryCode.value.replace('+', '')}-${formModel.phoneAccount}` : `${formModel.emailAccount}${emailCode.value}`,
                         "password": formModel.password,
                         "verificationCode": formModel.verificationCode,
+                        "storeName": formModel.storeName,
                         company: {
                             "type": 101,
                             "name": formModel.subName,
@@ -414,6 +428,23 @@ watch(
     margin-top: 50px;
 
     .login-last {
+        .title-box{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    color: #bdbdbd;
+    text-align: right;
+    font-size: 14px;
+    font-family: Inter, Inter;
+    >span{
+      cursor: pointer;
+    }
+    .el-icon{
+      // color: #fff;
+    }
+  }
         .checkbox-con {
             font-family: Inter, Inter;
             font-weight: 500;

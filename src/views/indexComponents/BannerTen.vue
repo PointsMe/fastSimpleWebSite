@@ -16,6 +16,7 @@
           <div class="col-right">
             <el-form
               ref="formRef"
+              :key="formKey"
               :label-position="'top'"
               style="width: 100%"
               label-width="auto"
@@ -129,9 +130,13 @@ import { reactive, computed, ref } from "vue";
 import { addNotificationApi } from "@/apis/common";
 import { ElMessage, ElLoading } from "element-plus";
 import { i18n } from "@/lang/index";
+import { useCommonStore } from "@/stores/modules/common";
+import { getRandomString } from "@/utils/index";
 defineOptions({
   name: "BannerTen",
 });
+const formKey = ref(getRandomString(8));
+const commonStore = useCommonStore();
 const formRef = ref<any>(null);
 const formLabelAlign = reactive({
   name: "",
@@ -160,7 +165,7 @@ const rules = computed(() => {
     tel: [
       {
         required: true,
-        message: i18n.global.t("bannerTen.form.telPlaceholder"),
+        message: i18n.global.t("bannerTen.form.phonePlaceholder"),
         trigger: "blur",
       },
     ],
@@ -286,6 +291,13 @@ const sendMessage = async () => {
     }
   });
 };
+watch(
+    () => commonStore.language,
+  (newVal) => {
+    console.log("newVal===>", newVal);
+    formKey.value = getRandomString(8);
+  }
+);
 </script>
 <style scoped lang="less">
 .banner-10-div {

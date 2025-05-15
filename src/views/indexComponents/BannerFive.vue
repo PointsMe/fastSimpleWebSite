@@ -8,8 +8,8 @@
         </el-col>
         <el-col :span="10" class="right">
           <div class="one-div">
-            <span>{{ $t('bannerFive.limitedTimeOffer') }}</span>
-            <span>{{ $t('bannerFive.discountedPrice') }}</span>
+            <span>{{ $t('bannerFive.limitedTimeOffer') }}<label class="label-th">€{{ userStore.discountedPrice* 2}}</label></span>
+            <span>{{ userStore.discountedPrice }}€</span>
           </div>
           <div class="two-div">
             {{ $t('bannerFive.additionalFee') }}<span class="color-a">{{ $t('bannerFive.monthlyFee') }}</span> {{ $t('bannerFive.feeDescription') }}
@@ -17,29 +17,41 @@
         </el-col>
       </el-row>
       <el-row class="margin-top-50">
-        <el-col :span="12" class="left-a"> {{ $t('bannerFive.goToShop') }}<span class="color-a">{{ $t('bannerFive.viewMore') }}</span> </el-col>
+        <el-col :span="12" class="left-a"> {{ $t('bannerFive.goToShop') }}<span class="color-a" @click="goToShop">{{ $t('bannerFive.viewMore') }}</span> </el-col>
         <el-col :span="12" class="right-a"> {{ $t('bannerFive.imageDisclaimer') }} </el-col>
       </el-row>
       <el-row :gutter="12">
         <el-col :span="8">
           <div class="content-list-img">
             <img src="@/assets/fastsImages/b-5-1.png" alt="" />
+            <span>{{ $t('bannerFive.tablet') }}</span>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="content-list-img">
             <img src="@/assets/fastsImages/b-5-2.png" alt="" />
+            <span>{{ $t('bannerFive.printer') }}</span>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="content-list-img">
             <img src="@/assets/fastsImages/b-5-3.png" alt="" />
+            <span>{{ $t('bannerFive.tabletStation') }}</span>
           </div>
         </el-col>
       </el-row>
     </div>
   </div>
 </template>
+<script setup lang="ts">
+import { useUserStore } from '@/stores/modules/user';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const userStore = useUserStore();
+const goToShop = () => {
+  router.push('/shopping');
+};
+</script>
 <style scoped lang="less">
 .banner-5-div {
   width: 100%;
@@ -51,8 +63,30 @@
     margin: auto;
     padding: 120px 0;
     .content-list-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      text-align: center;
       img {
         width: 100%;
+        height: 100%;
+      }
+      span {
+        display: block;
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-weight: 400;
+        font-size: 18px;
+        color: #666666;
+        line-height: 30px;
+        text-align: center;
+        font-style: normal;
+        text-transform: none;
+        position: absolute;
+        width: 100%;
+        bottom: 8%;
       }
     }
     .margin-top-50 {
@@ -85,6 +119,9 @@
       .one-div {
         text-align: right;
         position: relative;
+        .label-th{
+          text-decoration: line-through;
+        }
         > span:first-child {
           display: block;
           width: 210px;

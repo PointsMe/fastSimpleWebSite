@@ -86,7 +86,8 @@ export const phoneFormStep1 =[
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: false,
-        haveTelSelect:true
+        haveTelSelect:true,
+        typePass: 'number'
     },
     {
         span: 24,

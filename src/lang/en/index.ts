@@ -1,5 +1,6 @@
 export default {
     aboutLogin:{
+        previousStep: 'Previous',
         back: 'Back',
         loginText: 'Login',
         noAccout: 'No account?',
@@ -9,6 +10,7 @@ export default {
         pleaseInputTel: 'Please enter your phone number',
         pleaseInputEmail: 'Please enter your email',
         pleaseInputPassword: 'Please enter your password',
+        passwordLength: 'The password must be between 6 and 16 characters',
         pleaseCheckbox: 'Please check this box first',
         forgetPassword: 'Forgot Password',
         loginTips: 'I have read and agree to our',
@@ -140,19 +142,31 @@ bannerOne: {
     paymentScenarios: "Multiple Payment Scenarios",
     paymentScenariosDesc: "Adaptable to dining, takeout and other payment scenarios, improving customer satisfaction",
     eInvoicing: "Integrated E-Invoicing",
-    eInvoicingDesc: "Direct connection with tax authorities eliminates the need for third-party platforms, simplifying processes and ensuring compliance"
+    eInvoicingDesc: "Direct connection with tax authorities eliminates the need for third-party platforms, simplifying processes and ensuring compliance",
+    bar: "Bar",
+    fastFood: "Fast Food",
+    snackBar: "Snack Bar",
+    iceCream: "Ice Cream",
+    foodTruck: "Food Truck",
+    coffeeShop: "Coffee Shop",
+    cocktailBar: "Cocktail Bar",
+    teaShop: "Tea Shop",
+    beerBar: "Beer Bar"     
   },
   bannerFive: {
     exclusiveHardware: "Exclusive Hardware Package",
     reasonablePrice: "Reasonable price, high efficiency, available anytime",
-    limitedTimeOffer: "Limited time offer 800€",
+    limitedTimeOffer: "Limited time offer",
     discountedPrice: "400€",
     additionalFee: "*Additional system fee",
     monthlyFee: "20€/month",
     feeDescription: "(Includes one tablet and one printer)",
     goToShop: "Go to shop, ",
     viewMore: "view more",
-    imageDisclaimer: "*Images are for reference only. Please contact customer service for specific models"
+    imageDisclaimer: "*Images are for reference only. Please contact customer service for specific models",
+    tablet: "Tablet Huawei",
+    printer: "Thermal printer",
+    tabletStation: "Tablet station"
   },
   bannerSix: {
     digitalTaxCompliance: "Digital Tax Compliance Made Easy",
@@ -165,7 +179,12 @@ bannerOne: {
   bannerSeven: {
     perfectSolution: "Perfect Solution for Tax Management",
     helpBusinesses: "Our solutions help businesses",
-    description: "FastSimple is designed for street food, cafes and food trucks, combining self-ordering, secure digital payments and simplified queue management for efficiency, affordability and simplicity"
+    description: "FastSimple is designed for street food, cafes and food trucks, combining self-ordering, secure digital payments and simplified queue management for efficiency, affordability and simplicity",
+    invoiceTitle: {
+      first: "Automated Invoicing for Spain",
+      second: "Effortless Tax Compliance",
+      third: "Automatic Accounting Entries"
+    },
   },
   bannerEight: {
     invoiceTitle: {
@@ -223,10 +242,12 @@ bannerOne: {
       emailPlaceholder: "Please enter your email",
       phone: "Phone",
       phonePlaceholder: "Please enter your phone number",
+      address: "Address",
+      addressPlaceholder: "Please enter your address",
       company: "Company",
       companyPlaceholder: "Please enter your company",
       message: "Message",
-      messagePlaceholder: "Please enter",
+      messagePlaceholder: "Please enter your message",
       sendMessage: "Send Message"
     }
   },

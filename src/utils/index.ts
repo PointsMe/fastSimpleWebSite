@@ -32,4 +32,16 @@ export const debounce = function (fn:Function, delay:number) {
     }
     return result;
 }
- 
+
+export const getVersion = async () => {
+  const url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/version.json`;
+  // let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/it-privice.docx`;
+  const response = await fetch(url);
+  const res = await response.json();
+  if(res.version !== window.localStorage.getItem("version")){
+    window.localStorage.setItem("version",res.version);
+    window.location.reload();
+  }
+  return res;
+}
+

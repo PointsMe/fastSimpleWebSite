@@ -1,5 +1,6 @@
 export default {
     aboutLogin:{
+        previousStep: '上一步',
         back: '返回',
         loginText: '登录',
         noAccout: '没有账号？',
@@ -9,6 +10,7 @@ export default {
         pleaseInputTel:'请输入您的手机号码',
         pleaseInputEmail:'请输入您的邮箱',
         pleaseInputPassword:'请输入您的密码',
+        passwordLength:'密码长度为6-16位',
         pleaseCheckbox:'请先勾选',
         forgetPassword:'忘记密码',
         loginTips:'已阅读并同意我们的',
@@ -140,19 +142,31 @@ bannerOne: {
     paymentScenarios: "多种支付场景",
     paymentScenariosDesc: "可适应就餐、外卖等支付场景，提升客户满意度",
     eInvoicing: "集成E-Invoicing",
-    eInvoicingDesc: "与税务机关的直接连接消除了对第三方平台的需求，简化了流程并确保合规性"
+    eInvoicingDesc: "与税务机关的直接连接消除了对第三方平台的需求，简化了流程并确保合规性",
+    bar: "酒吧",
+    fastFood: "快餐",
+    snackBar: "小吃店",
+    iceCream: "冰淇淋店",
+    foodTruck: "餐车",
+    coffeeShop: "咖啡厅",
+    cocktailBar: "鸡尾酒厅",
+    teaShop: "奶茶店",
+    beerBar: "啤酒吧",
   },
   bannerFive: {
     exclusiveHardware: "独家硬件包",
     reasonablePrice: "价格合理，效率高，随时可用",
-    limitedTimeOffer: "限时提供 800€",
+    limitedTimeOffer: "限时提供",
     discountedPrice: "400€",
     additionalFee: "*附加系统费用",
     monthlyFee: "20€/月",
     feeDescription: "(包括一台平板电脑和一台打印机)",
     goToShop: "前往商城，",
     viewMore: "查看更多",
-    imageDisclaimer: "*图片仅供参考。具体型号请联系客服"
+    imageDisclaimer: "*图片仅供参考。具体型号请联系客服",
+    tablet: "华为平板电脑",
+    printer: "热敏打印机",
+    tabletStation: "平板电脑站"
   },
   bannerSix: {
     digitalTaxCompliance: "数字税务合规变得容易",
@@ -165,7 +179,12 @@ bannerOne: {
   bannerSeven: {
     perfectSolution: "税务管理的完美解决方案",
     helpBusinesses: "我们的解决方案帮助企业",
-    description: "FastSimple专为街头小吃、咖啡和快餐车而设计，结合了自助订购、安全的数字支付和简化的队列管理，提供了效率、价格实惠和简单性"
+    description: "FastSimple专为街头小吃、咖啡和快餐车而设计，结合了自助订购、安全的数字支付和简化的队列管理，提供了效率、价格实惠和简单性",
+    invoiceTitle: {
+      first: "自动化发票流程",
+      second: "符合税务合规标准",
+      third: "适应未来的监管变化"
+    },
   },
   bannerEight: {
     invoiceTitle: {
@@ -228,7 +247,7 @@ bannerOne: {
       address: "地址",
       addressPlaceholder: "请输入您的地址",
       message: "消息",
-      messagePlaceholder: "请输入",
+      messagePlaceholder: "请输入您的消息",
       sendMessage: "发送消息"
 
     }
@@ -439,5 +458,6 @@ bannerOne: {
     enterInviteCode: '输入邀请码立减{price}€',
     pleaseSelectItems: '请先选择商品',
     pleaseEnterCorrectCode: '请输入正确的邀请码'  
-  }
+  },
+
 }

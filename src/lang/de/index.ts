@@ -1,5 +1,6 @@
 export default {
     aboutLogin:{
+        previousStep: 'Zurück',
         back: 'Zurück',
         loginText: 'Anmelden',
         noAccout: 'Kein Konto?',
@@ -9,6 +10,7 @@ export default {
         pleaseInputTel:'Bitte geben Sie Ihre Telefonnummer ein',
         pleaseInputEmail:'Bitte geben Sie Ihre E-Mail-Adresse ein',
         pleaseInputPassword:'Bitte geben Sie Ihr Passwort ein',
+        passwordLength:'Das Passwort muss zwischen 6 und 16 Zeichen lang sein',
         pleaseCheckbox:'Bitte zuerst auswählen',
         forgetPassword:'Passwort vergessen',
         loginTips:'Ich habe die',
@@ -139,19 +141,31 @@ export default {
         paymentScenarios: "Verschiedene Zahlungsszenarien",
         paymentScenariosDesc: "Anpassbar an Dine-in, Takeaway und andere Zahlungsszenarien, verbessert die Kundenzufriedenheit",
         eInvoicing: "Integrierte E-Rechnung",
-        eInvoicingDesc: "Direkte Verbindung mit Steuerbehörden eliminiert die Notwendigkeit von Drittanbieterplattformen, vereinfacht Prozesse und gewährleistet Compliance"
+        eInvoicingDesc: "Direkte Verbindung mit Steuerbehörden eliminiert die Notwendigkeit von Drittanbieterplattformen, vereinfacht Prozesse und gewährleistet Compliance",
+        bar: "Bar",
+        fastFood: "Fast Food",
+        snackBar: "Snack Bar",
+        iceCream: "Ice Cream",
+        foodTruck: "Food Truck",
+        coffeeShop: "Coffee Shop",  
+        cocktailBar: "Cocktail Bar",
+        teaShop: "Tea Shop",
+        beerBar: "Beer Bar"         
     },
     bannerFive: {
         exclusiveHardware: "Exklusives Hardware-Paket",
         reasonablePrice: "Günstiger Preis, hohe Effizienz, sofort verfügbar",
-        limitedTimeOffer: "Zeitlich begrenztes Angebot 800€",
+        limitedTimeOffer: "Zeitlich begrenztes Angebot",
         discountedPrice: "400€",
         additionalFee: "*Zusätzliche Systemgebühr",
         monthlyFee: "20€/Monat",
         feeDescription: "(inklusive einem Tablet und einem Drucker)",
         goToShop: "Zum Shop gehen,",
         viewMore: "Mehr anzeigen",
-        imageDisclaimer: "*Bild nur zur Veranschaulichung. Spezifisches Modell bitte beim Kundenservice erfragen"
+        imageDisclaimer: "*Bild nur zur Veranschaulichung. Spezifisches Modell bitte beim Kundenservice erfragen",
+        tablet: "Tablet Huawei",
+        printer: "Thermal printer",
+        tabletStation: "Tablet station"
     },
     bannerSix: {
         digitalTaxCompliance: "Digitale Steuerkonformität leicht gemacht",
@@ -164,7 +178,12 @@ export default {
     bannerSeven: {
         perfectSolution: "Perfekte Lösung für Steuerverwaltung",
         helpBusinesses: "Unsere Lösung unterstützt Unternehmen",
-        description: "FastSimple wurde speziell für Street Food, Cafés und Food Trucks entwickelt und kombiniert Selbstbedienungsbestellung, sichere digitale Zahlungen und vereinfachte Warteschlangenverwaltung für Effizienz, Erschwinglichkeit und Einfachheit"
+        description: "FastSimple wurde speziell für Street Food, Cafés und Food Trucks entwickelt und kombiniert Selbstbedienungsbestellung, sichere digitale Zahlungen und vereinfachte Warteschlangenverwaltung für Effizienz, Erschwinglichkeit und Einfachheit",
+        invoiceTitle: {
+            first: "Automatische Rechnungen in Spanien",
+            second: "Einfache Einhaltung von Steuervorschriften",
+            third: "Automatische Buchungsdaten"
+        },        
     },
     bannerEight: {
         invoiceTitle: {

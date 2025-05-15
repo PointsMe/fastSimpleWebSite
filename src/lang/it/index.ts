@@ -1,5 +1,6 @@
 export default {
   aboutLogin: {
+    previousStep: 'Indietro',
     back: 'Indietro',
     loginText: 'Accedi',
     noAccout: 'Non hai un account?',
@@ -9,6 +10,7 @@ export default {
     pleaseInputTel: 'Inserisci il tuo numero di telefono',
     pleaseInputEmail: 'Inserisci la tua email',
     pleaseInputPassword: 'Inserisci la tua password',
+    passwordLength: 'La password deve essere compresa tra 6 e 16 caratteri',
     pleaseCheckbox: 'Seleziona prima la casella',
     forgetPassword: 'Password dimenticata',
     loginTips: 'Ho letto e accetto i nostri',
@@ -139,19 +141,31 @@ export default {
     paymentScenarios: "Scenari di pagamento multipli",
     paymentScenariosDesc: "Si adatta a scenari di pagamento per consumo in loco e asporto, migliorando la soddisfazione del cliente",
     eInvoicing: "Fatturazione elettronica integrata",
-    eInvoicingDesc: "La connessione diretta con le autorità fiscali elimina la necessità di piattaforme di terze parti, semplifica i processi e garantisce la conformità"
+    eInvoicingDesc: "La connessione diretta con le autorità fiscali elimina la necessità di piattaforme di terze parti, semplifica i processi e garantisce la conformità",
+    bar: "Bar",
+    fastFood: "Fast Food",
+    snackBar: "Snack Bar",
+    iceCream: "Ice Cream",
+    foodTruck: "Food Truck",
+    coffeeShop: "Coffee Shop",
+    cocktailBar: "Cocktail Bar",
+    teaShop: "Tea Shop",
+    beerBar: "Beer Bar"
   },
   bannerFive: {
     exclusiveHardware: "Pacchetto hardware esclusivo",
     reasonablePrice: "Prezzo ragionevole, alta efficienza, sempre disponibile",
-    limitedTimeOffer: "Offerta limitata 800€",
+    limitedTimeOffer: "Offerta limitata",
     discountedPrice: "400€",
     additionalFee: "*Costi di sistema aggiuntivi",
     monthlyFee: "20€/mese",
     feeDescription: "(include un tablet e una stampante)",
     goToShop: "Vai al negozio,",
     viewMore: "Vedi altro",
-    imageDisclaimer: "*L'immagine è solo a scopo illustrativo. Per il modello specifico, contattare il servizio clienti"
+    imageDisclaimer: "*L'immagine è solo a scopo illustrativo. Per il modello specifico, contattare il servizio clienti",
+    tablet: "Tablet Huawei",
+    printer: "Stampante termica",
+    tabletStation: "Tablet station"
   },
   bannerSix: {
     digitalTaxCompliance: "Conformità fiscale digitale semplificata",
@@ -164,7 +178,12 @@ export default {
   bannerSeven: {
     perfectSolution: "Soluzione perfetta per la gestione fiscale",
     helpBusinesses: "La nostra soluzione aiuta le aziende",
-    description: "FastSimple è progettato per street food, caffè e food truck, combinando ordinazioni self-service, pagamenti digitali sicuri e gestione semplificata delle code, offrendo efficienza, convenienza e semplicità"
+    description: "FastSimple è progettato per street food, caffè e food truck, combinando ordinazioni self-service, pagamenti digitali sicuri e gestione semplificata delle code, offrendo efficienza, convenienza e semplicità",
+    invoiceTitle: {
+      first: "Fatturazione automatica in Spagna",
+      second: "Conformità fiscale semplificata",
+      third: "Dati contabili automatici"
+    },
   },
   bannerEight: {
     invoiceTitle: {
@@ -318,10 +337,10 @@ export default {
     updateDate: 'Updated on May 13, 2025'
   },
   regulationsTips: {
-    title: 'Contract Terms for FastSimple', 
+    title: 'Contract Terms for FastSimple',
     updateDate: 'Updated on May 13, 2025'
   },
-  
+
 
   orderView: {
     myOrders: 'I miei ordini',

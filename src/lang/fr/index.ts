@@ -1,5 +1,6 @@
 export default {
     aboutLogin: {
+        previousStep: 'Précédent',
         back: 'Retour',
         loginText: 'Connexion',
         noAccout: 'Pas de compte ?',
@@ -9,6 +10,7 @@ export default {
         pleaseInputTel: 'Veuillez entrer votre numéro de téléphone',
         pleaseInputEmail: 'Veuillez entrer votre email',
         pleaseInputPassword: 'Veuillez entrer votre mot de passe',
+        passwordLength: 'La longueur du mot de passe doit être comprise entre 6 et 16 caractères',
         pleaseCheckbox: 'Veuillez cocher la case',
         forgetPassword: 'Mot de passe oublié',
         loginTips: 'J\'ai lu et accepté nos',
@@ -127,7 +129,7 @@ export default {
         flexiblePayment: "Paiement flexible",
         multiplePaymentOptions: "Options de paiement multiples avec facturation électronique intégrée",
         multiplePaymentMethods: "Méthodes de paiement multiples",
-        satisfyCustomerPreferences: "Satisfait mieux les préférences diverses des clients.",
+        satisfyCustomerPreferences: "Satisfait mieux les préférences diverses des clients",
         billingOptions: "Options de facturation",
         adaptToVariousScenarios: "S'adapte à divers scénarios",
         provideAllPayments: "Fournit tous les paiements",
@@ -139,19 +141,31 @@ export default {
         paymentScenarios: "Scénarios de paiement multiples",
         paymentScenariosDesc: "S'adapte aux scénarios de paiement sur place et à emporter, améliore la satisfaction client",
         eInvoicing: "Facturation électronique intégrée",
-        eInvoicingDesc: "La connexion directe avec les autorités fiscales élimine le besoin de plateformes tierces, simplifie les processus et assure la conformité"
+        eInvoicingDesc: "La connexion directe avec les autorités fiscales élimine le besoin de plateformes tierces, simplifie les processus et assure la conformité",
+        bar: "Bar",
+        fastFood: "Fast Food",
+        snackBar: "Snack Bar",
+        iceCream: "Glace",
+        foodTruck: "Food Truck",
+        coffeeShop: "Café",
+        cocktailBar: "Bar à cocktails",
+        teaShop: "Salon de thé",
+        beerBar: "Bar à bière"
     },
     bannerFive: {
         exclusiveHardware: "Pack matériel exclusif",
         reasonablePrice: "Prix raisonnable, efficacité élevée, disponible immédiatement",
-        limitedTimeOffer: "Offre limitée 800€",
+        limitedTimeOffer: "Offre limitée",
         discountedPrice: "400€",
         additionalFee: "*Frais système supplémentaires",
         monthlyFee: "20€/mois",
         feeDescription: "(inclut une tablette et une imprimante)",
         goToShop: "Aller à la boutique,",
         viewMore: "Voir plus",
-        imageDisclaimer: "*L'image est à titre indicatif. Contactez le service client pour le modèle spécifique"
+        imageDisclaimer: "*L'image est à titre indicatif. Contactez le service client pour le modèle spécifique",
+        tablet: "Tablette Huawei",
+        printer: "Imprimante thermique",
+        tabletStation: "Station de tablette"
     },
     bannerSix: {
         digitalTaxCompliance: "La conformité fiscale numérique simplifiée",
@@ -164,7 +178,12 @@ export default {
     bannerSeven: {
         perfectSolution: "Solution parfaite pour la gestion fiscale",
         helpBusinesses: "Notre solution aide les entreprises",
-        description: "FastSimple est conçu pour les food-trucks, cafés et stands de restauration rapide, combinant commande en libre-service, paiement numérique sécurisé et gestion simplifiée des files d'attente pour offrir efficacité, prix abordables et simplicité"
+        description: "FastSimple est conçu pour les food-trucks, cafés et stands de restauration rapide, combinant commande en libre-service, paiement numérique sécurisé et gestion simplifiée des files d'attente pour offrir efficacité, prix abordables et simplicité",
+        invoiceTitle: {
+            first: "Automated Invoicing for Spain",
+            second: "Easy Tax Compliance",
+            third: "Automatic Accounting Entries"
+        },
     },
     bannerEight: {
         invoiceTitle: {

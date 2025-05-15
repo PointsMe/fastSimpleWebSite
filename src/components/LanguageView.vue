@@ -2,6 +2,7 @@
  <el-select
         v-model="commonStore.language"
         placeholder="zh"
+        size="small"
         @change="changeCountry"
     >
         <el-option
