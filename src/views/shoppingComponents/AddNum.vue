@@ -38,6 +38,10 @@ const props = defineProps({
         type: Object,
         required: false
     },
+    inviteCode: {
+        type: String,
+        required: false
+    }
 });
 const inputNum = ref<number>(0)
 const changeInput = async (e: any) => {
@@ -101,14 +105,17 @@ const addPrecreate = async () => {
     if(!userStore.token){
         return ElMessage.warning("请先登录")
     }
-    const params = shoppingCartStore.cart
+    const params = shoppingCartStore.cart as any
     const current = params.items.find((iv: any)=> iv.type === 119)
     if(current){
         params.type = 102
     }else{
         params.type = 100
     }
-    params.items = params.items.filter(iv => iv.count)
+    if(props.inviteCode){
+        params.inviteCode = props.inviteCode
+    }
+    params.items = params.items.filter((iv: any)=> iv.count)
     console.log("请求参数：",params)
     const { data } = await precreateApi(params)
     console.log("precreateApi===>",data)

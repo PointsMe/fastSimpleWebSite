@@ -2,20 +2,20 @@ import { useCommonStoreOutside } from "@/stores/modules/common"
 const commonStoreOutside = useCommonStoreOutside()
 export const emailFormStep1 =     [
     {
-        span: 12,
+        span: 24,
         label: '',
         value: 'name',
         type: 'input',
         placeholder: 'aboutLogin.pleaseInputName',
     },
-    {
-        span: 12,
-        label: '',
-        value: 'storeName',
-        type: 'input',
-        placeholder: 'aboutLogin.pleaseInputStoreName',
-        onEventFunction: 'changeStoreName'
-    },
+    // {
+    //     span: 12,
+    //     label: '',
+    //     value: 'storeName',
+    //     type: 'input',
+    //     placeholder: 'aboutLogin.pleaseInputStoreName',
+    //     onEventFunction: 'changeStoreName'
+    // },
     {
         span: 24,
         label: '',
@@ -61,21 +61,21 @@ export const emailFormStep1 =     [
 ]
 export const phoneFormStep1 =[
     {
-        span: 12,
+        span: 24,
         label: '',
         value: 'name',
         type: 'input',
         placeholder: 'aboutLogin.pleaseInputName',
         onEventFunction: 'changeName'
     },
-    {
-        span: 12,
-        label: '',
-        value: 'storeName',
-        type: 'input',
-        placeholder: 'aboutLogin.pleaseInputStoreName',
-        onEventFunction: 'changeStoreName'
-    },
+    // {
+    //     span: 12,
+    //     label: '',
+    //     value: 'storeName',
+    //     type: 'input',
+    //     placeholder: 'aboutLogin.pleaseInputStoreName',
+    //     onEventFunction: 'changeStoreName'
+    // },
     {
         span: 24,
         label: '',

@@ -371,7 +371,12 @@ bannerOne: {
     detailedAddress: '详细地址',
     waitingForShipment: '等待发货',
     contactCustomerService: '联系客服',
-    noOrderRecords: '目前没有订单记录'
+    noOrderRecords: '目前没有订单记录',
+    sureCancelOrder: "确定取消订单吗？",
+    tips: "提示",
+    confirm: "确定",
+    cancel: "取消",
+    sureAgainPay: "确定重新支付吗？",
   },
   orderDetail: {
     title: '订单详情',

@@ -158,9 +158,19 @@
                       {{ $t('orderView.phoneNumber') }}：{{ item?.deliveryAddress?.contactPhone }}
                     </div>
                     <div class="wuliu-info-content">
-                      {{ $t('orderView.detailedAddress') }}：{{
-                        `${item?.deliveryAddress?.country}-${item?.deliveryAddress?.city}-${item?.deliveryAddress?.address}`
-                      }}
+                      {{ $t('orderView.detailedAddress') }}：
+                      <span v-if="item?.deliveryAddress?.countryName">
+                      {{ item?.deliveryAddress?.countryName }}-
+                      </span>
+                      <span v-if="item?.deliveryAddress?.provinceName">
+                      {{ item?.deliveryAddress?.provinceName }}-
+                      </span>
+                      <span v-if="item?.deliveryAddress?.city">
+                      {{ item?.deliveryAddress?.city }}-
+                      </span> 
+                      <span v-if="item?.deliveryAddress?.address">
+                      {{ item?.deliveryAddress?.address }}
+                      </span>
                     </div>
                     <div class="wuliu-info-name">
                       <span v-if="item.state === 102 && item.deliveryState === 103"

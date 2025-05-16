@@ -367,7 +367,12 @@ export default {
         detailedAddress: 'Adresse détaillée',
         waitingForShipment: 'En attente d\'expédition',
         contactCustomerService: 'Contacter le service client',
-        noOrderRecords: 'Aucun enregistrement de commande pour le moment'
+        noOrderRecords: 'Aucun enregistrement de commande pour le moment',
+        sureCancelOrder: "Êtes-vous sûr de vouloir annuler la commande ?",
+        confirm: "Confirmer",
+        cancel: "Annuler",
+        tips: "Attention",
+        sureAgainPay: "Êtes-vous sûr de vouloir répéter le paiement ?"
     },
     orderDetail: {
         title: 'Détails de la commande',

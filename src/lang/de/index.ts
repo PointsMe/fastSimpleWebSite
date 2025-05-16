@@ -367,7 +367,12 @@ export default {
         detailedAddress: 'Detaillierte Adresse',
         waitingForShipment: 'Warten auf Versand',
         contactCustomerService: 'Kundenservice kontaktieren',
-        noOrderRecords: 'Derzeit keine Bestellaufzeichnungen'
+        noOrderRecords: 'Derzeit keine Bestellaufzeichnungen',
+        sureCancelOrder: "Sind Sie sicher, dass Sie die Bestellung stornieren möchten?",
+        confirm: "Bestätigen",
+        cancel: "Stornieren",
+        tips: "Hinweis",
+        sureAgainPay: "Sind Sie sicher, dass Sie den Zahlungsvorgang erneut durchführen möchten?"
     },
     orderDetail: {
         title: 'Bestelldetails',

@@ -84,9 +84,9 @@
                       >
                         <el-option
                           v-for="item in commonStore.countryList"
-                          :key="item.id"
+                          :key="item.code"
                           :label="item.name"
-                          :value="item.id"
+                          :value="item.code"
                         />
                       </el-select>
                     </el-form-item>
@@ -190,12 +190,12 @@
               v-for="(item,index) in (orderList.items).filter((iv:any)=>iv.type === 119)"
               :key="index"
             >
-              <el-col :span="20">
+              <el-col :span="18">
                 <div class="title-i">
                   {{ item.name }}
                 </div>
               </el-col>
-              <el-col :span="4">
+              <el-col :span="6">
                 <div class="money-num">
                   <span>*{{ item.value || 1 }}</span>
                   <span>€{{ item.sellPrice }}</span>
@@ -214,12 +214,12 @@
               v-for="(item,index) in (orderList.items).filter((iv:any)=>iv.type !== 119)"
               :key="index"
             >
-              <el-col :span="20">
+              <el-col :span="18">
                 <div class="title-i">
                   {{ item.name }}
                 </div>
               </el-col>
-              <el-col :span="4">
+              <el-col :span="6">
                 <div class="money-num">
                   <span>*{{ item.value || 1 }}</span>
                   <span>€{{ item.sellPrice }}</span>
@@ -334,12 +334,12 @@ const rules = reactive<FormRules<RuleForm>>({
 const changeCountrySelect = async (e: string) => {
   console.log("e===>", e);
   const { data } = await getProvinceListApi({
-    countryId: e,
+    countryId: commonStore.countryList.find((iv: any) => iv.code === e)?.id,
   });
   const arr = data.map((iv) => {
     return {
       label: iv.name,
-      value: iv.id,
+      value: iv.name,
     };
   });
   formModel.value.province = '';
@@ -770,6 +770,9 @@ defineExpose({
       }
 
       .order-list {
+        height: 73%;
+        overflow-y: scroll;
+        overflow-x: hidden;
         .row-one {
           margin-top: 24px;
 

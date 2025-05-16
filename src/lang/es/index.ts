@@ -367,7 +367,12 @@ export default {
         detailedAddress: 'Dirección detallada',
         waitingForShipment: 'Esperando envío',
         contactCustomerService: 'Contactar servicio al cliente',
-        noOrderRecords: 'No hay registros de pedidos actualmente'
+        noOrderRecords: 'No hay registros de pedidos actualmente',
+        sureCancelOrder: "¿Está seguro de querer cancelar el pedido?",
+        confirm: "Confirmar",
+        cancel: "Cancelar",
+        tips: "Atención",
+        sureAgainPay: "¿Está seguro de querer volver a pagar?"
     },
     orderDetail: {
         title: 'Detalles del pedido',
@@ -392,7 +397,12 @@ export default {
         detailedAddress: 'Dirección detallada',
         waitingForShipment: 'Esperando envío',
         contactCustomerService: 'Contactar servicio al cliente',
-        noOrderRecords: 'No se puede encontrar información sobre este pedido'
+        noOrderRecords: 'No se puede encontrar información sobre este pedido',
+        sureCancelOrder: "¿Está seguro de querer cancelar el pedido?",
+        confirm: "Confirmar",
+        cancel: "Cancelar",
+        tips: "Atención",
+        sureAgainPay: "¿Está seguro de querer volver a pagar?"
     },
     shoppingCart: {
         checkout: 'Pagar',

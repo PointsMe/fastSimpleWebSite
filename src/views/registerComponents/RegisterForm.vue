@@ -137,7 +137,7 @@ const changeEmail = (e:string)=>{
 }
 const formModel: any = reactive({
     name: '',
-    storeName: '',
+    // storeName: '',
     phoneAccount:'',
     emailAccount:'',
     verificationCode: '',
@@ -163,9 +163,9 @@ const formRules = computed(()=> {
     name: [
         { required: true, message: i18n.global.t('aboutLogin.pleaseInputName'), trigger: 'blur' },
     ],
-    storeName: [
-        { required: true, message: i18n.global.t('aboutLogin.pleaseInputStoreName'), trigger: 'blur' },
-    ],
+    // storeName: [
+    //     { required: true, message: i18n.global.t('aboutLogin.pleaseInputStoreName'), trigger: 'blur' },
+    // ],
     phoneAccount: [
         { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'blur' },
     ],
@@ -353,7 +353,7 @@ const onSubmit = () => {
                         "account": props.registerStyle === '1' ? `${countryCode.value.replace('+', '')}-${formModel.phoneAccount}` : `${formModel.emailAccount}${emailCode.value}`,
                         "password": formModel.password,
                         "verificationCode": formModel.verificationCode,
-                        "storeName": formModel.storeName,
+                        // "storeName": formModel.storeName,
                         company: {
                             "type": 101,
                             "name": formModel.subName,

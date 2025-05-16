@@ -48,6 +48,7 @@
                     name: response.name,
                     type: 119,
                   }"
+                  :inviteCode="inviteCode"
                   @changeOrderList="changeOrderList"
                 />
               </div>
@@ -92,6 +93,7 @@
                       <AddNum
                         :parents="item"
                         :data="itemChil"
+                        :inviteCode="inviteCode"
                         @changeOrderList="changeOrderList"
                       />
                     </div>
@@ -103,6 +105,7 @@
                     <RadioView
                       :parents="item"
                       :data="itemChil"
+                      :inviteCode="inviteCode"
                       @changeOrderList="changeOrderList"
                     />
                   </div>
@@ -116,7 +119,7 @@
           <el-row v-if="item.items.length > 2">
             <el-col :span="24" class="title-b">{{ item.name }}</el-col>
             <el-col :span="24">
-              <InvoiceCheckbox @changeOrderList="changeOrderList" :parents="item" />
+              <InvoiceCheckbox @changeOrderList="changeOrderList" :parents="item" :inviteCode="inviteCode" />
             </el-col>
           </el-row>
         </div>

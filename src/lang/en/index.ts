@@ -370,7 +370,12 @@ bannerOne: {
     detailedAddress: 'Detailed Address',
     waitingForShipment: 'Waiting for Shipment',
     contactCustomerService: 'Contact Customer Service',
-    noOrderRecords: 'No Order Records'
+    noOrderRecords: 'No Order Records',
+    sureCancelOrder: "Are you sure you want to cancel the order?",
+    confirm: "Confirm",
+    cancel: "Cancel",
+    tips: "Attention",
+    sureAgainPay: "Are you sure you want to repeat the payment?"
   },
   orderDetail: {
     title: 'Detalles del Pedido',
