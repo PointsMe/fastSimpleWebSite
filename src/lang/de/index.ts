@@ -68,7 +68,10 @@ export default {
     },
     bannerOne: {
         featuredPackages: 'Ausgewählte Pakete',
-        more: 'Mehr'
+        more: 'Mehr',
+        registerNow: 'Jetzt registrieren',
+        registerNowDesc: 'Die mitgliedschaft steht auf zuschüsse',
+        nowBuy: 'Jetzt kaufen'
     },
     banner: {
         fastSimpleTitle: 'FastSimple: Intelligente',

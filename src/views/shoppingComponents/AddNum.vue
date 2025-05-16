@@ -48,9 +48,10 @@ const changeInput = async (e: any) => {
     if(!userStore.token){
         return ElMessage.warning("请先登录")
     }
+    console.log("changeInput===>",e)
     let value = 0
-    if (parseInt(e)) {
-        value = parseInt(e) > props.parents?.maxSelectCount  ? props.parents?.maxSelectCount : parseInt(e)
+    if (parseInt(e) && parseInt(e) > 0) {
+        value = parseInt(e) > props.parents?.maxSelectCount  ? props.parents?.maxSelectCount : parseInt(e);
     } else {
         value = props.parents?.minSelectCount ?? 1
     }
@@ -106,6 +107,18 @@ const addPrecreate = async () => {
         return ElMessage.warning("请先登录")
     }
     const params = shoppingCartStore.cart as any
+    const tab = window.localStorage.getItem("shoppingTab") || '1001';
+    console.log("请求参数：",params,tab)
+    if(tab === '1003'){
+        params.items = params.items.filter((iv: any)=> iv.type !== 119)
+    }else{
+        params.items = params.items.filter((iv: any)=> iv.type !== 119)
+        params.items.push({
+            "type": 119,
+            "itemId": tab,
+            "count": 1
+        })
+    }
     const current = params.items.find((iv: any)=> iv.type === 119)
     if(current){
         params.type = 102
@@ -116,7 +129,7 @@ const addPrecreate = async () => {
         params.inviteCode = props.inviteCode
     }
     params.items = params.items.filter((iv: any)=> iv.count)
-    console.log("请求参数：",params)
+    shoppingCartStore.setCart(params)
     const { data } = await precreateApi(params)
     console.log("precreateApi===>",data)
     return data

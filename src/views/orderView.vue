@@ -141,7 +141,7 @@
                             <el-col :span="16"> {{ $t('orderView.discountAmount') }} </el-col>
                             <el-col :span="8"> €{{ item.discountAmount }} </el-col>
                             <el-col :span="16"> {{ $t('orderView.taxRate') }} </el-col>
-                            <el-col :span="8"> €{{ item.taxRate }} </el-col>
+                            <el-col :span="8"> €{{ item.taxAmount }} </el-col>
                             <el-col :span="16" class="total-amount"> {{ $t('orderView.total') }}： </el-col>
                             <el-col :span="8" class="total-amount"> €{{ item.finalAmount }} </el-col>
                           </el-row>
@@ -159,11 +159,11 @@
                     </div>
                     <div class="wuliu-info-content">
                       {{ $t('orderView.detailedAddress') }}：
-                      <span v-if="item?.deliveryAddress?.countryName">
-                      {{ item?.deliveryAddress?.countryName }}-
+                      <span v-if="item?.deliveryAddress?.country">
+                      {{ item?.deliveryAddress?.country }}-
                       </span>
-                      <span v-if="item?.deliveryAddress?.provinceName">
-                      {{ item?.deliveryAddress?.provinceName }}-
+                      <span v-if="item?.deliveryAddress?.province">
+                      {{ item?.deliveryAddress?.province }}-
                       </span>
                       <span v-if="item?.deliveryAddress?.city">
                       {{ item?.deliveryAddress?.city }}-

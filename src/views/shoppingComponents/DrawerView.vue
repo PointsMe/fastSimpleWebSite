@@ -197,7 +197,7 @@
               </el-col>
               <el-col :span="6">
                 <div class="money-num">
-                  <span>*{{ item.value || 1 }}</span>
+                  <span>*1</span>
                   <span>€{{ item.sellPrice }}</span>
                 </div>
               </el-col>
@@ -221,8 +221,8 @@
               </el-col>
               <el-col :span="6">
                 <div class="money-num">
-                  <span>*{{ item.value || 1 }}</span>
-                  <span>€{{ item.sellPrice }}</span>
+                  <span v-if="item.count > 0">*{{ item.count }}</span>
+                  <span style="margin-left: 20px;">€{{ item.sellPrice }}</span>
                 </div>
               </el-col>
               <el-col :span="24">

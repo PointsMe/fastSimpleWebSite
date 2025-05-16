@@ -68,7 +68,10 @@ export default {
   },
   bannerOne: {
     featuredPackages: 'Pacchetti in evidenza',
-    more: 'Altro'
+    more: 'Altro',
+    registerNow: 'Registrati ora',
+    registerNowDesc: 'Gli stati membri registrati beneficiano di una preferenza',
+    nowBuy: 'Acquista ora'
   },
   banner: {
     fastSimpleTitle: 'FastSimple: per le piccole imprese',

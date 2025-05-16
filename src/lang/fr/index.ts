@@ -68,7 +68,10 @@ export default {
     },
     bannerOne: {
         featuredPackages: 'Forfaits en vedette',
-        more: 'Plus'
+        more: 'Plus',
+        registerNow: 'S\'inscrire maintenant',
+        registerNowDesc: 'Avantages immédiats pour les membres enregistrés',
+        nowBuy: 'Aller à la boutique'
     },
     banner: {
         fastSimpleTitle: 'FastSimple : La solution de',

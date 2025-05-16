@@ -21,6 +21,10 @@
                                     <div class="pos-abs">
                                         <AddNum 
                                            :data="item"
+                                           :parents="{
+                                                minSelectCount: 0,
+                                                maxSelectCount: 999
+                                           }"
                                            @changeOrderList="changeOrderList"
                                         />
                                     </div>

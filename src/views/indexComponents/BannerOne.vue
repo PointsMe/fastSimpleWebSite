@@ -2,9 +2,10 @@
   <div class="banner-one">
     <div class="title">
       <span>{{ $t("bannerOne.featuredPackages") }}</span>
-      <span style="cursor: pointer" @click="toShopping">
-        {{ $t("bannerOne.more") }}<el-icon><DArrowRight /></el-icon>
-      </span>
+      <div class="more" @click="toShopping('')">
+        <span>{{ $t("bannerOne.more") }}</span>
+        <el-icon><DArrowRight /></el-icon>
+      </div>
     </div>
     <div>
       <el-row :gutter="12">
@@ -12,20 +13,20 @@
           <div class="img-col">
             <p class="t_i">{{ item.name }}</p>
             <p class="s_i">€{{ item.sellPrice }}<span>€{{ userStore.discountedPrice }}</span></p>
-            <p class="b_i"  v-if="!userStore.token">注册会员立享优惠，<span  @click="toRegister">立即注册 >></span></p>
+            <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }},<span  @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
             <div class="content-list">
               <el-row v-for="(itemChild,indexChild) in item.items" :key="indexChild">
-                <el-col :span="12">
+                <el-col :span="16">
                   <div class="content-list-left">
                     <img src="@/assets/r-1-1.png" alt="" />
-                    <span> {{ itemChild.name }} </span>
+                    <span style="margin-left: 10px;"> {{ itemChild.name }} </span>
                   </div>
                 </el-col>
-                <el-col :span="12">
+                <el-col :span="8">
                   <div class="content-list-right">€{{ itemChild.price }}</div>
                 </el-col>
               </el-row>
-              <div class="content-list-bottom" @click="toShopping">立即选购</div>
+              <div class="content-list-bottom" @click="toShopping(item.id)">{{ $t('bannerOne.nowBuy') }}</div>
             </div>
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
@@ -34,7 +35,7 @@
           <div class="img-col">
             <p class="t_i">CUSTOM</p>
             <p class="s_i">€***</p>
-            <p class="b_i"  v-if="!userStore.token">注册会员立享优惠，<span @click="toRegister">立即注册 >></span></p>
+            <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }}，<span @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
             <div class="content-list">
               <el-row v-for="(itemChild,indexChild) in goodsList" :key="indexChild">
                 <el-col :span="12" v-if="indexChild < 4">
@@ -47,7 +48,7 @@
                   <div class="content-list-right">€{{ itemChild.sellPrice }}</div>
                 </el-col>
               </el-row>
-              <div class="content-list-bottom" @click="toShopping">立即选购</div>
+              <div class="content-list-bottom" @click="toShopping('1003')">{{ $t('bannerOne.nowBuy') }}</div>
             </div>
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
@@ -67,11 +68,12 @@ defineOptions({
 const listData = ref<any[]>([]);
 const goodsList = ref<any[]>([]);
 const router = useRouter();
-const toShopping = () => {
+const toShopping = (index:any) => {
+  index && window.localStorage.setItem("shoppingTab",index);
   router.push("/shopping");
 };
 const toRegister = () => {
-  router.push("/register");
+  router.push("/module/register");
 };
 const getListData = async () => {
   const { data } = await getGoodsListApi();
@@ -219,6 +221,7 @@ onMounted(() => {
     // }
   }
   .title {
+   
     position: relative;
     margin-bottom: 20px;
     > span:first-child {
@@ -226,11 +229,13 @@ onMounted(() => {
       font-size: 52px;
       color: #1b1b1b;
     }
-    > span:last-child {
-      display: block;
+    .more{
       position: absolute;
       right: 0;
       bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: right;
     }
   }
 }

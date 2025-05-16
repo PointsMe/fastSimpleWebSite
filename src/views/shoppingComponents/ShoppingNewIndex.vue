@@ -98,6 +98,12 @@ const toPayDrawer = (orderList: any) => {
   }
 };
 const changeTab = (val: string) => {
+  window.localStorage.setItem("shoppingTab",val)
+  shoppingCartStore.setCart({
+    type: "",
+    items: [],
+  });
+  console.log("====changeTab>",shoppingCartStore.cart)
   tabArr.value = tabArr.value.map((item) => {
     return {
       ...item,
@@ -105,10 +111,6 @@ const changeTab = (val: string) => {
     };
   });
   tab.value = val;
-  shoppingCartStore.setCart({
-    type: "",
-    items: [],
-  });
 };
 const getData = async () => {
   const { data } = await getGoodsListApi();
@@ -119,7 +121,7 @@ const getData = async () => {
         id: item.id,
         name: item.name,
         subtitle: item.subtitle,
-        checked: !index ? true : false,
+        checked: false,
       };
     });
     console.log("list.contact(hardwareSelection)", list);
@@ -127,9 +129,11 @@ const getData = async () => {
     tabArr.value = list;
   }
 };
+
 onMounted(() => {
   getData().then(() => {
     console.log("onMounted=>", router.currentRoute.value.query);
+    changeTab(window.localStorage.getItem("shoppingTab") || '1001');
     if (getToken()) {
       if (
         router.currentRoute.value?.query?.status &&

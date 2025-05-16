@@ -69,7 +69,10 @@ user: {
 },
 bannerOne: {
     featuredPackages: '精选套餐',
-    more: '更多'
+    more: '更多',
+    registerNow: '立即注册',
+    registerNowDesc: '注册会员立享优惠',
+    nowBuy: '立即选购',
   },
   banner: {
     fastSimpleTitle: 'FastSimple：小型企业的',

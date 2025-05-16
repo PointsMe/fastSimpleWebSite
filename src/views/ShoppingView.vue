@@ -22,8 +22,12 @@ import {
   Right,
 } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
+import {onUnmounted} from "vue"
 defineOptions({
   name: 'shoppingView'
+})
+onUnmounted(()=>{
+  window.localStorage.setItem("shoppingTab","1001");
 })
 const userStore = useUserStore()
 const router = useRouter()

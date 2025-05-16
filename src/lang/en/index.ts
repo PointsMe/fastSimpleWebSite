@@ -69,7 +69,10 @@ user: {
 },
 bannerOne: {
     featuredPackages: 'Featured Packages',
-    more: 'More'
+    more: 'More',
+    registerNow: 'Register Now',
+    registerNowDesc: 'Registered members enjoy immediate discounts',
+    nowBuy: 'Now Buy'
   },
   banner: {
     fastSimpleTitle: 'FastSimple: Smart Restaurant Solutions for Small Businesses',

@@ -195,10 +195,15 @@
                 <el-col :span="24" class="left">
                   {{ item.name }}
                 </el-col>
-                <el-col :span="20" class="left tips">
+                <el-col :span="16" class="left tips">
                   <!-- 1打印机+1平板 -->
                 </el-col>
-                <el-col :span="4" class="right tips-1"> €{{ item.sellPrice }} </el-col>
+                <el-col :span="8" class="right tips-1">
+                  <div>
+                    <span v-if="item.count > 0">*{{ item.count }}</span>
+                    <span style="margin-left: 20px;"> €{{ item.sellPrice }}</span>
+                  </div>
+                </el-col>
               </el-row>
             </div>
             <!-- <div class="order-i">
@@ -284,7 +289,7 @@ const props = defineProps({
   id: {
     type: String,
     require: true,
-  },
+  }
 });
 const emits = defineEmits(["toPay"]);
 const inviteCode = ref("");
