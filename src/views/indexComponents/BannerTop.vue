@@ -7,8 +7,8 @@
 
                 <!-- Navigation Menu -->
                 <div class="nav-menu">
-                    <el-menu mode="horizontal" :ellipsis="false" class="menu" :router="true">
-                        <el-menu-item index="1" path="/index" @click="goToPage('index')">{{$t('navigation.home')}}</el-menu-item>
+                    <el-menu mode="horizontal" :ellipsis="false" class="menu">
+                        <el-menu-item index="1" @click="goToPage('index')">{{$t('navigation.home')}}</el-menu-item>
                         <el-menu-item index="2" @click="goToPage('shopping')">{{$t('navigation.shop')}}</el-menu-item>
                         <!-- <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item> -->
                         <el-menu-item index="4" @click="goToPage('server')">{{$t('navigation.support')}}</el-menu-item>
