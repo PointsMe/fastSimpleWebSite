@@ -11,7 +11,7 @@ export default {
         pleaseInputEmail:'请输入您的邮箱',
         pleaseInputPassword:'请输入您的密码',
         passwordLength:'密码长度为6-16位',
-        pleaseCheckbox:'Barrare e leggere la lista degli utenti',
+        pleaseCheckbox:'未勾选《用户条例》、《合同条例》',
         forgetPassword:'忘记密码',
         loginTips:'已阅读并同意我们的',
         linkOne:'《用户条例》',

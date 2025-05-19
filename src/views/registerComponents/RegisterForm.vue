@@ -63,7 +63,7 @@
             </div>
             <div class="checkbox-con">
                 <el-row :gutter="12">
-                    <el-col :span="16">
+                    <el-col :span="24">
                         <div v-if="props.step === '2'">
                             <el-checkbox v-model="checked1">
                                 {{$t('aboutLogin.loginTips')}}
@@ -73,7 +73,7 @@
                             </el-checkbox>
                         </div>
                     </el-col>
-                    <el-col :span="8">
+                    <el-col :span="24">
                         <div class="chin-select">
                             <LanguageView />
                         </div>

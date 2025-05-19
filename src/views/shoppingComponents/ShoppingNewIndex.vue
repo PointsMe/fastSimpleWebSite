@@ -91,10 +91,10 @@ const tabArr = ref<
 //     subtitle: '升级套餐',
 //     checked: false
 // },hardwareSelection
-const toPayDrawer = (orderList: any) => {
-  console.log("toPayDrawer=>", shoppingCartStore.cart);
+const toPayDrawer = (orderList: any,inviteCode:string) => {
+  console.log("toPayDrawer=>", shoppingCartStore.cart,inviteCode);
   if (DrawerRef.value) {
-    DrawerRef.value.showDrawer(orderList);
+    DrawerRef.value.showDrawer(orderList,inviteCode);
   }
 };
 const changeTab = (val: string) => {

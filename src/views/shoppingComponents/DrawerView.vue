@@ -351,9 +351,10 @@ const changeCountry = (e: string) => {
   countryCode.value = e;
 };
 const orderList = ref<any>({});
-const showDrawer = (data: any) => {
+const showDrawer = (data: any,inviteCode:string) => {
   drawerStatus.value = true;
   orderList.value = data;
+  formModel.value.inviteCode = inviteCode;
   console.log("orderList===>", orderList.value, data);
 };
 const closeDrawer = () => {

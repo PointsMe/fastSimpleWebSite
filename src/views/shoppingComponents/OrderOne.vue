@@ -14,7 +14,9 @@
                   <el-icon>
                     <QuestionFilled />
                   </el-icon>
-                  {{ $t('orderOne.registerMember', { price: userStore.discountedPrice }) }}
+                  {{
+                    $t("orderOne.registerMember", { price: userStore.discountedPrice })
+                  }}
                 </div>
               </el-col>
             </el-row>
@@ -33,10 +35,12 @@
           </div>
           <div class="list-one-j">
             <div>
-              <span>{{ $t('orderOne.normalPrice') }}</span>
+              <span>{{ $t("orderOne.normalPrice") }}</span>
               <span class="normal"> €{{ response.sellPrice }} </span>
-              <span class="m-f-20">{{ $t('orderOne.invitePrice') }}</span>
-              <span class="origin"> €{{ Number(response.sellPrice) - Number(userStore.discountedPrice) }} </span>
+              <span class="m-f-20">{{ $t("orderOne.invitePrice") }}</span>
+              <span class="origin">
+                €{{ Number(response.sellPrice) - Number(userStore.discountedPrice) }}
+              </span>
               <div class="pos-abs">
                 <AddNum
                   :parents="{
@@ -119,7 +123,11 @@
           <el-row v-if="item.items.length > 2">
             <el-col :span="24" class="title-b">{{ item.name }}</el-col>
             <el-col :span="24">
-              <InvoiceCheckbox @changeOrderList="changeOrderList" :parents="item" :inviteCode="inviteCode" />
+              <InvoiceCheckbox
+                @changeOrderList="changeOrderList"
+                :parents="item"
+                :inviteCode="inviteCode"
+              />
             </el-col>
           </el-row>
         </div>
@@ -161,7 +169,7 @@
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
-              <el-col :span="4" class="col-a"> {{ $t('orderOne.total') }} </el-col>
+              <el-col :span="4" class="col-a"> {{ $t("orderOne.total") }} </el-col>
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
@@ -201,7 +209,7 @@
                 <el-col :span="8" class="right tips-1">
                   <div>
                     <span v-if="item.count > 0">*{{ item.count }}</span>
-                    <span style="margin-left: 20px;"> €{{ item.sellPrice }}</span>
+                    <span style="margin-left: 20px"> €{{ item.sellPrice }}</span>
                   </div>
                 </el-col>
               </el-row>
@@ -222,22 +230,28 @@
           </div>
           <div class="order-btn" v-if="orderList.items.length > 0">
             <el-row class="order-btn-row">
-              <el-col :span="12" class="left-i-sub"> {{ $t('orderOne.totalAmount') }} </el-col>
+              <el-col :span="12" class="left-i-sub">
+                {{ $t("orderOne.totalAmount") }}
+              </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> {{ $t('orderOne.discountAmount') }} </el-col>
+              <el-col :span="12" class="left-i-sub">
+                {{ $t("orderOne.discountAmount") }}
+              </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub"> {{ $t('orderOne.taxAmount') }} </el-col>
+              <el-col :span="12" class="left-i-sub">
+                {{ $t("orderOne.taxAmount") }}
+              </el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
               </el-col>
             </el-row>
             <el-row>
               <el-col :span="8" class="left-i">
-                <span class="word">{{ $t('orderOne.finalAmount') }}：</span>
+                <span class="word">{{ $t("orderOne.finalAmount") }}：</span>
               </el-col>
               <el-col :span="16" class="right-i">
                 <span>
@@ -250,12 +264,16 @@
                   v-model="inviteCode"
                   @input="changeInviteCode"
                   @keydown.enter.native="enterEvent($event)"
-                  :placeholder="$t('orderOne.enterInviteCode', { price: userStore.discountedPrice })"
+                  :placeholder="
+                    $t('orderOne.enterInviteCode', { price: userStore.discountedPrice })
+                  "
                   size="large"
                 />
               </el-col>
               <el-col :span="24">
-                <el-button class="button-h" @click="toPay">{{ $t('orderOne.buyNow') }}</el-button>
+                <el-button class="button-h" @click="toPay">{{
+                  $t("orderOne.buyNow")
+                }}</el-button>
               </el-col>
             </el-row>
           </div>
@@ -279,7 +297,7 @@ import { getGoodsDetailApi, precreateApi } from "@/apis/goods";
 import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { debounce } from "lodash";
-import { i18n } from '@/lang/index'
+import { i18n } from "@/lang/index";
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
@@ -289,7 +307,7 @@ const props = defineProps({
   id: {
     type: String,
     require: true,
-  }
+  },
 });
 const emits = defineEmits(["toPay"]);
 const inviteCode = ref("");
@@ -599,8 +617,11 @@ const enterEvent = (event: any) => {
 };
 const blurInviteCode = async (value: any) => {
   console.log("blurInviteCode==>", value, inviteCode.value);
-  if (inviteCode.value && inviteCode.value.length > 4) {
-    const params = shoppingCartStore.cart;
+
+  if (
+    (inviteCode.value && inviteCode.value.length > 4) ||
+    inviteCode.value.length === 0
+  ) {    const params = shoppingCartStore.cart;
     const current = params.items.find((iv: any) => iv.type === 119);
     if (current) {
       params.type = 102;
@@ -613,31 +634,31 @@ const blurInviteCode = async (value: any) => {
       inviteCode: inviteCode.value,
     });
     orderList.value = data;
-    ElMessage.success(i18n.global.t('orderOne.discountUpdated'));
+    ElMessage.success(i18n.global.t("orderOne.discountUpdated"));
   } else {
-    ElMessage.warning(i18n.global.t('orderOne.pleaseEnterCorrectCode'));
+    ElMessage.warning(i18n.global.t("orderOne.pleaseEnterCorrectCode"));
   }
 };
 const blurInviteCodeFn = debounce(blurInviteCode, 1000);
 const changeInviteCode = (value: any) => {
-    
   // 限制输入为数字和字母
-  const val = value
-    .replace(/[^a-zA-Z0-9]/g, "")
-    .trim();
-    inviteCode.value = val.substring(0, 8);
-    console.log("changeInviteCode==>", val);
-    if(val.length > 4 && val.length < 9){
-        blurInviteCodeFn(event)
+  const val = value.replace(/[^a-zA-Z0-9]/g, "").trim();
+  inviteCode.value = val.substring(0, 8);
+  console.log("changeInviteCode==>", val);
+  if (val.length === 0) {
+    blurInviteCode(event);
+  } else {
+    if (val.length > 4 && val.length < 9) {
+      blurInviteCodeFn(event);
     }
-
+  }
 };
 const toPay = async () => {
   console.log("aaaaa====>", orderList.value);
   if (orderList.value.items.find((iv: any) => iv.type === 119)) {
-    emits("toPay", JSON.parse(JSON.stringify(orderList.value)));
+    emits("toPay", JSON.parse(JSON.stringify(orderList.value)), inviteCode.value);
   } else {
-    ElMessage.warning(i18n.global.t('orderOne.pleaseSelectPackage'));
+    ElMessage.warning(i18n.global.t("orderOne.pleaseSelectPackage"));
   }
 };
 onMounted(() => {

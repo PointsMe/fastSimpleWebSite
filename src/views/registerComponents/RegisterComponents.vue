@@ -152,7 +152,7 @@ defineExpose({
       .tips {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: -20px;
 
         span {
           color: #fed15f;
