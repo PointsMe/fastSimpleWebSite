@@ -136,22 +136,25 @@
                     </div>
                     <div class="order-btn">
                         <el-row class="order-btn-row">
-                            <el-col :span="12" class="left-i-sub">{{ $t('orderThree.totalAmount') }}</el-col>
-                            <el-col :span="12" class="right-i-sub">
+                            <el-col :span="16" class="left-i-sub">{{ $t('orderThree.totalAmount') }}</el-col>
+                            <el-col :span="8" class="right-i-sub">
                                 €{{ orderList?.totalAmount || 0 }}
                             </el-col>
-                            <el-col :span="12" class="left-i-sub">{{ $t('orderThree.taxAmount') }}</el-col>
-                            <el-col :span="12" class="right-i-sub">
+                            <el-col :span="16" class="left-i-sub">{{ $t('orderThree.taxAmount') }}</el-col>
+                            <el-col :span="8" class="right-i-sub">
                                 €{{ orderList?.taxAmount || 0 }}
                             </el-col>
                         </el-row>
                         <el-row>
-                            <el-col :span="4" class="left-i">
-                                <span class="word">{{ $t('orderThree.finalAmount') }}：</span>
+                            <el-col :span="10" class="left-i">
+                                <span class="word">{{ $t('orderThree.finalAmount') }}
+                                    <label class="word-1">(+ IVA)</label>
+                               </span>
                             </el-col>
-                            <el-col :span="20" class="right-i">
+                            <el-col :span="14" class="right-i">
                                 <span>
-                                    €{{ orderList?.finalAmount || 0 }}<label class="word-1">+ IVA</label>
+                                    €{{ orderList?.finalAmount || 0 }}
+                                    <!-- <label class="word-1">+ IVA</label> -->
                                 </span>
                             </el-col>
                             <el-col :span="24">
@@ -290,6 +293,10 @@ defineExpose({
             position: absolute;
             bottom: 10px;
             left: 0;
+            .word-1 {
+                font-size: 14px;
+                color: #999999;
+              }
           }
         }
 

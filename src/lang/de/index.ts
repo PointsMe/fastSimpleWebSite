@@ -351,6 +351,7 @@ export default {
         all: 'Alle',
         pendingPayment: 'Zahlung ausstehend',
         pendingShipment: 'Versand ausstehend',
+        forDelivery: 'In Zustellung',
         completed: 'Abgeschlossen',
         orderNumber: 'Bestellnummer',
         shipped: 'Versendet',

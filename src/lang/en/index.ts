@@ -354,6 +354,7 @@ bannerOne: {
     all: 'All',
     pendingPayment: 'Pending Payment',
     pendingShipment: 'Pending Shipment',
+    forDelivery: 'For Delivery',
     completed: 'Completed',
     orderNumber: 'Order No.',
     shipped: 'Shipped',

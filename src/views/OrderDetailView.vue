@@ -41,11 +41,17 @@
                           >
                           <span
                             class="sp-3"
+                            style="background: #91baff"
+                            v-if="item.state === 102 && item.deliveryState === 106"
+                            >{{ $t('orderDetail.forDelivery') }}</span
+                          >
+                          <span
+                            class="sp-3"
                             style="background: #b7c268"
                             v-if="item.state === 109"
                             >{{ $t('orderDetail.completed') }}</span
                           >
-                          <span class="sp-3" v-if="item.state === 111">{{ $t('orderDetail.cancelled') }}</span>
+                          <span class="sp-3" style="background: #f56c6c" v-if="item.state === 111">{{ $t('orderDetail.cancelled') }}</span>
                         </div>
                       </el-col>
                       <el-col :span="8">

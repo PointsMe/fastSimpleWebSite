@@ -351,6 +351,7 @@ export default {
         all: 'Tout',
         pendingPayment: 'En attente de paiement',
         pendingShipment: 'En attente d\'expédition',
+        forDelivery: 'En cours de livraison',
         completed: 'Terminé',
         orderNumber: 'Numéro de commande',
         shipped: 'Expédié',

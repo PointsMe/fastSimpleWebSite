@@ -39,7 +39,7 @@
               <span class="normal"> €{{ response.sellPrice }} </span>
               <span class="m-f-20">{{ $t("orderOne.invitePrice") }}</span>
               <span class="origin">
-                €{{ Number(response.sellPrice) - Number(userStore.discountedPrice) }}
+                €{{ Number(response.vipPrice)}}
               </span>
               <div class="pos-abs">
                 <AddNum
@@ -230,32 +230,35 @@
           </div>
           <div class="order-btn" v-if="orderList.items.length > 0">
             <el-row class="order-btn-row">
-              <el-col :span="12" class="left-i-sub">
+              <el-col :span="16" class="left-i-sub">
                 {{ $t("orderOne.totalAmount") }}
               </el-col>
-              <el-col :span="12" class="right-i-sub">
+              <el-col :span="8" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub">
+              <el-col :span="16" class="left-i-sub">
                 {{ $t("orderOne.discountAmount") }}
               </el-col>
-              <el-col :span="12" class="right-i-sub">
+              <el-col :span="8" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub">
+              <el-col :span="16" class="left-i-sub">
                 {{ $t("orderOne.taxAmount") }}
               </el-col>
-              <el-col :span="12" class="right-i-sub">
+              <el-col :span="8" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
               </el-col>
             </el-row>
             <el-row>
-              <el-col :span="8" class="left-i">
-                <span class="word">{{ $t("orderOne.finalAmount") }}：</span>
+              <el-col :span="12" class="left-i">
+                <span class="word">{{ $t("orderOne.finalAmount") }}
+                  <label class="word-1">(+ IVA)</label>
+                </span>
               </el-col>
-              <el-col :span="16" class="right-i">
+              <el-col :span="12" class="right-i">
                 <span>
-                  €{{ orderList?.finalAmount || 0 }}<label class="word-1">+ IVA</label>
+                  €{{ orderList?.finalAmount || 0 }}
+                  <!-- <label class="word-1">+ IVA</label> -->
                 </span>
               </el-col>
               <el-col :span="24">
@@ -741,6 +744,10 @@ defineExpose({
             position: absolute;
             bottom: 10px;
             left: 0;
+            .word-1{
+              font-size: 14px;
+              color: #999999;
+            }
           }
         }
 

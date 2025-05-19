@@ -39,7 +39,7 @@
               <span class="normal"> €{{ response.sellPrice }} </span>
               <span class="m-f-20">{{ $t("orderTwo.invitePrice") }}</span>
               <span class="origin">
-                €{{ Number(response.sellPrice) - Number(userStore.discountedPrice) }}
+                €{{ Number(response.vipPrice) }}
               </span>
               <div class="pos-abs">
                 <AddNum
@@ -201,11 +201,14 @@
             </el-row>
             <el-row>
               <el-col :span="8" class="left-i">
-                <span class="word">{{ $t("orderTwo.total") }}：</span>
+                <span class="word">{{ $t("orderTwo.total") }}
+                  <label class="word-1">(+ IVA)</label>
+                </span>
               </el-col>
               <el-col :span="16" class="right-i">
                 <span>
-                  €{{ orderList?.finalAmount || 0 }}<label class="word-1">+ IVA</label>
+                  €{{ orderList?.finalAmount || 0 }}
+                  <!-- <label class="word-1">+ IVA</label> -->
                 </span>
               </el-col>
               <el-col :span="24">
@@ -504,6 +507,10 @@ defineExpose({
             position: absolute;
             bottom: 10px;
             left: 0;
+            .word-1 {
+            font-size: 14px;
+            color: #999999;
+          }
           }
         }
 

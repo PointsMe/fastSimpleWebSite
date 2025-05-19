@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
   <div class="drawer-view">
     <el-drawer v-model="drawerStatus" size="67%" :with-header="false">
@@ -5,14 +6,14 @@
         <el-col :span="15" class="left-content">
           <div class="title">
             <el-row>
-              <el-col :span="12" class="left">{{ $t('shoppingCart.checkout') }}</el-col>
+              <el-col :span="12" class="left">{{ $t("shoppingCart.checkout") }}</el-col>
               <el-col :span="12" class="right">
                 <!-- 15584566249 -->
               </el-col>
             </el-row>
           </div>
           <div class="pay-style">
-            <p>{{ $t('shoppingCart.selectPaymentMethod') }}</p>
+            <p>{{ $t("shoppingCart.selectPaymentMethod") }}</p>
             <el-row :gutter="12">
               <el-col
                 :span="12"
@@ -43,7 +44,7 @@
                 </div>
               </el-col>
             </el-row>
-            <p class="title-t">{{ $t('shoppingCart.shippingInfo') }}</p>
+            <p class="title-t">{{ $t("shoppingCart.shippingInfo") }}</p>
             <div class="form-message">
               <el-form
                 ref="ruleFormRef"
@@ -128,13 +129,15 @@
                     </el-form-item>
                   </el-col>
                   <el-col :span="24">
-                    <div class="code">{{ $t('shoppingCart.referralCode') }}</div>
+                    <div class="code">{{ $t("shoppingCart.referralCode") }}</div>
                   </el-col>
                   <el-col :span="24">
                     <el-form-item label="">
                       <el-input
                         size="default"
                         v-model="formModel.inviteCode"
+                        @input="changeInviteCode"
+                        @keydown.enter.native="blurInviteCodeFn()"
                         :placeholder="$t('shoppingCart.enterReferralCode')"
                       >
                       </el-input>
@@ -145,7 +148,9 @@
             </div>
           </div>
           <div class="bottom-pay" v-if="showPayBtn">
-            <el-button class="pay-btn" @click="payMoneyFn">{{ $t('shoppingCart.payNow') }}</el-button>
+            <el-button class="pay-btn" @click="payMoneyFn">{{
+              $t("shoppingCart.payNow")
+            }}</el-button>
           </div>
           <div class="qrCode-pay" v-else>
             <el-row :gutter="12">
@@ -156,7 +161,7 @@
               </el-col>
               <el-col :span="12">
                 <div class="right-pay">
-                  <p>{{ $t('shoppingCart.total') }}：</p>
+                  <p>{{ $t("shoppingCart.total") }}：</p>
                   <p>€1652</p>
                   <p>
                     <img
@@ -165,7 +170,7 @@
                       alt=""
                     />
                   </p>
-                  <p>{{ $t('shoppingCart.scanWechatPay') }}</p>
+                  <p>{{ $t("shoppingCart.scanWechatPay") }}</p>
                 </div>
               </el-col>
             </el-row>
@@ -174,7 +179,9 @@
         <el-col :span="9" class="right-content">
           <div class="title">
             <el-row>
-              <el-col :span="12" class="left">{{ $t('shoppingCart.orderSummary') }}</el-col>
+              <el-col :span="12" class="left">{{
+                $t("shoppingCart.orderSummary")
+              }}</el-col>
               <el-col :span="12" class="right">
                 <div class="close">
                   <el-icon @click="closeDrawer">
@@ -222,7 +229,7 @@
               <el-col :span="6">
                 <div class="money-num">
                   <span v-if="item.count > 0">*{{ item.count }}</span>
-                  <span style="margin-left: 20px;">€{{ item.sellPrice }}</span>
+                  <span style="margin-left: 20px">€{{ item.sellPrice }}</span>
                 </div>
               </el-col>
               <el-col :span="24">
@@ -236,26 +243,33 @@
           </div>
           <div class="order-btn">
             <el-row class="order-btn-row">
-              <el-col :span="12" class="left-i-sub">{{ $t('shoppingCart.subtotal') }}</el-col>
+              <el-col :span="12" class="left-i-sub">{{
+                $t("shoppingCart.subtotal")
+              }}</el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub">{{ $t('shoppingCart.discount') }}</el-col>
+              <el-col :span="12" class="left-i-sub">{{
+                $t("shoppingCart.discount")
+              }}</el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub">{{ $t('shoppingCart.tax') }}</el-col>
+              <el-col :span="12" class="left-i-sub">{{ $t("shoppingCart.tax") }}</el-col>
               <el-col :span="12" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
               </el-col>
             </el-row>
             <el-row>
               <el-col :span="12" class="left">
-                <span>{{ $t('shoppingCart.totalAmount') }}</span>
+                <span>{{ $t("shoppingCart.totalAmount") }}
+                  <label class="word-1">(+ IVA)</label>
+                </span>
               </el-col>
               <el-col :span="12" class="right">
                 <span>
-                  €{{ orderList?.finalAmount || 0 }}<label class="word-1">+ IVA</label>
+                  €{{ orderList?.finalAmount || 0 }}
+                  <!-- <label class="word-1">+ IVA</label> -->
                 </span>
               </el-col>
             </el-row>
@@ -284,6 +298,8 @@ import { ref } from "vue";
 import { createApi, payApi, orderListApi, paymodesApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import PayIframeView from "./PayIframeView.vue";
+import { precreateApi } from "@/apis/goods";
+import { i18n } from "@/lang/index";
 import { useCommonStore } from "@/stores/modules/common";
 import { getProvinceListApi } from "@/apis/common";
 interface RuleForm {
@@ -331,6 +347,45 @@ const rules = reactive<FormRules<RuleForm>>({
   //     { required: true, message: 'Please input Activity name', trigger: 'blur' },
   // ],
 });
+const blurInviteCode = async (value: any) => {
+  console.log("blurInviteCode==>", value, formModel.value.inviteCode);
+  if (
+    (formModel.value.inviteCode && formModel.value.inviteCode.length > 4) ||
+    formModel.value.inviteCode.length === 0
+  ) {
+    const params = shoppingCartStore.cart;
+    const current = params.items.find((iv: any) => iv.type === 119);
+    if (current) {
+      params.type = 102;
+    } else {
+      params.type = 100;
+    }
+    params.items = params.items.filter((iv) => iv.count);
+    const { data } = await precreateApi({
+      ...params,
+      inviteCode: formModel.value.inviteCode,
+    });
+    orderList.value = data;
+    ElMessage.success(i18n.global.t("orderOne.discountUpdated"));
+  } else {
+    ElMessage.warning(i18n.global.t("orderOne.pleaseEnterCorrectCode"));
+  }
+};
+const blurInviteCodeFn = debounce(blurInviteCode, 1000);
+const changeInviteCode = (value: any) => {
+  // 限制输入为数字和字母
+  const val = value.replace(/[^a-zA-Z0-9]/g, "").trim();
+  formModel.value.inviteCode = val.substring(0, 8);
+  console.log("changeInviteCode==>", val);
+  if (val.length === 0) {
+    blurInviteCode(event);
+  } else {
+    if (val.length > 4 && val.length < 9) {
+      blurInviteCodeFn();
+    }
+  }
+};
+
 const changeCountrySelect = async (e: string) => {
   console.log("e===>", e);
   const { data } = await getProvinceListApi({
@@ -342,8 +397,8 @@ const changeCountrySelect = async (e: string) => {
       value: iv.name,
     };
   });
-  formModel.value.province = '';
-  ruleFormRef.value?.resetFields(['province']);
+  formModel.value.province = "";
+  ruleFormRef.value?.resetFields(["province"]);
   provinceList.value = arr;
 };
 const shoppingCartStore = useShoppingCartStore();
@@ -351,7 +406,7 @@ const changeCountry = (e: string) => {
   countryCode.value = e;
 };
 const orderList = ref<any>({});
-const showDrawer = (data: any,inviteCode:string) => {
+const showDrawer = (data: any, inviteCode: string) => {
   drawerStatus.value = true;
   orderList.value = data;
   formModel.value.inviteCode = inviteCode;
@@ -755,6 +810,10 @@ defineExpose({
           font-size: 16px;
           color: #666666;
           line-height: 50px;
+          .word-1 {
+            font-size: 14px;
+            color: #999999;
+          }
         }
 
         .right {

@@ -351,6 +351,7 @@ export default {
         all: 'Todos',
         pendingPayment: 'Pendiente de pago',
         pendingShipment: 'Pendiente de envío',
+        forDelivery: 'En camino',
         completed: 'Completado',
         orderNumber: 'Número de pedido',
         shipped: 'Enviado',

@@ -8,7 +8,7 @@ export const debounce = function (fn:Function, delay:number) {
     let timer:any = null
    
     // 2.真正执行的函数
-    const _debounce = function () {
+    const _debounce = function ($event: anyevent?: Event | undefined$event?: any) {
       // 取消上一次的定时器
       if (timer) clearTimeout(timer)
       // 延迟执行

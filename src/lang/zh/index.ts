@@ -358,6 +358,7 @@ bannerOne: {
     completed: '已完成',
     orderNumber: '订单号',
     shipped: '已发货',
+    forDelivery: '配送中',
     cancelled: '已取消',
     hardwareSelection: '硬件选购',
     packageInfo: '套餐信息',

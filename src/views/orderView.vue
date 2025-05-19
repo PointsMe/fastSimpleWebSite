@@ -62,11 +62,17 @@
                           >
                           <span
                             class="sp-3"
+                      
+                            v-if="item.state === 102 && item.deliveryState === 106"
+                            >{{ $t('orderView.forDelivery') }}</span
+                          >
+                          <span
+                            class="sp-3"
                             style="background: #b7c268"
                             v-if="item.state === 109"
                             >{{ $t('orderView.completed') }}</span
                           >
-                          <span class="sp-3" v-if="item.state === 111">{{ $t('orderView.cancelled') }}</span>
+                          <span class="sp-3" style="background: #f56c6c" v-if="item.state === 111">{{ $t('orderView.cancelled') }}</span>
                         </div>
                       </el-col>
                       <el-col :span="8">
@@ -225,6 +231,11 @@ const tabList = ref<Array<TabListType>>([
     checked: false,
   },
   {
+    name: "orderView.forDelivery",
+    id: 5,
+    checked: false,
+  },
+  {
     name: "orderView.completed",
     id: 4,
     checked: false,
@@ -247,6 +258,10 @@ const changeTab = (item: TabListType) => {
     );
   } else if (item.id === 4) {
     orderList.value = sourceOrderList.value.filter((iv: any) => iv.state === 109);
+  } else if (item.id === 5) {
+    orderList.value = sourceOrderList.value.filter(
+      (iv: any) => iv.state === 102 && iv.deliveryState === 106
+    );
   }
   tabList.value = tabList.value.map((iv) => {
     return {
