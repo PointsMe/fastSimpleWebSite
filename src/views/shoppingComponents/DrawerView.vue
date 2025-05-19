@@ -137,7 +137,7 @@
                         size="default"
                         v-model="formModel.inviteCode"
                         @input="changeInviteCode"
-                        @keydown.enter.native="blurInviteCodeFn()"
+                        @keydown.enter.native="enterEvent($event)"
                         :placeholder="$t('shoppingCart.enterReferralCode')"
                       >
                       </el-input>
@@ -293,7 +293,7 @@ import { CircleCheckFilled, Close } from "@element-plus/icons-vue";
 import PaySuccess from "./PaySuccess.vue";
 import PayError from "./PayError.vue";
 import AllCountryView from "@/components/AllCountryView.vue";
-import { debounce } from "@/utils/index";
+import { debounce } from "lodash";
 import { ref } from "vue";
 import { createApi, payApi, orderListApi, paymodesApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
@@ -371,6 +371,10 @@ const blurInviteCode = async (value: any) => {
     ElMessage.warning(i18n.global.t("orderOne.pleaseEnterCorrectCode"));
   }
 };
+const enterEvent = (event: any) => {
+  console.log("enterEvent==>", event);
+  blurInviteCode(event.target.value);
+};
 const blurInviteCodeFn = debounce(blurInviteCode, 1000);
 const changeInviteCode = (value: any) => {
   // 限制输入为数字和字母
@@ -378,10 +382,10 @@ const changeInviteCode = (value: any) => {
   formModel.value.inviteCode = val.substring(0, 8);
   console.log("changeInviteCode==>", val);
   if (val.length === 0) {
-    blurInviteCode(event);
+      blurInviteCode(event);  
   } else {
     if (val.length > 4 && val.length < 9) {
-      blurInviteCodeFn();
+      blurInviteCodeFn(event);
     }
   }
 };

@@ -17,7 +17,7 @@
 </template>
 <script setup lang="ts">
 import { Minus, Plus } from '@element-plus/icons-vue'
-import {debounce} from "@/utils/index"
+import { debounce } from "lodash";
 import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
 import {useUserStore} from "@/stores/modules/user"
 import{precreateApi} from "@/apis/goods"
