@@ -11,7 +11,7 @@ export default {
         pleaseInputEmail: 'Por favor ingrese su correo electrónico',
         pleaseInputPassword: 'Por favor ingrese su contraseña',
         passwordLength: 'La contraseña debe tener entre 6 y 16 caracteres',
-        pleaseCheckbox: 'Por favor marque la casilla',
+        pleaseCheckbox: 'Por favor, marque primero y lea el reglamento de contratación en la columna de barras de usuario',
         forgetPassword: 'Olvidé mi contraseña',
         loginTips: 'He leído y acepto nuestros',
         linkOne: '《Términos de Usuario》',

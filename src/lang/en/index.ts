@@ -11,7 +11,7 @@ export default {
         pleaseInputEmail: 'Please enter your email',
         pleaseInputPassword: 'Please enter your password',
         passwordLength: 'The password must be between 6 and 16 characters',
-        pleaseCheckbox: 'Please check this box first',
+        pleaseCheckbox: 'Please check and read the "User List" and "Contract Regulations" first.',
         forgetPassword: 'Forgot Password',
         loginTips: 'I have read and agree to our',
         linkOne: '《User Policy》',

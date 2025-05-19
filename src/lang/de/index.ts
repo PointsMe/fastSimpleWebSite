@@ -11,7 +11,7 @@ export default {
         pleaseInputEmail:'Bitte geben Sie Ihre E-Mail-Adresse ein',
         pleaseInputPassword:'Bitte geben Sie Ihr Passwort ein',
         passwordLength:'Das Passwort muss zwischen 6 und 16 Zeichen lang sein',
-        pleaseCheckbox:'Bitte zuerst auswählen',
+        pleaseCheckbox:'Wählen sie die liste der anwender aus und lesen sie das vertragskript',
         forgetPassword:'Passwort vergessen',
         loginTips:'Ich habe die',
         linkOne:'《Nutzungsbedingungen》',

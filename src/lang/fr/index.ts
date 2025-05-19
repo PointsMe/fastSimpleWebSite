@@ -11,7 +11,7 @@ export default {
         pleaseInputEmail: 'Veuillez entrer votre email',
         pleaseInputPassword: 'Veuillez entrer votre mot de passe',
         passwordLength: 'La longueur du mot de passe doit être comprise entre 6 et 16 caractères',
-        pleaseCheckbox: 'Veuillez cocher la case',
+        pleaseCheckbox: 'Veuillez d’abord cocher et lire la "liste des utilisateurs" "règlement des contrats"',
         forgetPassword: 'Mot de passe oublié',
         loginTips: 'J\'ai lu et accepté nos',
         linkOne: '《Conditions d\'utilisation》',

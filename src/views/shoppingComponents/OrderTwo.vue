@@ -36,7 +36,7 @@
               <span>{{ $t('orderTwo.normalPrice') }}</span>
               <span class="normal"> €{{ response.sellPrice }} </span>
               <span class="m-f-20">{{ $t('orderTwo.invitePrice') }}</span>
-              <span class="origin"> €{{ userStore.discountedPrice }} </span>
+              <span class="origin"> €{{ Number(response.sellPrice) - Number(userStore.discountedPrice) }} </span>
               <div class="pos-abs">
                 <AddNum
                   :parents="{

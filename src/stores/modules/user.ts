@@ -6,7 +6,7 @@ import { setToken as _setToken, getToken, removeToken,getUserInfoStorage,setUser
 export const useUserStore = defineStore("user", () => {
   const token = ref<string>(getToken() || "")
   const userInfo = ref<any>(getUserInfoStorage())
-  const discountedPrice =ref<number>(800)
+  const discountedPrice =ref<number>(400)
 
   // 设置 Token
   const setToken = (value: string) => {
