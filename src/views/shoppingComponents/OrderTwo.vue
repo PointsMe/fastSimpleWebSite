@@ -66,14 +66,34 @@
         >
           <el-row v-if="item.items.length < 3">
             <el-col :span="12" class="left">
-              <div class="left-i-a">
+              <el-row>
+                <el-col :span="24">
+                  <div class="left-i-a">
+                    {{ item.name }}
+                    <label
+                      class="sub-left-i-a"
+                      v-if="item.items.length === 1 && item.items[0].spec"
+                      >({{ item.items[0].spec }})</label
+                    >
+                  </div>
+                </el-col>
+                <el-col :span="24">
+                  <div class="tips-text" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
+                    <span>
+                      24小时客服响应
+                      即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）
+                    </span>
+                  </div>
+                </el-col>
+              </el-row>
+              <!-- <div class="left-i-a">
                 {{ item.name }}
                 <label
                   class="sub-left-i-a"
                   v-if="item.items.length === 1 && item.items[0].spec"
                   >({{ item.items[0].spec }})</label
                 >
-              </div>
+              </div> -->
             </el-col>
             <el-col :span="12" class="right">
               <el-row>
@@ -108,6 +128,16 @@
                       :inviteCode="inviteCode"
                       @changeOrderList="changeOrderList"
                     />
+                  </div>
+                </el-col>
+                <el-col :span="24" class="right tips" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
+                  <div class="tips-text">
+                    <span> 10欧/月租 手续费 低至 0.6% </span>
+                  </div>
+                </el-col>
+                <el-col :span="24" class="right tips" v-if="item.name === '热敏打印机'">
+                  <div class="tips-text">
+                    <span> *热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/月（上限5台） </span>
                   </div>
                 </el-col>
               </el-row>
@@ -633,7 +663,13 @@ defineExpose({
       margin-top: 5px;
       background-color: #ffffff;
       border-radius: 6px;
-
+      .tips-text{
+        font-family: DIN, DIN;
+        font-weight: 500;
+        font-size: 12px;
+        color: #999999;
+        line-height: 16px;
+      }
       .g-b {
         font-family: Source Han Sans SC, Source Han Sans SC;
         font-weight: 500;

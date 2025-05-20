@@ -22,7 +22,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { provide,ref } from "vue";
+import { provide, ref } from "vue";
 import { Minus, Plus } from "@element-plus/icons-vue";
 import { debounce } from "lodash";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
@@ -51,11 +51,12 @@ const props = defineProps({
     required: false,
   },
 });
-const sharedMethod = () => {
-  console.log('This is a shared method');
-};
-provide('sharedMethod', sharedMethod);
+
 const inputNum = ref<number>(0);
+const sharedMethod = () => {
+  console.log("This is a shared method", props.parents, props.data, inputNum.value);
+};
+provide("sharedMethod", sharedMethod);
 const changeInput = async (e: any) => {
   if (!userStore.token) {
     return ElMessage.warning(i18n.global.t("shopping.loginFirst"));
@@ -171,20 +172,19 @@ const increase = async () => {
   }
   shoppingCartStore.setCart(params);
   const data = await addPrecreate();
-    if (data) {
-      inputNum.value = value;
-      emits("changeOrderList", data);
-    }
-//   if (props.parents?.name === "POS机") {
-//     if (shoppingCartStore.posGoods.num === 0) {
-//       shoppingCartStore.setPosGoods({
-//         num: shoppingCartStore.posGoods.num + 1,
-//         show: true,
-//       });
-//     }
-//   } else {
-   
-//   }
+  if (data) {
+    inputNum.value = value;
+    emits("changeOrderList", data);
+  }
+  //   if (props.parents?.name === "POS机") {
+  //     if (shoppingCartStore.posGoods.num === 0) {
+  //       shoppingCartStore.setPosGoods({
+  //         num: shoppingCartStore.posGoods.num + 1,
+  //         show: true,
+  //       });
+  //     }
+  //   } else {
+  //   }
 };
 const reduceFn = debounce(reduce, 500);
 const increaseFn = debounce(increase, 500);

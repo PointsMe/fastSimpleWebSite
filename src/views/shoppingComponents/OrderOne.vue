@@ -80,7 +80,7 @@
                   </div>
                 </el-col>
                 <el-col :span="24">
-                  <div class="tips-text" v-if="item.name === 'POS机'">
+                  <div class="tips-text" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
                     <span>
                       24小时客服响应
                       即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）
@@ -124,7 +124,7 @@
                     />
                   </div>
                 </el-col>
-                <el-col :span="24" class="right tips" v-if="item.name === 'POS机'">
+                <el-col :span="24" class="right tips" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
                   <div class="tips-text">
                     <span> 10欧/月租 手续费 低至 0.6% </span>
                   </div>
