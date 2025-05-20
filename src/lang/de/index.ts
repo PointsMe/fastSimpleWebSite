@@ -71,10 +71,12 @@ export default {
         more: 'Mehr',
         registerNow: 'Jetzt registrieren',
         registerNowDesc: 'Die mitgliedschaft steht auf zuschüsse',
-        nowBuy: 'Jetzt kaufen'
+        nowBuy: 'Jetzt kaufen',
+        firstMonthTrial: 'Erste Monatsprüfungsphase, Rückerstattung ohne Kosten'
     },
     banner: {
-        fastSimpleTitle: 'FastSimple: Intelligente',
+        fastSimpleTitle: 'FastSimple:',
+        fastSimpleTitleDesc: 'Intelligente',
         smartDining: 'Gastronomie-Lösung',
         solution: 'für kleine Unternehmen',
         subTitle: 'Vereinfachen Sie den Betrieb, verbessern Sie das Kundenerlebnis, optimieren Sie die Kosten',
@@ -254,13 +256,14 @@ export default {
     bannerEleven: {
         technicalAdvisor: "Technischer Berater",
         wechat: "WeChat",
-        copyright: "Copyright © 2024 PointsMe By Yine Srl, Alle Rechte vorbehalten",
+        copyright: "Copyright © 2024 FastSimple By Yine Srl, Alle Rechte vorbehalten",
         terms: "Bedingungen"
     },
     shopping: {
         title: "Vorteilsshop",
         membershipPromotion: "Registrieren Sie sich als Mitglied und geben Sie den Einladungscode ein, um 50% Rabatt zu erhalten",
-        registerNow: "Jetzt registrieren"
+        registerNow: "Jetzt registrieren",
+        loginFirst: "Bitte zuerst anmelden"
     },
     serverView: {
         ourServices: "Unsere Dienstleistungen",
@@ -422,7 +425,20 @@ export default {
         subtotal: 'Zwischensumme',
         discount: 'Rabatt',
         tax: 'MwSt',
-        totalAmount: 'Gesamtsumme'
+        totalAmount: 'Gesamtsumme',
+        loading: 'Laden',
+        pleaseSelectPaymentMethod: 'Bitte wählen Sie zuerst eine Zahlungsmethode',
+        addAddress: 'Adresse hinzufügen',
+        pleaseEnterCountry: 'Bitte geben Sie das Land ein',
+        pleaseEnterProvince: 'Bitte geben Sie die Provinz ein',
+        pleaseEnterCity: 'Bitte geben Sie die Stadt ein',
+        pleaseEnterAddress: 'Bitte geben Sie die Adresse ein',
+        pleaseEnterReferralCode: 'Bitte geben Sie den Empfehlungscode ein',
+        paySuccess: 'Zahlung erfolgreich',
+        payError: 'Zahlung fehlgeschlagen',
+        payTips: 'Hinweis',
+        paySuccessTips: 'Zahlung abgeschlossen?',
+        
     },
     orderOne: {
         registerMember: 'Registrieren Sie sich als Mitglied und geben Sie den Einladungscode ein, um €{price} Rabatt zu erhalten',

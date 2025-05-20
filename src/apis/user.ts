@@ -1,6 +1,6 @@
 import type * as Types from "@/apis/type"
 import { request } from "@/http/axios"
-
+import Qs from "qs"
 /** 获取当前登录用户详情 */
 export function getCurrentUserApi() {
   return request<Types.CurrentUserResponseData>({
@@ -38,5 +38,24 @@ export function forgetPassWordApi(data: any) {
     url: "/account/password/forget",
     method: "post",
     data: data
+  })
+}
+/** 获取地址 */
+export function getAddressApi(data: any) {
+  return request<ApiResponseData<any>>({
+    url: "/me/shop/detail",
+    method: "post",
+    data: Qs.stringify(data),
+      headers: {
+        // 携带 Token
+        // "Authorization": token ? `Bearer ${token}` : undefined,
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+  })
+}
+export function getUserDetailApi() {
+  return request<ApiResponseData<any>>({
+    url: "/me/detail",
+    method: "post",
   })
 }

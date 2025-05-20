@@ -1,7 +1,10 @@
 <template>
   <div class="banner-one">
     <div class="title">
-      <span>{{ $t("bannerOne.featuredPackages") }}</span>
+      <span>
+      {{ $t("bannerOne.featuredPackages") }}
+      <label>({{ $t("bannerOne.firstMonthTrial") }})</label>
+      </span>
       <div class="more" @click="toShopping('')">
         <span>{{ $t("bannerOne.more") }}</span>
         <el-icon><DArrowRight /></el-icon>
@@ -230,6 +233,12 @@ onMounted(() => {
       font-weight: bold;
       font-size: 52px;
       color: #1b1b1b;
+      > label{
+        font-size: 14px;
+        color: #fed15f;
+        margin-left: 10px;
+        font-weight: bold;
+      }
     }
     .more{
       position: absolute;
@@ -238,6 +247,7 @@ onMounted(() => {
       display: flex;
       align-items: center;
       justify-content: right;
+      cursor: pointer;
     }
   }
 }

@@ -45,7 +45,9 @@
                     </p>
                   </div>
                 </div>
-                <div class="wx-div">{{ $t('bannerEleven.wechat') }}:wxid_g1oajzv7yyu922</div>
+                <div class="wx-div">{{ $t('bannerEleven.wechat') }}:LAIPAY1
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
               </el-col>
               <el-col :span="12">
                 <div class="code-div">

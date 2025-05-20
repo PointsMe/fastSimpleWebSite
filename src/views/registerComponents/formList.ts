@@ -137,21 +137,21 @@ export const formStep2 =     [
         type: 'input',
         placeholder: 'aboutLogin.componeyPI',
     },
-    {
-        span: 24,
-        label: '',
-        value: 'compony',
-        type:'select',
-        disabled:true,
-        optionsData:[
-            {
-                label: 'fastSimple compony',
-                value: '1'
-            }
-        ],
-        placeholder:'',
+    // {
+    //     span: 24,
+    //     label: '',
+    //     value: 'compony',
+    //     type:'select',
+    //     disabled:true,
+    //     optionsData:[
+    //         {
+    //             label: 'fastSimple compony',
+    //             value: '1'
+    //         }
+    //     ],
+    //     placeholder:'',
       
-    },
+    // },
     {
         span: 8,
         label: '',

@@ -200,7 +200,7 @@
         </div>
       </div>
 
-      <div class="banner-scroller">
+      <!-- <div class="banner-scroller">
         <p class="title">{{ $t("aboutView.news") }}</p>
         <el-carousel class="carousel-div" motion-blur indicator-position="none">
           <el-carousel-item v-for="item in 4" :key="item">
@@ -236,7 +236,7 @@
             </el-row>
           </el-carousel-item>
         </el-carousel>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

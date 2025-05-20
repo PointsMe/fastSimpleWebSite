@@ -4,9 +4,11 @@
       <div class="content">
         <img class="icon-title" src="@/assets/fastsImages/Vector.png" alt="" />
         <div class="title">
-          {{ $t('banner.fastSimpleTitle') }}<br />
-          <span>{{ $t('banner.smartDining') }}</span>
-          {{ $t('banner.solution') }}
+          <span class="fast-simple-title">{{ $t('banner.fastSimpleTitle') }}</span>
+          <br />
+          <span class="fast-simple-title-desc">{{ $t('banner.fastSimpleTitleDesc') }}</span>
+          <span class="smart-dining">{{ $t('banner.smartDining') }}</span>
+          <span class="solution">{{ $t('banner.solution') }}</span>
         </div>
         <div class="sub-title">
           {{ $t('banner.subTitle') }}
@@ -83,8 +85,22 @@ const goContactUs = () => {
         font-weight: bold;
         font-size: 72px;
         color: rgba(255, 255, 255, 0.9);
-        > span {
+        .fast-simple-title,.fast-simple-title-desc,.solution{
+          font-size: 72px;
+          font-weight: bold;
+        }
+        .smart-dining{
+          font-size: 24px;
+        }
+        .smart-dining{
+          font-weight: normal;
+          font-size: 72px;
           color: #fed15f;
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+        span{
+          vertical-align: left;
         }
       }
     }

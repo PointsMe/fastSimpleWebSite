@@ -71,10 +71,12 @@ export default {
         more: 'Plus',
         registerNow: 'S\'inscrire maintenant',
         registerNowDesc: 'Avantages immédiats pour les membres enregistrés',
-        nowBuy: 'Aller à la boutique'
+        nowBuy: 'Aller à la boutique',
+        firstMonthTrial: 'Premier mois de période d\'essai, disponible pour un mois, avec possibilité de remboursement sans frais'
     },
     banner: {
-        fastSimpleTitle: 'FastSimple : La solution de',
+        fastSimpleTitle: 'FastSimple:',
+        fastSimpleTitleDesc: 'La solution de',
         smartDining: 'restauration intelligente',
         solution: 'pour les petites entreprises',
         subTitle: 'Simplifiez vos opérations, améliorez l\'expérience client, optimisez les coûts',
@@ -254,13 +256,14 @@ export default {
     bannerEleven: {
         technicalAdvisor: "Conseiller technique",
         wechat: "WeChat",
-        copyright: "Copyright © 2024 PointsMe By Yine Srl, Tous droits réservés",
+        copyright: "Copyright © 2024 FastSimple By Yine Srl, Tous droits réservés",
         terms: "Conditions"
     },
     shopping: {
         title: "Boutique promotionnelle",
         membershipPromotion: "Inscrivez-vous en tant que membre et entrez le code d'invitation pour bénéficier d'une réduction de 50%",
-        registerNow: "S'inscrire maintenant"
+        registerNow: "S'inscrire maintenant",
+        loginFirst: "Veuillez d'abord vous connecter"
     },
     serverView: {
         ourServices: "Nos services",
@@ -422,7 +425,19 @@ export default {
         subtotal: 'Sous-total des marchandises',
         discount: 'Montant de la remise',
         tax: 'TVA',
-        totalAmount: 'Total'
+        totalAmount: 'Total',
+        loading: 'Chargement',
+        pleaseSelectPaymentMethod: 'Veuillez sélectionner le mode de paiement',
+        addAddress: 'Ajouter un adresse',
+        pleaseEnterCountry: 'Veuillez entrer le pays',
+        pleaseEnterProvince: 'Veuillez entrer la province',
+        pleaseEnterCity: 'Veuillez entrer la ville',
+        pleaseEnterAddress: 'Veuillez entrer l\'adresse',
+        pleaseEnterReferralCode: 'Veuillez entrer le code de parrainage',
+        paySuccess: 'Paiement réussi',
+        payError: 'Paiement échoué',
+        payTips: 'Attention',
+        paySuccessTips: 'Paiement terminé ?',
     },
     orderOne: {
         registerMember: 'Inscrivez-vous en tant que membre et entrez le code d\'invitation pour bénéficier d\'une réduction de {price}€',

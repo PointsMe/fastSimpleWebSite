@@ -1,14 +1,14 @@
 <template>
     <div class="add-num-div">
-        <span @click="reduceFn">
+        <span @click="reduceFn" :class="data?.type === 119 ? 'not-allow' : ''">
             <el-icon>
                 <Minus />
             </el-icon>
         </span>
         <span>
-            <el-input size="small" v-model="inputNum" placeholder="0" @input="changeInput" />
+            <el-input :disabled="data?.type === 119" size="small" v-model="inputNum" placeholder="0" @input="changeInput" />
         </span>
-        <span @click="increaseFn">
+        <span @click="increaseFn" :class="data?.type === 119 ? 'not-allow' : ''">
             <el-icon>
                 <Plus />
             </el-icon>
@@ -22,6 +22,7 @@ import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
 import {useUserStore} from "@/stores/modules/user"
 import{precreateApi} from "@/apis/goods"
 import { ElMessage } from 'element-plus'
+import {i18n} from "@/lang/index"
 defineOptions({
     name: 'addNum'
 })
@@ -46,7 +47,7 @@ const props = defineProps({
 const inputNum = ref<number>(0)
 const changeInput = async (e: any) => {
     if(!userStore.token){
-        return ElMessage.warning("请先登录")
+        return ElMessage.warning(i18n.global.t("shopping.loginFirst"))
     }
     console.log("changeInput===>",e)
     let value = 0
@@ -78,7 +79,7 @@ const changeInput = async (e: any) => {
 const reduce = async() => {
     console.log("reduce===>",props.parents,inputNum.value)
     if(!userStore.token){
-        return ElMessage.warning("请先登录")
+        return ElMessage.warning(i18n.global.t("shopping.loginFirst"))
     }
     if (Number(inputNum.value) > 0) {
         const value = Number(inputNum.value) > props.parents?.minSelectCount ? Number(inputNum.value) - 1  : props.parents?.minSelectCount
@@ -104,7 +105,7 @@ const reduce = async() => {
 }
 const addPrecreate = async () => {
     if(!userStore.token){
-        return ElMessage.warning("请先登录")
+        return ElMessage.warning(i18n.global.t("shopping.loginFirst"))
     }
     const params = shoppingCartStore.cart as any
     const tab = window.localStorage.getItem("shoppingTab") || '1001';
@@ -170,7 +171,9 @@ onMounted(()=>{
     width: 96px;
     height: 24px;
     position: relative;
-
+    .not-allow{
+        cursor: not-allowed !important;
+    }
     span {
         display: block;
     }

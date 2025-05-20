@@ -73,9 +73,11 @@ bannerOne: {
     registerNow: '立即注册',
     registerNowDesc: '注册会员立享优惠',
     nowBuy: '立即选购',
+    firstMonthTrial: '首月试用期，可无条件退货退款',
   },
   banner: {
-    fastSimpleTitle: 'FastSimple：小型企业的',
+    fastSimpleTitle: 'FastSimple：',
+    fastSimpleTitleDesc: '小型企业的',
     smartDining: '智能餐饮',
     solution: '解决方案',
     subTitle: '简化运营，提升客户体验，优化成本',
@@ -259,13 +261,14 @@ bannerOne: {
   bannerEleven: {
     technicalAdvisor: "技术顾问",
     wechat: "微信",
-    copyright: "Copyright © 2024 PointsMe By Yine Srl, 版权所有",
+    copyright: "Copyright © 2024 FastSimple By Yine Srl, 版权所有",
     terms: "Termini"
   },
   shopping: {
     title: "优惠商城",
     membershipPromotion: "注册会员输入邀请码，享受五折优惠",
-    registerNow: "立即注册"
+    registerNow: "立即注册",
+    loginFirst: "请先登录"
   },
   serverView: {
     ourServices: "我们的服务",
@@ -426,7 +429,21 @@ bannerOne: {
     subtotal: '商品总额',
     discount: '折扣金额',
     tax: 'IVA税费',
-    totalAmount: '总计'
+    totalAmount: '总计',
+    loading: '加载中',
+    pleaseSelectPaymentMethod: '请先选择付款方式',
+    addAddress: '一键录入',
+    pleaseEnterCountry: '请输入国家',
+    pleaseEnterProvince: '请输入省份',
+    pleaseEnterCity: '请输入城市',
+    pleaseEnterAddress: '请输入地址',
+    pleaseEnterPhone: '请输入电话',
+    pleaseEnterName: '请输入姓名',
+    pleaseEnterReferralCode: '请输入推荐码',
+    paySuccess: '支付成功',
+    payError: '支付失败',
+    paySuccessTips: '支付完成?',
+    payTips: '提示',
   },
   orderOne: {
     registerMember: '注册会员输入邀请码后，能享受€{price}优惠哦',

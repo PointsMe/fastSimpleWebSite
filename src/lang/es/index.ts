@@ -71,10 +71,12 @@ export default {
         more: 'Más',
         registerNow: 'Regístrate ahora',
         registerNowDesc: 'Beneficios inmediatos para miembros registrados',
-        nowBuy: 'Comprar ahora'
+        nowBuy: 'Comprar ahora',
+        firstMonthTrial: 'Primer mes de periodo de prueba, disponible para un mes, con posibilidad de reembolso sin costos'
     },
     banner: {
-        fastSimpleTitle: 'FastSimple: Solución de',
+        fastSimpleTitle: 'FastSimple:',
+        fastSimpleTitleDesc: 'Solución de',
         smartDining: 'Restauración Inteligente',
         solution: 'para pequeñas empresas',
         subTitle: 'Simplifica operaciones, mejora la experiencia del cliente, optimiza costos',
@@ -254,13 +256,14 @@ export default {
     bannerEleven: {
         technicalAdvisor: "Asesor técnico",
         wechat: "WeChat",
-        copyright: "Copyright © 2024 PointsMe By Yine Srl, Todos los derechos reservados",
+        copyright: "Copyright © 2024 FastSimple By Yine Srl, Todos los derechos reservados",
         terms: "Términos"
     },
     shopping: {
         title: "Tienda de ofertas",
         membershipPromotion: "Regístrese como miembro e ingrese el código de invitación para disfrutar de un 50% de descuento",
-        registerNow: "Regístrese ahora"
+        registerNow: "Regístrese ahora",
+        loginFirst: "Por favor, primero inicie sesión"
     },
     serverView: {
         ourServices: "Nuestros servicios",
@@ -427,7 +430,20 @@ export default {
         subtotal: 'Subtotal de productos',
         discount: 'Monto de descuento',
         tax: 'IVA',
-        totalAmount: 'Total'
+        totalAmount: 'Total',
+        loading: 'Cargando',
+        pleaseSelectPaymentMethod: 'Por favor seleccione el método de pago',
+        addAddress: 'Agregar dirección',
+        pleaseEnterCountry: 'Ingrese el país',
+        pleaseEnterProvince: 'Ingrese la provincia',
+        pleaseEnterCity: 'Ingrese la ciudad',
+        pleaseEnterAddress: 'Ingrese la dirección',
+        pleaseEnterReferralCode: 'Ingrese el código de referencia',
+        paySuccess: 'Pago exitoso',
+        payError: 'Pago fallido',
+        payTips: 'Atención',
+        paySuccessTips: '¿Pago completado?',
+        
     },
     orderOne: {
         registerMember: 'Regístrese como miembro e ingrese el código de invitación para disfrutar de un descuento de €{price}',

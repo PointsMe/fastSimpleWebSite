@@ -245,6 +245,11 @@ const orderList = ref<Array<any>>([]);
 const sourceOrderList = ref<Array<any>>([]);
 const handleClose = (done: () => void) => {
   commonStore.setShowOrderListView(false);
+  changeTab({
+    name: "orderView.all",
+    id: 1,
+    checked: true,
+  })
   done();
 };
 const changeTab = (item: TabListType) => {

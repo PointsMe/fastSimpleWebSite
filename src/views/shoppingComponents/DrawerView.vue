@@ -44,7 +44,10 @@
                 </div>
               </el-col>
             </el-row>
-            <p class="title-t">{{ $t("shoppingCart.shippingInfo") }}</p>
+            <p class="title-t">
+              <span>{{ $t("shoppingCart.shippingInfo") }}</span>
+              <el-button style="margin-left: 40px;" size="small" type="success" @click="addAddress">{{ $t("shoppingCart.addAddress") }}</el-button>
+            </p>
             <div class="form-message">
               <el-form
                 ref="ruleFormRef"
@@ -146,6 +149,25 @@
                 </el-row>
               </el-form>
             </div>
+          </div>
+          <div class="show-bank" v-if="payStyle.find((iv:any) => iv.checked)?.id === 101">
+            <el-row :gutter="12">
+              <el-col :span="8">
+                <div class="bank-item">
+                  <img src="@/assets/fastsImages/bank-1.png" alt="">
+                </div>
+              </el-col>
+              <el-col :span="8">
+                <div class="bank-item">
+                  <img src="@/assets/fastsImages/bank-2.png" alt="">
+                </div>
+              </el-col>
+              <el-col :span="8">
+                <div class="bank-item">
+                  <img src="@/assets/fastsImages/bank-3.png" alt="">
+                </div>
+              </el-col>
+            </el-row>
           </div>
           <div class="bottom-pay" v-if="showPayBtn">
             <el-button class="pay-btn" @click="payMoneyFn">{{
@@ -297,11 +319,14 @@ import { debounce } from "lodash";
 import { ref } from "vue";
 import { createApi, payApi, orderListApi, paymodesApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { useUserStore } from "@/stores/modules/user";
 import PayIframeView from "./PayIframeView.vue";
 import { precreateApi } from "@/apis/goods";
 import { i18n } from "@/lang/index";
 import { useCommonStore } from "@/stores/modules/common";
 import { getProvinceListApi } from "@/apis/common";
+import { getAddressApi, getUserDetailApi } from "@/apis/user";
+import { ElMessageBox } from "element-plus";
 interface RuleForm {
   contactName: string;
   contactPhone: string;
@@ -320,6 +345,7 @@ const qrCode = ref();
 const loading = ref<any>(null);
 const showPayBtn = ref<boolean>(true);
 const ruleFormRef = ref<FormInstance>();
+const userStore = useUserStore();
 const formModel = ref<RuleForm>({
   contactName: "",
   contactPhone: "",
@@ -347,6 +373,22 @@ const rules = reactive<FormRules<RuleForm>>({
   //     { required: true, message: 'Please input Activity name', trigger: 'blur' },
   // ],
 });
+const addAddress = async () => {
+  // const { data } = await getUserDetailApi();
+  console.log("addAddress==>", userStore.userInfo);
+  const { data } = await getAddressApi({
+    shopId: userStore.userInfo.shops[0].id,
+  });
+  changeCountrySelect(data.address.country.code).then(()=>{
+    console.log("data==>", data);
+    formModel.value.contactName = data.address.contactName || data.name || '';
+    formModel.value.contactPhone = data.address.contactPhone || '';
+    formModel.value.province = data.address.province.name || '';
+    formModel.value.country = data.address.country.code || '';
+    formModel.value.city = data.address.city || '';
+    formModel.value.address = data.address.address || '';
+  })
+}
 const blurInviteCode = async (value: any) => {
   console.log("blurInviteCode==>", value, formModel.value.inviteCode);
   if (
@@ -389,11 +431,34 @@ const changeInviteCode = (value: any) => {
     }
   }
 };
-
+const openDialog = (orderId: string) => {
+  const url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`
+  ElMessageBox.confirm(
+    i18n.global.t('shoppingCart.paySuccessTips'),
+    i18n.global.t('shoppingCart.payTips'),
+    {
+      confirmButtonText: i18n.global.t('shoppingCart.paySuccess'),
+      cancelButtonText: i18n.global.t('shoppingCart.payError'),
+      type: 'warning',
+      closeOnClickModal: false,
+      buttonSize: 'small',
+      confirmButtonClass:'pay-success-btn-dialog',
+      cancelButtonClass:'pay-error-btn-dialog',
+    }
+  )
+    .then(() => {
+       window.location.href = `${url}/#/shopping?status=true&orderId=${orderId}`
+       window.location.reload()
+    })
+    .catch(() => {
+       window.location.href = `${url}/#/shopping?status=false&orderId=${orderId}`
+       window.location.reload()
+    })
+}
 const changeCountrySelect = async (e: string) => {
   console.log("e===>", e);
   const { data } = await getProvinceListApi({
-    countryId: commonStore.countryList.find((iv: any) => iv.code === e)?.id,
+    countryId: commonStore.countryList.find((iv: any) => iv.code === e.toUpperCase())?.id,
   });
   const arr = data.map((iv) => {
     return {
@@ -430,17 +495,17 @@ const payMoney = () => {
   //     showPayBtn.value = false
   // }
   if (!countryCode.value) {
-    return ElMessage.warning("请选择国家");
+    return ElMessage.warning(i18n.global.t("shoppingCart.pleaseEnterCountry"));
   }
   if (!ruleFormRef.value) return;
   if (payStyle.value.find((iv) => iv.checked)?.id !== 101) {
-    return ElMessage.warning("请先选择付款方式");
+    return ElMessage.warning(i18n.global.t("shoppingCart.pleaseSelectPaymentMethod"));
   }
   ruleFormRef.value.validate(async (valid) => {
     if (valid) {
       loading.value = ElLoading.service({
         lock: true,
-        text: "加载中",
+        text: i18n.global.t("shoppingCart.loading"),
         background: "rgba(0, 0, 0, 0.7)",
       });
       const cart = shoppingCartStore.cart;
@@ -466,9 +531,10 @@ const payMoney = () => {
             paymode: payStyle.value.find((iv) => iv.checked)?.id,
           });
           if (res.data.redirectUrl) {
-            // loading.value.close();
+            loading.value.close();
             // PayIframeViewRef.value.showPayIframeView(res.data.redirectUrl);
             window.open(res.data.redirectUrl, "_blank");
+            openDialog(data.id)
             // getOrderList();
           }
           // PaySuccessRef.value.showModal()
@@ -478,6 +544,8 @@ const payMoney = () => {
       } catch (e) {
         loading.value.close();
         console.log("e===>", e);
+        window.open('https://www.baidu.com', "_blank");
+        openDialog('227629941310525442')
       } finally {
         // loading.value.close();
       }
@@ -497,13 +565,13 @@ const payStyle = ref<
     id: 102,
     img: adyenPng,
     name: "PAYPAL",
-    checked: true,
+    checked: false,
   },
   {
     id: 101,
     img: guestPng,
-    name: "guest",
-    checked: false,
+    name: "GestPay",
+    checked: true,
   },
   {
     id: 92,
@@ -537,6 +605,7 @@ const paymodesFn = async () => {
   console.log("data===>", data);
   payStyle.value = payStyle.value.filter((iv: any) => data.paymodes.includes(iv.id));
 };
+
 const getOrderList = async () => {
   const timer = setInterval(async () => {
     const { data } = await orderListApi();
@@ -652,7 +721,16 @@ defineExpose({
           }
         }
       }
-
+      .show-bank{
+        .bank-item{
+          width: 100%;
+          height: 100%;
+          img{
+            width: 100%;
+            height: 80px;
+          }
+        }
+      }
       .bottom-pay {
         position: absolute;
         width: calc(100% - 100px);

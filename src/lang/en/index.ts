@@ -72,10 +72,12 @@ bannerOne: {
     more: 'More',
     registerNow: 'Register Now',
     registerNowDesc: 'Registered members enjoy immediate discounts',
-    nowBuy: 'Now Buy'
+    nowBuy: 'Now Buy',
+    firstMonthTrial: 'First month trial period, refundable without any costs'
   },
   banner: {
-    fastSimpleTitle: 'FastSimple: Smart Restaurant Solutions for Small Businesses',
+    fastSimpleTitle: 'FastSimple:',
+    fastSimpleTitleDesc: 'Smart Restaurant Solutions for Small Businesses',
     smartDining: 'Smart Dining',
     solution: 'Solutions',
     subTitle: 'Simplify Operations, Enhance Customer Experience, Optimize Costs',
@@ -258,13 +260,14 @@ bannerOne: {
   bannerEleven: {
     technicalAdvisor: "Technical Advisor",
     wechat: "WeChat",
-    copyright: "Copyright © 2024 PointsMe By Yine Srl, All Rights Reserved",
+    copyright: "Copyright © 2024 FastSimple By Yine Srl, All Rights Reserved",
     terms: "Terms"
   },
   shopping: {
     title: "Discount Mall",
     membershipPromotion: "Register as a member and enter an invitation code to enjoy 50% off",
-    registerNow: "Register Now"
+    registerNow: "Register Now",
+    loginFirst: "Please login first"
   },
   serverView: {
     ourServices: "Our Services",
@@ -425,7 +428,20 @@ bannerOne: {
     subtotal: 'Subtotal',
     discount: 'Discount',
     tax: 'VAT',
-    totalAmount: 'Total'
+    totalAmount: 'Total',
+    loading: 'Loading',
+    pleaseSelectPaymentMethod: 'Please select payment method',
+    addAddress: 'Add Address',
+    pleaseEnterCountry: 'Please enter country',
+    pleaseEnterProvince: 'Please enter province',
+    pleaseEnterCity: 'Please enter city',
+    pleaseEnterAddress: 'Please enter address',
+    pleaseEnterReferralCode: 'Please enter referral code',
+    paySuccess: 'Payment successful',
+    payError: 'Payment failed',
+    payTips: 'Attention',
+    paySuccessTips: 'Payment completed?',
+    
   },
   orderOne: {
     registerMember: 'Register as a member and enter an invitation code to enjoy 50% off',

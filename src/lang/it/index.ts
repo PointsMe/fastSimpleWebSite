@@ -71,10 +71,12 @@ export default {
     more: 'Altro',
     registerNow: 'Registrati ora',
     registerNowDesc: 'Gli stati membri registrati beneficiano di una preferenza',
-    nowBuy: 'Acquista ora'
+    nowBuy: 'Acquista ora',
+    firstMonthTrial: 'Primo mese di prova, reso disponibile per un mese, con possibilità di rimborso senza costi',
   },
   banner: {
-    fastSimpleTitle: 'FastSimple: per le piccole imprese',
+    fastSimpleTitle: 'FastSimple:',
+    fastSimpleTitleDesc: 'per le piccole imprese',
     smartDining: 'Ristorazione intelligente',
     solution: 'Soluzione',
     subTitle: 'Semplifica le operazioni, migliora l\'esperienza cliente, ottimizza i costi',
@@ -254,13 +256,14 @@ export default {
   bannerEleven: {
     technicalAdvisor: "Consulente tecnico",
     wechat: "WeChat",
-    copyright: "Copyright © 2024 PointsMe By Yine Srl, Tutti i diritti riservati",
+    copyright: "Copyright © 2024 FastSimple By Yine Srl, Tutti i diritti riservati",
     terms: "Termini"
   },
   shopping: {
     title: "Negozio sconti",
     membershipPromotion: "Registrati come membro e inserisci il codice invito per uno sconto del 50%",
-    registerNow: "Registrati ora"
+    registerNow: "Registrati ora",
+    loginFirst: "Per prima cosa, accedi"
   },
   serverView: {
     ourServices: "I nostri servizi",
@@ -421,7 +424,19 @@ export default {
     subtotal: 'Subtotale',
     discount: 'Sconto',
     tax: 'IVA',
-    totalAmount: 'Totale'
+    totalAmount: 'Totale',
+    loading: 'Caricamento',
+    pleaseSelectPaymentMethod: 'Seleziona prima il metodo di pagamento',
+    addAddress: 'Aggiungi indirizzo',
+    pleaseEnterCountry: 'Inserisci il paese',
+    pleaseEnterProvince: 'Inserisci la provincia',
+    pleaseEnterCity: 'Inserisci la città',
+    pleaseEnterAddress: 'Inserisci l\'indirizzo',
+    pleaseEnterReferralCode: 'Inserisci il codice referral',
+    paySuccess: 'Pagamento riuscito',
+    payError: 'Pagamento fallito',
+    payTips: 'Attenzione',
+    paySuccessTips: 'Pagamento completato?',
   },
   orderOne: {
     registerMember: 'Registrati come membro e inserisci il codice invito per uno sconto di €{price}',

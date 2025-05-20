@@ -41,7 +41,7 @@
               <span class="origin">
                 €{{ Number(response.vipPrice) }}
               </span>
-              <div class="pos-abs">
+              <div class="pos-abs" style="visibility: hidden;">
                 <AddNum
                   :parents="{
                     minSelectCount: 1,
@@ -737,7 +737,7 @@ defineExpose({
           font-size: 14px;
           color: #646464;
           position: relative;
-          padding-right: 120px;
+          // padding-right: 120px;
 
           .normal {
             font-family: DIN, DIN;

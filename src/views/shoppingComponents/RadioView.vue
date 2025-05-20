@@ -19,6 +19,7 @@ import{precreateApi} from "@/apis/goods"
 import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
 import {useUserStore} from "@/stores/modules/user"
 import { ElMessage } from 'element-plus'
+import {i18n} from "@/lang/index"
 const emits = defineEmits(['changeOrderList'])
 const shoppingCartStore = useShoppingCartStore()
 const userStore = useUserStore()
@@ -53,7 +54,7 @@ const clickitem = async(e: any,isAdd:boolean) => {
         return 
     }
     if(!userStore.token){
-        return ElMessage.warning("请先登录")
+        return ElMessage.warning(i18n.global.t("shopping.loginFirst"))
     }
     const params = shoppingCartStore.cart
     if (e === radio1.value) {
