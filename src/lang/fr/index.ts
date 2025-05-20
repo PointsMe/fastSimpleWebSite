@@ -64,7 +64,9 @@ export default {
     user: {
         loginRegister: 'Connexion/Inscription',
         myOrders: 'Mes commandes',
-        logout: 'Déconnexion'
+        logout: 'Déconnexion',
+        loginText: 'Connexion',
+        registerText: 'Inscription'
     },
     bannerOne: {
         featuredPackages: 'Forfaits en vedette',

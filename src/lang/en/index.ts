@@ -65,7 +65,9 @@ navigation: {
 user: {
     loginRegister: 'Login/Register',
     myOrders: 'My Orders',
-    logout: 'Logout'
+    logout: 'Logout',
+    loginText: 'Login',
+    registerText: 'Register'
 },
 bannerOne: {
     featuredPackages: 'Featured Packages',

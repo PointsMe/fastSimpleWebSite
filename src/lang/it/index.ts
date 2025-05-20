@@ -64,7 +64,9 @@ export default {
   user: {
     loginRegister: 'Accedi/Registrati',
     myOrders: 'I miei ordini',
-    logout: 'Esci'
+    logout: 'Esci',
+    loginText: 'Accedi',
+    registerText: 'Registrati'
   },
   bannerOne: {
     featuredPackages: 'Pacchetti in evidenza',

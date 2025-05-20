@@ -64,7 +64,9 @@ export default {
     user: {
         loginRegister: 'Iniciar sesión/Registrarse',
         myOrders: 'Mis pedidos',
-        logout: 'Cerrar sesión'
+        logout: 'Cerrar sesión',
+        loginText: 'Iniciar sesión',
+        registerText: 'Registrarse'
     },
     bannerOne: {
         featuredPackages: 'Paquetes destacados',

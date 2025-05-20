@@ -63,9 +63,11 @@ export default {
     contact: '联系我们'
 },
 user: {
-    loginRegister: '登录/注册',
-    myOrders: '我的订单',
-    logout: '退出登录'
+  loginRegister: '登录/注册',
+  myOrders: '我的订单',
+  logout: '退出登录',
+  loginText: '登录',
+  registerText: '注册'
 },
 bannerOne: {
     featuredPackages: '精选套餐',
