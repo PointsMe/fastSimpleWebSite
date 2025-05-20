@@ -38,10 +38,8 @@
               <span>{{ $t("orderOne.normalPrice") }}</span>
               <span class="normal"> €{{ response.sellPrice }} </span>
               <span class="m-f-20">{{ $t("orderOne.invitePrice") }}</span>
-              <span class="origin">
-                €{{ Number(response.vipPrice)}}
-              </span>
-              <div class="pos-abs" style="visibility: hidden;">
+              <span class="origin"> €{{ Number(response.vipPrice) }} </span>
+              <div class="pos-abs" style="visibility: hidden">
                 <AddNum
                   :parents="{
                     minSelectCount: 1,
@@ -70,14 +68,26 @@
         >
           <el-row v-if="item.items.length < 3">
             <el-col :span="12" class="left">
-              <div class="left-i-a">
-                {{ item.name }}
-                <label
-                  class="sub-left-i-a"
-                  v-if="item.items.length === 1 && item.items[0].spec"
-                  >({{ item.items[0].spec }})</label
-                >
-              </div>
+              <el-row>
+                <el-col :span="24">
+                  <div class="left-i-a">
+                    {{ item.name }}
+                    <label
+                      class="sub-left-i-a"
+                      v-if="item.items.length === 1 && item.items[0].spec"
+                      >({{ item.items[0].spec }})</label
+                    >
+                  </div>
+                </el-col>
+                <el-col :span="24">
+                  <div class="tips-text" v-if="item.name === 'POS机'">
+                    <span>
+                      24小时客服响应
+                      即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）
+                    </span>
+                  </div>
+                </el-col>
+              </el-row>
             </el-col>
             <el-col :span="12" class="right">
               <el-row>
@@ -112,6 +122,16 @@
                       :inviteCode="inviteCode"
                       @changeOrderList="changeOrderList"
                     />
+                  </div>
+                </el-col>
+                <el-col :span="24" class="right tips" v-if="item.name === 'POS机'">
+                  <div class="tips-text">
+                    <span> 10欧/月租 手续费 低至 0.6% </span>
+                  </div>
+                </el-col>
+                <el-col :span="24" class="right tips" v-if="item.name === '热敏打印机'">
+                  <div class="tips-text">
+                    <span> *热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/月（上限5台） </span>
                   </div>
                 </el-col>
               </el-row>
@@ -251,7 +271,8 @@
             </el-row>
             <el-row>
               <el-col :span="12" class="left-i">
-                <span class="word">{{ $t("orderOne.finalAmount") }}
+                <span class="word"
+                  >{{ $t("orderOne.finalAmount") }}
                   <label class="word-1">(+ IVA)</label>
                 </span>
               </el-col>
@@ -285,12 +306,14 @@
     </el-row>
     <JoinUs ref="JoinUsFnRef" />
     <UpdateView ref="UpdateViewRef" />
+    <ShowTips ref="ShowTipsRef" />
   </div>
 </template>
 <script setup lang="ts">
 import AddNum from "./AddNum.vue";
 import RadioView from "./RadioView.vue";
 import InvoiceCheckbox from "./InvoiceCheckbox.vue";
+import ShowTips from "./ShowTips.vue";
 import { QuestionFilled } from "@element-plus/icons-vue";
 import JoinUs from "./JoinUs.vue";
 import UpdateView from "./UpdateView.vue";
@@ -301,11 +324,13 @@ import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
+
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
 const JoinUsFnRef = ref();
 const UpdateViewRef = ref();
+const ShowTipsRef = ref();
 const props = defineProps({
   id: {
     type: String,
@@ -313,6 +338,7 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["toPay"]);
+
 const inviteCode = ref("");
 defineOptions({
   name: "orderOne",
@@ -624,7 +650,8 @@ const blurInviteCode = async (value: any) => {
   if (
     (inviteCode.value && inviteCode.value.length > 4) ||
     inviteCode.value.length === 0
-  ) {    const params = shoppingCartStore.cart;
+  ) {
+    const params = shoppingCartStore.cart;
     const current = params.items.find((iv: any) => iv.type === 119);
     if (current) {
       params.type = 102;
@@ -744,7 +771,7 @@ defineExpose({
             position: absolute;
             bottom: 10px;
             left: 0;
-            .word-1{
+            .word-1 {
               font-size: 14px;
               color: #999999;
             }
@@ -870,7 +897,13 @@ defineExpose({
       margin-top: 5px;
       background-color: #ffffff;
       border-radius: 6px;
-
+      .tips-text{
+        font-family: DIN, DIN;
+        font-weight: 500;
+        font-size: 12px;
+        color: #999999;
+        line-height: 16px;
+      }
       .g-b {
         font-family: Source Han Sans SC, Source Han Sans SC;
         font-weight: 500;

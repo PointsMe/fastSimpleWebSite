@@ -10,12 +10,27 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
     items:[]
   })
   const orderId = ref<string>(getOrderIdStorage() || '')
+  const posGoods = ref<any>({
+    num: 0,
+    show: false,
+    currentData: {}
+  })
+  const setPosGoods = (value: any) => {
+    posGoods.value = value
+  }
   const setCart = (value: any) => {
     cart.value = value
   }
   const setOrderId = (value: string) => {
     setOrderIdStorage(value)
     orderId.value = value
+  }
+  const resetPosGoods = () => {
+    posGoods.value = {
+      num: 0,
+      show: false,
+      currentData: {}
+    }
   }
   const resetCart = () => {
     cart.value = {
@@ -28,7 +43,7 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
     orderId.value = ''
   }
 
-  return { cart, setCart,resetCart,orderId,setOrderId,resetOrderId }
+  return { cart, setCart,resetCart,orderId,setOrderId,resetOrderId,posGoods,setPosGoods,resetPosGoods }
 })
 
 
