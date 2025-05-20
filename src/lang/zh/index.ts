@@ -179,7 +179,7 @@ bannerOne: {
     autoDataSubmission: "自动提交数据",
     instantDataTransmission: "即时向税务机关发送交易数据",
     regulations: "法规是怎么说的？",
-    regulationDetails: "根据开具电子收据的规定，商户必须使用符合意大利税务局规定规格的税控收银机。这些设备生成合法的收据，并允许客户选择是否接收打印副本"
+    regulationDetails: "Fastsimple 的所有 POS 终端已经符合 2025 年财政法的规定。自 2026 年 1 月 6日起，所有商家必须将 POS 终端连接到电子收银机，以便将电子支付信息自动传输给意大利税务局。否则将面临最高 4000 欧元的罚款，甚至可能被暂停营业执照"
   },
   bannerSeven: {
     perfectSolution: "税务管理的完美解决方案",
@@ -196,7 +196,7 @@ bannerOne: {
       first: "西班牙的自动发票",
       second: "轻松遵守税务法规"
     },
-    invoiceDescription: "我们的订购系统现在为西班牙企业提供自动发票生成和报告服务。该系统自动生成具有唯一代码和QR码的税务发票，确保合法性和可验证性。相关信息实时传递给税务机关，消除人工流程，提高效率。",
+    invoiceDescription: "Fastsimple 的所有系统已经符合《皇家法令 254/2025》的规定。自 2026 年 1 月 1 日起，所有商家必须调整他们的管理、开票和会计系统，以符合西班牙税务局的要求我们的订购系统现在为西班牙企业提供自动发票生成和报告服务。该系统自动生成具有唯一代码和QR码的税务发票，确保合法性和可验证性。相关信息实时传递给税务机关，消除人工流程，提高效率。",
     taxSystemTitle: {
       first: "与先进的税收系统完全集成",
       second: "与先进的税收系统完全集成"
@@ -260,6 +260,9 @@ bannerOne: {
   
   bannerEleven: {
     technicalAdvisor: "技术顾问",
+    china:'中国',
+    italy:'意大利',
+    spain:'西班牙',
     wechat: "微信",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, 版权所有",
     terms: "Termini"

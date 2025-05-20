@@ -178,7 +178,7 @@ export default {
         autoDataSubmission: "Automatische Datenübermittlung",
         instantDataTransmission: "Sofortige Übermittlung von Transaktionsdaten an Steuerbehörden",
         regulations: "Was sagen die Vorschriften?",
-        regulationDetails: "Gemäß den Vorschriften für elektronische Quittungen müssen Händler Kassensysteme verwenden, die den Spezifikationen der italienischen Steuerbehörde entsprechen. Diese Geräte generieren rechtmäßige Quittungen und ermöglichen es Kunden, zu wählen, ob sie eine gedruckte Kopie erhalten möchten"
+        regulationDetails: "Weil fastende ende an alle new-stop-kasse im jahr 2025 abgetan ist, hat das fastende ende an der karte gewonnen. Seit dem 6. Januar 2026 müssen alle händler den punkt des sicherheitssystems an elektronische kassierer anschließen, damit elektronische zahlungsdaten automatisch an das italienische finanzamt geschickt werden können. Andernfalls drohen einem bußgeld Von bis zu 4.000 euro man könnte sogar die zulassung aussetzen"
     },
     bannerSeven: {
         perfectSolution: "Perfekte Lösung für Steuerverwaltung",
@@ -195,7 +195,7 @@ export default {
             first: "Automatische Rechnungen in Spanien",
             second: "Einfache Einhaltung von Steuervorschriften"
         },
-        invoiceDescription: "Unser Bestellsystem bietet jetzt automatische Rechnungserstellung und Berichterstattung für spanische Unternehmen. Das System generiert automatisch Steuerrechnungen mit eindeutigem Code und QR-Code, gewährleistet Rechtmäßigkeit und Überprüfbarkeit. Relevante Informationen werden in Echtzeit an Steuerbehörden übermittelt, eliminiert manuelle Prozesse und verbessert die Effizienz.",
+        invoiceDescription: "Wissen sie, dass das fastende alle systeme dem gesetz der royal doble /2025 entsprechen. Seit dem 1. Januar 2026 haben alle unternehmen ihre verwaltung, schecks und abrechnungen ändern müssen. Unser bestellungssystem, das die anforderungen der spanischen steuerbehörde einhält, hat jetzt für spanische unternehmen automatische riegeldienste zum erstellen und melden angeboten. Das system erzeugt automatisch steuerrechnungen mit dem einzigen code und qr-code, um die rechtmäßigkeit und verifizierbarkeit zu gewährleisten. Die entsprechenden informationen werden in echtzeit an die steuerbehörden übermittelt, damit künstliche prozesse beseitigt und eine höhere effizienz erzielt wird.",
         taxSystemTitle: {
             first: "Vollständig integriert mit fortschrittlichen Steuersystemen",
             second: "Vollständig integriert mit fortschrittlichen Steuersystemen"
@@ -255,6 +255,9 @@ export default {
     },
     bannerEleven: {
         technicalAdvisor: "Technischer Berater",
+        china: "China",
+        italy: "Italien",
+        spain: "Spanien",
         wechat: "WeChat",
         copyright: "Copyright © 2024 FastSimple By Yine Srl, Alle Rechte vorbehalten",
         terms: "Bedingungen"

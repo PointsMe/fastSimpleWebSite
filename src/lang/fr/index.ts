@@ -178,7 +178,7 @@ export default {
         autoDataSubmission: "Soumission automatique des données",
         instantDataTransmission: "Transmission instantanée des données de transaction aux autorités fiscales",
         regulations: "Que disent les réglementations ?",
-        regulationDetails: "Selon les réglementations sur les reçus électroniques, les commerçants doivent utiliser des caisses enregistreuses conformes aux spécifications de l'administration fiscale italienne. Ces appareils génèrent des reçus légaux et permettent aux clients de choisir de recevoir une copie imprimée"
+        regulationDetails: "Tous les terminaux POS de Fastsimple sont déjà conformes aux dispositions de la loi de finances 2025. Depuis le 6 janvier 2026, tous les commerçants doivent connecter un terminal POS à une caisse enregistreuse électronique afin que les informations de paiement électronique soient transmises automatiquement à l’administration fiscale italienne. Sous peine d’une amende pouvant aller jusqu’à 4000 euros ou même de la suspension éventuelle de la licence commerciale"
     },
     bannerSeven: {
         perfectSolution: "Solution parfaite pour la gestion fiscale",
@@ -195,7 +195,7 @@ export default {
             first: "Facturation automatique en Espagne",
             second: "Conformité facile aux réglementations fiscales"
         },
-        invoiceDescription: "Notre système de commande offre maintenant la génération automatique de factures et les services de reporting pour les entreprises espagnoles. Le système génère automatiquement des factures fiscales avec un code unique et un QR code, garantissant la légalité et la vérifiabilité. Les informations pertinentes sont transmises en temps réel aux autorités fiscales, éliminant les processus manuels et améliorant l'efficacité.",
+        invoiceDescription: "Tous les systèmes de Fastsimple sont déjà conformes aux dispositions du décret royal 254/2025. Depuis le 1er janvier 2026, tous les commerçants doivent adapter leurs systèmes de gestion, de facturation et de comptabilité aux exigences de l’agence fiscale espagnole. Notre système de commande offre désormais un service automatisé de génération de factures et de rapports pour les entreprises espagnoles. Le système génère automatiquement des factures fiscales avec un code unique et un qr-code, garantissant la légalité et la vérification. Les informations pertinentes sont transmises aux autorités fiscales en temps réel, ce qui élimine les processus manuels et améliore l’efficacité.",
         taxSystemTitle: {
             first: "Intégration complète avec les systèmes fiscaux avancés",
             second: "Intégration complète avec les systèmes fiscaux avancés"
@@ -255,6 +255,9 @@ export default {
     },
     bannerEleven: {
         technicalAdvisor: "Conseiller technique",
+        china: "Chine",
+        italy: "Italie",
+        spain: "Espagne",
         wechat: "WeChat",
         copyright: "Copyright © 2024 FastSimple By Yine Srl, Tous droits réservés",
         terms: "Conditions"

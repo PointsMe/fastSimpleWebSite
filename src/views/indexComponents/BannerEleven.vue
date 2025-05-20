@@ -33,10 +33,12 @@
         <el-col :span="12">
           <div class="qr-code">
             <el-row :gutter="12">
-              <el-col :span="12">
+              <el-col :span="3"></el-col>
+              <el-col :span="7">
                 <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
+                    ({{ $t('bannerEleven.china') }})  
                     <!-- <span class="line"></span> -->
                   </div>
                   <div class="wx-img">
@@ -49,10 +51,26 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
               </el-col>
-              <el-col :span="12">
+              <el-col :span="7">
                 <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
+                    ({{ $t('bannerEleven.italy') }})
+                    <!-- <span class="line"></span> -->
+                  </div>
+                  <div class="wx-img">
+                    <p>
+                      <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                    </p>
+                  </div>
+                </div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:PM3242850588</div>
+              </el-col>
+              <el-col :span="7">
+                <div class="code-div">
+                  <div class="code-top">
+                    {{ $t('bannerEleven.technicalAdvisor') }}
+                    ({{ $t('bannerEleven.spain') }})
                     <!-- <span class="line"></span> -->
                   </div>
                   <div class="wx-img">
@@ -144,20 +162,21 @@ const goToPage = (value: any) => {
       text-align: center;
 
       .wx-div {
-        text-indent: 30px;
+        text-indent: 0px;
+        text-align: left;
         margin-top: 16px;
       }
 
       .code-div {
-        width: 140px;
+        // width: 140px;
         margin: auto;
-
+        text-align: left;
         .wx-img {
           width: 100%;
           margin-top: 14px;
 
           img {
-            width: 100%;
+            width: 60%;
           }
         }
 

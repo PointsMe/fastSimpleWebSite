@@ -178,7 +178,7 @@ export default {
         autoDataSubmission: "Envío automático de datos",
         instantDataTransmission: "Transmisión instantánea de datos de transacciones a las autoridades fiscales",
         regulations: "¿Qué dicen las regulaciones?",
-        regulationDetails: "Según las regulaciones de emisión de recibos electrónicos, los comerciantes deben usar registradoras fiscales que cumplan con las especificaciones de la agencia tributaria italiana. Estos dispositivos generan recibos legales y permiten a los clientes elegir si desean recibir una copia impresa"
+        regulationDetails: "Todos los terminales TPV de Fastsimple ya cumplen con lo establecido en la ley fiscal 2025. A partir del 6 de enero de 2026, todos los comerciantes deben conectar sus terminales TPV a una caja registradora electrónica para que la información de pago electrónico se transfiera automáticamente a la oficina de impuestos italiana. De lo contrario, se enfrenta a una multa de hasta 4.000 euros e incluso la posible suspensión de la licencia comercial"
     },
     bannerSeven: {
         perfectSolution: "Solución perfecta para gestión fiscal",
@@ -195,7 +195,7 @@ export default {
             first: "Facturación automática en España",
             second: "Cumplimiento fiscal simplificado"
         },
-        invoiceDescription: "Nuestro sistema de pedidos ahora ofrece generación automática de facturas y servicios de informes para empresas españolas. El sistema genera automáticamente facturas fiscales con códigos únicos y códigos QR, asegurando legalidad y verificabilidad. La información relevante se transmite en tiempo real a las autoridades fiscales, eliminando procesos manuales y mejorando la eficiencia.",
+        invoiceDescription: "Todos los sistemas de Fastsimple ya cumplen con lo establecido en el real decreto 254/2025. A partir del 1 de enero de 2026, todos los comerciantes deben adaptar sus sistemas de gestión, facturación y contabilidad para cumplir con los requisitos de la agencia tributaria española. Nuestro sistema de pedidos ahora ofrece un servicio automatizado de generación de facturas e informes para las empresas españolas. El sistema genera automáticamente facturas fiscales con códigos únicos y códigos QR, garantizando legalidad y verificabilidad. La información relevante se transmite a las autoridades fiscales en tiempo real, eliminando los procesos manuales y aumentando la eficiencia.",
         taxSystemTitle: {
             first: "Totalmente integrado con sistemas fiscales avanzados",
             second: "Totalmente integrado con sistemas fiscales avanzados"
@@ -255,6 +255,9 @@ export default {
     },
     bannerEleven: {
         technicalAdvisor: "Asesor técnico",
+        china: "China",
+        italy: "Italia",
+        spain: "España",
         wechat: "WeChat",
         copyright: "Copyright © 2024 FastSimple By Yine Srl, Todos los derechos reservados",
         terms: "Términos"

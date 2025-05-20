@@ -178,7 +178,7 @@ export default {
     autoDataSubmission: "Invio automatico dei dati",
     instantDataTransmission: "Trasmissione immediata dei dati transazionali alle autorità fiscali",
     regulations: "Cosa dicono i regolamenti?",
-    regulationDetails: "Secondo le normative per l'emissione di ricevute elettroniche, i commercianti devono utilizzare registratori di cassa conformi alle specifiche dell'Agenzia delle Entrate italiana. Questi dispositivi generano ricevute legali e permettono ai clienti di scegliere se ricevere una copia cartacea"
+    regulationDetails: "Tutti i terminali POS di Fastsimple sono già conformi alla legge finanziaria 2025. Dal 6 gennaio 2026, tutti i commercianti devono collegare i terminali POS ai registratori di cassa elettronici per la trasmissione automatica di messaggi elettronici di pagamento all’amministrazione finanziaria italiana. Altrimenti ci troveremmo di fronte a una multa massima di 4000 euro e potremmo persino essere costretti a sospendere la licenza di esercizio"
   },
   bannerSeven: {
     perfectSolution: "Soluzione perfetta per la gestione fiscale",
@@ -195,7 +195,7 @@ export default {
       first: "Fatturazione automatica in Spagna",
       second: "Conformità fiscale semplificata"
     },
-    invoiceDescription: "Il nostro sistema di ordinazione ora offre servizi di generazione e reporting automatico delle fatture per le aziende spagnole. Il sistema genera automaticamente fatture fiscali con codice univoco e QR code, garantendo legalità e verificabilità. Le informazioni pertinenti vengono trasmesse in tempo reale alle autorità fiscali, eliminando i processi manuali e migliorando l'efficienza.",
+    invoiceDescription: "Tutti i sistemi Fastsimple sono già conformi alle disposizioni del regio decreto 254/2025. Dal 1o gennaio 2026, tutti i commercianti hanno dovuto adattare i propri sistemi di gestione, fatturazione e contabilità in modo da soddisfare le richieste dell’amministrazione finanziaria spagnola. Il sistema genera automaticamente fatture fiscali con un codice unico e un codice QR che garantiscono la legalità e la verificabilità. Le informazioni pertinenti vengono trasmesse in tempo reale alle autorità fiscali, eliminando i processi artificiali e migliorando l’efficienza.",
     taxSystemTitle: {
       first: "Integrazione completa con sistemi fiscali avanzati",
       second: "Integrazione completa con sistemi fiscali avanzati"
@@ -255,6 +255,9 @@ export default {
   },
   bannerEleven: {
     technicalAdvisor: "Consulente tecnico",
+    china: "Cina",
+    italy: "Italia",
+    spain: "Spagna",
     wechat: "WeChat",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, Tutti i diritti riservati",
     terms: "Termini"

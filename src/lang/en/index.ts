@@ -179,7 +179,7 @@ bannerOne: {
     autoDataSubmission: "Automatic Data Submission",
     instantDataTransmission: "Instant transmission of transaction data to tax authorities",
     regulations: "What do regulations say?",
-    regulationDetails: "According to the regulations for electronic receipts, merchants must use tax-controlled cash registers that comply with Italian tax authority specifications. These devices generate legal receipts and allow customers to choose whether to receive a printed copy"
+    regulationDetails: "All POS terminals of Fastsimple have already met the requirements of the 2025 Fiscal Act. Starting from January 6, 2026, all merchants must connect their POS terminals to electronic cash registers to automatically transmit electronic payment information to the Italian Tax Authority. Otherwise, one will face a fine of up to 4,000 euros and may even have their business license suspended"
   },
   bannerSeven: {
     perfectSolution: "Perfect Solution for Tax Management",
@@ -196,7 +196,7 @@ bannerOne: {
       first: "Automated Invoicing for Spain",
       second: "Effortless Tax Compliance"
     },
-    invoiceDescription: "Our ordering system now offers automated invoice generation and reporting for Spanish businesses. The system automatically generates tax invoices with unique codes and QR codes, ensuring legality and verifiability. Information is transmitted to tax authorities in real-time, eliminating manual processes and improving efficiency.",
+    invoiceDescription: "All systems of Fastsimple have complied with the provisions of Royal Decree 254/2025. Starting from January 1, 2026, all merchants must adjust their management, invoicing and accounting systems to meet the requirements of the Spanish Tax Authority. Our ordering system now provides automatic invoice generation and reporting services for Spanish businesses. This system automatically generates tax invoices with unique codes and QR codes to ensure legality and verifiability. The relevant information is transmitted to the tax authorities in real time, eliminating manual processes and improving efficiency.",
     taxSystemTitle: {
       first: "Complete Integration with Advanced Tax Systems",
       second: "Fully Integrated with Advanced Tax Systems"
@@ -259,6 +259,9 @@ bannerOne: {
   
   bannerEleven: {
     technicalAdvisor: "Technical Advisor",
+    china: "China",
+    italy: "Italy",
+    spain: "Spain",
     wechat: "WeChat",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, All Rights Reserved",
     terms: "Terms"
