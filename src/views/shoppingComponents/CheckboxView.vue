@@ -14,6 +14,7 @@
 <script setup lang="ts">
 import {useUserStore} from "@/stores/modules/user"
 import { ElMessage } from 'element-plus'
+import {i18n} from '@/lang/index'
 const userStore = useUserStore()
 const props = defineProps({
     checkboxList: {
@@ -32,7 +33,7 @@ const props = defineProps({
 const checkList = ref<Array<string>>([])
 const changeCheckbox = (e: Array<string>)=>{
     if(!userStore.token){
-        return ElMessage.warning("请先登录")
+        return ElMessage.warning(i18n.global.t('shopping.loginFirst'))
     }
     console.log(e)
     checkList.value = e

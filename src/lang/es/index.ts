@@ -520,5 +520,16 @@ export default {
         content: '24 horas de soporte al cliente\nCambio de dispositivo, resolución rápida de problemas a través de soporte remoto (incluyendo día festivo)',
         contentAnother: 'Todos los terminales POS de Fastsimple cumplen con los requisitos del código fiscal italiano para 2025. A partir del 6 de enero de 2026, todos los comerciantes deben conectar sus terminales POS al sistema de caja electrónica, de lo contrario podrían ser sancionados con una multa máxima de 4.000 euros, o incluso tener su licencia de actividad suspendida',
         fee: '10 €/mes 0,6% de comisión',
+    },
+    joinUs: {
+        welcome: 'Bienvenido a nuestro programa de descuentos exclusivos!',
+        stepsDesc: 'Para disfrutar de nuestros descuentos exclusivos, siga estos sencillos pasos:',
+        stepOne: 'Paso 1:',
+        completeRegistration: 'Complete su registro como miembro',
+        stepTwo: 'Paso 2:',
+        enterInviteCode: 'Ingrese su código de invitación para un descuento de {price}€',
+        registerNow: 'Regístrese ahora',
+        enterInviteCodePlaceholder: 'Ingrese su código de invitación',
+        noInviteCode: 'No tiene un código de invitación? Contáctenos, nos pondremos en contacto con usted!'
     }
 }

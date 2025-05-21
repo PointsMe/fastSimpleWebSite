@@ -515,5 +515,16 @@ export default {
         content: '24 heures de support client\nChangement de dispositif, résolution rapide des problèmes via l\'assistance à distance (y compris le jour férié)',
         contentAnother: 'Tous les terminaux POS de Fastsimple répondent aux exigences du code fiscal italien pour 2025. A partir du 6 janvier 2026, tous les commerçants doivent connecter leurs terminaux POS au système de caisse électronique, sinon ils pourraient être soumis à une amende maximale de 4.000 euros, voire avoir leur licence d\'activité suspendue',
         fee: '10 €/mois 0,6% de commission',
+    },
+    joinUs: {
+        welcome: 'Bienvenue dans notre programme de réductions exclusives !',
+        stepsDesc: 'Pour profiter de nos remises exclusives, suivez ces étapes simples :',
+        stepOne: 'Étape 1 :',
+        completeRegistration: 'Complétez votre inscription en tant que membre',
+        stepTwo: 'Étape 2 :',
+        enterInviteCode: 'Entrez votre code d\'invitation pour une réduction de {price}€',
+        registerNow: 'S\'inscrire maintenant',
+        enterInviteCodePlaceholder: 'Entrez votre code d\'invitation',
+        noInviteCode: 'Pas de code d\'invitation ? Contactez notre service client, nous vous aiderons !'
     }
 }

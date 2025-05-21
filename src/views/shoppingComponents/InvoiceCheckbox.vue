@@ -30,6 +30,7 @@ import {useShoppingCartStore} from "@/stores/modules/shoppingCart"
 import{precreateApi} from "@/apis/goods"
 import {useUserStore} from "@/stores/modules/user"
 import { ElMessage } from 'element-plus'
+import {i18n} from '@/lang/index'
 const shoppingCartStore = useShoppingCartStore()
 const userStore = useUserStore()
 const emits = defineEmits(['changeOrderList'])
@@ -43,7 +44,7 @@ const checkList = ref([])
 const changeCheckBox = async(e:any)=>{
     console.log(e)
     if(!userStore.token){
-        return ElMessage.warning("请先登录")
+        return ElMessage.warning(i18n.global.t('shopping.loginFirst'))
     }
     const params = shoppingCartStore.cart
     params.items = params.items.filter(iv => {
@@ -85,7 +86,7 @@ const addPrecreate = async () => {
 }
 const clickitem = async(e: any) => {
     if(!userStore.token){
-        return ElMessage.warning("请先登录")
+        return ElMessage.warning(i18n.global.t('shopping.loginFirst'))
     }
     console.log(e)
     const params = shoppingCartStore.cart

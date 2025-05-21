@@ -519,5 +519,16 @@ bannerOne: {
     content: '24/7 customer support\nQuick remote technical support for problems (including holidays)',
     fee: '€10/month 0.6% commission',
     contentAnother: 'All Fastsimple POS terminals are compliant with the Italian fiscal code for 2025. Starting January 6, 2026, all merchants must connect their POS terminals to the electronic cash register, otherwise they may face a maximum fine of 4,000 euros, or even have their business license suspended'
+  },
+  joinUs: {
+    welcome: 'Welcome to our exclusive discount program!',
+    stepsDesc: 'To enjoy our exclusive discounts, please follow these simple steps:',
+    stepOne: 'Step 1:',
+    completeRegistration: 'Complete your registration as a member',
+    stepTwo: 'Step 2:',
+    enterInviteCode: 'Enter your invitation code to enjoy {price} off',
+    registerNow: 'Register now',
+    enterInviteCodePlaceholder: 'Enter your invitation code',
+    noInviteCode: 'No invitation code? Contact our customer support, we will help you!'
   }
 }

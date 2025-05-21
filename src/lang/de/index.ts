@@ -515,5 +515,16 @@ export default {
         content: '24/7 Kundenunterstützung\nSchnelle technische Unterstützung für Probleme (einschließlich Feiertagen)',
         fee: '€10/Monat 0,6% Provision',
         contentAnother: 'Alle Fastsimple POS-Terminals erfüllen die Anforderungen des italienischen Steuergesetzes für 2025. Ab dem 6. Januar 2026 müssen alle Händler ihre POS-Terminals mit dem elektronischen Kassenregister verbinden, ansonsten können sie eine Strafzahlung von bis zu 4.000 Euro erhalten, oder sogar ihre Geschäftslizenz sperren'
+    },
+    joinUs: {
+        welcome: 'Willkommen bei unserem exklusiven Rabattprogramm!',
+        stepsDesc: 'Um unsere exklusiven Rabatte zu genießen, folgen Sie einfach diesen einfachen Schritten:',
+        stepOne: 'Schritt 1:',
+        completeRegistration: 'Registrieren Sie sich als Mitglied',
+        stepTwo: 'Schritt 2:',
+        enterInviteCode: 'Geben Sie Ihren Einladungscode ein, um {price}€ Rabatt zu erhalten',
+        registerNow: 'Jetzt registrieren',
+        enterInviteCodePlaceholder: 'Geben Sie Ihren Einladungscode ein',
+        noInviteCode: 'Kein Einladungscode? Kontaktieren Sie unseren Kundensupport, wir werden Ihnen helfen!'
     }
 }

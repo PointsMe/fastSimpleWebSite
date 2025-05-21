@@ -521,5 +521,16 @@ bannerOne: {
     content: '24小时客服响应\n即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）',
     fee: '€10/月租 手续费 低至 0.6%',
     contentAnother: 'Fastsimple 的所有 POS 终端已经符合 2025 年财政法的规定。自 2026 年 1 月 6日起，所有商家必须将 POS 终端连接到电子收银机，以便将电子支付信息自动传输给意大利税务局。否则将面临最高 4000 欧元的罚款，甚至可能被暂停营业执照'
-  }
+  },
+  joinUs: {
+    welcome: '欢迎加入我们！尊享专属折扣',
+    stepsDesc: '为了让您尽享专属优惠，请按照以下步骤操作：',
+    stepOne: '第一步：',
+    completeRegistration: '完成会员注册',
+    stepTwo: '第二步：',
+    enterInviteCode: '输入您的邀请码，即可享受专属折扣！',
+    registerNow: '立即注册',
+    enterInviteCodePlaceholder: '输入邀请码',
+    noInviteCode: '没有邀请码？请联系客户支持，我们将为您提供帮助！'
+}
 }
