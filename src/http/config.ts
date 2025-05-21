@@ -24,3 +24,11 @@ export const languageList = [
     //     label: 'Català'
     // }
 ]
+export const hotGoodsId = {
+        id: '100030101',
+        name: '热敏打印机',
+}
+export const posGoodsId = {
+    id: '100070101',
+    name: 'POS机器PAXA920PRO 4G无线网络WIFI+4G',
+}

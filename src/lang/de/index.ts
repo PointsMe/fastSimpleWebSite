@@ -506,5 +506,9 @@ export default {
         upgradeTitle: 'Wir sind fast auf die volle Version',
         contentText: 'Die Anzahl der Drucker ist bereits auf das Maximum gestiegen, das Hinzufügen weiterer Drucker erfordert die Konfiguration auf dem Cloud-Server [Druckersettings], es ist nicht möglich, sie über das Tablet hinzuzufügen, diese Operation erfordert keine zusätzlichen Kosten',
         knowButton: 'Verstanden'
-    }
+    },
+    shoppingNewIndex: {
+        completeVersion: 'Vollständige Version'
+    },
+    hotGoods: 'Jede zusätzliche thermische Drucker erhöht die jährliche FastSimple Standard-Version um 10 € (Maximal 5 Drucker)'
 }

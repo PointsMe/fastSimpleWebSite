@@ -505,5 +505,9 @@ export default {
     upgradeTitle: 'Stiamo per passare alla versione completa',
     contentText: 'Il numero di stampanti è già al massimo, aggiungendo ulteriori stampanti, è necessario configurare sui server cloud [Impostazioni stampanti], non è possibile aggiungerle tramite tablet, questa operazione non comporta costi aggiuntivi',
     knowButton: 'Capito'
-  }
+  },
+  shoppingNewIndex: {
+    completeVersion: 'Versione completa'
+  },
+  hotGoods: 'Ogni stampante termica aggiuntiva comporta un aumento di €10/mese per la versione FastSimple Standard (massimo 5 stampanti)'
 }

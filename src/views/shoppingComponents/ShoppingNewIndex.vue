@@ -18,6 +18,7 @@
               </p>
               <p class="t_d" v-if="index + 1 !== tabArr.length">
                 {{ item.name }}
+                <span v-if="item.id === '1001' && shoppingCartStore.cart.items.find((it:any)=>it.itemId === hotGoodsId.id)?.count === 5">({{ $t('shoppingNewIndex.completeVersion') }})</span>
               </p>
               <span></span>
             </div>
@@ -56,6 +57,7 @@ import PaySuccess from "./PaySuccess.vue";
 import { getGoodsListApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { getToken } from "@/utils/cache/cookies";
+import { hotGoodsId } from "@/http/config";
 const shoppingCartStore = useShoppingCartStore();
 defineOptions({
   name: "shoppingNewIndex",

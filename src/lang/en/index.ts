@@ -510,5 +510,9 @@ bannerOne: {
     upgradeTitle: 'We are about to upgrade to the complete version',
     contentText: 'The number of printers has reached the maximum, adding more printers requires configuration on the cloud server [Printer Settings], it is not possible to add them via the tablet, this operation does not require additional costs',
     knowButton: 'Understood'
-  }
+  },
+  shoppingNewIndex: {
+    completeVersion: 'Complete Version'
+  },
+  hotGoods: 'Each thermal printer adds €10/month for the FastSimple Standard version (maximum 5 printers)'
 }

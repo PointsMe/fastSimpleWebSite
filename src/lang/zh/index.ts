@@ -512,5 +512,9 @@ bannerOne: {
     upgradeTitle: '即将升级为完整版',
     contentText: '打印机数量已达上限，继续添加后需在云服务器【打印设置】配置，无法通过平板添加，此操作无额外费用',
     knowButton: '知道了'
-  }
+  },
+  shoppingNewIndex: {
+    completeVersion: '完整版'
+  },
+  hotGoods: '热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/月（上限5台）'
 }

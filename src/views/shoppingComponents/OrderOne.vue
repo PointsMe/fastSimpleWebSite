@@ -80,7 +80,7 @@
                   </div>
                 </el-col>
                 <el-col :span="24">
-                  <div class="tips-text" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
+                  <div class="tips-text" v-if="item.items[0].id === posGoodsId.id">
                     <span>
                       24小时客服响应
                       即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）
@@ -124,14 +124,14 @@
                     />
                   </div>
                 </el-col>
-                <el-col :span="24" class="right tips" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
+                <el-col :span="24" class="right tips" v-if="item.items[0].id === posGoodsId.id">
                   <div class="tips-text">
                     <span> €10/月租 手续费 低至 0.6% </span>
                   </div>
                 </el-col>
-                <el-col :span="24" class="right tips" v-if="item.name === '热敏打印机'">
+                <el-col :span="24" class="right tips" v-if="item.items[0].id === hotGoodsId.id">
                   <div class="tips-text">
-                    <span> *热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/月（上限5台） </span>
+                    <span> *{{ $t("hotGoods") }} </span>
                   </div>
                 </el-col>
               </el-row>
@@ -326,6 +326,7 @@ import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
 import ShowTipsHot from "./ShowTipsHot.vue";
+import { hotGoodsId, posGoodsId } from "@/http/config";
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();

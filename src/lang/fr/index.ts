@@ -506,5 +506,9 @@ export default {
         upgradeTitle: 'Nous allons passer à la version complète',
         contentText: 'Le nombre de machines à écrire est déjà au maximum, en ajoutant plus de machines à écrire, il est nécessaire de configurer sur le serveur cloud [Paramètres de l\'imprimante], il est impossible d\'ajouter des imprimantes via le tablette, cette opération ne nécessite pas de frais supplémentaires',
         knowButton: 'Compris'
-    }
+    },
+    shoppingNewIndex: {
+        completeVersion: 'Version complète'
+    },
+    hotGoods: 'Chaque imprimante thermique supplémentaire entraîne une augmentation de 10 €/mois pour la version FastSimple Standard (maximum 5 imprimantes)'
 }

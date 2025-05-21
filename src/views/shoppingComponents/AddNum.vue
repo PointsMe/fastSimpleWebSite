@@ -31,6 +31,7 @@ import { precreateApi } from "@/apis/goods";
 import { ElMessage } from "element-plus";
 import { i18n } from "@/lang/index";
 import { emitter } from "@/eventBus/index";
+import { hotGoodsId, posGoodsId } from "@/http/config";
 defineOptions({
   name: "addNum",
 });
@@ -72,7 +73,7 @@ const changeInput = async (e: any) => {
   } else {
     value = props.parents?.minSelectCount ?? 1;
   }
-  if (props.parents?.name === "POS机器PAXA920PRO 4G无线网络WIFI+4G" && value !== 0) {
+  if (props.data?.id === posGoodsId.id && value !== 0) {
     shoppingCartStore.setPosGoods({
       num: 1,
       show: true,
@@ -116,7 +117,7 @@ const reduce = async () => {
         : props.parents?.minSelectCount;
     // const value = Number(inputNum.value) - 1
     if (
-      props.parents?.name === "POS机器PAXA920PRO 4G无线网络WIFI+4G" &&
+      props.data?.id === posGoodsId.id &&
       shoppingCartStore.posGoods.num === 1 &&
       value === 0
     ) {
@@ -190,7 +191,7 @@ const addPrecreate = async (posInviteCode: string = "") => {
 const increase = async () => {
   console.log("increase===>", props.parents, props?.data, inputNum.value);
   if (
-    props.parents?.name === "POS机器PAXA920PRO 4G无线网络WIFI+4G" &&
+    props.data?.id === posGoodsId.id &&
     shoppingCartStore.posGoods.num === 0
   ) {
     shoppingCartStore.setPosGoods({
@@ -209,7 +210,7 @@ const increase = async () => {
         ? props.parents?.maxSelectCount
         : Number(inputNum.value) + 1;
 
-    if (props.parents?.name === "热敏打印机" && inputNum.value === props.parents?.maxSelectCount) {
+    if (props.data?.id === hotGoodsId.id && inputNum.value === props.parents?.maxSelectCount) {
       shoppingCartStore.setHotGoods(true);
     }
     const params = shoppingCartStore.cart;

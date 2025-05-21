@@ -511,5 +511,9 @@ export default {
         upgradeTitle: 'Estamos por pasar a la versión completa',
         contentText: 'El número de impresoras ya está al máximo, agregando más impresoras, es necesario configurar en el servidor cloud [Configuración de impresoras], no es posible agregarlas a través de la tablet, esta operación no requiere gastos adicionales',
         knowButton: 'Entendido'
-    }
+    },
+    shoppingNewIndex: {
+        completeVersion: 'Versión completa'
+    },
+    hotGoods: 'Cada impresora térmica adicional implica un aumento de 10 €/mes para la versión FastSimple Standard (máximo 5 impresoras)'
 }
