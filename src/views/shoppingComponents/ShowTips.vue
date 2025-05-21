@@ -2,35 +2,30 @@
   <div class="show-tips-div">
     <el-dialog v-model="dialogVisible" width="25%" :before-close="handleClose">
       <div class="content">
-        <div class="title">第三方条款说明</div>
+        <div class="title">{{ $t('showTips.title') }}</div>
         <div class="content-text">
-          尊敬的客户，感谢您选择我们的收银系统套餐！为保障您的权益，特此告知：
+          {{ $t('showTips.content') }}
         </div>
         <div class="content-ul">
           <ul>
-            <li>您选择的POS设备为第三方合作产品，需与对方直接签订服务协议</li>
-            <li>设备月租费用为 10欧元/月（费用由第三方直接收取）</li>
-            <li>添加后，我们的客服将在24小时内与您联系，协助完成后续流程</li>
+            <li>{{ $t('showTips.terms1') }}</li>
+            <li>{{ $t('showTips.terms2') }}</li>
+            <li>{{ $t('showTips.terms3') }}</li>
           </ul>
         </div>
         <div class="btns">
-          <el-button class="btn-add" type="primary" @click="sureBtn">确定添加</el-button>
+          <el-button class="btn-add" type="primary" @click="sureBtn">{{ $t('showTips.confirm') }}</el-button>
         </div>
       </div>
     </el-dialog>
   </div>
 </template>
 <script setup lang="ts">
-defineProps({
-  tips: {
-    type: String,
-    default: "",
-  },
-});
-
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { ref } from "vue";
 import { emitter } from '@/eventBus/index'
+import { i18n } from '@/lang/index'
+
 const sendMessage = () => {
   emitter.emit('sibling-msg', {
     content: '来自兄弟组件的消息'

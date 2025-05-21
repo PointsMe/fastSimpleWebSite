@@ -266,7 +266,11 @@ export default {
         title: "Vorteilsshop",
         membershipPromotion: "Registrieren Sie sich als Mitglied und geben Sie den Einladungscode ein, um 50% Rabatt zu erhalten",
         registerNow: "Jetzt registrieren",
-        loginFirst: "Bitte zuerst anmelden"
+        loginFirst: "Bitte zuerst anmelden",
+        paySuccess: 'Zahlung erfolgreich',
+        checkOrderDetail: 'Sie können die Details Ihrer Bestellung in der "Meine Bestellungen" -Sektion überprüfen',
+        viewOrder: 'Bestellung ansehen',
+        confirm: 'Bestätigen'
     },
     serverView: {
         ourServices: "Unsere Dienstleistungen",
@@ -441,7 +445,14 @@ export default {
         payError: 'Zahlung fehlgeschlagen',
         payTips: 'Hinweis',
         paySuccessTips: 'Zahlung abgeschlossen?',
-        
+        payErrorObj: {
+            title: 'Zahlung fehlgeschlagen',
+            description: 'Spiacenti, la transazione non è stata completata, per favore controlla le seguenti informazioni',
+            checkBalance: '1.Il saldo del conto o il limite di credito è sufficiente',
+            checkNetwork: '2.La connessione di rete è stabile',
+            backToMall: 'Ritorna al negozio',
+            orderDetail: 'Dettagli ordine'
+        }
     },
     orderOne: {
         registerMember: 'Registrieren Sie sich als Mitglied und geben Sie den Einladungscode ein, um €{price} Rabatt zu erhalten',
@@ -482,5 +493,18 @@ export default {
         enterInviteCode: 'Geben Sie den Einladungscode ein und sparen Sie {price}€',
         pleaseSelectItems: 'Bitte wählen Sie zuerst Produkte aus',
         pleaseEnterCorrectCode: 'Bitte geben Sie einen gültigen Einladungscode ein'
+    },
+    showTips: {
+        title: 'Dritter-Party-Bedingungen',
+        content: 'Lieber Kunde, danke für Ihre Wahl unseres POS-System-Pakets! Um Ihre Rechte zu schützen, beachten Sie bitte die folgenden Informationen:',
+        confirm: 'Bestätigen',
+        terms1: 'Sie haben ein POS-Gerät ausgewählt, das eine direkte Dienstvereinbarung mit der anderen Partei erfordert',
+        terms2: 'Die monatliche Miete für das Gerät beträgt 10 Euro/Monat (die Gebühr wird direkt von der anderen Partei erhoben)',
+        terms3: 'Nach dem Hinzufügen wird unser Kundensupport Sie innerhalb von 24 Stunden kontaktieren, um Ihnen bei der abschließenden Verarbeitung zu unterstützen'
+    },
+    showTipsHot: {
+        upgradeTitle: 'Wir sind fast auf die volle Version',
+        contentText: 'Die Anzahl der Drucker ist bereits auf das Maximum gestiegen, das Hinzufügen weiterer Drucker erfordert die Konfiguration auf dem Cloud-Server [Druckersettings], es ist nicht möglich, sie über das Tablet hinzuzufügen, diese Operation erfordert keine zusätzlichen Kosten',
+        knowButton: 'Verstanden'
     }
 }

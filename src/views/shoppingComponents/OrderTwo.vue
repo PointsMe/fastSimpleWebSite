@@ -265,12 +265,16 @@
     </el-row>
     <JoinUs ref="JoinUsFnRef" />
     <UpdateView ref="UpdateViewRef" />
+    <ShowTips ref="ShowTipsRef" />
+    <ShowTipsHot ref="ShowTipsHotRef" />
   </div>
 </template>
 <script setup lang="ts">
 import AddNum from "./AddNum.vue";
 import RadioView from "./RadioView.vue";
 import InvoiceCheckbox from "./InvoiceCheckbox.vue";
+import ShowTips from "./ShowTips.vue";
+import ShowTipsHot from "./ShowTipsHot.vue";
 import { QuestionFilled } from "@element-plus/icons-vue";
 import JoinUs from "./JoinUs.vue";
 import UpdateView from "./UpdateView.vue";
@@ -558,7 +562,7 @@ defineExpose({
       }
 
       .all-order {
-        height: 73%;
+        height: 82vh;
         overflow-y: scroll;
         .left {
           text-align: left;

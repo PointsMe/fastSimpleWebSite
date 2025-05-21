@@ -266,7 +266,11 @@ export default {
     title: "Negozio sconti",
     membershipPromotion: "Registrati come membro e inserisci il codice invito per uno sconto del 50%",
     registerNow: "Registrati ora",
-    loginFirst: "Per prima cosa, accedi"
+    loginFirst: "Per prima cosa, accedi",
+    paySuccess: 'Pagamento riuscito',
+    checkOrderDetail: 'Puoi controllare i dettagli del tuo ordine nella sezione "I miei ordini"',
+    viewOrder: 'Vedi ordine',
+    confirm: 'Conferma'
   },
   serverView: {
     ourServices: "I nostri servizi",
@@ -440,6 +444,14 @@ export default {
     payError: 'Pagamento fallito',
     payTips: 'Attenzione',
     paySuccessTips: 'Pagamento completato?',
+    payErrorObj: {
+      title: 'Pagamento fallito',
+      description: 'Spiacenti, la transazione non è stata completata, per favore controlla le seguenti informazioni',
+      checkBalance: '1.Il saldo del conto o il limite di credito è sufficiente',
+      checkNetwork: '2.La connessione di rete è stabile',
+      backToMall: 'Ritorna al negozio',
+      orderDetail: 'Dettagli ordine'
+    }
   },
   orderOne: {
     registerMember: 'Registrati come membro e inserisci il codice invito per uno sconto di €{price}',
@@ -480,5 +492,18 @@ export default {
     enterInviteCode: 'Inserisci il codice invito per uno sconto di {price}€',
     pleaseSelectItems: 'Seleziona prima gli articoli',
     pleaseEnterCorrectCode: 'Inserisci un codice invito valido'
+  },
+  showTips: {
+    title: 'Condizioni generali per la fornitura di servizi rapidi',
+    content: 'Per favore, leggi attentamente le condizioni generali per la fornitura di servizi rapidi prima di passare al checkout.',
+    confirm: 'Conferma',
+    terms1: 'Hai selezionato un dispositivo POS di terze parti, che richiede un accordo di servizio diretto con l\'altra parte',
+    terms2: 'Il canone mensile del dispositivo è di 10 euro/mese (il costo viene addebitato direttamente all\'altra parte)',
+    terms3: 'Dopo aver aggiunto, il nostro servizio clienti ti contatterà entro 24 ore per aiutarti a completare il processo successivo'
+  },
+  showTipsHot: {
+    upgradeTitle: 'Stiamo per passare alla versione completa',
+    contentText: 'Il numero di stampanti è già al massimo, aggiungendo ulteriori stampanti, è necessario configurare sui server cloud [Impostazioni stampanti], non è possibile aggiungerle tramite tablet, questa operazione non comporta costi aggiuntivi',
+    knowButton: 'Capito'
   }
 }

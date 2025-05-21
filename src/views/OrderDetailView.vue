@@ -218,6 +218,10 @@ const cancelOrder = async (item: any) => {
     confirmButtonText: "确定",
     cancelButtonText: "取消",
     type: "warning",
+    closeOnClickModal: false,
+      buttonSize: 'small',
+      confirmButtonClass:'pay-success-btn-dialog',
+      cancelButtonClass:'pay-error-btn-dialog',
   }).then(async () => {
     const loading = ElLoading.service({
       lock: true,
@@ -241,6 +245,10 @@ const rePay = (item: any) => {
     confirmButtonText: "确定",
     cancelButtonText: "取消",
     type: "warning",
+    closeOnClickModal: false,
+      buttonSize: 'small',
+      confirmButtonClass:'pay-success-btn-dialog',
+      cancelButtonClass:'pay-error-btn-dialog',
   }).then(async () => {
     console.log("item===>", item);
     const loading = ElLoading.service({

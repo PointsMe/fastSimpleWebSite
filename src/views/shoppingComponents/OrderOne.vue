@@ -794,7 +794,7 @@ defineExpose({
       }
 
       .all-order {
-        height: 73%;
+        height: 82vh;
         overflow-y: scroll;
         .left {
           text-align: left;

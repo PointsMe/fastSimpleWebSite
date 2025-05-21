@@ -2,13 +2,13 @@
   <div class="show-tips-div">
     <el-dialog v-model="dialogVisible" width="25%" :before-close="handleClose">
       <div class="content">
-        <div class="title">即将升级为完整版</div>
+        <div class="title">{{ $t('showTipsHot.upgradeTitle') }}</div>
         <div class="content-text">
-          打印机数量已达上限，继续添加后需在云服务器【打印设置】配置，无法通过平板添加，此操作无额外费用
+          {{ $t('showTipsHot.contentText') }}
         </div>
         
         <div class="btns">
-          <el-button class="btn-add" type="primary" @click="sureBtn">知道了</el-button>
+          <el-button class="btn-add" type="primary" @click="sureBtn">{{ $t('showTipsHot.knowButton') }}</el-button>
         </div>
       </div>
     </el-dialog>

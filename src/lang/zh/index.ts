@@ -271,7 +271,11 @@ bannerOne: {
     title: "优惠商城",
     membershipPromotion: "注册会员输入邀请码，享受五折优惠",
     registerNow: "立即注册",
-    loginFirst: "请先登录"
+    loginFirst: "请先登录",
+    paySuccess: '支付成功',
+    checkOrderDetail: '可前往"我的订单"中查看详情',
+    viewOrder: '查看订单',
+    confirm: '确认'
   },
   serverView: {
     ourServices: "我们的服务",
@@ -447,6 +451,14 @@ bannerOne: {
     payError: '支付失败',
     paySuccessTips: '支付完成?',
     payTips: '提示',
+    payErrorObj: {
+      title: '支付失败',
+      description: '抱歉，当前交易未能完成，请检查以下信息',
+      checkBalance: '1.账户余额或信用额度是否充足',
+      checkNetwork: '2.网络连接是否稳定',
+      backToMall: '返回商城',
+      orderDetail: '订单详情'
+   }
   },
   orderOne: {
     registerMember: '注册会员输入邀请码后，能享受€{price}优惠哦',
@@ -488,5 +500,17 @@ bannerOne: {
     pleaseSelectItems: '请先选择商品',
     pleaseEnterCorrectCode: '请输入正确的邀请码'  
   },
-
+  showTips: {
+    title: '第三方条款说明',
+    content: '尊敬的客户，感谢您选择我们的收银系统套餐！为保障您的权益，特此告知：',
+    confirm: '确定添加',
+    terms1: '您选择的POS设备为第三方合作产品，需与对方直接签订服务协议',
+    terms2: '设备月租为10欧元/月（费用由第三方直接收取）',
+    terms3: '添加后，我们的客服将在24小时内联系您，协助您完成后续流程'
+  },
+  showTipsHot: {
+    upgradeTitle: '即将升级为完整版',
+    contentText: '打印机数量已达上限，继续添加后需在云服务器【打印设置】配置，无法通过平板添加，此操作无额外费用',
+    knowButton: '知道了'
+  }
 }

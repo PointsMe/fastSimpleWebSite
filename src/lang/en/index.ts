@@ -270,7 +270,11 @@ bannerOne: {
     title: "Discount Mall",
     membershipPromotion: "Register as a member and enter an invitation code to enjoy 50% off",
     registerNow: "Register Now",
-    loginFirst: "Please login first"
+    loginFirst: "Please login first",
+    paySuccess: 'Payment successful',
+    checkOrderDetail: 'You can check the details of your order in the "My Orders" section',
+    viewOrder: 'View order',
+    confirm: 'Confirm'
   },
   serverView: {
     ourServices: "Our Services",
@@ -444,7 +448,14 @@ bannerOne: {
     payError: 'Payment failed',
     payTips: 'Attention',
     paySuccessTips: 'Payment completed?',
-    
+    payErrorObj: {
+      title: 'Payment failed',
+      description: 'Sorry, the transaction was not completed, please check the following information',
+      checkBalance: '1.The account balance or credit limit is sufficient',
+      checkNetwork: '2.The network connection is stable',
+      backToMall: 'Back to mall',
+      orderDetail: 'Order details'
+    }
   },
   orderOne: {
     registerMember: 'Register as a member and enter an invitation code to enjoy 50% off',
@@ -486,5 +497,18 @@ bannerOne: {
     enterInviteCode: 'Enter invitation code to enjoy {price} off',
     pleaseSelectItems: 'Please select items first',
     pleaseEnterCorrectCode: 'Please enter correct code'
-  }       
+  },
+  showTips: {
+    title: 'Third-party terms and conditions',
+    content: 'Dear customer, thank you for choosing our POS system package! To protect your rights, please note the following:',
+    confirm: 'Confirm',
+    terms1: 'You have selected a third-party POS device, which requires a direct service agreement with the other party',
+    terms2: 'The monthly rent for the device is 10 euros/month (the fee is directly collected by the third party)',
+    terms3: 'After adding, our customer service will contact you within 24 hours to assist you in completing the subsequent process'
+  },
+  showTipsHot: {
+    upgradeTitle: 'We are about to upgrade to the complete version',
+    contentText: 'The number of printers has reached the maximum, adding more printers requires configuration on the cloud server [Printer Settings], it is not possible to add them via the tablet, this operation does not require additional costs',
+    knowButton: 'Understood'
+  }
 }

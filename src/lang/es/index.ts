@@ -266,7 +266,11 @@ export default {
         title: "Tienda de ofertas",
         membershipPromotion: "Regístrese como miembro e ingrese el código de invitación para disfrutar de un 50% de descuento",
         registerNow: "Regístrese ahora",
-        loginFirst: "Por favor, primero inicie sesión"
+        loginFirst: "Por favor, primero inicie sesión",
+        paySuccess: 'Pago exitoso',
+        checkOrderDetail: 'Puede verificar los detalles de su pedido en la sección "Mis pedidos"',
+        viewOrder: 'Ver pedido',
+        confirm: 'Confirmar'
     },
     serverView: {
         ourServices: "Nuestros servicios",
@@ -446,7 +450,14 @@ export default {
         payError: 'Pago fallido',
         payTips: 'Atención',
         paySuccessTips: '¿Pago completado?',
-        
+        payErrorObj: {
+            title: 'Pago fallido',
+            description: 'Spiacenti, la transazione non è stata completata, per favore controlla le seguenti informazioni',
+            checkBalance: '1.Il saldo del conto o il limite di credito è sufficiente',
+            checkNetwork: '2.La connessione di rete è stabile',
+            backToMall: 'Ritorna al negozio',
+            orderDetail: 'Dettagli ordine'
+        }
     },
     orderOne: {
         registerMember: 'Regístrese como miembro e ingrese el código de invitación para disfrutar de un descuento de €{price}',
@@ -487,5 +498,18 @@ export default {
         enterInviteCode: 'Ingrese código de invitación para reducir €{price}',
         pleaseSelectItems: 'Por favor seleccione productos primero',
         pleaseEnterCorrectCode: 'Por favor ingrese un código de invitación correcto'
+    },
+    showTips: {
+        title: 'Términos y condiciones de terceros',
+        content: 'Estimado cliente, gracias por elegir nuestro paquete de sistema de punto de venta! Para proteger sus derechos, tenga en cuenta lo siguiente:',
+        confirm: 'Confirmar',
+        terms1: 'Ha seleccionado un dispositivo POS de terceros, que requiere un acuerdo de servicio directo con la otra parte',
+        terms2: 'El alquiler mensual del dispositivo es de 10 euros/mes (el cargo se cobra directamente a la otra parte)',
+        terms3: 'Después de agregar, nuestro servicio al cliente se pondrá en contacto con usted en las próximas 24 horas para ayudarle a completar el proceso posterior'
+    },
+    showTipsHot: {
+        upgradeTitle: 'Estamos por pasar a la versión completa',
+        contentText: 'El número de impresoras ya está al máximo, agregando más impresoras, es necesario configurar en el servidor cloud [Configuración de impresoras], no es posible agregarlas a través de la tablet, esta operación no requiere gastos adicionales',
+        knowButton: 'Entendido'
     }
 }

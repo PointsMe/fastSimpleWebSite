@@ -266,7 +266,11 @@ export default {
         title: "Boutique promotionnelle",
         membershipPromotion: "Inscrivez-vous en tant que membre et entrez le code d'invitation pour bénéficier d'une réduction de 50%",
         registerNow: "S'inscrire maintenant",
-        loginFirst: "Veuillez d'abord vous connecter"
+        loginFirst: "Veuillez d'abord vous connecter",
+        paySuccess: 'Paiement réussi',
+        checkOrderDetail: 'Vous pouvez vérifier les détails de votre commande dans la section "Mes commandes"',
+        viewOrder: 'Voir commande',
+        confirm: 'Confirmer'
     },
     serverView: {
         ourServices: "Nos services",
@@ -441,6 +445,14 @@ export default {
         payError: 'Paiement échoué',
         payTips: 'Attention',
         paySuccessTips: 'Paiement terminé ?',
+        payErrorObj: {
+            title: 'Paiement échoué',
+            description: 'Spiacenti, la transazione non è stata completata, per favore controlla le seguenti informazioni',
+            checkBalance: '1.Il saldo del conto o il limite di credito è sufficiente',
+            checkNetwork: '2.La connessione di rete è stabile',
+            backToMall: 'Ritorna al negozio',
+            orderDetail: 'Dettagli ordine'
+        }
     },
     orderOne: {
         registerMember: 'Inscrivez-vous en tant que membre et entrez le code d\'invitation pour bénéficier d\'une réduction de {price}€',
@@ -481,5 +493,18 @@ export default {
         enterInviteCode: 'Entrez le code d\'invitation pour une réduction de {price}€',
         pleaseSelectItems: 'Veuillez d\'abord sélectionner des articles',
         pleaseEnterCorrectCode: 'Veuillez entrer un code d\'invitation correct'
+    },
+    showTips: {
+        title: 'Conditions générales pour la fourniture de services rapides',
+        content: 'Veuillez lire attentivement les conditions générales pour la fourniture de services rapides avant de passer à la commande.',
+        confirm: 'Confirmer',
+        terms1: 'Vous avez sélectionné un dispositif POS de tiers, qui nécessite un accord de service direct avec l\'autre partie',
+        terms2: 'Le loyer mensuel du dispositif est de 10 euros/mois (le frais est directement collecté par l\'autre partie)',
+        terms3: 'Après l\'ajout, notre service client vous contactera dans les 24 heures pour vous aider à compléter le processus suivant'
+    },
+    showTipsHot: {
+        upgradeTitle: 'Nous allons passer à la version complète',
+        contentText: 'Le nombre de machines à écrire est déjà au maximum, en ajoutant plus de machines à écrire, il est nécessaire de configurer sur le serveur cloud [Paramètres de l\'imprimante], il est impossible d\'ajouter des imprimantes via le tablette, cette opération ne nécessite pas de frais supplémentaires',
+        knowButton: 'Compris'
     }
 }
