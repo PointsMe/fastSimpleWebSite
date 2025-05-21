@@ -6,6 +6,9 @@
     <BannerEleven />
     <OrderView ref="OrderViewRef" />
     <OrderDetailView ref="OrderDetailViewRef" />
+    <LoginModalView ref="LoginModalViewRef" />
+    <RegisterModalView ref="RegisterModalViewRef" />
+    <FindPassModalView ref="FindPassModalViewRef" />
   </div>
 </template>
 
@@ -15,6 +18,9 @@ import BannerTen from '@/views/homeComponents/BannerTen.vue'
 import BannerEleven from '@/views/homeComponents/BannerEleven.vue'
 import OrderView from './orderView.vue'
 import OrderDetailView from './OrderDetailView.vue'
+import LoginModalView from '@/views/LoginModalView.vue'
+import RegisterModalView from '@/views/RegisterModalView.vue'
+import FindPassModalView from '@/views/FindPassModalView.vue'
 defineOptions({
   name: 'layoutView'
 })

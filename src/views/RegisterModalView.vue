@@ -8,26 +8,26 @@
       :before-close="handleClose"
     >
       <div class="content">
-        <LoginComponents />
+        <RegisterComponents />
       </div>
       <!-- <template #footer>
-        <div class="dialog-footer">
-          <el-button @click="dialogVisible = false">Cancel</el-button>
-          <el-button type="primary" @click="dialogVisible = false"> Confirm </el-button>
-        </div>
-      </template> -->
+          <div class="dialog-footer">
+            <el-button @click="dialogVisible = false">Cancel</el-button>
+            <el-button type="primary" @click="dialogVisible = false"> Confirm </el-button>
+          </div>
+        </template> -->
     </el-dialog>
   </div>
 </template>
 <script setup lang="ts">
-import LoginComponents from "@/views/loginComponents/LoginComponents.vue";
+import RegisterComponents from "@/views/registerComponents/RegisterComponents.vue";
 import { ref } from "vue";
 import { ElMessageBox } from "element-plus";
 import { useCommonStore } from "@/stores/modules/common";
 const commonStore = useCommonStore();
-const dialogVisible = ref(commonStore.showLoginModal);
+const dialogVisible = ref(commonStore.showRegisterModal);
 const handleClose = (done: () => void) => {
-  commonStore.setShowLoginModal(false);
+  commonStore.setShowRegisterModal(false);
   done();
   //   ElMessageBox.confirm("Are you sure to close this dialog?")
   //     .then(() => {
@@ -38,7 +38,7 @@ const handleClose = (done: () => void) => {
   //     });
 };
 watch(
-  () => commonStore.showLoginModal,
+  () => commonStore.showRegisterModal,
   (newVal: boolean) => {
     dialogVisible.value = newVal;
   },

@@ -26,9 +26,9 @@
 <script setup lang="ts">
 import LoginForm from './LoginForm.vue'
 import LoginStyleTab from "./LoginStyleTab.vue"
-import { useRouter } from 'vue-router'
+import { useCommonStore } from "@/stores/modules/common";
 // 获取路由实例
-const router = useRouter()
+const commonStore = useCommonStore()
 
 const step = ref<string>('1')
 const registerStyle = ref<string>('1')
@@ -40,12 +40,9 @@ const setRegisterStyle = (value: string)=>{
   registerStyle.value = value
 }
 // 跳转到首页的方法
-const toLogin = () => {
-  router.push('/module/login')
-}
-// 跳转到首页的方法
 const toRegister = () => {
-  router.push('/module/register')
+  commonStore.setShowLoginModal(false)
+  commonStore.setShowRegisterModal(true)
 }
 defineExpose({
   setStep,
@@ -56,7 +53,7 @@ defineExpose({
 .login-com {
   width: 100%;
   height: 100%;
-
+  padding: 0 20px;
   .title {
     .top-title {
       height: 40px;
@@ -64,16 +61,15 @@ defineExpose({
     }
 
     .two-title {
-      margin-top: 80px;
+      margin-top: 20px;
     }
 
     .left-title {
       text-align: left;
-      font-family: DIN, DIN;
-      // font-family: Source Han Sans SC;
+      font-family: Source Han Sans SC, Source Han Sans SC;
       font-weight: 500;
-      font-size: 32px;
-      color: #ffffff;
+      font-size: 28px;
+      color: #1B1B1B;
     }
 
     .left-title-i {

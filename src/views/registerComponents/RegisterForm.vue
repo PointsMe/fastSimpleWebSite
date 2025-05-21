@@ -11,7 +11,7 @@
                         @change="(e: any) => EventFunction({
                             evt: item?.onEventFunction,
                             data: e
-                        })" v-if="item.type === 'input'" size="large" :type="`${item.typePass}`"
+                        })" v-if="item.type === 'input'" size="default" :type="`${item.typePass}`"
                             v-model="formModel[item.value]" :placeholder="$t(item.placeholder)" class="bg-input">
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
@@ -34,7 +34,7 @@
                             </template>
                         </el-input>
                         <el-select
-                         size="large" 
+                         size="default" 
                          v-if="item.type === 'select'"
                           v-model="formModel[item.value]"
                           @change="(e: any) => EventFunction({
@@ -473,7 +473,7 @@ watch(
         }
 
         .margin-top-148 {
-            margin-top: 108px;
+            margin-top: 40px;
         }
 
         .btn-login {
@@ -488,7 +488,8 @@ watch(
             color: #1a1a1a;
 
             .el-btn-color {
-                // background-color: #1A1A1A;
+                background: #1B1B1B;
+                color: #fff;
             }
         }
     }

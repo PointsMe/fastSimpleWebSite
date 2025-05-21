@@ -8,6 +8,9 @@ export const useCommonStore = defineStore("common", () => {
   const language = ref<string>(getLanguage() || 'zh-US')
   const showOrderListView = ref<boolean>(false)
   const showOrderDetailView = ref<boolean>(false)
+  const showLoginModal = ref<boolean>(false)
+  const showRegisterModal = ref<boolean>(false)
+  const showFindPassModal = ref<boolean>(false)
   //获取国家列表
   const getCountryList = async () => {
     try {
@@ -18,6 +21,15 @@ export const useCommonStore = defineStore("common", () => {
       console.log(error)
     }
   }
+  const setShowLoginModal = (status: boolean)=>{
+    showLoginModal.value = status;
+  }
+  const setShowRegisterModal = (status: boolean)=>{
+    showRegisterModal.value = status;
+  }
+  const setShowFindPassModal = (status: boolean)=>{
+    showFindPassModal.value = status;
+  }   
   const setShowOrderListView = (status: boolean)=>{
     showOrderListView.value = status;
   }
@@ -34,7 +46,10 @@ export const useCommonStore = defineStore("common", () => {
     language.value = ""
   }
 
-  return { countryList, language,showOrderListView,showOrderDetailView,setShowOrderListView,setShowOrderDetailView,getCountryList,setLanguageFn,resetLanguageFn }
+  return { countryList, language,showOrderListView,showOrderDetailView,
+    setShowOrderListView,setShowOrderDetailView,
+    getCountryList,setLanguageFn,resetLanguageFn,
+    showLoginModal,showRegisterModal,showFindPassModal,setShowLoginModal,setShowRegisterModal,setShowFindPassModal }
 })
 
 

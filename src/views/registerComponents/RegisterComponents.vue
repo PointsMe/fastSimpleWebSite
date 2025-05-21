@@ -37,10 +37,9 @@
 <script setup lang="ts">
 import RegisterForm from './RegisterForm.vue'
 import RegisterTab from "./RegisterTab.vue"
-import { useRouter } from 'vue-router'
+import { useCommonStore } from "@/stores/modules/common";
 // 获取路由实例
-const router = useRouter()
-
+const commonStore = useCommonStore()
 const step = ref<string>('1')
 const registerStyle = ref<string>('1')
 
@@ -52,7 +51,8 @@ const setRegisterStyle = (value: string)=>{
 }
 // 跳转到首页的方法
 const toLogin = () => {
-  router.push('/module/login')
+  commonStore.setShowRegisterModal(false)
+  commonStore.setShowLoginModal(true)
 }
 defineExpose({
   setStep,
@@ -66,36 +66,33 @@ defineExpose({
 
   .title {
     .top-title {
-      height: 40px;
-      line-height: 40px;
+    
     }
 
     .two-title {
-      margin-top: 60px;
+      margin-top: 10px;
     }
 
     .left-title {
-      text-align: left;
-      font-family:
-        Source Han Sans SC,
-        Source Han Sans SC;
-      font-weight: 500;
-      font-size: 32px;
-      color: #ffffff;
+      font-family: Source Han Sans SC, Source Han Sans SC;
+font-weight: 500;
+font-size: 28px;
+color: #1B1B1B;
     }
 
     .left-title-i {
-      height: 40px;
+      // height: 40px;
       width: 100%;
 
       .step-1 {
         font-weight: 500;
         font-size: 18px;
-        color: #FED15F;
+        color: #387533;
       }
     }
 
     .right-title-i {
+      margin-top: 20px;
       .r-t-i-r-1{
           display: flex;
           align-items: center;
@@ -131,13 +128,13 @@ defineExpose({
         background-color: #999999;
       }
       .color-step-2-span{
-        background-color: #FED15F;
+        background-color: #387533;
       }
       .color-step-1{
         color: #999999 !important;
       }
       .color-step-2{
-        color: #FED15F !important;
+        color: #387533 !important;
       }
     }
 
@@ -155,7 +152,7 @@ defineExpose({
         bottom: -20px;
 
         span {
-          color: #fed15f;
+          color: #387533;
         }
       }
     }

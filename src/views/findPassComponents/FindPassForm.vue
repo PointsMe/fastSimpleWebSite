@@ -5,7 +5,7 @@
             <el-row :gutter="12">
                 <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
                     <el-form-item :label="item.label" :prop="item.value">
-                        <el-input v-if="item.type === 'input'" size="large" v-model="form[item.value]"
+                        <el-input v-if="item.type === 'input'" size="default" v-model="form[item.value]"
                             :type="`${item.typePass}`" :placeholder="$t(item.placeholder)" class="bg-input">
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
@@ -27,7 +27,7 @@
                                 <AllCountryView @changeCountry="changeCountry"/>
                             </template>
                         </el-input>
-                        <el-select size="large" v-if="item.type === 'select'" v-model="form[item.value]"
+                        <el-select size="default" v-if="item.type === 'select'" v-model="form[item.value]"
                             :placeholder="$t(item.placeholder)">
                             <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
@@ -283,8 +283,7 @@ watch(
 </script>
 <style scoped lang="less">
 .login-form {
-    margin-top: 50px;
-
+    margin-top: 10px;
     .login-last {
         .checkbox-con {
             font-family: Inter, Inter;
@@ -331,7 +330,8 @@ watch(
             color: #1a1a1a;
 
             .el-btn-color {
-                // background-color: #1A1A1A;
+                background-color: #1A1A1A;
+                color: #fff;
             }
         }
     }

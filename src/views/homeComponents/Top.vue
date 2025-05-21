@@ -35,7 +35,7 @@
               </div>
               <div class="right-section">
                   <el-button v-if="!userStore.token" class="login-btn" type="pain" @click="login">{{$t('user.loginText')}}</el-button>
-                  <el-button v-if="!userStore.token" class="register-btn" type="pain" @click="login">{{$t('user.registerText')}}</el-button>
+                  <el-button v-if="!userStore.token" class="register-btn" type="pain" @click="register">{{$t('user.registerText')}}</el-button>
                   <div v-else>
                       <el-dropdown trigger="click">
                           <span class="language-selector">
@@ -67,11 +67,9 @@
               </div>
           </div>
       </div>
-      <LoginModalView ref="loginModalViewRef"/>
   </div>
 </template>
 <script setup lang="ts">
-import LoginModalView from '@/views/LoginModalView.vue'
 import {languageList} from "@/http/config"
 import { useRouter } from 'vue-router'
 import { ArrowDown } from '@element-plus/icons-vue'
@@ -84,7 +82,6 @@ const router = useRouter()
 const userStore = useUserStore()
 const commonStore = useCommonStore()
 const shoppingCartStore = useShoppingCartStore()
-const loginModalViewRef = ref<InstanceType<typeof LoginModalView>>()
 const handleCommand = (command: string) => {
   current.$i18n.locale = command
   commonStore.setLanguageFn(command)
@@ -94,8 +91,11 @@ const goToPage = (value: any) => {
   router.push(`/${value}`)
 }
 const login = () => {
-  loginModalViewRef.value?.showLoginModal()
+  commonStore.setShowLoginModal(true)
   // router.push(`/module/login`)
+}
+const register = () => {
+  commonStore.setShowRegisterModal(true)
 }
 const loginOut = () => {
   userStore.resetToken()

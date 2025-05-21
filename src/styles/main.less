@@ -207,6 +207,11 @@ input[type='number'] {
     position: relative;
   }
 }
+.login-modal-view,.register-modal-view{
+  .el-dialog{
+    opacity: 0.9 !important;
+  }
+}
 
 .login-com {
   .checkbox-con {
@@ -220,7 +225,7 @@ input[type='number'] {
   .login-form {
     .el-form {
       .el-form-item {
-        border-bottom: 1px solid #999999;
+       border: none;
 
         .el-form-item__content {
           .el-select .el-select__wrapper {
@@ -235,6 +240,7 @@ input[type='number'] {
 
           .el-input-group--append .el-input-group__append .el-select .el-select__wrapper {
             box-shadow: none !important;
+            padding: 0;
           }
 
           .el-input-group--append .el-input-group__append {
@@ -245,14 +251,16 @@ input[type='number'] {
               width: 1px;
               height: 15px;
               position: absolute;
-              background-color: #fff;
+              background-color: #b1b1b1;
               left: 0;
               bottom: 30%;
             }
           }
 
           .bg-input {
-
+            border: 1px solid #999999 !important;
+            border-radius: 5px;
+            overflow: hidden;
             .el-input-group__append .el-button,
             .el-input-group__append .el-select,
             .el-input-group__prepend .el-button,
@@ -293,10 +301,6 @@ input[type='number'] {
               box-shadow: none !important;
             }
 
-            .el-input-group--append .el-input-group__append .el-select .el-select__wrapper {
-              box-shadow: none !important;
-            }
-
             .el-input-group__prepend {
               box-shadow: none !important;
             }
@@ -315,6 +319,7 @@ input[type='number'] {
               // box-shadow:  0 0 0 0, 0 -1px 0 0 #1B1B1B , 0 0 0 0 !important;
               background: #fff;
               box-shadow: none !important;
+              // padding: 0;
             }
 
             .el-input-group__prepend {

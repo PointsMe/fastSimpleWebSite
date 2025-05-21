@@ -1,5 +1,5 @@
 <template>
-  <div class="login-modal-view">
+  <div class="forget-pass-modal-view">
     <el-dialog
       v-model="dialogVisible"
       title=""
@@ -8,7 +8,7 @@
       :before-close="handleClose"
     >
       <div class="content">
-        <LoginComponents />
+        <FindPassComponents />
       </div>
       <!-- <template #footer>
         <div class="dialog-footer">
@@ -20,14 +20,14 @@
   </div>
 </template>
 <script setup lang="ts">
-import LoginComponents from "@/views/loginComponents/LoginComponents.vue";
+import FindPassComponents from "@/views/findPassComponents/FindPassComponents.vue";
 import { ref } from "vue";
 import { ElMessageBox } from "element-plus";
 import { useCommonStore } from "@/stores/modules/common";
 const commonStore = useCommonStore();
-const dialogVisible = ref(commonStore.showLoginModal);
+const dialogVisible = ref(commonStore.showFindPassModal);
 const handleClose = (done: () => void) => {
-  commonStore.setShowLoginModal(false);
+  commonStore.setShowFindPassModal(false);
   done();
   //   ElMessageBox.confirm("Are you sure to close this dialog?")
   //     .then(() => {
@@ -38,7 +38,7 @@ const handleClose = (done: () => void) => {
   //     });
 };
 watch(
-  () => commonStore.showLoginModal,
+  () => commonStore.showFindPassModal,
   (newVal: boolean) => {
     dialogVisible.value = newVal;
   },

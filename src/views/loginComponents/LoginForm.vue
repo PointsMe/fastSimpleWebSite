@@ -5,7 +5,7 @@
             <el-row :gutter="12">
                 <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
                     <el-form-item :label="item.label" :prop="item.value">
-                        <el-input v-if="item.type === 'input'" size="large" v-model="form[item.value]" :type="`${item.typePass}`"
+                        <el-input v-if="item.type === 'input'" size="default" v-model="form[item.value]" :type="`${item.typePass}`"
                             :placeholder="$t(item.placeholder)" class="bg-input">
                             <template #append v-if="item.haveEmailSelect || item.haveBtn || item.haveIcon">
                                 <div v-if="item.haveEmailSelect">
@@ -23,7 +23,7 @@
                                 <AllCountryView @changeCountry="changeCountry"/>
                             </template>
                         </el-input>
-                        <el-select size="large"  v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="$t(item.placeholder)">
+                        <el-select size="default"  v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="$t(item.placeholder)">
                             <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
                         </el-select>
@@ -187,7 +187,8 @@ watch(
     { immediate: true } // 关键选项
 );
 const forgetPass = ()=>{
-    router.push('/module/findpass')
+    commonStore.setShowLoginModal(false)
+    commonStore.setShowFindPassModal(true)
 }
 </script>
 <style scoped lang="less">
@@ -220,7 +221,7 @@ const forgetPass = ()=>{
 
         .checkbox-con {}
         .margin-top-60{
-            margin-top: 60px;
+            margin-top: 20px;
         }
         .margin-top-148{
             margin-top: 148px;
@@ -237,7 +238,8 @@ const forgetPass = ()=>{
             color: #1a1a1a;
 
             .el-btn-color {
-                // background-color: #1A1A1A;
+                background-color: #1A1A1A;
+                color: #fff;
             }
         }
     }
