@@ -83,7 +83,7 @@ defineExpose({
       .step-1 {
         font-weight: 500;
         font-size: 18px;
-        color: #FED15F;
+        color: #387533;
       }
     }
 
@@ -104,7 +104,7 @@ defineExpose({
         background-color: #999999;
       }
       .color-step-2-span{
-        background-color: #FED15F;
+        background-color: #387533;
       }
 
       }
@@ -112,7 +112,7 @@ defineExpose({
         color: #999999 !important;
       }
       .color-step-2{
-        color: #FED15F !important;
+        color: #387533 !important;
       }
       .con {
         position: relative;
@@ -120,7 +120,7 @@ defineExpose({
         font-size: 16px;
         text-align: left;
         text-indent: 28px;
-        color: #FED15F;
+        color: #387533;
         >img {
           display: block;
           position: absolute;
@@ -146,7 +146,7 @@ defineExpose({
         bottom: 0;
 
         span {
-          color: #fed15f;
+          color: #387533;
         }
       }
     }
