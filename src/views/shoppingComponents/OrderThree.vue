@@ -314,7 +314,7 @@ defineExpose({
       }
 
             .all-order {
-                height: 85%;
+                height: calc(100% - 250px);
                 overflow-y: scroll;
                 .left {
                     text-align: left;

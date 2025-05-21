@@ -509,5 +509,10 @@ export default {
   shoppingNewIndex: {
     completeVersion: 'Versione completa'
   },
-  hotGoods: 'Ogni stampante termica aggiuntiva comporta un aumento di €10/mese per la versione FastSimple Standard (massimo 5 stampanti)'
+  hotGoods: 'Ogni stampante termica aggiuntiva comporta un aumento di €10/mese per la versione FastSimple Standard (massimo 5 stampanti)',
+  posGoods:{
+    content: '24 ore di supporto clienti\nCambio di dispositivo, risoluzione rapida dei problemi tramite assistenza remota (compreso il giorno di festa)',
+    contentAnother: 'Tutti i terminali POS di Fastsimple soddisfano i requisiti del codice fiscale italiano per il 2025. A partire dal 6 gennaio 2026, tutti i commercianti dovranno collegare i loro terminali POS al sistema di cassa elettronica, altrimenti potrebbero essere soggetti a una multa massima di 4.000 euro, o addirittura avere la licenza di attività sospesa',
+    fee: '€10/mese €0.6% di commissione', 
+  }
 }

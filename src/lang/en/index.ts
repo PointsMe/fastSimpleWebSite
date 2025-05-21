@@ -514,5 +514,10 @@ bannerOne: {
   shoppingNewIndex: {
     completeVersion: 'Complete Version'
   },
-  hotGoods: 'Each thermal printer adds €10/month for the FastSimple Standard version (maximum 5 printers)'
+  hotGoods: 'Each thermal printer adds €10/month for the FastSimple Standard version (maximum 5 printers)',
+  posGoods:{
+    content: '24/7 customer support\nQuick remote technical support for problems (including holidays)',
+    fee: '€10/month 0.6% commission',
+    contentAnother: 'All Fastsimple POS terminals are compliant with the Italian fiscal code for 2025. Starting January 6, 2026, all merchants must connect their POS terminals to the electronic cash register, otherwise they may face a maximum fine of 4,000 euros, or even have their business license suspended'
+  }
 }

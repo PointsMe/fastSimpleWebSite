@@ -516,5 +516,10 @@ bannerOne: {
   shoppingNewIndex: {
     completeVersion: '完整版'
   },
-  hotGoods: '热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/月（上限5台）'
+  hotGoods: '热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/月（上限5台）',
+  posGoods:{
+    content: '24小时客服响应\n即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）',
+    fee: '€10/月租 手续费 低至 0.6%',
+    contentAnother: 'Fastsimple 的所有 POS 终端已经符合 2025 年财政法的规定。自 2026 年 1 月 6日起，所有商家必须将 POS 终端连接到电子收银机，以便将电子支付信息自动传输给意大利税务局。否则将面临最高 4000 欧元的罚款，甚至可能被暂停营业执照'
+  }
 }

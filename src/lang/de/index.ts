@@ -510,5 +510,10 @@ export default {
     shoppingNewIndex: {
         completeVersion: 'Vollständige Version'
     },
-    hotGoods: 'Jede zusätzliche thermische Drucker erhöht die jährliche FastSimple Standard-Version um 10 € (Maximal 5 Drucker)'
+    hotGoods: 'Jede zusätzliche thermische Drucker erhöht die jährliche FastSimple Standard-Version um 10 € (Maximal 5 Drucker)',
+    posGoods:{
+        content: '24/7 Kundenunterstützung\nSchnelle technische Unterstützung für Probleme (einschließlich Feiertagen)',
+        fee: '€10/Monat 0,6% Provision',
+        contentAnother: 'Alle Fastsimple POS-Terminals erfüllen die Anforderungen des italienischen Steuergesetzes für 2025. Ab dem 6. Januar 2026 müssen alle Händler ihre POS-Terminals mit dem elektronischen Kassenregister verbinden, ansonsten können sie eine Strafzahlung von bis zu 4.000 Euro erhalten, oder sogar ihre Geschäftslizenz sperren'
+    }
 }

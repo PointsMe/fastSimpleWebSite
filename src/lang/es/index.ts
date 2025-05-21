@@ -515,5 +515,10 @@ export default {
     shoppingNewIndex: {
         completeVersion: 'Versión completa'
     },
-    hotGoods: 'Cada impresora térmica adicional implica un aumento de 10 €/mes para la versión FastSimple Standard (máximo 5 impresoras)'
+    hotGoods: 'Cada impresora térmica adicional implica un aumento de 10 €/mes para la versión FastSimple Standard (máximo 5 impresoras)',
+    posGoods:{
+        content: '24 horas de soporte al cliente\nCambio de dispositivo, resolución rápida de problemas a través de soporte remoto (incluyendo día festivo)',
+        contentAnother: 'Todos los terminales POS de Fastsimple cumplen con los requisitos del código fiscal italiano para 2025. A partir del 6 de enero de 2026, todos los comerciantes deben conectar sus terminales POS al sistema de caja electrónica, de lo contrario podrían ser sancionados con una multa máxima de 4.000 euros, o incluso tener su licencia de actividad suspendida',
+        fee: '10 €/mes 0,6% de comisión',
+    }
 }

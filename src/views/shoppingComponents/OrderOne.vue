@@ -55,10 +55,6 @@
                 />
               </div>
             </div>
-            <!-- <div>
-                            <span style="color: #FF0000;">*</span>
-                            固定套餐数量每增加一套，FASTSIMPLE标配版年费增加€10/年
-                        </div> -->
           </div>
         </div>
         <div
@@ -66,90 +62,121 @@
           v-for="(item, index) in response.assorts"
           :key="index"
         >
-          <el-row v-if="item.items.length < 3">
-            <el-col :span="12" class="left">
-              <el-row>
-                <el-col :span="24">
-                  <div class="left-i-a">
-                    {{ item.name }}
-                    <label
-                      class="sub-left-i-a"
-                      v-if="item.items.length === 1 && item.items[0].spec"
-                      >({{ item.items[0].spec }})</label
-                    >
-                  </div>
-                </el-col>
-                <el-col :span="24">
-                  <div class="tips-text" v-if="item.items[0].id === posGoodsId.id">
-                    <span>
-                      24小时客服响应
-                      即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）
-                    </span>
-                  </div>
-                </el-col>
-              </el-row>
-            </el-col>
-            <el-col :span="12" class="right">
-              <el-row>
-                <el-col
-                  :span="24"
-                  v-for="(itemChil, chilIndex) in item.items"
-                  :key="chilIndex"
-                >
-                  <div class="num-div" v-if="item.maxSelectCount > 2">
-                    <span v-if="itemChil.spec" style="color: #fdb522"
-                      >({{ itemChil.spec }})</span
-                    >
-                    <span v-if="itemChil.value">{{ itemChil.value }}</span>
-                    <span v-if="itemChil.unit">{{ itemChil.unit }}/</span>
-                    <span>€{{ itemChil.sellPrice }}</span>
-                    <div class="pos-abs">
-                      <AddNum
+          <div
+            :class="
+              item.items[0].id === posGoodsId.id
+                ? isShowPos
+                  ? 'current-one pos-bg-class'
+                  : 'current-one pos-bg-class-padding'
+                : 'current-one'
+            "
+          >
+            <el-row v-if="item.items.length < 3">
+              <el-col :span="12" class="left">
+                <el-row>
+                  <el-col :span="24">
+                    <div class="left-i-a">
+                      <span>{{ item.name }}</span>
+                      <span
+                        class="sub-left-i-a"
+                        v-if="item.items.length === 1 && item.items[0].spec"
+                        >({{ item.items[0].spec }})</span
+                      >
+                      <el-icon
+                        class="margin-left-ico"
+                        v-if="item.items[0].id === posGoodsId.id && !isShowPos"
+                        @click="isShowPos = !isShowPos"
+                        ><ArrowRightBold
+                      /></el-icon>
+                      <el-icon
+                        class="margin-left-ico"
+                        v-if="item.items[0].id === posGoodsId.id && isShowPos"
+                        @click="isShowPos = !isShowPos"
+                        ><ArrowDownBold
+                      /></el-icon>
+                    </div>
+                  </el-col>
+                  <el-col :span="24">
+                    <div class="tips-text" v-if="item.items[0].id === posGoodsId.id">
+                      <span>
+                        {{ $t("posGoods.content") }}
+                      </span>
+                    </div>
+                  </el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="12" class="right">
+                <el-row>
+                  <el-col
+                    :span="24"
+                    v-for="(itemChil, chilIndex) in item.items"
+                    :key="chilIndex"
+                  >
+                    <div class="num-div" v-if="item.maxSelectCount > 2">
+                      <span v-if="itemChil.spec" style="color: #fdb522"
+                        >({{ itemChil.spec }})</span
+                      >
+                      <span v-if="itemChil.value">{{ itemChil.value }}</span>
+                      <span v-if="itemChil.unit">{{ itemChil.unit }}/</span>
+                      <span>€{{ itemChil.sellPrice }}</span>
+                      <div class="pos-abs">
+                        <AddNum
+                          :parents="item"
+                          :data="itemChil"
+                          :inviteCode="inviteCode"
+                          @changeOrderList="changeOrderList"
+                        />
+                      </div>
+                    </div>
+                    <div class="radio-common" v-if="item.maxSelectCount < 3">
+                      <span v-if="itemChil.spec && item.items.length > 1"
+                        >({{ itemChil.spec }})</span
+                      >
+                      <RadioView
                         :parents="item"
                         :data="itemChil"
                         :inviteCode="inviteCode"
                         @changeOrderList="changeOrderList"
                       />
                     </div>
-                  </div>
-                  <div class="radio-common" v-if="item.maxSelectCount < 3">
-                    <span v-if="itemChil.spec && item.items.length > 1"
-                      >({{ itemChil.spec }})</span
-                    >
-                    <RadioView
-                      :parents="item"
-                      :data="itemChil"
-                      :inviteCode="inviteCode"
-                      @changeOrderList="changeOrderList"
-                    />
-                  </div>
-                </el-col>
-                <el-col :span="24" class="right tips" v-if="item.items[0].id === posGoodsId.id">
-                  <div class="tips-text">
-                    <span> €10/月租 手续费 低至 0.6% </span>
-                  </div>
-                </el-col>
-                <el-col :span="24" class="right tips" v-if="item.items[0].id === hotGoodsId.id">
-                  <div class="tips-text">
-                    <span> *{{ $t("hotGoods") }} </span>
-                  </div>
-                </el-col>
-              </el-row>
-            </el-col>
-            <!-- <el-col :span="24" class="right tips" v-if="item.tips">
-                            <span><label style="color: #FF0000;">*</label>{{ item.tips }}</span>
-                        </el-col> -->
-          </el-row>
-          <el-row v-if="item.items.length > 2">
-            <el-col :span="24" class="title-b">{{ item.name }}</el-col>
-            <el-col :span="24">
-              <InvoiceCheckbox
-                @changeOrderList="changeOrderList"
-                :parents="item"
-                :inviteCode="inviteCode"
-              />
-            </el-col>
-          </el-row>
+                  </el-col>
+                  <el-col
+                    :span="24"
+                    class="right tips"
+                    v-if="item.items[0].id === posGoodsId.id"
+                  >
+                    <div class="tips-text">
+                      <span> {{ $t("posGoods.fee") }} </span>
+                    </div>
+                  </el-col>
+                  <el-col
+                    :span="24"
+                    class="right tips"
+                    v-if="item.items[0].id === hotGoodsId.id"
+                  >
+                    <div class="tips-text">
+                      <span> *{{ $t("hotGoods") }} </span>
+                    </div>
+                  </el-col>
+                </el-row>
+              </el-col>
+              <el-col :span="24" v-if="item.items[0].id === posGoodsId.id">
+                <div class="pos-div-content" v-if="isShowPos">
+                  {{ $t("posGoods.contentAnother") }}
+                </div>
+              </el-col>
+            </el-row>
+            <el-row v-if="item.items.length > 2">
+              <el-col :span="24" class="title-b">{{ item.name }}</el-col>
+              <el-col :span="24">
+                <InvoiceCheckbox
+                  @changeOrderList="changeOrderList"
+                  :parents="item"
+                  :inviteCode="inviteCode"
+                />
+              </el-col>
+            </el-row>
+          </div>
         </div>
         <!-- <div class="content-list content-list-top">
                     <div class="list-one">
@@ -315,7 +342,7 @@ import AddNum from "./AddNum.vue";
 import RadioView from "./RadioView.vue";
 import InvoiceCheckbox from "./InvoiceCheckbox.vue";
 import ShowTips from "./ShowTips.vue";
-import { QuestionFilled } from "@element-plus/icons-vue";
+import { ArrowRightBold, ArrowDownBold, QuestionFilled } from "@element-plus/icons-vue";
 import JoinUs from "./JoinUs.vue";
 import UpdateView from "./UpdateView.vue";
 import { useUserStore } from "@/stores/modules/user";
@@ -341,7 +368,7 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["toPay"]);
-
+const isShowPos = ref(false);
 const inviteCode = ref("");
 defineOptions({
   name: "orderOne",
@@ -795,7 +822,7 @@ defineExpose({
       }
 
       .all-order {
-        height: 82vh;
+        height: calc(100% - 350px);
         overflow-y: scroll;
         .left {
           text-align: left;
@@ -896,16 +923,35 @@ defineExpose({
     }
 
     .content-list-a {
-      padding: 30px;
       margin-top: 5px;
       background-color: #ffffff;
       border-radius: 6px;
-      .tips-text{
+      .current-one {
+        padding: 30px;
+      }
+      .pos-bg-class-padding {
+        background-color: rgb(144, 215, 214);
+      }
+      .pos-bg-class {
+        height: 578px;
+        width: 100%;
+        background-image: url("@/assets/fastsImages/pos-bg.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        .pos-div-content {
+          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-weight: 400;
+          font-size: 12px;
+          color: #124c45;
+          margin-left: 50%;
+        }
+      }
+      .tips-text {
         font-family: DIN, DIN;
         font-weight: 500;
         font-size: 12px;
-        color: #999999;
-        line-height: 16px;
+        color: #646464;
       }
       .g-b {
         font-family: Source Han Sans SC, Source Han Sans SC;
@@ -943,6 +989,15 @@ defineExpose({
           font-weight: 500;
           font-size: 16px;
           color: #1b1b1b;
+          display: flex;
+          align-items: center;
+          justify-content: left;
+          > span {
+            display: inline-block;
+          }
+          .margin-left-ico{
+            margin-left: 10px;
+          }
           .sub-left-i-a {
             font-size: 13px;
           }
