@@ -207,6 +207,7 @@ import moment from "moment";
 import { orderListApi, cancelOrderApi, payApi } from "@/apis/goods";
 import { ElMessageBox, ElLoading } from "element-plus";
 import { useCommonStore } from "@/stores/modules/common";
+import { i18n } from "@/lang";
 interface TabListType {
   id: number;
   name: string;
@@ -277,9 +278,9 @@ const changeTab = (item: TabListType) => {
 };
 const cancelOrder = async (item: any) => {
   console.log("item===>", item);
-  ElMessageBox.confirm("确定取消订单吗？", "提示", {
-    confirmButtonText: "确定",
-    cancelButtonText: "取消",
+  ElMessageBox.confirm(i18n.global.t('orderView.sureCancelOrder'), i18n.global.t('orderView.tips'), {
+    confirmButtonText: i18n.global.t('orderView.confirm'),
+    cancelButtonText: i18n.global.t('orderView.cancel'),
     cancelButtonClass: "cancel-button-order",
     confirmButtonClass: "confirm-button-order",
     type: "warning",
@@ -302,9 +303,9 @@ const cancelOrder = async (item: any) => {
 };
 const rePay = (item: any) => {
   console.log("item===>", item);
-  ElMessageBox.confirm("确定重新支付吗？", "提示", {
-    confirmButtonText: "确定",
-    cancelButtonText: "取消",
+  ElMessageBox.confirm(i18n.global.t('orderView.sureAgainPay'), i18n.global.t('orderView.tips'), {
+    confirmButtonText: i18n.global.t('orderView.confirm'),
+    cancelButtonText: i18n.global.t('orderView.cancel'),
     cancelButtonClass: "cancel-button-order",
     confirmButtonClass: "confirm-button-order",
     type: "warning",

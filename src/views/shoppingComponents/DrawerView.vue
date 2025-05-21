@@ -544,8 +544,7 @@ const payMoney = () => {
       } catch (e) {
         loading.value.close();
         console.log("e===>", e);
-        window.open('https://www.baidu.com', "_blank");
-        openDialog('227629941310525442')
+        openDialog(shoppingCartStore.orderId)
       } finally {
         // loading.value.close();
       }

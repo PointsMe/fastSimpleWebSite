@@ -7,16 +7,16 @@
                 <div class="c_i">
                     <img class="t-j" src="@/assets/fastsImages/pay-err.png" alt="">
                     <p class="t-i">
-                        支付失败
+                        {{ $t('shoppingCart.payErrorObj.title') }}
                     </p>
                     <p class="t-b-i">
-                        抱歉，当前交易未能完成，请检查以下信息
+                        {{ $t('shoppingCart.payErrorObj.description') }}
                     </p>
                     <p class="t_c">
-                        1.账户余额或信用额度是否充足
+                        {{ $t('shoppingCart.payErrorObj.checkBalance') }}
                     </p>
                     <p class="t_c">
-                        2.网络连接是否稳定
+                        {{ $t('shoppingCart.payErrorObj.checkNetwork') }}
                     </p>
                 </div>
                 <div class="close">
@@ -30,11 +30,11 @@
                 <div class="dialog-footer">
                     <el-row :gutter="12">
                         <el-col :span="12">
-                            <el-button class="cancel" @click="closeDrawer">返回商城</el-button>
+                            <el-button class="cancel" @click="closeDrawer">{{ $t('shoppingCart.payErrorObj.backToMall') }}</el-button>
                         </el-col>
                         <el-col :span="12">
                             <el-button class="sure" type="primary" @click="againPay">
-                                订单详情
+                                {{ $t('shoppingCart.payErrorObj.orderDetail') }}
                             </el-button>
                         </el-col>
                     </el-row>
@@ -50,6 +50,7 @@ import { Close } from '@element-plus/icons-vue'
 import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
 import { useCommonStore } from '@/stores/modules/common'
 import { useRouter } from 'vue-router'
+import { i18n } from '@/lang/index'
 const router = useRouter()
 const shoppingCartStore = useShoppingCartStore()
 const commonStore = useCommonStore()

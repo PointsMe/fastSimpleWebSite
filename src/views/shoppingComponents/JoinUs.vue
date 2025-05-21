@@ -12,31 +12,30 @@
             <div class="all-con">
                 <div class="content">
                     <p class="t-i">
-                        欢迎加入我们！尊享专属折扣
+                        {{ $t('joinUs.welcome') }}
                     </p>
                     <p class="t-s">
-                        为了让您尽享专属优惠，请按照以下步骤操作：
+                        {{ $t('joinUs.stepsDesc') }}
                     </p>
                     <p class="t-c">
                         <img src="@/assets/fastsImages/j-u-1.png" alt="">
-                        第一步： <span>完成会员注册</span>
+                        {{ $t('joinUs.stepOne') }} <span>{{ $t('joinUs.completeRegistration') }}</span>
                     </p>
                     <p class="t-c">
                         <img src="@/assets/fastsImages/j-u-1.png" alt="">
-                        第二步： <span>输入您的邀请码，即可享受专属折扣！</span>
+                        {{ $t('joinUs.stepTwo') }} <span>{{ $t('joinUs.enterInviteCode') }}</span>
                     </p>
                 </div>
                 <div class="footer-btns">
                     <el-row :gutter="12">
                         <el-col :span="12">
-                            <el-button class="btns" @click="goRegister">立即注册</el-button>
+                            <el-button class="btns" @click="goRegister">{{ $t('joinUs.registerNow') }}</el-button>
                         </el-col>
                         <el-col :span="12">
-                            <el-input v-model="inviteCode" class="btns-i" placeholder="输入邀请码" />
-                    
+                            <el-input v-model="inviteCode" class="btns-i" :placeholder="$t('joinUs.enterInviteCodePlaceholder')" />
                         </el-col>
                         <el-col :span="24" class="tips">
-                            没有邀请码？请联系客户支持，我们将为您提供帮助！
+                            {{ $t('joinUs.noInviteCode') }}
                         </el-col>
                     </el-row>
                 </div>

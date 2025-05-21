@@ -180,7 +180,7 @@ export default {
         autoDataSubmission: "Soumission automatique des données",
         instantDataTransmission: "Transmission instantanée des données de transaction aux autorités fiscales",
         regulations: "Que disent les réglementations ?",
-        regulationDetails: "Selon les réglementations sur les reçus électroniques, les commerçants doivent utiliser des caisses enregistreuses conformes aux spécifications de l'administration fiscale italienne. Ces appareils génèrent des reçus légaux et permettent aux clients de choisir de recevoir une copie imprimée"
+        regulationDetails: "Tous les terminaux POS de Fastsimple sont déjà conformes aux dispositions de la loi de finances 2025. Depuis le 6 janvier 2026, tous les commerçants doivent connecter un terminal POS à une caisse enregistreuse électronique afin que les informations de paiement électronique soient transmises automatiquement à l’administration fiscale italienne. Sous peine d’une amende pouvant aller jusqu’à 4000 euros ou même de la suspension éventuelle de la licence commerciale"
     },
     bannerSeven: {
         perfectSolution: "Solution parfaite pour la gestion fiscale",
@@ -197,7 +197,7 @@ export default {
             first: "Facturation automatique en Espagne",
             second: "Conformité facile aux réglementations fiscales"
         },
-        invoiceDescription: "Notre système de commande offre maintenant la génération automatique de factures et les services de reporting pour les entreprises espagnoles. Le système génère automatiquement des factures fiscales avec un code unique et un QR code, garantissant la légalité et la vérifiabilité. Les informations pertinentes sont transmises en temps réel aux autorités fiscales, éliminant les processus manuels et améliorant l'efficacité.",
+        invoiceDescription: "Tous les systèmes de Fastsimple sont déjà conformes aux dispositions du décret royal 254/2025. Depuis le 1er janvier 2026, tous les commerçants doivent adapter leurs systèmes de gestion, de facturation et de comptabilité aux exigences de l’agence fiscale espagnole. Notre système de commande offre désormais un service automatisé de génération de factures et de rapports pour les entreprises espagnoles. Le système génère automatiquement des factures fiscales avec un code unique et un qr-code, garantissant la légalité et la vérification. Les informations pertinentes sont transmises aux autorités fiscales en temps réel, ce qui élimine les processus manuels et améliore l’efficacité.",
         taxSystemTitle: {
             first: "Intégration complète avec les systèmes fiscaux avancés",
             second: "Intégration complète avec les systèmes fiscaux avancés"
@@ -257,6 +257,9 @@ export default {
     },
     bannerEleven: {
         technicalAdvisor: "Conseiller technique",
+        china: "Chine",
+        italy: "Italie",
+        spain: "Espagne",
         wechat: "WeChat",
         copyright: "Copyright © 2024 FastSimple By Yine Srl, Tous droits réservés",
         terms: "Conditions"
@@ -265,7 +268,11 @@ export default {
         title: "Boutique promotionnelle",
         membershipPromotion: "Inscrivez-vous en tant que membre et entrez le code d'invitation pour bénéficier d'une réduction de 50%",
         registerNow: "S'inscrire maintenant",
-        loginFirst: "Veuillez d'abord vous connecter"
+        loginFirst: "Veuillez d'abord vous connecter",
+        paySuccess: 'Paiement réussi',
+        checkOrderDetail: 'Vous pouvez vérifier les détails de votre commande dans la section "Mes commandes"',
+        viewOrder: 'Voir commande',
+        confirm: 'Confirmer'
     },
     serverView: {
         ourServices: "Nos services",
@@ -440,6 +447,14 @@ export default {
         payError: 'Paiement échoué',
         payTips: 'Attention',
         paySuccessTips: 'Paiement terminé ?',
+        payErrorObj: {
+            title: 'Paiement échoué',
+            description: 'Spiacenti, la transazione non è stata completata, per favore controlla le seguenti informazioni',
+            checkBalance: '1.Il saldo del conto o il limite di credito è sufficiente',
+            checkNetwork: '2.La connessione di rete è stabile',
+            backToMall: 'Ritorna al negozio',
+            orderDetail: 'Dettagli ordine'
+        }
     },
     orderOne: {
         registerMember: 'Inscrivez-vous en tant que membre et entrez le code d\'invitation pour bénéficier d\'une réduction de {price}€',
@@ -480,5 +495,38 @@ export default {
         enterInviteCode: 'Entrez le code d\'invitation pour une réduction de {price}€',
         pleaseSelectItems: 'Veuillez d\'abord sélectionner des articles',
         pleaseEnterCorrectCode: 'Veuillez entrer un code d\'invitation correct'
+    },
+    showTips: {
+        title: 'Conditions générales pour la fourniture de services rapides',
+        content: 'Veuillez lire attentivement les conditions générales pour la fourniture de services rapides avant de passer à la commande.',
+        confirm: 'Confirmer',
+        terms1: 'Vous avez sélectionné un dispositif POS de tiers, qui nécessite un accord de service direct avec l\'autre partie',
+        terms2: 'Le loyer mensuel du dispositif est de 10 euros/mois (le frais est directement collecté par l\'autre partie)',
+        terms3: 'Après l\'ajout, notre service client vous contactera dans les 24 heures pour vous aider à compléter le processus suivant'
+    },
+    showTipsHot: {
+        upgradeTitle: 'Nous allons passer à la version complète',
+        contentText: 'Le nombre de machines à écrire est déjà au maximum, en ajoutant plus de machines à écrire, il est nécessaire de configurer sur le serveur cloud [Paramètres de l\'imprimante], il est impossible d\'ajouter des imprimantes via le tablette, cette opération ne nécessite pas de frais supplémentaires',
+        knowButton: 'Compris'
+    },
+    shoppingNewIndex: {
+        completeVersion: 'Version complète'
+    },
+    hotGoods: 'Chaque imprimante thermique supplémentaire entraîne une augmentation de 10 €/mois pour la version FastSimple Standard (maximum 5 imprimantes)',
+    posGoods:{
+        content: '24 heures de support client\nChangement de dispositif, résolution rapide des problèmes via l\'assistance à distance (y compris le jour férié)',
+        contentAnother: 'Tous les terminaux POS de Fastsimple répondent aux exigences du code fiscal italien pour 2025. A partir du 6 janvier 2026, tous les commerçants doivent connecter leurs terminaux POS au système de caisse électronique, sinon ils pourraient être soumis à une amende maximale de 4.000 euros, voire avoir leur licence d\'activité suspendue',
+        fee: '10 €/mois 0,6% de commission',
+    },
+    joinUs: {
+        welcome: 'Bienvenue dans notre programme de réductions exclusives !',
+        stepsDesc: 'Pour profiter de nos remises exclusives, suivez ces étapes simples :',
+        stepOne: 'Étape 1 :',
+        completeRegistration: 'Complétez votre inscription en tant que membre',
+        stepTwo: 'Étape 2 :',
+        enterInviteCode: 'Entrez votre code d\'invitation pour une réduction de {price}€',
+        registerNow: 'S\'inscrire maintenant',
+        enterInviteCodePlaceholder: 'Entrez votre code d\'invitation',
+        noInviteCode: 'Pas de code d\'invitation ? Contactez notre service client, nous vous aiderons !'
     }
 }

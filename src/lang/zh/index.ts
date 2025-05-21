@@ -181,7 +181,7 @@ bannerOne: {
     autoDataSubmission: "自动提交数据",
     instantDataTransmission: "即时向税务机关发送交易数据",
     regulations: "法规是怎么说的？",
-    regulationDetails: "根据开具电子收据的规定，商户必须使用符合意大利税务局规定规格的税控收银机。这些设备生成合法的收据，并允许客户选择是否接收打印副本"
+    regulationDetails: "Fastsimple 的所有 POS 终端已经符合 2025 年财政法的规定。自 2026 年 1 月 6日起，所有商家必须将 POS 终端连接到电子收银机，以便将电子支付信息自动传输给意大利税务局。否则将面临最高 4000 欧元的罚款，甚至可能被暂停营业执照"
   },
   bannerSeven: {
     perfectSolution: "税务管理的完美解决方案",
@@ -198,7 +198,7 @@ bannerOne: {
       first: "西班牙的自动发票",
       second: "轻松遵守税务法规"
     },
-    invoiceDescription: "我们的订购系统现在为西班牙企业提供自动发票生成和报告服务。该系统自动生成具有唯一代码和QR码的税务发票，确保合法性和可验证性。相关信息实时传递给税务机关，消除人工流程，提高效率。",
+    invoiceDescription: "Fastsimple 的所有系统已经符合《皇家法令 254/2025》的规定。自 2026 年 1 月 1 日起，所有商家必须调整他们的管理、开票和会计系统，以符合西班牙税务局的要求我们的订购系统现在为西班牙企业提供自动发票生成和报告服务。该系统自动生成具有唯一代码和QR码的税务发票，确保合法性和可验证性。相关信息实时传递给税务机关，消除人工流程，提高效率。",
     taxSystemTitle: {
       first: "与先进的税收系统完全集成",
       second: "与先进的税收系统完全集成"
@@ -262,6 +262,9 @@ bannerOne: {
   
   bannerEleven: {
     technicalAdvisor: "技术顾问",
+    china:'中国',
+    italy:'意大利',
+    spain:'西班牙',
     wechat: "微信",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, 版权所有",
     terms: "Termini"
@@ -270,7 +273,11 @@ bannerOne: {
     title: "优惠商城",
     membershipPromotion: "注册会员输入邀请码，享受五折优惠",
     registerNow: "立即注册",
-    loginFirst: "请先登录"
+    loginFirst: "请先登录",
+    paySuccess: '支付成功',
+    checkOrderDetail: '可前往"我的订单"中查看详情',
+    viewOrder: '查看订单',
+    confirm: '确认'
   },
   serverView: {
     ourServices: "我们的服务",
@@ -446,6 +453,14 @@ bannerOne: {
     payError: '支付失败',
     paySuccessTips: '支付完成?',
     payTips: '提示',
+    payErrorObj: {
+      title: '支付失败',
+      description: '抱歉，当前交易未能完成，请检查以下信息',
+      checkBalance: '1.账户余额或信用额度是否充足',
+      checkNetwork: '2.网络连接是否稳定',
+      backToMall: '返回商城',
+      orderDetail: '订单详情'
+   }
   },
   orderOne: {
     registerMember: '注册会员输入邀请码后，能享受€{price}优惠哦',
@@ -487,5 +502,37 @@ bannerOne: {
     pleaseSelectItems: '请先选择商品',
     pleaseEnterCorrectCode: '请输入正确的邀请码'  
   },
-
+  showTips: {
+    title: '第三方条款说明',
+    content: '尊敬的客户，感谢您选择我们的收银系统套餐！为保障您的权益，特此告知：',
+    confirm: '确定添加',
+    terms1: '您选择的POS设备为第三方合作产品，需与对方直接签订服务协议',
+    terms2: '设备月租为10欧元/月（费用由第三方直接收取）',
+    terms3: '添加后，我们的客服将在24小时内联系您，协助您完成后续流程'
+  },
+  showTipsHot: {
+    upgradeTitle: '即将升级为完整版',
+    contentText: '打印机数量已达上限，继续添加后需在云服务器【打印设置】配置，无法通过平板添加，此操作无额外费用',
+    knowButton: '知道了'
+  },
+  shoppingNewIndex: {
+    completeVersion: '完整版'
+  },
+  hotGoods: '热敏打印机每增加一台，FASTSIMPLE标配版年费增加€10/月（上限5台）',
+  posGoods:{
+    content: '24小时客服响应\n即使更换设备远程技术快速处理问题真正的隔天到账（包括节假日）',
+    fee: '€10/月租 手续费 低至 0.6%',
+    contentAnother: 'Fastsimple 的所有 POS 终端已经符合 2025 年财政法的规定。自 2026 年 1 月 6日起，所有商家必须将 POS 终端连接到电子收银机，以便将电子支付信息自动传输给意大利税务局。否则将面临最高 4000 欧元的罚款，甚至可能被暂停营业执照'
+  },
+  joinUs: {
+    welcome: '欢迎加入我们！尊享专属折扣',
+    stepsDesc: '为了让您尽享专属优惠，请按照以下步骤操作：',
+    stepOne: '第一步：',
+    completeRegistration: '完成会员注册',
+    stepTwo: '第二步：',
+    enterInviteCode: '输入您的邀请码，即可享受专属折扣！',
+    registerNow: '立即注册',
+    enterInviteCodePlaceholder: '输入邀请码',
+    noInviteCode: '没有邀请码？请联系客户支持，我们将为您提供帮助！'
+}
 }

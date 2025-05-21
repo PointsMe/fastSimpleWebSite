@@ -187,6 +187,7 @@ import { orderListApi,cancelOrderApi,payApi } from "@/apis/goods";
 import { ElMessageBox,ElLoading } from "element-plus";
 import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { i18n } from "@/lang/index";
 const shoppingCartStore = useShoppingCartStore();
 const commonStore = useCommonStore();
 const dialogVisible = ref<boolean>(false);
@@ -214,10 +215,14 @@ const getOrderList = async () => {
 };
 const cancelOrder = async (item: any) => {
   console.log("item===>", item);
-  ElMessageBox.confirm("确定取消订单吗？", "提示", {
-    confirmButtonText: "确定",
-    cancelButtonText: "取消",
+  ElMessageBox.confirm(i18n.global.t('orderView.sureCancelOrder'), i18n.global.t('orderView.tips'), {
+    confirmButtonText: i18n.global.t('orderView.confirm'),
+    cancelButtonText: i18n.global.t('orderView.cancel'),
     type: "warning",
+    closeOnClickModal: false,
+      buttonSize: 'small',
+      confirmButtonClass:'pay-success-btn-dialog',
+      cancelButtonClass:'pay-error-btn-dialog',
   }).then(async () => {
     const loading = ElLoading.service({
       lock: true,
@@ -237,10 +242,14 @@ const cancelOrder = async (item: any) => {
 };
 const rePay = (item: any) => {
   console.log("item===>", item);
-  ElMessageBox.confirm("确定重新支付吗？", "提示", {
-    confirmButtonText: "确定",
-    cancelButtonText: "取消",
+  ElMessageBox.confirm(i18n.global.t('orderView.sureAgainPay'), i18n.global.t('orderView.tips'), {
+    confirmButtonText: i18n.global.t('orderView.confirm'),
+    cancelButtonText: i18n.global.t('orderView.cancel'),
     type: "warning",
+    closeOnClickModal: false,
+      buttonSize: 'small',
+      confirmButtonClass:'pay-success-btn-dialog',
+      cancelButtonClass:'pay-error-btn-dialog',
   }).then(async () => {
     console.log("item===>", item);
     const loading = ElLoading.service({

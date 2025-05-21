@@ -181,7 +181,7 @@ bannerOne: {
     autoDataSubmission: "Automatic Data Submission",
     instantDataTransmission: "Instant transmission of transaction data to tax authorities",
     regulations: "What do regulations say?",
-    regulationDetails: "According to the regulations for electronic receipts, merchants must use tax-controlled cash registers that comply with Italian tax authority specifications. These devices generate legal receipts and allow customers to choose whether to receive a printed copy"
+    regulationDetails: "All POS terminals of Fastsimple have already met the requirements of the 2025 Fiscal Act. Starting from January 6, 2026, all merchants must connect their POS terminals to electronic cash registers to automatically transmit electronic payment information to the Italian Tax Authority. Otherwise, one will face a fine of up to 4,000 euros and may even have their business license suspended"
   },
   bannerSeven: {
     perfectSolution: "Perfect Solution for Tax Management",
@@ -198,7 +198,7 @@ bannerOne: {
       first: "Automated Invoicing for Spain",
       second: "Effortless Tax Compliance"
     },
-    invoiceDescription: "Our ordering system now offers automated invoice generation and reporting for Spanish businesses. The system automatically generates tax invoices with unique codes and QR codes, ensuring legality and verifiability. Information is transmitted to tax authorities in real-time, eliminating manual processes and improving efficiency.",
+    invoiceDescription: "All systems of Fastsimple have complied with the provisions of Royal Decree 254/2025. Starting from January 1, 2026, all merchants must adjust their management, invoicing and accounting systems to meet the requirements of the Spanish Tax Authority. Our ordering system now provides automatic invoice generation and reporting services for Spanish businesses. This system automatically generates tax invoices with unique codes and QR codes to ensure legality and verifiability. The relevant information is transmitted to the tax authorities in real time, eliminating manual processes and improving efficiency.",
     taxSystemTitle: {
       first: "Complete Integration with Advanced Tax Systems",
       second: "Fully Integrated with Advanced Tax Systems"
@@ -261,6 +261,9 @@ bannerOne: {
   
   bannerEleven: {
     technicalAdvisor: "Technical Advisor",
+    china: "China",
+    italy: "Italy",
+    spain: "Spain",
     wechat: "WeChat",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, All Rights Reserved",
     terms: "Terms"
@@ -269,7 +272,11 @@ bannerOne: {
     title: "Discount Mall",
     membershipPromotion: "Register as a member and enter an invitation code to enjoy 50% off",
     registerNow: "Register Now",
-    loginFirst: "Please login first"
+    loginFirst: "Please login first",
+    paySuccess: 'Payment successful',
+    checkOrderDetail: 'You can check the details of your order in the "My Orders" section',
+    viewOrder: 'View order',
+    confirm: 'Confirm'
   },
   serverView: {
     ourServices: "Our Services",
@@ -443,7 +450,14 @@ bannerOne: {
     payError: 'Payment failed',
     payTips: 'Attention',
     paySuccessTips: 'Payment completed?',
-    
+    payErrorObj: {
+      title: 'Payment failed',
+      description: 'Sorry, the transaction was not completed, please check the following information',
+      checkBalance: '1.The account balance or credit limit is sufficient',
+      checkNetwork: '2.The network connection is stable',
+      backToMall: 'Back to mall',
+      orderDetail: 'Order details'
+    }
   },
   orderOne: {
     registerMember: 'Register as a member and enter an invitation code to enjoy 50% off',
@@ -485,5 +499,38 @@ bannerOne: {
     enterInviteCode: 'Enter invitation code to enjoy {price} off',
     pleaseSelectItems: 'Please select items first',
     pleaseEnterCorrectCode: 'Please enter correct code'
-  }       
+  },
+  showTips: {
+    title: 'Third-party terms and conditions',
+    content: 'Dear customer, thank you for choosing our POS system package! To protect your rights, please note the following:',
+    confirm: 'Confirm',
+    terms1: 'You have selected a third-party POS device, which requires a direct service agreement with the other party',
+    terms2: 'The monthly rent for the device is 10 euros/month (the fee is directly collected by the third party)',
+    terms3: 'After adding, our customer service will contact you within 24 hours to assist you in completing the subsequent process'
+  },
+  showTipsHot: {
+    upgradeTitle: 'We are about to upgrade to the complete version',
+    contentText: 'The number of printers has reached the maximum, adding more printers requires configuration on the cloud server [Printer Settings], it is not possible to add them via the tablet, this operation does not require additional costs',
+    knowButton: 'Understood'
+  },
+  shoppingNewIndex: {
+    completeVersion: 'Complete Version'
+  },
+  hotGoods: 'Each thermal printer adds €10/month for the FastSimple Standard version (maximum 5 printers)',
+  posGoods:{
+    content: '24/7 customer support\nQuick remote technical support for problems (including holidays)',
+    fee: '€10/month 0.6% commission',
+    contentAnother: 'All Fastsimple POS terminals are compliant with the Italian fiscal code for 2025. Starting January 6, 2026, all merchants must connect their POS terminals to the electronic cash register, otherwise they may face a maximum fine of 4,000 euros, or even have their business license suspended'
+  },
+  joinUs: {
+    welcome: 'Welcome to our exclusive discount program!',
+    stepsDesc: 'To enjoy our exclusive discounts, please follow these simple steps:',
+    stepOne: 'Step 1:',
+    completeRegistration: 'Complete your registration as a member',
+    stepTwo: 'Step 2:',
+    enterInviteCode: 'Enter your invitation code to enjoy {price} off',
+    registerNow: 'Register now',
+    enterInviteCodePlaceholder: 'Enter your invitation code',
+    noInviteCode: 'No invitation code? Contact our customer support, we will help you!'
+  }
 }

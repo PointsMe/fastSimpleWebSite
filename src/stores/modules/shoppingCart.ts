@@ -10,12 +10,36 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
     items:[]
   })
   const orderId = ref<string>(getOrderIdStorage() || '')
+  const posGoods = ref<any>({
+    num: 0,
+    show: false,
+    type: '',
+    currentData: {}
+  })
+  const hotGoods = ref<any>(false)
+  const setPosGoods = (value: any) => {
+    posGoods.value = value
+  }
+  const setHotGoods = (value: any) => {
+    hotGoods.value = value
+  }
   const setCart = (value: any) => {
     cart.value = value
   }
   const setOrderId = (value: string) => {
     setOrderIdStorage(value)
     orderId.value = value
+  }
+
+  const resetPosGoods = () => {
+    posGoods.value = {
+      num: 0,
+      show: false,
+      currentData: {}
+    }
+  }
+  const resetHotGoods = () => {
+    hotGoods.value = false
   }
   const resetCart = () => {
     cart.value = {
@@ -28,7 +52,7 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
     orderId.value = ''
   }
 
-  return { cart, setCart,resetCart,orderId,setOrderId,resetOrderId }
+  return { cart, setCart,resetCart,orderId,setOrderId,resetOrderId,posGoods,setPosGoods,resetPosGoods,hotGoods,setHotGoods,resetHotGoods }
 })
 
 

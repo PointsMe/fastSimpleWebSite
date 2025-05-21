@@ -13,8 +13,8 @@
         <img class="t-bg" src="@/assets/fastsImages/pay-bg.png" alt="" />
         <div class="c_i">
           <img class="t-j" src="@/assets/fastsImages/pay-suc.png" alt="" />
-          <p class="t-i">支付成功</p>
-          <p class="t-b">可前往“我的订单”中查看详情</p>
+          <p class="t-i">{{ $t('shopping.paySuccess') }}</p>
+          <p class="t-b">{{ $t('shopping.checkOrderDetail') }}</p>
         </div>
         <div class="close">
           <el-icon @click="closeDrawer"><Close /></el-icon>
@@ -25,11 +25,11 @@
         <div class="dialog-footer">
           <el-row :gutter="12">
             <el-col :span="12">
-              <el-button class="cancel" @click="checkOrder">查看订单</el-button>
+              <el-button class="cancel" @click="checkOrder">{{ $t('shopping.viewOrder') }}</el-button>
             </el-col>
             <el-col :span="12">
               <el-button class="sure" type="primary" @click="closeDrawer">
-                确认
+                {{ $t('shopping.confirm') }}
                 <!-- (5s) -->
               </el-button>
             </el-col>

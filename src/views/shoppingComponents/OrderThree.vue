@@ -125,11 +125,14 @@
                                 <el-col :span="24" class="left">
                                     {{ item.name }}
                                 </el-col>
-                                <el-col :span="20" class="left tips">
+                                <el-col :span="12" class="left tips">
                                     <!-- 1打印机+1平板 -->
                                 </el-col>
-                                <el-col :span="4" class="right tips-1">
-                                    €{{ item.sellPrice }}
+                                <el-col :span="12" class="right tips-1">
+                                    <div class="con-tips-1">
+                                        <span>*{{ item.count }}</span>
+                                        <span style="margin-left: 20px;"> €{{ item.sellPrice }}</span>
+                                    </div>
                                 </el-col>
                             </el-row>
                         </div>
@@ -314,7 +317,7 @@ defineExpose({
       }
 
             .all-order {
-                height: 77%;
+                height: calc(100% - 250px);
                 overflow-y: scroll;
                 .left {
                     text-align: left;
@@ -339,6 +342,14 @@ defineExpose({
 
                     .tips-1 {
                         padding-top: 0;
+                        .con-tips-1{
+                            span{
+                                display: inline-block;
+                            }
+                            span:last-child{
+                                margin-left: 20px;
+                            }
+                        }
                     }
 
                     .tips {

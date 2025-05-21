@@ -180,7 +180,7 @@ export default {
         autoDataSubmission: "Automatische Datenübermittlung",
         instantDataTransmission: "Sofortige Übermittlung von Transaktionsdaten an Steuerbehörden",
         regulations: "Was sagen die Vorschriften?",
-        regulationDetails: "Gemäß den Vorschriften für elektronische Quittungen müssen Händler Kassensysteme verwenden, die den Spezifikationen der italienischen Steuerbehörde entsprechen. Diese Geräte generieren rechtmäßige Quittungen und ermöglichen es Kunden, zu wählen, ob sie eine gedruckte Kopie erhalten möchten"
+        regulationDetails: "Weil fastende ende an alle new-stop-kasse im jahr 2025 abgetan ist, hat das fastende ende an der karte gewonnen. Seit dem 6. Januar 2026 müssen alle händler den punkt des sicherheitssystems an elektronische kassierer anschließen, damit elektronische zahlungsdaten automatisch an das italienische finanzamt geschickt werden können. Andernfalls drohen einem bußgeld Von bis zu 4.000 euro man könnte sogar die zulassung aussetzen"
     },
     bannerSeven: {
         perfectSolution: "Perfekte Lösung für Steuerverwaltung",
@@ -197,7 +197,7 @@ export default {
             first: "Automatische Rechnungen in Spanien",
             second: "Einfache Einhaltung von Steuervorschriften"
         },
-        invoiceDescription: "Unser Bestellsystem bietet jetzt automatische Rechnungserstellung und Berichterstattung für spanische Unternehmen. Das System generiert automatisch Steuerrechnungen mit eindeutigem Code und QR-Code, gewährleistet Rechtmäßigkeit und Überprüfbarkeit. Relevante Informationen werden in Echtzeit an Steuerbehörden übermittelt, eliminiert manuelle Prozesse und verbessert die Effizienz.",
+        invoiceDescription: "Wissen sie, dass das fastende alle systeme dem gesetz der royal doble /2025 entsprechen. Seit dem 1. Januar 2026 haben alle unternehmen ihre verwaltung, schecks und abrechnungen ändern müssen. Unser bestellungssystem, das die anforderungen der spanischen steuerbehörde einhält, hat jetzt für spanische unternehmen automatische riegeldienste zum erstellen und melden angeboten. Das system erzeugt automatisch steuerrechnungen mit dem einzigen code und qr-code, um die rechtmäßigkeit und verifizierbarkeit zu gewährleisten. Die entsprechenden informationen werden in echtzeit an die steuerbehörden übermittelt, damit künstliche prozesse beseitigt und eine höhere effizienz erzielt wird.",
         taxSystemTitle: {
             first: "Vollständig integriert mit fortschrittlichen Steuersystemen",
             second: "Vollständig integriert mit fortschrittlichen Steuersystemen"
@@ -257,6 +257,9 @@ export default {
     },
     bannerEleven: {
         technicalAdvisor: "Technischer Berater",
+        china: "China",
+        italy: "Italien",
+        spain: "Spanien",
         wechat: "WeChat",
         copyright: "Copyright © 2024 FastSimple By Yine Srl, Alle Rechte vorbehalten",
         terms: "Bedingungen"
@@ -265,7 +268,11 @@ export default {
         title: "Vorteilsshop",
         membershipPromotion: "Registrieren Sie sich als Mitglied und geben Sie den Einladungscode ein, um 50% Rabatt zu erhalten",
         registerNow: "Jetzt registrieren",
-        loginFirst: "Bitte zuerst anmelden"
+        loginFirst: "Bitte zuerst anmelden",
+        paySuccess: 'Zahlung erfolgreich',
+        checkOrderDetail: 'Sie können die Details Ihrer Bestellung in der "Meine Bestellungen" -Sektion überprüfen',
+        viewOrder: 'Bestellung ansehen',
+        confirm: 'Bestätigen'
     },
     serverView: {
         ourServices: "Unsere Dienstleistungen",
@@ -440,7 +447,14 @@ export default {
         payError: 'Zahlung fehlgeschlagen',
         payTips: 'Hinweis',
         paySuccessTips: 'Zahlung abgeschlossen?',
-        
+        payErrorObj: {
+            title: 'Zahlung fehlgeschlagen',
+            description: 'Spiacenti, la transazione non è stata completata, per favore controlla le seguenti informazioni',
+            checkBalance: '1.Il saldo del conto o il limite di credito è sufficiente',
+            checkNetwork: '2.La connessione di rete è stabile',
+            backToMall: 'Ritorna al negozio',
+            orderDetail: 'Dettagli ordine'
+        }
     },
     orderOne: {
         registerMember: 'Registrieren Sie sich als Mitglied und geben Sie den Einladungscode ein, um €{price} Rabatt zu erhalten',
@@ -481,5 +495,38 @@ export default {
         enterInviteCode: 'Geben Sie den Einladungscode ein und sparen Sie {price}€',
         pleaseSelectItems: 'Bitte wählen Sie zuerst Produkte aus',
         pleaseEnterCorrectCode: 'Bitte geben Sie einen gültigen Einladungscode ein'
+    },
+    showTips: {
+        title: 'Dritter-Party-Bedingungen',
+        content: 'Lieber Kunde, danke für Ihre Wahl unseres POS-System-Pakets! Um Ihre Rechte zu schützen, beachten Sie bitte die folgenden Informationen:',
+        confirm: 'Bestätigen',
+        terms1: 'Sie haben ein POS-Gerät ausgewählt, das eine direkte Dienstvereinbarung mit der anderen Partei erfordert',
+        terms2: 'Die monatliche Miete für das Gerät beträgt 10 Euro/Monat (die Gebühr wird direkt von der anderen Partei erhoben)',
+        terms3: 'Nach dem Hinzufügen wird unser Kundensupport Sie innerhalb von 24 Stunden kontaktieren, um Ihnen bei der abschließenden Verarbeitung zu unterstützen'
+    },
+    showTipsHot: {
+        upgradeTitle: 'Wir sind fast auf die volle Version',
+        contentText: 'Die Anzahl der Drucker ist bereits auf das Maximum gestiegen, das Hinzufügen weiterer Drucker erfordert die Konfiguration auf dem Cloud-Server [Druckersettings], es ist nicht möglich, sie über das Tablet hinzuzufügen, diese Operation erfordert keine zusätzlichen Kosten',
+        knowButton: 'Verstanden'
+    },
+    shoppingNewIndex: {
+        completeVersion: 'Vollständige Version'
+    },
+    hotGoods: 'Jede zusätzliche thermische Drucker erhöht die jährliche FastSimple Standard-Version um 10 € (Maximal 5 Drucker)',
+    posGoods:{
+        content: '24/7 Kundenunterstützung\nSchnelle technische Unterstützung für Probleme (einschließlich Feiertagen)',
+        fee: '€10/Monat 0,6% Provision',
+        contentAnother: 'Alle Fastsimple POS-Terminals erfüllen die Anforderungen des italienischen Steuergesetzes für 2025. Ab dem 6. Januar 2026 müssen alle Händler ihre POS-Terminals mit dem elektronischen Kassenregister verbinden, ansonsten können sie eine Strafzahlung von bis zu 4.000 Euro erhalten, oder sogar ihre Geschäftslizenz sperren'
+    },
+    joinUs: {
+        welcome: 'Willkommen bei unserem exklusiven Rabattprogramm!',
+        stepsDesc: 'Um unsere exklusiven Rabatte zu genießen, folgen Sie einfach diesen einfachen Schritten:',
+        stepOne: 'Schritt 1:',
+        completeRegistration: 'Registrieren Sie sich als Mitglied',
+        stepTwo: 'Schritt 2:',
+        enterInviteCode: 'Geben Sie Ihren Einladungscode ein, um {price}€ Rabatt zu erhalten',
+        registerNow: 'Jetzt registrieren',
+        enterInviteCodePlaceholder: 'Geben Sie Ihren Einladungscode ein',
+        noInviteCode: 'Kein Einladungscode? Kontaktieren Sie unseren Kundensupport, wir werden Ihnen helfen!'
     }
 }
