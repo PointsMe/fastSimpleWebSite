@@ -27,40 +27,54 @@ defineProps({
     default: "",
   },
 });
-import { inject } from 'vue';
+
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { ref } from "vue";
-import { precreateApi } from "@/apis/goods";
-const emits = defineEmits(["changeOrderList"]);
-const sharedMethod = inject('sharedMethod') as () => void;
+import { emitter } from '@/eventBus/index'
+const sendMessage = () => {
+  emitter.emit('sibling-msg', {
+    content: '来自兄弟组件的消息'
+  })
+}
+const sendCloseTips = () => {
+  emitter.emit('sibling-msg-close', {
+    content: '来自兄弟组件的消息'
+  })
+}
 const shoppingCartStore = useShoppingCartStore();
 const dialogVisible = ref(shoppingCartStore.posGoods.show);
 const handleClose = (done: () => void) => {
   shoppingCartStore.setPosGoods({
     ...shoppingCartStore.posGoods,
+    num: 0,
     show: false,
   });
+  sendCloseTips()
   done();
 };
 const sureBtn = async() => {
-    sharedMethod();
-  const params = shoppingCartStore.cart;
-  const current = params.items.find((iv: any) => iv.type === 119);
-  if (current) {
-    params.type = 102;
-  } else {
-    params.type = 100;
-  }
-  params.items = params.items.filter((iv: any) => iv.count);
-  shoppingCartStore.setCart(params);
-  const { data } = await precreateApi(params);
-  if (data) {
     shoppingCartStore.setPosGoods({
-      ...shoppingCartStore.posGoods,
-      show: false,
-    })
-    emits("changeOrderList", data);
-  }
+        ...shoppingCartStore.posGoods,
+        show: false,
+    });
+    sendMessage()
+//   const params = shoppingCartStore.cart;
+//   const current = params.items.find((iv: any) => iv.type === 119);
+//   if (current) {
+//     params.type = 102;
+//   } else {
+//     params.type = 100;
+//   }
+//   params.items = params.items.filter((iv: any) => iv.count);
+//   shoppingCartStore.setCart(params);
+//   const { data } = await precreateApi(params);
+//   if (data) {
+//     shoppingCartStore.setPosGoods({
+//       ...shoppingCartStore.posGoods,
+//       show: false,
+//     })
+//     emits("changeOrderList", data);
+//   }
 };
 onMounted(() => {
 //   sharedMethod();

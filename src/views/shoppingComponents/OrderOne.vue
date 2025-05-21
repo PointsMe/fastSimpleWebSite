@@ -126,7 +126,7 @@
                 </el-col>
                 <el-col :span="24" class="right tips" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
                   <div class="tips-text">
-                    <span> 10欧/月租 手续费 低至 0.6% </span>
+                    <span> €10/月租 手续费 低至 0.6% </span>
                   </div>
                 </el-col>
                 <el-col :span="24" class="right tips" v-if="item.name === '热敏打印机'">
@@ -307,6 +307,7 @@
     <JoinUs ref="JoinUsFnRef" />
     <UpdateView ref="UpdateViewRef" />
     <ShowTips ref="ShowTipsRef" />
+    <ShowTipsHot ref="ShowTipsHotRef" />
   </div>
 </template>
 <script setup lang="ts">
@@ -324,13 +325,14 @@ import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
-
+import ShowTipsHot from "./ShowTipsHot.vue";
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
 const JoinUsFnRef = ref();
 const UpdateViewRef = ref();
 const ShowTipsRef = ref();
+const ShowTipsHotRef = ref();
 const props = defineProps({
   id: {
     type: String,

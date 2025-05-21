@@ -132,7 +132,7 @@
                 </el-col>
                 <el-col :span="24" class="right tips" v-if="item.name === 'POS机器PAXA920PRO 4G无线网络WIFI+4G'">
                   <div class="tips-text">
-                    <span> 10欧/月租 手续费 低至 0.6% </span>
+                    <span> €10/月租 手续费 低至 0.6% </span>
                   </div>
                 </el-col>
                 <el-col :span="24" class="right tips" v-if="item.name === '热敏打印机'">
