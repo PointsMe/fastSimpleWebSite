@@ -2,7 +2,7 @@
     <div class="updata-view-modal">
         <el-dialog v-model="visible" :show-close="false" width="31.25%" :close-on-click-modal="false"
             :destroy-on-close="true">
-            <template #header="{ close, titleId, titleClass }">
+            <template #header="{ close }">
                 <div class="my-header">
                     <el-icon class="el-icon--left" @click="close">
                         <Close />
@@ -31,7 +31,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { CircleCloseFilled, Close } from '@element-plus/icons-vue'
+import { Close } from '@element-plus/icons-vue'
 
 const visible = ref(false)
 const showModal = () => {

@@ -160,7 +160,8 @@ const onSubmit = async () => {
                 console.log("onSubmit===>",data)
                 userStore.setToken(data.token)
                 userStore.setUserInfo(data.account)
-                router.push('/index')
+                commonStore.setShowLoginModal(false)
+                router.push('/home')
             }else{
                 console.log('error submit!')
             }

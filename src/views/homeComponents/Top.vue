@@ -102,7 +102,7 @@ const loginOut = () => {
   userStore.resetUserInfo()
   shoppingCartStore.resetCart()
   shoppingCartStore.resetOrderId()
-  router.push(`/module/login`)
+  commonStore.setShowLoginModal(false)
 }
 const toMyOrder = ()=> {
   commonStore.setShowOrderListView(true)
