@@ -9,6 +9,7 @@
                                 <div class="con">
                                     <img :src="item.imageUrl" alt="">
                                     {{ item.name }}
+                                    <span v-if="item.spec" style="color: #fdb522;">({{ item.spec }})</span>
                                 </div>
                             </el-col>
                             <el-col :span="24">
