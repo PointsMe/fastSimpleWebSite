@@ -4,10 +4,10 @@
       <div class="title">
         <el-row class="row-t-5">
           <el-col :span="9" class="col-1-t"> Joinku 多平台协作 </el-col>
-          <el-col :span="12" class="col-2-t">
+          <el-col :span="10" class="col-2-t">
             <div class="line"></div>
           </el-col>
-          <el-col :span="3" class="col-3-t"> 跨角色无缝连接 </el-col>
+          <el-col :span="5" class="col-3-t"> 跨角色无缝连接 </el-col>
         </el-row>
       </div>
       <el-row class="row-t-5-2">
@@ -48,7 +48,9 @@
 <style scoped lang="less">
 .banner-5 {
   width: 100%;
-  height: 707px;
+  // height: 707px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   background-color: #1b1b1b;
   .content-5 {
     width: 1280px;
@@ -77,12 +79,13 @@
     .title {
       .row-t-5 {
         color: #fff;
-        padding: 120px 0px 60px 0px;
+        // padding: 120px 0px 60px 0px;
         height: 70px;
         line-height: 70px;
         .col-3-t {
           font-weight: 400;
           font-size: 18px;
+          text-indent: 30px;
         }
         .col-2-t {
           position: relative;

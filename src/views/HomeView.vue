@@ -10,8 +10,6 @@
     <BannerSeven />
     <BannerEight />
     <BannerNine />
-    <BannerTen />
-    <BannerEleven />
   </div>
 </template>
 
@@ -26,8 +24,6 @@ import BannerSix from '@/views/homeComponents/BannerSix.vue'
 import BannerSeven from '@/views/homeComponents/BannerSeven.vue'
 import BannerEight from '@/views/homeComponents/BannerEight.vue'
 import BannerNine from '@/views/homeComponents/BannerNine.vue'
-import BannerTen from '@/views/homeComponents/BannerTen.vue'
-import BannerEleven from '@/views/homeComponents/BannerEleven.vue'
 </script>
 
 <style scoped lang="less"></style>

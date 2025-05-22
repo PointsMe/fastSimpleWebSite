@@ -25,7 +25,7 @@
             <el-row class="row-center-item">
               <el-col :span="3">
                 <div>
-                  <img src="@/assets/joinkuImages/b-3-3.png" alt="" />
+                  <img src="@/assets/joinkuImages/b-3-7.png" alt="" />
                 </div>
               </el-col>
               <el-col :span="21">
@@ -40,7 +40,7 @@
             <el-row class="row-center-item">
               <el-col :span="3">
                 <div>
-                  <img src="@/assets/joinkuImages/b-3-3.png" alt="" />
+                    <img src="@/assets/joinkuImages/b-3-8.png" alt="" />
                 </div>
               </el-col>
               <el-col :span="21">
@@ -55,7 +55,7 @@
             <el-row class="row-center-item">
               <el-col :span="3">
                 <div>
-                  <img src="@/assets/joinkuImages/b-3-3.png" alt="" />
+                    <img src="@/assets/joinkuImages/b-3-9.png" alt="" />
                 </div>
               </el-col>
               <el-col :span="21">

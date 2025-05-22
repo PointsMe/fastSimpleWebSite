@@ -2,15 +2,9 @@
   <div class="banner-6">
     <div class="content-6">
       <div class="title">
-        <el-row class="row-t-5">
-          <el-col :span="10" class="col-2-t">
-            <div class="line"></div>
-          </el-col>
-          <el-col :span="4" class="col-1-t"> 独家优势 </el-col>
-          <el-col :span="10" class="col-2-t">
-            <div class="line"></div>
-          </el-col>
-        </el-row>
+        <el-divider>
+          <div class="col-1-t">独家优势</div>
+        </el-divider>
         <div class="s-t">为什么选择Joinku？</div>
       </div>
       <div class="list-b-6">
@@ -72,6 +66,8 @@
 </template>
 <style scoped lang="less">
 .banner-6 {
+  padding-top: 100px;
+  padding-bottom: 100px;  
   .content-6 {
     width: 1280px;
     margin: auto;
@@ -174,36 +170,17 @@
     }
     .title {
       color: #000;
-      .s-t {
-        text-align: center;
-        font-size: 18px;
-        font-weight: 400px;
-        padding: 15px 0;
-      }
-      .row-t-5 {
-        padding: 200px 0px 60px 0px;
-        height: 70px;
-        line-height: 70px;
-        .col-3-t {
-          font-weight: 400;
-          font-size: 18px;
-        }
-        .col-2-t {
-          position: relative;
-          .line {
-            width: 100%;
-            height: 1px;
-            background-color: #000;
-            position: absolute;
-            top: 50%;
-          }
-        }
-        .col-1-t {
+      .col-1-t {
           font-size: 52px;
           font-weight: bold;
           text-align: center;
           color: #1b1b1b;
         }
+      .s-t {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400px;
+        padding: 15px 0;
       }
     }
   }

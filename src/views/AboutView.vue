@@ -191,7 +191,7 @@
         </div>
         <div class="flex1 flex1-g">
           <div>
-            <img src="@/assets/fastsImages/b-9-2.png" alt="" />
+            <img src="@/assets/joinkuImages/about-1.png" alt="" />
           </div>
           <div>
             <p>{{ $t("aboutView.internalDevelopment.title") }}</p>
