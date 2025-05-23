@@ -212,7 +212,10 @@
       <el-col :span="8" class="right">
         <div class="content-list-right">
           <div class="title">
-            <el-row :gutter="12">
+            <el-divider>
+              <div>{{ $t("orderOne.total") }}</div>
+            </el-divider>
+            <!-- <el-row :gutter="12">
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
@@ -220,7 +223,7 @@
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
-            </el-row>
+            </el-row> -->
           </div>
           <div class="all-order">
             <div
