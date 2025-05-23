@@ -375,7 +375,7 @@ watch(
               margin-left: 20px;
               float: left;
               margin-top: 20px;
-              background-color: #fdb522;
+              background-color: #387533;
               border: none;
               // color: #fff;
             }
@@ -446,7 +446,7 @@ watch(
               height: 30px;
               line-height: 30px;
               border-radius: 6px 6px 6px 6px;
-              background: #fdb522;
+              background: #387533;
               color: #fff;
               padding: 0 10px;
               margin-left: 10px;
@@ -476,7 +476,7 @@ watch(
         margin-left: 0 !important;
       }
       .choosed {
-        color: #fdb522;
+        color: #387533;
         &::after {
           content: ""; /* 创建伪元素 */
           position: absolute; /* 绝对定位 */
@@ -484,7 +484,7 @@ watch(
           bottom: -5px; /* 与原始元素底部对齐 */
           width: 20px; /* 宽度为100%，即与原始元素相同 */
           height: 2px; /* 下划线的高度 */
-          background-color: #fdb522; /* 下划线的颜色 */
+          background-color: #387533; /* 下划线的颜色 */
           transform: translateX(-50%);
         }
       }
