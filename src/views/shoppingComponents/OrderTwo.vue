@@ -589,8 +589,9 @@ defineExpose({
       }
 
       .all-order {
-        height: calc(100% - 350px);
-        overflow-y: scroll;
+        height: calc(100% - 350px); 
+        max-height: calc(100% - 350px);
+        overflow-y: auto;
         .left {
           text-align: left;
           font-family: Source Han Sans SC, Source Han Sans SC;
@@ -697,7 +698,7 @@ defineExpose({
         padding: 30px;
       }
       .pos-bg-class-padding {
-        background-color: rgb(144, 215, 214);
+        // background-color: rgb(144, 215, 214);
       }
       .pos-bg-class {
         height: 578px;

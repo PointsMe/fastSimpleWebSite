@@ -12,7 +12,7 @@
                                     <span v-if="item.spec" style="color: #fdb522;">({{ item.spec }})</span>
                                 </div>
                             </el-col>
-                            <el-col :span="24">
+                            <el-col :span="12">
                                 <div class="con-r">
                                     <div class="con-l">
                                         <span v-if="item.unit">{{ item.unit }}/</span>
@@ -319,7 +319,8 @@ defineExpose({
 
             .all-order {
                 height: calc(100% - 250px);
-                overflow-y: scroll;
+                max-height: calc(100% - 250px);
+                overflow-y: auto;
                 .left {
                     text-align: left;
                     font-family: Source Han Sans SC, Source Han Sans SC;
