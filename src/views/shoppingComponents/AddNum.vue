@@ -170,7 +170,7 @@ const addPrecreate = async (posInviteCode: string = "") => {
       type: 119,
       itemId: tab,
       count: 1,
-      optionIds: props.radioPackage ? [props.radioPackage] : null
+      optionIds: shoppingCartStore.packageIds ? [shoppingCartStore.packageIds] : shoppingCartStore.packageIds
     });
   }
   const current = params.items.find((iv: any) => iv.type === 119);

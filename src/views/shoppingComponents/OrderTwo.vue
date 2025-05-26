@@ -466,8 +466,10 @@ const getData = async () => {
       ])
     }
     console.log("arr===>",arr,option)
-    data.option.items = arr;
-    radioPackage.value = data?.option?.items[0].id;
+    if(option.length > 0){
+      data.option.items = arr;
+      radioPackage.value = data?.option?.items[0].id;
+    }
     response.value = data;
   }
 };
@@ -552,6 +554,7 @@ onMounted(() => {
 watch(()=> radioPackage.value,
   (val)=>{
     if(val){
+      shoppingCartStore.setPackageIds(val)
       const price = Number(response.value.sellPrice) + Number(response.value.option.items.find((iv:any)=> iv.id === val).price);
       console.log("price===>",price)
       moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
