@@ -53,6 +53,10 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  radioPackage: {
+    type: String,
+    required: false,
+  },
 });
 
 const inputNum = ref<number>(0);
@@ -166,6 +170,7 @@ const addPrecreate = async (posInviteCode: string = "") => {
       type: 119,
       itemId: tab,
       count: 1,
+      optionIds: props.radioPackage ? [props.radioPackage] : null
     });
   }
   const current = params.items.find((iv: any) => iv.type === 119);
@@ -189,7 +194,7 @@ const addPrecreate = async (posInviteCode: string = "") => {
   // return params
 };
 const increase = async () => {
-  console.log("increase===>", props.parents, props?.data, inputNum.value);
+  console.log("increase===>", props.parents, props?.data, inputNum.value,props.radioPackage);
   if (
     props.data?.id === posGoodsId.id &&
     shoppingCartStore.posGoods.num === 0
@@ -286,10 +291,10 @@ const handleClose = async() => {
   }
 };
 onMounted(() => {
-  if (props.data?.type === 119) {
-    inputNum.value = 1;
-    increaseFn();
-  }
+//   if (props.data?.type === 119) {
+//     inputNum.value = 1;
+//     increaseFn();
+//   }
   emitter.on("sibling-msg", handleMessage);
   emitter.on("sibling-msg-close", handleClose);
 });
@@ -297,6 +302,19 @@ onUnmounted(() => {
   emitter.off("sibling-msg", handleMessage);
   emitter.off("sibling-msg-close", handleClose);
 });
+watch(
+    ()=> props.radioPackage,
+    (val)=>{
+        if (props.data?.type === 119) {
+            console.log("props.radioPackage==>",val)
+            inputNum.value = 1;
+            increaseFn();
+        }
+    },
+    {
+        immediate: true
+    }
+)
 </script>
 <style scoped lang="less">
 .add-num-div {

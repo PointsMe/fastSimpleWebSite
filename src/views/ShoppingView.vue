@@ -34,6 +34,11 @@ const router = useRouter()
 const goRegister = () => {
   router.push('/module/register')
 }
+onMounted(()=>{
+  if(!userStore.token){
+    router.push('/module/login')
+  }
+})
 </script>
 <style scoped lang="less">
 .shop-view {
