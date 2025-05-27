@@ -2,7 +2,9 @@
   <div class="shopping-new-index">
     <div class="content">
       <div class="shopping-tab">
-        <el-row :gutter="6">
+
+      
+        <el-row>
           <el-col
             :span="8"
             class="shopping-col"
@@ -168,14 +170,18 @@ defineExpose({
   .content {
     width: 1280px;
     margin: auto;
-
+    position: relative;
+    padding-top: 10px;
     .tab-content {
       margin-top: 30px;
     }
 
     .shopping-tab {
-      margin-top: 40px;
-
+      // margin-top: 40px;
+      position: absolute;
+      width: 100%;
+      top: -70px;
+      z-index: 99;
       .shopping-col {
         display: flex;
         flex-direction: column;
@@ -219,7 +225,7 @@ defineExpose({
           position: relative;
           background-color: #ffffff;
           text-align: center;
-          padding: 26px 0;
+          padding: 16px 0;
           cursor: pointer;
           height: 100%;
 

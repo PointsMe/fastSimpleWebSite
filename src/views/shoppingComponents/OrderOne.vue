@@ -33,12 +33,29 @@
               </el-row>
             </el-row>
           </div>
+          <div class="list-two-i">
+            <el-radio-group v-model="radioPackage">
+              <el-row>
+                <el-col :span="12"
+                  v-for="(item, index) in response?.option?.items"
+                  :key="index">
+                  <div v-if="typeof item === 'number'"  class="radio-price">
+                    <span>€{{ item }}</span>
+                  </div>
+                  <el-radio v-else :value="item?.id">{{ item?.name }}</el-radio>
+                </el-col>
+              </el-row>
+              
+            </el-radio-group>
+          </div>
           <div class="list-one-j">
             <div>
               <span>{{ $t("orderOne.normalPrice") }}</span>
-              <span class="normal"> €{{ response.sellPrice }} </span>
+              <span class="normal" v-if="radioPackage"> €{{ moneyPackage.normalSellPrice }} </span>
+              <span class="normal" v-else> €{{ response.sellPrice }} </span>
               <span class="m-f-20">{{ $t("orderOne.invitePrice") }}</span>
-              <span class="origin"> €{{ Number(response.vipPrice) }} </span>
+              <span class="origin" v-if="radioPackage"> €{{ moneyPackage.vipSellPrice }} </span>
+              <span class="origin" v-else> €{{ Number(response.vipPrice) }} </span>
               <div class="pos-abs" style="visibility: hidden">
                 <AddNum
                   :parents="{
@@ -50,6 +67,7 @@
                     name: response.name,
                     type: 119,
                   }"
+                  :radioPackage="radioPackage"
                   :inviteCode="inviteCode"
                   @changeOrderList="changeOrderList"
                 />
@@ -335,7 +353,6 @@
       </el-col>
     </el-row>
     <JoinUs ref="JoinUsFnRef" />
-    <UpdateView ref="UpdateViewRef" />
     <ShowTips ref="ShowTipsRef" />
     <ShowTipsHot ref="ShowTipsHotRef" />
   </div>
@@ -347,7 +364,6 @@ import InvoiceCheckbox from "./InvoiceCheckbox.vue";
 import ShowTips from "./ShowTips.vue";
 import { ArrowRightBold, ArrowDownBold, QuestionFilled } from "@element-plus/icons-vue";
 import JoinUs from "./JoinUs.vue";
-import UpdateView from "./UpdateView.vue";
 import { useUserStore } from "@/stores/modules/user";
 import { ElMessage } from "element-plus";
 import { getGoodsDetailApi, precreateApi } from "@/apis/goods";
@@ -357,6 +373,7 @@ import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
 import ShowTipsHot from "./ShowTipsHot.vue";
 import { hotGoodsId, posGoodsId } from "@/http/config";
+import { ar } from "element-plus/es/locale/index.mjs";
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
@@ -375,6 +392,11 @@ const isShowPos = ref(false);
 const inviteCode = ref("");
 defineOptions({
   name: "orderOne",
+});
+const radioPackage = ref();
+const moneyPackage = ref<any>({
+  vipSellPrice: 0,
+  normalSellPrice: 0,
 });
 const serverBuyer: any = reactive({
   id: "1002",
@@ -647,6 +669,45 @@ const getData = async () => {
     //         }
     //     ]
     // }
+
+
+    // data.invitePrice = 100;
+    // data.option = {
+    //   name:'打印机',
+    //   minSelectCount: 1,
+    //   items:[
+    //     {
+    //       id:'1',
+    //       name:'热敏打印机',
+    //       price: 300
+    //     },
+    //     300,
+    //     {
+    //       id:'2',
+    //       name:'普通打印机',
+    //       price: 100
+    //     },
+    //     100
+    //   ]
+    // }
+    const option = data?.option?.items || [];
+    let arr:any = []
+    console.log("arr===>",arr,option.length)
+    for(let i = 0; i < option.length; i++){
+      arr = arr.concat([
+        {
+          id: option[i]?.id,
+          name: option[i]?.name,
+          price: option[i]?.price
+        },
+        option[i]?.price
+      ])
+    }
+    console.log("arr===>",arr,option)
+    if(option.length > 0){
+      data.option.items = arr;
+      radioPackage.value = data?.option?.items[0].id;
+    }
     response.value = data;
   }
 };
@@ -728,6 +789,20 @@ onMounted(() => {
   getData();
 });
 
+watch(()=> radioPackage.value,
+  (val)=>{
+    if(val){
+      shoppingCartStore.setPackageIds(val)
+      const price = Number(response.value.sellPrice) + Number(response.value.option.items.find((iv:any)=> iv.id === val).price);
+      console.log("price===>",price)
+      moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
+      moneyPackage.value.vipSellPrice = Number((price - Number(response.value.invitePrice)).toFixed(2));
+    }
+  },
+  {
+    immediate: true
+  }
+ )
 defineExpose({
   joinUsFn,
   changeOrderList,
@@ -1102,11 +1177,36 @@ defineExpose({
         border: none !important;
         padding-bottom: 0px !important;
       }
-
-      .list-one-i {
+      .list-two-i{
         padding-left: 10px;
+        padding-top: 28px;
         padding-bottom: 28px;
         border-bottom: 1px solid #ededed;
+        .radio-price{
+          // padding-top: 28px;
+          font-family: DIN, DIN;
+          font-weight: bold;
+          font-size: 18px;
+          color: #999999;
+          text-align: right;
+        }
+        :deep(.el-radio-group) {
+          display: block;
+        }
+        :deep(.el-radio) {
+          display: block;
+          .el-radio__label{
+            font-family: Source Han Sans SC, Source Han Sans SC;
+            font-weight: 400;
+            font-size: 16px;
+            color: #595959;
+          }
+        }
+      }
+      .list-one-i {
+        padding-left: 10px;
+        // padding-bottom: 28px;
+        // border-bottom: 1px solid #ededed;
 
         .left {
           padding-top: 28px;

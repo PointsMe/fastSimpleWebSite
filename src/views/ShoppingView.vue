@@ -34,6 +34,11 @@ const router = useRouter()
 const goRegister = () => {
   router.push('/module/register')
 }
+onMounted(()=>{
+  if(!userStore.token){
+    router.push('/module/login')
+  }
+})
 </script>
 <style scoped lang="less">
 .shop-view {
@@ -49,7 +54,7 @@ const goRegister = () => {
   .top {
     width: 100%;
     height: 400px;
-    background-image: url('@/assets/fastsImages/shopping.png');
+    background-image: url('@/assets/joinkuImages/shop-top-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

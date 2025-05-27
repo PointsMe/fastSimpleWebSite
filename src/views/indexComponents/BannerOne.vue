@@ -12,10 +12,10 @@
     </div>
     <div>
       <el-row :gutter="12">
-        <el-col :span="8" v-for="(item,index) in listData" :key="index">
+        <el-col :span="8" v-for="(item,index) in listData" :key="index" style="position: relative;">
           <div class="img-col">
             <p class="t_i">{{ item.name }}</p>
-            <p class="s_i">€{{ Number(item.vipPrice) }}
+            <p class="s_i">€{{ Number(item.sellPrice) - Number(item.invitePrice) }}
               <span>€{{ Number(item.sellPrice) }}
             </span></p>
             <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }},<span  @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
@@ -31,12 +31,13 @@
                   <div class="content-list-right">€{{ itemChild.price }}</div>
                 </el-col>
               </el-row>
-              <div class="content-list-bottom" @click="toShopping(item.id)">{{ $t('bannerOne.nowBuy') }}</div>
+            
             </div>
+            <div class="content-list-bottom" @click="toShopping(item.id)">{{ $t('bannerOne.nowBuy') }}</div>
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="8" style="position: relative;">
           <div class="img-col">
             <p class="t_i">CUSTOM</p>
             <p class="s_i">€***</p>
@@ -53,8 +54,8 @@
                   <div class="content-list-right">€{{ itemChild.sellPrice }}</div>
                 </el-col>
               </el-row>
-              <div class="content-list-bottom" @click="toShopping('1003')">{{ $t('bannerOne.nowBuy') }}</div>
             </div>
+            <div class="content-list-bottom" @click="toShopping('1003')">{{ $t('bannerOne.nowBuy') }}</div>
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
         </el-col>
@@ -116,8 +117,9 @@ onMounted(() => {
     height: 100%;
     display: flex;
     flex-direction: column;
-    .content-list {
-      .content-list-bottom {
+    width: 100%;
+    min-height: 450px;
+    .content-list-bottom {
         cursor: pointer;
         font-family: Source Han Sans SC, Source Han Sans SC;
         margin-top: 80px;
@@ -128,14 +130,19 @@ onMounted(() => {
         text-align: left;
         font-style: normal;
         text-transform: none;
-        width: 100%;
+        width: 80%;
         height: 60px;
         line-height: 60px;
         background: #1a1a1a;
         border-radius: 85px 85px 85px 85px;
         text-align: center;
         color: #fff;
+        position: absolute;
+        bottom: 40px;
+        left: 10%;
       }
+    .content-list {
+
       .content-list-left {
         height: 30px;
         text-align: left;
