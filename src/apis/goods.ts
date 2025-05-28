@@ -1,13 +1,11 @@
 import { request } from "@/http/axios"
 
 /** 获取验证码 */
-export function getGoodsListApi() {
+export function getGoodsListApi(data:any) {
   return request<ApiResponseData<any>>({
     url: "/plan/list",
     method: "post",
-    data: {
-      biz: 111
-    }
+    data: data
   })
 }
 

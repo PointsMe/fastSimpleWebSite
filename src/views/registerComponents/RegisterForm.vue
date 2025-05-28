@@ -353,7 +353,7 @@ const getVerificationCode = async (token:string) => {
         try {
             await getVerificationCodeApi({
                 ...params,
-                biz: 111,
+                biz: userStore.biz,
                 captcha: token
             })
             loading.close()
@@ -407,7 +407,7 @@ const onSubmit = () => {
                     console.log('submit!', valid, params)
                     const { data } = await registerApi({
                         ...params,
-                        biz: 111
+                        biz: userStore.biz
                     });
                     if (data) {
                         ElMessage.success({
