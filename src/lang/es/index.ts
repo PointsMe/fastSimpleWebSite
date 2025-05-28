@@ -531,5 +531,9 @@ export default {
         registerNow: 'Regístrese ahora',
         enterInviteCodePlaceholder: 'Ingrese su código de invitación',
         noInviteCode: 'No tiene un código de invitación? Contáctenos, nos pondremos en contacto con usted!'
-    }
+    },
+    codeVerifyTitle: 'Código de verificación',
+    verifyFinish: 'Verificación completada',
+    verifyError: 'Verificación fallida',
+    explainWord: 'Deslice el bloque para completar la verificación'
 }

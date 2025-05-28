@@ -525,5 +525,9 @@ export default {
     registerNow: 'Registrati ora',
     enterInviteCodePlaceholder: 'Inserisci il tuo codice invito',
     noInviteCode: 'Nessun codice invito? Contattaci, sarai aiutato!'
-  }
+  },
+  codeVerifyTitle: 'Codice di verifica',
+  verifyFinish: 'Verifica completata',
+  verifyError: 'Verifica fallita',
+  explainWord: 'Scorri il blocco per completare la verifica'
 }

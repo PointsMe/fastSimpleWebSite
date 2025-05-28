@@ -22,7 +22,7 @@
      }}</div>
      <el-button @click="changeToken">更改token</el-button>
      <span>{{$t('aboutLogin.loginText')}}</span><br />
-     <LanguageView />
+      <LanguageView />
   </div>
 </template>
 <script setup lang="ts">
@@ -43,8 +43,12 @@ const clickitem = (e:any)=>{
     radio2.value = e
   }
 }
+const getVerifyCode = ()=>{
+  console.log('校验成功')
+}
 onMounted(() => {
   console.log('初始化视频')
+
 })
 const userStore = useUserStore()
 const changeToken = ()=>{

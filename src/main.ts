@@ -3,7 +3,7 @@ import './styles/main.less'
 import { createApp } from 'vue'
 import 'amfe-flexible'
 import { createPinia } from 'pinia'
-
+import { defineAsyncComponent } from 'vue';
 import vue3videoPlay from 'vue3-video-play' // 引入组件
 import 'vue3-video-play/dist/style.css' // 引入css
 
@@ -21,6 +21,8 @@ import { i18n } from './lang/index'
 
 // import vue3videoPlay from 'vue3-video-play' // 引入组件
 // import 'vue3-video-play/dist/style.css' // 引入css
+import { configureCompat } from '@vue/compat';
+configureCompat({ MODE: 'Vue2' });
 const app = createApp(App);
 
 /* globalProperties一个用于注册能够被应用内所有组件实例访问到的全局属性的对象。 */

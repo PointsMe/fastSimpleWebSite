@@ -4,8 +4,24 @@ import Qs from "qs"
 /** 获取当前登录用户详情 */
 export function getCurrentUserApi() {
   return request<Types.CurrentUserResponseData>({
-    url: "users/me",
+    url: "/users/me",
     method: "get"
+  })
+}
+/** 获取图形验证码 */
+export function getCaptchaApi(data: any) {
+  return request<Types.CurrentUserResponseData>({
+    url: "/captcha/get",
+    method: "post",
+    data: data
+  })
+}
+/** 验证图形验证码 */
+export function checkCaptchaApi(data: any) {
+  return request<Types.CurrentUserResponseData>({
+    url: "captcha/check",
+    method: "post",
+    data: data
   })
 }
 /** 获取验证码 */

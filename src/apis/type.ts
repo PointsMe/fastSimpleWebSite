@@ -5,7 +5,9 @@ export type country = {
 }
 export type verificationCodeType = {
     account: string,
-    type: number | string
+    type: number | string,
+    biz?: number | string,
+    captcha?: string
 }
 export type CurrentUserResponseData = ApiResponseData<{ username: string, roles: string[] }>
 export type countryResponseData = ApiResponseData<Array<country>>
@@ -52,6 +54,7 @@ export type registerType = {
     account: string,
     password: string,
     verificationCode: string,
-    company: companyType
+    company: companyType,
+    biz?: number | string
 }
 export type loginResponseData = ApiResponseData<{ username: string, roles: string[] }>

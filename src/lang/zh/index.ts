@@ -532,5 +532,9 @@ bannerOne: {
     registerNow: '立即注册',
     enterInviteCodePlaceholder: '输入邀请码',
     noInviteCode: '没有邀请码？请联系客户支持，我们将为您提供帮助！'
-}
+},
+codeVerifyTitle: '验证码',
+verifyFinish: '验证成功',
+verifyError: '验证失败',
+explainWord: '向右滑动滑块以完成验证'
 }
