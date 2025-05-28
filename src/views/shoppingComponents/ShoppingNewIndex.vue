@@ -56,11 +56,13 @@ import OrderThree from "./OrderThree.vue";
 import DrawerView from "./DrawerView.vue";
 import PayError from "./PayError.vue";
 import PaySuccess from "./PaySuccess.vue";
+import { useUserStore } from "@/stores/modules/user";
 import { getGoodsListApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { getToken } from "@/utils/cache/cookies";
 import { hotGoodsId } from "@/http/config";
 const shoppingCartStore = useShoppingCartStore();
+const userStore = useUserStore()
 defineOptions({
   name: "shoppingNewIndex",
 });
@@ -117,7 +119,9 @@ const changeTab = (val: string) => {
   tab.value = val;
 };
 const getData = async () => {
-  const { data } = await getGoodsListApi();
+  const { data } = await getGoodsListApi({
+    biz: userStore.biz
+  });
   if (data && data.length > 0) {
     console.log("res===>", data);
     const list = data.map((item: any, index: number) => {

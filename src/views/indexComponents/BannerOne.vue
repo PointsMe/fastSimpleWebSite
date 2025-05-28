@@ -82,7 +82,9 @@ const toRegister = () => {
   router.push("/module/register");
 };
 const getListData = async () => {
-  const { data } = await getGoodsListApi();
+  const { data } = await getGoodsListApi({
+    biz: userStore.biz
+  });
   listData.value = data;
   return data;
 };
