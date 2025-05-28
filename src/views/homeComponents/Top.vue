@@ -117,6 +117,7 @@ onMounted(() => {
   top: 0;
   width: 100%;
   z-index: 3;
+  
   background-color: #fff;
   color: #000;
   border-bottom: 1px solid #000;
