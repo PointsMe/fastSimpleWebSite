@@ -13,5 +13,8 @@ declare module 'vue' {
     LanguageView: typeof import('./src/components/LanguageView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VerifyPoints: typeof import('./src/components/Verify/VerifyPoints.vue')['default']
+    VerifySlide: typeof import('./src/components/Verify/VerifySlide.vue')['default']
+    VerifyView: typeof import('./src/components/VerifyView.vue')['default']
   }
 }

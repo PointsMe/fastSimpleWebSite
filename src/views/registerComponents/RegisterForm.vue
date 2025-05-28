@@ -18,7 +18,7 @@
                                     <span class="line-border"></span>
                                     <AllEmailView @changeEmail="changeEmail"/>
                                 </div>
-                                <span v-if="item.haveBtn" class="span-code" @click="getVerificationCode"> 
+                                <span v-if="item.haveBtn" class="span-code" @click="submitVerifyCode"> 
                                     <label v-if="!num">{{$t('aboutLogin.sendCode')}}</label> 
                                     <label v-else>{{ num }}s</label> 
                                 </span>
@@ -83,6 +83,13 @@
             </div>
         </div>
     </div>
+    <VerifyView
+            mode="pop"
+            :explain="$t('explainWord')"
+            captchaType="blockPuzzle"
+            :imgSize="{ width: '330px', height: '155px' }"
+            ref="verifyRef"
+            @success="getVerificationCode"/>
 </template>
 <script setup lang="ts">
 import type * as Types from "@/apis/type"
@@ -90,6 +97,8 @@ import { ElMessage,ElLoading } from 'element-plus'
 import LanguageView from "@/components/LanguageView.vue"
 import AllCountryView from "@/components/AllCountryView.vue"
 import AllEmailView from "@/components/AllEmailView.vue"
+// @ts-ignore
+import VerifyView from "@/components/VerifyView.vue"
 import { getVerificationCodeApi } from "@/apis/user"
 import { View, Hide } from '@element-plus/icons-vue'
 import { reactive, ref, computed,watch } from 'vue'
@@ -124,6 +133,7 @@ const props = defineProps({
     }
 
 });
+const verifyRef = ref();
 const emit = defineEmits(['setStep']);
 const formId = ref<string>(getRandomString(8))
 const num = ref<number>(0)
@@ -286,8 +296,32 @@ const changeType = (e: Types.formTypeOne) => {
     }
 }
 const timer = ref()
+const submitVerifyCode = ()=>{
+    console.log("submitVerifyCod===>",verifyRef.value)
+    if (num.value) return false
+    if (props.registerStyle === '1') {
+        if (!countryCode.value) {
+            ElMessage.error(i18n.global.t('aboutLogin.pleaseCountry'))
+            return false
+        }
+        if(!formModel.phoneAccount){
+            ElMessage.error(i18n.global.t('aboutLogin.pleaseInputTel'))
+            return false
+        }
+    } else {
+        if (!emailCode.value) {
+            ElMessage.error(i18n.global.t('aboutLogin.pleaseEmail'))
+            return false
+        }
+        if(!formModel.emailAccount){
+            ElMessage.error(i18n.global.t('aboutLogin.pleaseInputEmail'))
+            return false
+        }
+    }
+    verifyRef.value && verifyRef.value.show()
+}
 // 发送短信验证码
-const getVerificationCode = async () => {
+const getVerificationCode = async (token:string) => {
     console.log("aaaaa", countryCode.value)
     if (num.value) return false
     if (props.registerStyle === '1') {
@@ -317,7 +351,11 @@ const getVerificationCode = async () => {
             params.account = `${formModel.emailAccount}${emailCode.value}`
         }
         try {
-            await getVerificationCodeApi(params)
+            await getVerificationCodeApi({
+                ...params,
+                biz: 111,
+                captcha: token
+            })
             loading.close()
             num.value = 60
             timer.value = setInterval(() => {
@@ -367,7 +405,10 @@ const onSubmit = () => {
                         }
                     }
                     console.log('submit!', valid, params)
-                    const { data } = await registerApi(params);
+                    const { data } = await registerApi({
+                        ...params,
+                        biz: 111
+                    });
                     if (data) {
                         ElMessage.success({
                             message: i18n.global.t('aboutLogin.registerSuccess'),

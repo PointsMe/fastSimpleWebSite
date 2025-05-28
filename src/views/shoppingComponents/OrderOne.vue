@@ -796,7 +796,9 @@ watch(()=> radioPackage.value,
       const price = Number(response.value.sellPrice) + Number(response.value.option.items.find((iv:any)=> iv.id === val).price);
       console.log("price===>",price)
       moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
-      moneyPackage.value.vipSellPrice = Number((price - Number(response.value.invitePrice)).toFixed(2));
+      moneyPackage.value.vipSellPrice = Number(
+        (Number(price *100) - Number(response.value.invitePrice)*100) /100
+      ).toFixed(2);
     }
   },
   {

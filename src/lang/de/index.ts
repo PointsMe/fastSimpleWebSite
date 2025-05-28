@@ -528,5 +528,9 @@ export default {
         registerNow: 'Jetzt registrieren',
         enterInviteCodePlaceholder: 'Geben Sie Ihren Einladungscode ein',
         noInviteCode: 'Kein Einladungscode? Kontaktieren Sie unseren Kundensupport, wir werden Ihnen helfen!'
-    }
+    },
+    codeVerifyTitle: 'Einladungscodesprache',
+    verifyFinish: 'Einladungscodesprache',
+    verifyError: 'Einladungscodesprache',
+    explainWord: 'Scorri den Block nach rechts, um die Überprüfung zu erfolgreich abzuschließen'
 }

@@ -5,6 +5,9 @@ export function getGoodsListApi() {
   return request<ApiResponseData<any>>({
     url: "/plan/list",
     method: "post",
+    data: {
+      biz: 111
+    }
   })
 }
 

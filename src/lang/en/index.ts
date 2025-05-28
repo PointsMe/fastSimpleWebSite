@@ -532,5 +532,9 @@ bannerOne: {
     registerNow: 'Register now',
     enterInviteCodePlaceholder: 'Enter your invitation code',
     noInviteCode: 'No invitation code? Contact our customer support, we will help you!'
-  }
+  },
+  codeVerifyTitle: 'Verification Code',
+  verifyFinish: 'Verification successful',
+  verifyError: 'Verification failed',
+  explainWord: 'Slide the block to complete the verification'
 }

@@ -15,7 +15,7 @@
         <el-col :span="8" v-for="(item,index) in listData" :key="index" style="position: relative;">
           <div class="img-col">
             <p class="t_i">{{ item.name }}</p>
-            <p class="s_i">€{{ Number(item.sellPrice) - Number(item.invitePrice) }}
+            <p class="s_i">€{{ ((Number(item.sellPrice) *100 - Number(item.invitePrice)*100)/100).toFixed(2) }}
               <span>€{{ Number(item.sellPrice) }}
             </span></p>
             <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }},<span  @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
