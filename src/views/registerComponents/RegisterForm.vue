@@ -42,7 +42,9 @@
                             data: e
                         })"
                             :disabled="item.disabled"
-                            :placeholder="$t(item.placeholder)">
+                            :placeholder="$t(item.placeholder)"
+                            class="bg-input"
+                            >
                             <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="iv.label"
                                 :value="iv.value" />
                         </el-select>
@@ -148,6 +150,7 @@ const changeEmail = (e:string)=>{
 const formModel: any = reactive({
     name: '',
     // storeName: '',
+    biz:'',
     phoneAccount:'',
     emailAccount:'',
     verificationCode: '',
@@ -227,6 +230,9 @@ const formRules = computed(()=> {
     vatNumber: [
         { required: true, message: i18n.global.t('aboutLogin.componeyPI'), trigger: 'blur' },
         // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    ],
+    biz: [
+        { required: true, message: i18n.global.t('aboutLogin.biz'), trigger: 'change', },
     ],
     countryId: [
         { required: true, message: i18n.global.t('aboutLogin.countryName'), trigger: 'change', },
@@ -353,7 +359,7 @@ const getVerificationCode = async (token:string) => {
         try {
             await getVerificationCodeApi({
                 ...params,
-                biz: userStore.biz,
+                // biz: userStore.biz,
                 captcha: token
             })
             loading.close()
@@ -416,9 +422,7 @@ const onSubmit = () => {
                         })
                         userStore.setToken(data.token)
                         userStore.setUserInfo(data.account)
-                        setTimeout(()=>{
-                            router.push('/index')
-                        },2000)
+                        commonStore.setShowRegisterModal(false)
                     }
                 }
                 

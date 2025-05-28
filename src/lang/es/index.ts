@@ -42,6 +42,7 @@ export default {
         nextStep: 'Siguiente',
         componeyName: 'Nombre de la empresa',
         componeyPI: 'Número de IVA/CF de la empresa',
+        biza: 'Organización de atribución',
         countryName: 'País',
         printent: 'Región',
         city: 'Ciudad',

@@ -2,11 +2,9 @@
   <div class="shopping-new-index">
     <div class="content">
       <div class="shopping-tab">
-
-      
         <el-row>
           <el-col
-            :span="8"
+            :span="24"
             class="shopping-col"
             v-for="(item, index) in tabArr"
             :key="index"
@@ -15,12 +13,13 @@
               @click="changeTab(item.id)"
               :class="item.checked ? 'shopping-content choosed' : 'shopping-content'"
             >
-              <p :class="index + 1 === tabArr.length ? 't_c l_t_c' : 't_c'">
+             
+              <!-- <p :class="index + 1 === tabArr.length ? 't_c l_t_c' : 't_c'">
                 {{ item.subtitle }}
-              </p>
-              <p class="t_d" v-if="index + 1 !== tabArr.length">
+              </p> -->
+              <p class="t_d">
                 {{ item.name }}
-                <span v-if="item.id === '1001' && shoppingCartStore.cart.items.find((it:any)=>it.itemId === hotGoodsId.id)?.count === 5">({{ $t('shoppingNewIndex.completeVersion') }})</span>
+                <!-- <span v-if="item.id === '1001' && shoppingCartStore.cart.items.find((it:any)=>it.itemId === hotGoodsId.id)?.count === 5">({{ $t('shoppingNewIndex.completeVersion') }})</span> -->
               </p>
               <span></span>
             </div>
@@ -69,7 +68,7 @@ defineOptions({
 const router = useRouter();
 const hardwareSelection = {
   id: "1003",
-  name: "",
+  name: "硬件选购",
   subtitle: "硬件选购",
   checked: false,
 };
@@ -133,7 +132,7 @@ const getData = async () => {
       };
     });
     console.log("list.contact(hardwareSelection)", list);
-    list.push(hardwareSelection);
+    // list.push(hardwareSelection);
     tabArr.value = list;
   }
 };
@@ -184,22 +183,20 @@ defineExpose({
       // margin-top: 40px;
       position: absolute;
       width: 100%;
-      top: -70px;
+      top: -40px;
       z-index: 99;
       .shopping-col {
         display: flex;
         flex-direction: column;
 
         .choosed {
-          background: linear-gradient(305deg, #1a1a1a 0%, #2f2f2f 100%);
-          box-shadow: 3px 5px 9px 0px rgba(38, 27, 8, 0.14);
-          border-radius: 4px 4px 4px 4px;
-
+          filter: blur(0px);
+          opacity: 0.5;
           .t_c {
             font-family: Inter, Inter;
             font-weight: normal;
             font-size: 20px;
-            color: #fed15f !important;
+            color: #387533 !important;
           }
           .l_t_c {
             height: 100%;
@@ -210,14 +207,14 @@ defineExpose({
             font-family: Source Han Sans SC, Source Han Sans SC;
             font-weight: 500;
             font-size: 20px;
-            color: #ffffff !important;
+            color: black !important;
           }
 
           > span {
             display: block;
             height: 4px;
             width: 80px;
-            background-color: #fed15f;
+            background-color: #387533;
             position: absolute;
             bottom: 0px;
             left: 50%;
@@ -238,7 +235,7 @@ defineExpose({
             font-family: Inter, Inter;
             font-weight: normal;
             font-size: 20px;
-            color: #666666;
+            color: black;
           }
           .l_t_c {
             height: 100%;
@@ -248,7 +245,7 @@ defineExpose({
             font-family: Source Han Sans SC, Source Han Sans SC;
             font-weight: 500;
             font-size: 20px;
-            color: #666666;
+            color: black;
           }
         }
       }

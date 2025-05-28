@@ -42,6 +42,7 @@ export default {
         nextStep: 'Next Step',
         componeyName: 'Company Name',
         componeyPI: 'Company Tax ID P.IVA/CF',
+        biz:'Belonging organization',
         countryName: 'Country',
         printent: 'Region',
         city: 'City',

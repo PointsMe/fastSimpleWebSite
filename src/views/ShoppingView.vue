@@ -22,21 +22,25 @@ import {
   Right,
 } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
+import { useCommonStore } from '@/stores/modules/common'
 import {onUnmounted} from "vue"
 defineOptions({
   name: 'shoppingView'
 })
+const commonStore = useCommonStore()
 onUnmounted(()=>{
   window.localStorage.setItem("shoppingTab","1001");
 })
 const userStore = useUserStore()
 const router = useRouter()
 const goRegister = () => {
-  router.push('/module/register')
+  commonStore.setShowRegisterModal(true)
+  // router.push('/module/register')
 }
 onMounted(()=>{
   if(!userStore.token){
-    router.push('/module/login')
+    commonStore.setShowLoginModal(true)
+    // router.push('/module/login')
   }
 })
 </script>

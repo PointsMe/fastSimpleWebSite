@@ -42,6 +42,7 @@ export default {
         nextStep:'下一步',
         componeyName: '公司名称',
         componeyPI: '公司税号P.IVA/CF',
+        biz: '归属组织',
         countryName:'国家',
         printent: '地区',
         city:'城市',

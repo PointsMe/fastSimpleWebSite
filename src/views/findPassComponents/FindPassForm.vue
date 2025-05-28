@@ -232,12 +232,16 @@ const onSubmit = async () => {
       }
       console.log("submit!", form, params);
       // 跳转到首页的方法
-      const { data } = await forgetPassWordApi(params);
+      const { data } = await forgetPassWordApi({
+        ...params,
+        biz: userStore.biz
+      });
       console.log("onSubmit===>", data);
       ElMessage.success(i18n.global.t("aboutLogin.findPassSuccess"));
       // userStore.setToken(data.token)
       // userStore.setUserInfo(data.account)
-      router.push("/module/login");
+      commonStore.setShowFindPassModal(false)
+      commonStore.setShowLoginModal(true)
     } else {
       console.log("error submit!");
     }
@@ -303,7 +307,7 @@ const getVerificationCode = async (token:string) => {
       }
       await getVerificationCodeApi({
         ...params,
-        biz: 111,
+        biz: userStore.biz,
         captcha: token
       });
       loading.close();
@@ -354,57 +358,21 @@ watch(
 </script>
 <style scoped lang="less">
 .login-form {
-    margin-top: 10px;
-    .login-last {
-        .checkbox-con {
-            font-family: Inter, Inter;
-            font-weight: 500;
-            font-size: 12px;
-            color: #8f8f8f;
-            margin-top: 33px;
-            .chin-select{
-                margin-top: 10px;
-            }
-            .link-span {
-                color: #4c8afd;
-            }
-        }
+  margin-top: 50px;
 
-        .forget-pass {
-            margin: 0;
-            padding: 0;
-            text-align: right;
-            font-weight: 400;
-            font-size: 14px;
-            color: #a4a4a4;
-        }
-
-        .checkbox-con {}
-
-        .margin-top-60 {
-            margin-top: 60px;
-        }
-
-        .margin-top-148 {
-            margin-top: 148px;
-        }
-
-        .btn-login {
-            width: 100%;
-            background: #ffffff;
-            border-radius: 8px 8px 8px 8px;
-            font-family:
-                Source Han Sans SC,
-                Source Han Sans SC;
-            font-weight: 400;
-            font-size: 16px;
-            color: #1a1a1a;
-
-            .el-btn-color {
-                background-color: #1A1A1A;
-                color: #fff;
-            }
-        }
+  .login-last {
+    .checkbox-con {
+      font-family: Inter, Inter;
+      font-weight: 500;
+      font-size: 12px;
+      color: #8f8f8f;
+      margin-top: 33px;
+      .chin-select {
+        margin-top: 10px;
+      }
+      .link-span {
+        color: #4c8afd;
+      }
     }
 
     .forget-pass {
@@ -441,4 +409,5 @@ watch(
       }
     }
   }
+}
 </style>

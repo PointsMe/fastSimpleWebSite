@@ -42,6 +42,7 @@ export default {
     nextStep: 'Avanti',
     componeyName: 'Nome azienda',
     componeyPI: 'Partita IVA/CF aziendale',
+    biz: 'Organizzazioni aderenti',
     countryName: 'Paese',
     printent: 'Regione',
     city: 'Città',
