@@ -67,15 +67,17 @@
 import { DArrowRight } from "@element-plus/icons-vue";
 import { useUserStore } from "@/stores/modules/user";
 import { getGoodsListApi,getHardwareListApi } from "@/apis/goods";
+import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 const userStore = useUserStore();
+const shoppingCartStore = useShoppingCartStore()
 defineOptions({
   name: "bannerOne",
 });
 const listData = ref<any[]>([]);
 const goodsList = ref<any[]>([]);
 const router = useRouter();
-const toShopping = (index:any) => {
-  index && window.localStorage.setItem("shoppingTab",index);
+const toShopping = (id:any) => {
+  shoppingCartStore.setTabId(id)
   router.push("/shopping");
 };
 const toRegister = () => {

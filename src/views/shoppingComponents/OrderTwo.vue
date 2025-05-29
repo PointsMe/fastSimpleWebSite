@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
-  <div class="order-two">
+  <div class="order-two" v-if="response">
     <el-row :gutter="6" class="row-list">
       <el-col :span="16" class="left">
         <div class="content-list">
@@ -349,7 +349,6 @@ const emits = defineEmits(["toPay"]);
 defineOptions({
   name: "orderOne",
 });
-// const serverBuyer: any = reactive({
 //   id: "1002",
 //   name: "SERVER BUYER",
 //   subtitle: "服务选购",
@@ -428,50 +427,52 @@ defineOptions({
 //     },
 //   ],
 // });
-const response: any = ref({});
+const response: any = ref(null);
 
 const getData = async () => {
   if (props.id) {
     const { data } = await getGoodsDetailApi(props.id);
-    // data.invitePrice = 100;
-    // data.option = {
-    //   name:'打印机',
-    //   minSelectCount: 1,
-    //   items:[
-    //     {
-    //       id:'1',
-    //       name:'热敏打印机',
-    //       price: 300
-    //     },
-    //     300,
-    //     {
-    //       id:'2',
-    //       name:'普通打印机',
-    //       price: 100
-    //     },
-    //     100
-    //   ]
-    // }
     const option = data?.option?.items || [];
-    let arr:any = []
-    console.log("arr===>",arr,option.length)
-    for(let i = 0; i < option.length; i++){
+    let arr: any = [];
+    console.log("arr===>", arr, option.length);
+    for (let i = 0; i < option.length; i++) {
       arr = arr.concat([
         {
           id: option[i]?.id,
           name: option[i]?.name,
-          price: option[i]?.price
+          price: option[i]?.price,
         },
-        option[i]?.price
-      ])
+        option[i]?.price,
+      ]);
     }
-    console.log("arr===>",arr,option)
-    if(option.length > 0){
+    console.log("arr===>", arr, option);
+    if (option.length > 0) {
       data.option.items = arr;
       radioPackage.value = data?.option?.items[0].id;
     }
     response.value = data;
   }
+};
+const precreateFn = async () => {
+  const params = shoppingCartStore.cart;
+  params.type = 102;
+  const current = params.items.find((iv) => iv.type === 119);
+  if (current) {
+    current.optionIds = radioPackage.value ? [radioPackage.value] : null;
+  } else {
+    params.items.push({
+      type: 119,
+      itemId: response.value?.id,
+      count: 1,
+      optionIds: radioPackage.value ? [radioPackage.value] : null,
+    });
+  }
+  shoppingCartStore.setCart(params);
+  const res = await precreateApi({
+    ...params,
+    inviteCode: inviteCode.value,
+  });
+  orderList.value = res.data;
 };
 const inviteCode = ref("");
 const orderList = ref<any>({
@@ -554,13 +555,13 @@ onMounted(() => {
 watch(()=> radioPackage.value,
   (val)=>{
     if(val){
-      shoppingCartStore.setPackageIds(val)
       const price = Number(response.value.sellPrice) + Number(response.value.option.items.find((iv:any)=> iv.id === val).price);
       console.log("price===>",price)
       moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
       moneyPackage.value.vipSellPrice = Number(
         (Number(price *100) - Number(response.value.invitePrice)*100) /100
       ).toFixed(2);
+      precreateFn()
     }
   },
   {

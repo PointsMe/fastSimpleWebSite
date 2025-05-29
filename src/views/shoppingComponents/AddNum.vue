@@ -160,19 +160,6 @@ const addPrecreate = async (posInviteCode: string = "") => {
     return ElMessage.warning(i18n.global.t("shopping.loginFirst"));
   }
   const params = shoppingCartStore.cart as any;
-  const tab = window.localStorage.getItem("shoppingTab") || "1001";
-  console.log("请求参数：", params, tab);
-  if (tab === "1003") {
-    params.items = params.items.filter((iv: any) => iv.type !== 119);
-  } else {
-    params.items = params.items.filter((iv: any) => iv.type !== 119);
-    params.items.push({
-      type: 119,
-      itemId: tab,
-      count: 1,
-      optionIds: shoppingCartStore.packageIds ? [shoppingCartStore.packageIds] : shoppingCartStore.packageIds
-    });
-  }
   const current = params.items.find((iv: any) => iv.type === 119);
   if (current) {
     params.type = 102;
@@ -187,7 +174,7 @@ const addPrecreate = async (posInviteCode: string = "") => {
   }
   params.items = params.items.filter((iv: any) => iv.count);
   shoppingCartStore.setCart(params);
-
+  console.log("请求的参数：",params)
   const { data } = await precreateApi(params);
   console.log("precreateApi===>", data);
   return data;
@@ -305,11 +292,11 @@ onUnmounted(() => {
 watch(
     ()=> props.radioPackage,
     (val)=>{
-        if (props.data?.type === 119) {
-            console.log("props.radioPackage==>",val)
-            inputNum.value = 1;
-            increaseFn();
-        }
+        // if (props.data?.type === 119) {
+        //     console.log("props.radioPackage==>",val)
+        //     inputNum.value = 1;
+        //     increaseFn();
+        // }
     },
     {
         immediate: true
