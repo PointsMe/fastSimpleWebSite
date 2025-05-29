@@ -211,8 +211,8 @@ defineExpose({
         flex-direction: column;
 
         .choosed {
-          filter: blur(0px);
-          opacity: 0.5;
+          filter: blur(0px) !important;
+          opacity: 1 !important;
           .t_c {
             font-family: Inter, Inter;
             font-weight: normal;
@@ -228,7 +228,7 @@ defineExpose({
             font-family: Source Han Sans SC, Source Han Sans SC;
             font-weight: 500;
             font-size: 20px;
-            color: black !important;
+            color: #387533 !important;
           }
 
           > span {
@@ -251,6 +251,8 @@ defineExpose({
           height: 60px;
           position: relative;
           // line-height: 1;
+          filter: blur(0px);
+          opacity: 0.5;
           .t_c {
             font-family: Inter, Inter;
             font-weight: normal;

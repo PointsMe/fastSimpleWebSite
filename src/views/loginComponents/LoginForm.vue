@@ -27,6 +27,9 @@
                             <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
                         </el-select>
+                        <el-radio-group  v-if="item.type === 'radioGroup'" v-model="form[item.value]">
+                            <el-radio  v-for="(iv,ivIndex) in item.optionsData" :key="ivIndex" :value="iv.value">{{ iv.label }}</el-radio>
+                        </el-radio-group>
                     </el-form-item>
                 </el-col>
             </el-row>

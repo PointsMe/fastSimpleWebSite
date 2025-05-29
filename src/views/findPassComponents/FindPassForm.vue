@@ -47,6 +47,7 @@
               v-if="item.type === 'select'"
               v-model="form[item.value]"
               :placeholder="$t(item.placeholder)"
+               class="bg-input"
             >
               <el-option
                 v-for="(iv, ivIndex) in item.optionsData"
