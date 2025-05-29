@@ -5,10 +5,10 @@ export const emailFormStep1 =     [
         label: '',
         value: 'biz',
         type: 'select',
-        optionsData: bizList.filter(iv => iv.value === '111'),
-        placeholder: '',
+        optionsData: bizList.filter(iv => iv.value !== '111'),
+        placeholder: 'aboutLogin.biz',
         otherStyle:{
-            display: 'none'
+            display: 'block'
         }
     },
     {
@@ -62,10 +62,10 @@ export const phoneFormStep1 =[
         label: '',
         value: 'biz',
         type: 'select',
-        optionsData: bizList.filter(iv => iv.value === '111'),
-        placeholder: '',
+        optionsData: bizList.filter(iv => iv.value !== '111'),
+        placeholder: 'aboutLogin.biz',
         otherStyle:{
-            display: 'none'
+            display: 'block'
         }
     },
     {

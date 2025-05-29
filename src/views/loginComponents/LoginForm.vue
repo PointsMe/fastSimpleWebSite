@@ -23,7 +23,7 @@
                                 <AllCountryView @changeCountry="changeCountry"/>
                             </template>
                         </el-input>
-                        <el-select size="default"  v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="$t(item.placeholder)">
+                        <el-select size="default"  v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="$t(item.placeholder)" class="bg-input" >
                             <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
                         </el-select>
@@ -95,7 +95,7 @@ const props = defineProps({
 const formRules = computed(()=>{
     return {
         biz: [
-            { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'),trigger: 'change' },
+            { required: true, message: i18n.global.t('aboutLogin.biz'),trigger: 'change' },
         ],
         account: [
             { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'),trigger: 'change' },

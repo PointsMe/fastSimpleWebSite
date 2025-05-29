@@ -121,10 +121,10 @@ export const formStep2 =     [
         label: '',
         value: 'biz',
         type: 'select',
-        optionsData: bizList.filter(iv => iv.value === '111'),
-        placeholder: '',
+        optionsData: bizList.filter(iv => iv.value !== '111'),
+        placeholder: 'aboutLogin.biz',
         otherStyle:{
-            display: 'none'
+            display: 'block'
         }
     },
     {
@@ -140,23 +140,6 @@ export const formStep2 =     [
         value: 'vatNumber',
         type: 'input',
         placeholder: 'aboutLogin.componeyPI',
-    },
-    {
-        span: 24,
-        label: '',
-        value: 'biz',
-        type:'select',
-        optionsData:[
-            {
-                label: 'JOINKU',
-                value: '103'
-            },
-            {
-                label: 'BEAUTY',
-                value: '113'
-            }
-        ],
-        placeholder:'aboutLogin.biz',
     },
     {
         span: 8,

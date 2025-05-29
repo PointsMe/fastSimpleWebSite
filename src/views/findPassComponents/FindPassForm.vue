@@ -161,7 +161,7 @@ const form: any = reactive({
 const formRules = computed(() => {
   return {
     biz: [
-        { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'change' },
+        { required: true, message: i18n.global.t('aboutLogin.biz'), trigger: 'change' },
     ],
     account: [{ required: true, message: i18n.global.t("aboutLogin.pleaseInputTel") }],
     verificationCode: [
@@ -238,7 +238,7 @@ const onSubmit = async () => {
       // 跳转到首页的方法
       const { data } = await forgetPassWordApi({
         ...params,
-        biz: userStore.biz
+        biz: form.biz
       });
       console.log("onSubmit===>", data);
       ElMessage.success(i18n.global.t("aboutLogin.findPassSuccess"));
