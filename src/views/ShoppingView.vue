@@ -29,7 +29,6 @@ defineOptions({
 })
 const commonStore = useCommonStore()
 onUnmounted(()=>{
-  window.localStorage.setItem("shoppingTab","1001");
 })
 const userStore = useUserStore()
 const router = useRouter()
