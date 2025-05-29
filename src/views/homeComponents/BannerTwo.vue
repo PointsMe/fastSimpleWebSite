@@ -1,83 +1,262 @@
 <template>
-  <div class="package-section">
-    <div class="section-header">
-      <div class="title">
-        <div>精选套餐</div>
-        <div>
-          <span class="left"> 限时优惠套餐</span>
-          <span class="right">更多 >></span>
-        </div>
+  <div class="banner-one">
+    <div class="title">
+      <span>
+      {{ $t("bannerOne.featuredPackages") }}
+      <label>({{ $t("bannerOne.firstMonthTrial") }})</label>
+      </span>
+      <div class="more" @click="toShopping('')">
+        <span>{{ $t("bannerOne.more") }}</span>
+        <el-icon><DArrowRight /></el-icon>
       </div>
     </div>
-    <div class="package-content">
-      <div class="package-item">
-        <OrderOne :id="'1001'" @toPay="toPayDrawer" />
-      </div>
-      <div class="package-item">
-        <OrderOne :id="'1001'" @toPay="toPayDrawer" />
-      </div>
-      <div class="package-item" style="left: 1500px">
-        <OrderOne :id="'1001'" @toPay="toPayDrawer" />
-      </div>
+    <div>
+      <el-row :gutter="12">
+        <el-col :span="8" v-for="(item,index) in listData" :key="index" style="position: relative;">
+          <div class="img-col">
+            <p class="t_i">{{ item.name }}</p>
+            <p class="s_i">€{{ ((Number(item.sellPrice) *100 - Number(item.invitePrice)*100)/100).toFixed(2) }}
+              <span>€{{ Number(item.sellPrice) }}
+            </span></p>
+            <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }},<span  @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
+            <div class="content-list">
+              <el-row v-for="(itemChild,indexChild) in item.items" :key="indexChild">
+                <el-col :span="16">
+                  <div class="content-list-left">
+                    <img src="@/assets/r-1-1.png" alt="" />
+                    <span style="margin-left: 10px;"> {{ itemChild.name }} </span>
+                  </div>
+                </el-col>
+                <el-col :span="8">
+                  <div class="content-list-right">€{{ itemChild.price }}</div>
+                </el-col>
+              </el-row>
+            
+            </div>
+            <div class="content-list-bottom" @click="toShopping(item.id)">{{ $t('bannerOne.nowBuy') }}</div>
+            <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
+          </div>
+        </el-col>
+        <!-- <el-col :span="8" style="position: relative;">
+          <div class="img-col">
+            <p class="t_i">CUSTOM</p>
+            <p class="s_i">€***</p>
+            <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }}，<span @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
+            <div class="content-list">
+              <el-row v-for="(itemChild,indexChild) in goodsList" :key="indexChild">
+                <el-col :span="12" v-if="indexChild < 4">
+                  <div class="content-list-left">
+                    <span>{{ itemChild.name }} </span>
+                  </div>
+                </el-col>
+                <el-col :span="12" v-if="indexChild < 4">
+                  <div class="content-list-right">€{{ itemChild.sellPrice }}</div>
+                </el-col>
+              </el-row>
+            </div>
+            <div class="content-list-bottom" @click="toShopping('1003')">{{ $t('bannerOne.nowBuy') }}</div>
+          </div>
+        </el-col> -->
+      </el-row>
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
-import OrderOne from "@/views/homeComponents/OrderOne.vue";
-const toPayDrawer = () => {
-  console.log("toPayDrawer");
+import { DArrowRight } from "@element-plus/icons-vue";
+import { useUserStore } from "@/stores/modules/user";
+import { getGoodsListApi,getHardwareListApi } from "@/apis/goods";
+import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+const userStore = useUserStore();
+const shoppingCartStore = useShoppingCartStore()
+defineOptions({
+  name: "bannerOne",
+});
+const listData = ref<any[]>([]);
+const goodsList = ref<any[]>([]);
+const router = useRouter();
+const toShopping = (id:any) => {
+  shoppingCartStore.setTabId(id)
+  router.push("/shopping");
 };
-// 使用 Vue 3 的 Composition API
+const toRegister = () => {
+  router.push("/module/register");
+};
+const getListData = async () => {
+  const { data } = await getGoodsListApi({
+    biz: userStore.biz
+  });
+  listData.value = data;
+  return data;
+};
+const getData = async()=>{
+    const {data} = await getHardwareListApi()
+    goodsList.value = data
+    return data;
+}
+onMounted(() => {
+  Promise.all([getListData(),getData()]).then(res=>{
+    console.log("onMounted==>",res);
+    listData.value = res[0];
+    goodsList.value = res[1];
+  });
+});
 </script>
-
 <style scoped lang="less">
-.package-section {
+.banner-one {
   width: 100%;
-  overflow: hidden;
-  margin: auto;
+  // height: 986px;
   background: #f6f6f4;
-  padding-bottom: 100px;
-  .package-content::after {
-    content: "";
-    display: block;
-    height: 0;
-    clear: both;
-    overflow: hidden;
+  padding: 100px 320px 100px 320px;
+  p {
+    margin: 0;
+    padding: 0;
   }
-  .package-content {
-    margin-left: 320px;
-    overflow: hidden;
+  .img-col {
+    padding: 0 36px 50px 36px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    .package-item {
-      margin-right: 20px;
-      float: left;
-      width: 600px;
-      height: 100%;
-    }
-  }
-  .section-header {
-    width: 1280px;
-    padding: 20px;
-    margin: auto;
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      > div:first-child {
+    min-height: 450px;
+    .content-list-bottom {
+        cursor: pointer;
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        margin-top: 80px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 16px;
         text-align: left;
+        font-style: normal;
+        text-transform: none;
+        width: 80%;
+        height: 60px;
+        line-height: 60px;
+        background: #1a1a1a;
+        border-radius: 85px 85px 85px 85px;
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        bottom: 40px;
+        left: 10%;
       }
-      > div:last-child {
-        width: 100%;
+    .content-list {
+
+      .content-list-left {
+        height: 30px;
         text-align: left;
-        font-size: 12px;
-        color: #1b1b1b;
-        .right {
-          display: block;
-          float: right;
-          color: #666;
-          cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+        font-family: Inter, Inter;
+        font-weight: 400;
+        font-size: 14px;
+        color: #1a1a1a;
+        line-height: 14px;
+        text-align: left;
+        font-style: normal;
+        text-transform: none;
+        img {
+          width: 20px;
+          height: 20px;
         }
       }
+      .content-list-right {
+        text-align: right;
+        padding-top: 20px;
+        font-family: Inter, Inter;
+        font-weight: 500;
+        font-size: 14px;
+        color: #387533;
+        line-height: 14px;
+        text-align: right;
+        font-style: normal;
+        text-transform: none;
+      }
+    }
+    .t_i {
+      padding-top: 40px;
+      font-family: Inter, Inter;
+      font-weight: bold;
+      font-size: 30px;
+      color: #387533;
+      line-height: 32px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+    }
+    .s_i {
+      padding-top: 20px;
+      font-family: Inter, Inter;
+      font-weight: bold;
+      font-size: 52px;
+      color: #3e1c00;
+      line-height: 48px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+      > span {
+        display: inline-block;
+        margin-left: 10px;
+        font-family: Inter, Inter;
+        font-weight: 400;
+        font-size: 18px;
+        color: #bdbdbd;
+        line-height: 14px;
+        text-align: left;
+        font-style: normal;
+        text-decoration-line: line-through;
+        text-transform: none;
+      }
+    }
+    .b_i {
+      padding-top: 10px !important;
+      font-family: Inter, Inter;
+      font-weight: 500;
+      font-size: 14px;
+      color: #666666;
+      line-height: 14px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e6e6e6;
+      > span {
+        cursor: pointer;
+        color: #387533;
+      }
+    }
+    // margin-top: 20px;
+    // img {
+    //   width: 100%;
+    // }
+  }
+  .title {
+   
+    position: relative;
+    margin-bottom: 20px;
+    > span:first-child {
+      font-weight: bold;
+      font-size: 52px;
+      color: #1b1b1b;
+      > label{
+        font-size: 14px;
+        color: #387533;
+        margin-left: 10px;
+        font-weight: bold;
+      }
+    }
+    .more{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      cursor: pointer;
     }
   }
 }

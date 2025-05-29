@@ -123,7 +123,7 @@ const changeEmail = (e:string)=>{
 const form: any = reactive({
     account: "",
     password: "",
-    biz: userStore.biz,
+    biz: '',
 })
 
 const formRef = ref<FormInstance>()
@@ -162,7 +162,7 @@ const onSubmit = async () => {
                 // 跳转到首页的方法
                 const { data } = await loginApi({
                     ...params,
-                    biz: userStore.biz
+                    // biz: userStore.biz
                 })
                 console.log("onSubmit===>",data)
                 userStore.setToken(data.token)

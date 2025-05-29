@@ -4,7 +4,7 @@
       <div class="shopping-tab">
         <el-row>
           <el-col
-            :span="24"
+            :span="12"
             class="shopping-col"
             v-for="(item, index) in tabArr"
             :key="index"

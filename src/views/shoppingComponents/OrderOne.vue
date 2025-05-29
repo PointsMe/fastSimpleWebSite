@@ -136,7 +136,7 @@
                     :key="chilIndex"
                   >
                     <div class="num-div" v-if="item.maxSelectCount > 2">
-                      <span v-if="itemChil.spec" style="color: #387533"
+                      <span v-if="itemChil.spec"
                         >({{ itemChil.spec }})</span
                       >
                       <span v-if="itemChil.value">{{ itemChil.value }}</span>

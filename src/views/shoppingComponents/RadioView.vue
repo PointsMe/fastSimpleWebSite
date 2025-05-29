@@ -96,7 +96,7 @@ onMounted(()=>{
 }
 
 .oragin {
-    color: #FDB522;
+    color: #387533;
 }
 
 .grey {
