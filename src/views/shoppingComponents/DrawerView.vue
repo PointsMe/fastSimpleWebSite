@@ -779,7 +779,7 @@ defineExpose({
           .choosed-pay {
             background: rgba(233, 156, 14, 0.04) !important;
             border-radius: 8px;
-            border: 1px solid #e99c0e;
+            border: 1px solid #387533;
           }
 
           .pay-c {
@@ -801,7 +801,7 @@ defineExpose({
                   right: 16px;
                   top: 50%;
                   transform: translateY(-50%);
-                  color: #e99c0e;
+                  color: #387533;
                 }
 
                 .not-choose-icon {

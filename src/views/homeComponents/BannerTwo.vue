@@ -23,7 +23,7 @@
               <el-row v-for="(itemChild,indexChild) in item.items" :key="indexChild">
                 <el-col :span="16">
                   <div class="content-list-left">
-                    <img src="@/assets/r-1-1.png" alt="" />
+                    <img src="@/assets/joinkuImages/icon-banner.png" alt="" />
                     <span style="margin-left: 10px;"> {{ itemChild.name }} </span>
                   </div>
                 </el-col>
@@ -86,20 +86,21 @@ const getListData = async () => {
     biz: userStore.biz
   });
   listData.value = data;
-  return data;
 };
-const getData = async()=>{
-    const {data} = await getHardwareListApi()
-    goodsList.value = data
-    return data;
-}
+// const getData = async()=>{
+//     const {data} = await getHardwareListApi()
+//     goodsList.value = data
+//     return data;
+// }
 onMounted(() => {
-  Promise.all([getListData(),getData()]).then(res=>{
-    console.log("onMounted==>",res);
-    listData.value = res[0];
-    goodsList.value = res[1];
-  });
+  getListData()
 });
+watch(
+  ()=> userStore.token,
+  ()=>{
+    getListData()
+  }
+)
 </script>
 <style scoped lang="less">
 .banner-one {

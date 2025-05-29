@@ -100,9 +100,11 @@ const register = () => {
 const loginOut = () => {
   userStore.resetToken()
   userStore.resetUserInfo()
+  userStore.resetBiz()
   shoppingCartStore.resetCart()
   shoppingCartStore.resetOrderId()
   commonStore.setShowLoginModal(false)
+  router.push('/home')
 }
 const toMyOrder = ()=> {
   commonStore.setShowOrderListView(true)

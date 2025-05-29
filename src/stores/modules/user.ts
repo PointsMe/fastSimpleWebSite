@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 import { setToken as _setToken,  setBizStorage, getBizStorage,getToken, removeToken,getUserInfoStorage,setUserInfoStorage,removeUserInfoStorage, removeBizStorage } from "@/utils/cache/cookies"
 
 export const useUserStore = defineStore("user", () => {
-  const biz = ref<string>('')
+  const biz = ref<string>(getBizStorage() || '')
   const token = ref<string>(getToken() || "")
   const userInfo = ref<any>(getUserInfoStorage())
   const discountedPrice =ref<number>(400)

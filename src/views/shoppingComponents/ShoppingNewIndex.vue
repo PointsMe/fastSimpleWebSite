@@ -168,6 +168,12 @@ onMounted(() => {
     }
   });
 });
+watch(
+  ()=> userStore.token,
+  ()=>{
+    getData();
+  }
+)
 defineExpose({
   toPayDrawer,
 });
@@ -196,7 +202,7 @@ defineExpose({
       position: absolute;
       width: 100%;
       top: -40px;
-      z-index: 99;
+      z-index: 2;
       .shopping-col {
         display: flex;
         flex-direction: column;
@@ -233,15 +239,14 @@ defineExpose({
             transform: translateX(-50%);
           }
         }
-
         .shopping-content {
-          position: relative;
           background-color: #ffffff;
           text-align: center;
           padding: 16px 0;
           cursor: pointer;
-          height: 100%;
-
+          // height: 100%;
+          height: 60px;
+          position: relative;
           // line-height: 1;
           .t_c {
             font-family: Inter, Inter;

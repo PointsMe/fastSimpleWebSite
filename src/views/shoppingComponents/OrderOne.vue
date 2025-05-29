@@ -544,6 +544,12 @@ watch(
     immediate: true,
   }
 );
+watch(
+  ()=> userStore.token,
+  ()=>{
+    getData();
+  }
+)
 defineExpose({
   joinUsFn,
   changeOrderList,
