@@ -63,7 +63,7 @@ export const setBizStorage = (value: string)=>{
     return window.localStorage.setItem('biz',value)
 }
 
-export const geBizStorage = ()=>{
+export const getBizStorage = ()=>{
     return window.localStorage.getItem('biz')
 }
 

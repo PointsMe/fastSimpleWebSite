@@ -419,6 +419,7 @@ const onSubmit = () => {
                         })
                         userStore.setToken(data.token)
                         userStore.setUserInfo(data.account)
+                        userStore.setBiz(data.account.biz)
                         setTimeout(()=>{
                             router.push('/index')
                         },2000)

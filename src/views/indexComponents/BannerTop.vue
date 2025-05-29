@@ -96,6 +96,7 @@ const loginOut = () => {
     userStore.resetUserInfo()
     shoppingCartStore.resetCart()
     shoppingCartStore.resetOrderId()
+    userStore.resetBiz()
     router.push(`/module/login`)
 }
 const toMyOrder = ()=> {

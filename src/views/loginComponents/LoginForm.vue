@@ -165,6 +165,7 @@ const onSubmit = async () => {
                 console.log("onSubmit===>",data)
                 userStore.setToken(data.token)
                 userStore.setUserInfo(data.account)
+                userStore.setBiz(data.account?.biz)
                 router.push('/index')
             }else{
                 console.log('error submit!')
