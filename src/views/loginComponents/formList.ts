@@ -63,7 +63,7 @@ export const phoneFormStep1 = [
         value: 'biz',
         type: 'radioGroup',
         optionsData: bizList.filter(iv => iv.value !== '111'),
-        placeholder: 'aboutLogin.biz',
+        placeholder: 'aboutLogin.pleaseInputBiz',
         otherStyle:{
             display: 'block'
         }

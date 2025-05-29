@@ -43,6 +43,7 @@ export default {
         componeyName: 'Company Name',
         componeyPI: 'Company Tax ID P.IVA/CF',
         biz:'Belonging organization',
+        pleaseInputBiz: 'Please select the belonging organization',
         countryName: 'Country',
         printent: 'Region',
         city: 'City',

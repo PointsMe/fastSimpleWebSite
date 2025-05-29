@@ -293,7 +293,7 @@ const formRules = computed(() => {
       // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
     ],
     biz: [
-      { required: true, message: i18n.global.t("aboutLogin.biz"), trigger: "change" },
+      { required: true, message: i18n.global.t("aboutLogin.pleaseInputBiz"), trigger: "change" },
     ],
     countryId: [
       {
@@ -374,6 +374,10 @@ const timer = ref();
 const submitVerifyCode = () => {
   console.log("submitVerifyCod===>", verifyRef.value);
   if (num.value) return false;
+  if(!formModel.biz){
+      ElMessage.error(i18n.global.t("aboutLogin.pleaseInputBiz"));
+      return false;
+    }
   if (props.registerStyle === "1") {
     if (!countryCode.value) {
       ElMessage.error(i18n.global.t("aboutLogin.pleaseCountry"));

@@ -98,7 +98,7 @@ const props = defineProps({
 const formRules = computed(()=>{
     return {
         biz: [
-            { required: true, message: i18n.global.t('aboutLogin.biz'),trigger: 'change' },
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputBiz'),trigger: 'change' },
         ],
         account: [
             { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'),trigger: 'change' },

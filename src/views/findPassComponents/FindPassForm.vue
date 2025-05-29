@@ -175,7 +175,7 @@ const form: any = reactive({
 const formRules = computed(() => {
   return {
     biz: [
-      { required: true, message: i18n.global.t("aboutLogin.biz"), trigger: "change" },
+      { required: true, message: i18n.global.t("aboutLogin.pleaseInputBiz"), trigger: "change" },
     ],
     account: [{ required: true, message: i18n.global.t("aboutLogin.pleaseInputTel") }],
     verificationCode: [
@@ -271,6 +271,10 @@ const timer = ref();
 const submitVerifyCode = () => {
   console.log("submitVerifyCod===>", verifyRef.value);
   if (num.value) return false;
+  if (!form.biz) {
+    ElMessage.error(i18n.global.t("aboutLogin.pleaseInputBiz"));
+    return false;
+  }
   if (props.registerStyle === "1") {
     if (!countryCode.value) {
       ElMessage.error(i18n.global.t("aboutLogin.chooseCountry"));

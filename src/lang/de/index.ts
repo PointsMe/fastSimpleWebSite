@@ -43,6 +43,7 @@ export default {
         componeyName: 'Firmenname',
         componeyPI: 'Steuernummer P.IVA/CF',
         biz:'Organisation zu werden.',
+        pleaseInputBiz: 'Bitte wählen Sie die Organisation aus',
         countryName:'Land',
         printent: 'Region',
         city:'Stadt',

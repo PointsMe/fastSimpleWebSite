@@ -43,6 +43,7 @@ export default {
     componeyName: 'Nome azienda',
     componeyPI: 'Partita IVA/CF aziendale',
     biz: 'Organizzazioni aderenti',
+    pleaseInputBiz: 'Seleziona l\'organizzazione aderente',
     countryName: 'Paese',
     printent: 'Regione',
     city: 'Città',
