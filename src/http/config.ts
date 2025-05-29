@@ -38,3 +38,18 @@ export const posGoodsId = {
     id: '100070101-1',
     name: 'POS机器PAXA920PRO 4G无线网络WIFI+4G',
 }
+
+export const bizList = [
+    {
+        label: 'FASTSIMPLE',
+        value: '111'
+    },
+    {
+        label: 'JOINKU',
+        value: '103'
+    },
+    {
+        label: 'BEAUTY',
+        value: '113'
+    }
+]

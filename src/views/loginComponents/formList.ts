@@ -1,5 +1,16 @@
-
-export const emailFormStep1 =     [
+import { bizList } from "@/http/config"
+export const emailFormStep1 = [
+    {
+        span: 24,
+        label: '',
+        value: 'biz',
+        type: 'select',
+        optionsData: bizList.filter(iv => iv.value === '111'),
+        placeholder: '',
+        otherStyle:{
+            display: 'none'
+        }
+    },
     {
         span: 24,
         label: '',
@@ -9,7 +20,7 @@ export const emailFormStep1 =     [
         haveEmailSelect: true,
         haveBtn: false,
         haveIcon: false,
-        haveTelSelect:false,
+        haveTelSelect: false,
     },
     {
         span: 24,
@@ -24,7 +35,18 @@ export const emailFormStep1 =     [
     },
 
 ]
-export const phoneFormStep1 =[
+export const phoneFormStep1 = [
+    {
+        span: 24,
+        label: '',
+        value: 'biz',
+        type: 'select',
+        optionsData: bizList.filter(iv => iv.value === '111'),
+        placeholder: '',
+        otherStyle:{
+            display: 'none'
+        }
+    },
     {
         span: 24,
         label: '',
@@ -34,14 +56,14 @@ export const phoneFormStep1 =[
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: false,
-        haveTelSelect:true,
+        haveTelSelect: true,
     },
     {
         span: 24,
         label: '',
         value: 'password',
         type: 'input',
-        placeholder:'aboutLogin.pleaseInputPassword',
+        placeholder: 'aboutLogin.pleaseInputPassword',
         haveEmailSelect: false,
         haveBtn: false,
         haveIcon: true,

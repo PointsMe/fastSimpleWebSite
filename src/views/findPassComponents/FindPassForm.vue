@@ -9,7 +9,7 @@
       :rules="formRules"
     >
       <el-row :gutter="12">
-        <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
+        <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span" :style="item?.otherStyle">
           <el-form-item :label="item.label" :prop="item.value">
             <el-input
               v-if="item.type === 'input'"
@@ -151,6 +151,7 @@ const changeEmail = (e: string) => {
   emailCode.value = e;
 };
 const form: any = reactive({
+  biz:userStore.biz,
   account: "",
   verificationCode: "",
   password: "",
@@ -159,6 +160,9 @@ const form: any = reactive({
 
 const formRules = computed(() => {
   return {
+    biz: [
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'change' },
+    ],
     account: [{ required: true, message: i18n.global.t("aboutLogin.pleaseInputTel") }],
     verificationCode: [
       { required: true, message: i18n.global.t("aboutLogin.pleaseInputCode") },
@@ -298,6 +302,7 @@ const getVerificationCode = async (token:string) => {
     try {
       const params = {
         account: "",
+        biz: form.biz,
         type: 102,
       };
       if (props.registerStyle === "1") {
@@ -307,7 +312,6 @@ const getVerificationCode = async (token:string) => {
       }
       await getVerificationCodeApi({
         ...params,
-        biz: userStore.biz,
         captcha: token
       });
       loading.close();
