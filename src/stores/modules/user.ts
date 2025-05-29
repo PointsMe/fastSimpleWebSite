@@ -1,7 +1,7 @@
 import { pinia } from "@/stores/index"
 // import { getCurrentUserApi } from "@@/apis/users"
 import { defineStore } from 'pinia'
-import { setToken as _setToken, getToken, removeToken,getUserInfoStorage,setUserInfoStorage,removeUserInfoStorage } from "@/utils/cache/cookies"
+import { setToken as _setToken,  setBizStorage, getToken, removeToken,getUserInfoStorage,setUserInfoStorage,removeUserInfoStorage } from "@/utils/cache/cookies"
 
 export const useUserStore = defineStore("user", () => {
   const biz = ref<string>('111')
@@ -9,6 +9,11 @@ export const useUserStore = defineStore("user", () => {
   const userInfo = ref<any>(getUserInfoStorage())
   const discountedPrice =ref<number>(400)
 
+
+  const setBiz = (value: string) => {
+    setBizStorage(value)
+    biz.value = value
+  }
   // 设置 Token
   const setToken = (value: string) => {
     _setToken(value)
@@ -20,6 +25,10 @@ export const useUserStore = defineStore("user", () => {
     userInfo.value = data
   }
 
+
+  const resetBiz = ()=>{
+    biz.value = ''
+  }
   // 重置 Token
   const resetToken = () => {
     removeToken()

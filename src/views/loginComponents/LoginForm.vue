@@ -159,6 +159,7 @@ const onSubmit = async () => {
                 }else{
                     params.account =  `${form.account}${emailCode.value}`
                 }
+                
                 // 跳转到首页的方法
                 const { data } = await loginApi(params)
                 console.log("onSubmit===>",data)
