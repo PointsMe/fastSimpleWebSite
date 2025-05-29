@@ -83,7 +83,10 @@ export default {
         smartDining: 'Gastronomie-Lösung',
         solution: 'für kleine Unternehmen',
         subTitle: 'Vereinfachen Sie den Betrieb, verbessern Sie das Kundenerlebnis, optimieren Sie die Kosten',
-        contactUs: 'Kontaktieren Sie uns'
+        contactUs: 'Kontaktieren Sie uns',
+        title: 'Intelligentes Lagermanagement, nahtlose Abläufe',
+        subtitle: 'Intelligente Werkzeuge für intelligente Abläufe',
+        preciseInventory: 'Präzise Bestandsaufnahme, intelligente Kontrolle'
     },
     bannerTwo: {
         title: "Effizienz macht Gastronomie einfach",
@@ -120,18 +123,102 @@ export default {
         allergenScreeningDesc2: "filtert automatisch gefährliche Inhaltsstoffe und gewährleistet sicheres Essen."
     },
     bannerThree: {
-        title: "Mehrsprachige Unterstützung",
-        subTitle: "Unterstützung für 7 Sprachen, bietet internationalen Service für Kunden und Mitarbeiter",
-        greetings: {
-            english: "Hello",
-            french: "Bonjour",
-            german: "Hallo",
-            chinese: "你好",
-            italian: "Ciao",
-            spanish: "Hola"
+        title: 'Zwei professionelle Lagerverwaltungssysteme',
+        subTitle: 'Erfüllt die Bedürfnisse verschiedener Händler und gewährleistet effiziente, standardisierte Betriebsabläufe für Warenhäuser und Lebensmittelgroßhandel',
+        supplier: 'JOINKU Lieferant',
+        aiPurchase: {
+            title: 'KI-gestützte intelligente Einkaufsverwaltung',
+            description: 'Basierend auf historischen Bestellungen, Lagerumschlag und Markttrends werden automatisch präzise Einkaufsvorschläge generiert, um Lieferanten bei der Optimierung des Einkaufsrhythmus, der Ausgewogenheit der Angebots- und Nachfragestruktur und der Verbesserung der Gesamteffizienz zu unterstützen.'
+        },
+        aiSales: {
+            title: 'KI-gestützte intelligente Verkaufsvorbestellungen',
+            description: 'Durch tiefes Lernen der Einkaufsmuster der nachgelagerten Kunden werden zukünftige Nachfrage vorhergesagt, Verkaufsvorbestellungen automatisch generiert, der Prozess von passiver Bestellannahme zu aktivem Angebot transformiert und die Kundenbindung sowie Wiederkaufsrate gesteigert.'
+        },
+        aiDelivery: {
+            title: 'KI-gestützte intelligente Lieferroutenplanung',
+            description: 'Das System integriert geografische Positionierung, Bestellpriorität und Logistikressourcen, um optimale Lieferrouten intelligent zu planen, Bestellungen automatisch zu terminieren, Versandstatus zu synchronisieren und die Erfüllungseffizienz sowie Kundenzufriedenheit umfassend zu verbessern.'
+        },
+        supplierVersion: 'JOINKU SUPPLIER',
+        supplierVersionDesc: 'Lieferantenversion',
+        features: {
+            smartInventory: {
+                title: 'Intelligente Bestandsverwaltung',
+                description: 'Verfolgt den Bestand mit Chargenpräzision, um Genauigkeit und Rückverfolgbarkeit zu gewährleisten.'
+            },
+            efficientOrder: {
+                title: 'Effiziente Auftragsverarbeitung',
+                description: 'Automatische Auftragsgenerierung, unterstützt Kundenaufträge und vereinfacht die Auftragsverwaltung.'
+            },
+            batchImport: {
+                title: 'Batch-Produktimport und Barcode-Generierung',
+                description: 'Einfacher Batch-Upload von Produkten und Generierung druckbarer Barcodes zur Beschleunigung der Verarbeitung.'
+            },
+            collaborativeOrder: {
+                title: 'Kollaborative Auftragsverwaltung',
+                description: 'Nahtlose Integration mit nachgelagerten Einzelhändlern für synchronisierte Arbeitsabläufe.'
+            },
+            cloudStorage: {
+                title: 'Cloud-basierte Datenspeicherung',
+                description: 'Sichere Cloud-Speicherung, gewährleistet Datensicherheit und Echtzeit-Synchronisation.'
+            }
+        },
+        retail: 'JOINKU',
+        smartOps: {
+            title: 'SmartOps-Zentrale',
+            description: '(Smart Operations) Als Kernmotor von Joinku Retail lernt SmartOps automatisch die Verkaufsrhythmen der Filialen, optimiert dynamisch die Warenstruktur, Einkaufsfrequenz, Preisstrategie und Promotionslogik und bietet Händlern intelligente Unterstützung für den gesamten Geschäftszyklus.'
+        },
+        merchAI: {
+            title: 'MerchAI intelligenter Warenassistent',
+            description: '(Merchandise) MerchAI kann basierend auf Echtzeit-Datenströmen automatisch Warenpopularität, Lagerumschlag und Verkaufsschwankungen erkennen und Händler bei der wissenschaftlichen Produktauswahl, präzisen Nachbestellung und gewinnmaximierenden Verkaufsstrategie unterstützen.'
+        },
+        retailBrain: {
+            title: 'Retail Brain Einzelhandels-Entscheidungsmotor',
+            description: 'Retail Brain integriert KI-Algorithmen und Geschäftsmodelle, generiert in Echtzeit Warenbetriebsvorschläge, optimiert kontinuierlich den Lebenszykluswert von Waren und macht jede SKU (Stock Keeping Unit) zu einer Gewinneinheit.'
+        },
+        retailManagement: 'JOINKU SUPPLIER',
+        retailManagementDesc: 'Einzelhandelsmanagement',
+        retailFeatures: {
+            multiRole: {
+                title: 'Mehrfachrollen-Management',
+                description: 'Flexible rollenbasierte Berechtigungen zur Optimierung des Filialbetriebs.'
+            },
+            mobileInventory: {
+                title: 'Mobiler Bestandsverwaltung',
+                description: 'Unterstützt Bestandseingabe, -prüfung und -anpassung über mobile Anwendungen.'
+            },
+            seamlessSync: {
+                title: 'Nahtlose Synchronisation',
+                description: 'Echtzeit-Updates von Bestellungen und Bestand gewährleisten Datenkonsistenz.'
+            },
+            promotion: {
+                title: 'Promotion und Einkauf',
+                description: 'Verwaltet Promotions- und Einkaufsworkflows zur Vereinfachung des Nachbestellungsprozesses.'
+            },
+            multiStore: {
+                title: 'Multi-Store-Überwachung',
+                description: 'Zugriff auf Kassensystem- und Bestelldetails aller Filialen über ein einheitliches Dashboard.'
+            }
         }
     },
     bannerFour: {
+        aiVoiceOrder: 'Neue Funktion: KI-Sprachbestellung',
+        threeConvenientWays: 'Drei bequeme Wege für verschiedene Szenarien',
+        smartOrderGeneration: 'Intelligente Auftragsgenerierung, verbesserte Betriebseffizienz',
+        autoGenerateOrders: 'Automatische Generierung präziser Aufträge basierend auf historischen Bestellungen',
+        aiAnalysisDesc: 'Durch KI-Analyse historischer Bestelldaten werden automatisch präzise Aufträge generiert, manuelle Eingaben reduziert und die Lagerverwaltungseffizienz verbessert.',
+        easyAdaptation: 'Einfache Anpassung an sich ändernde Auftragsanforderungen.',
+        forPointsMeUsers: 'Für PointsMe-Benutzer',
+        voiceBooking: 'Sprachbestellung über die Joinku App',
+        voiceOrderDesc: 'Sprechen Sie einfach den Produktnamen und die Menge aus, das System passt automatisch zuvor gekaufte Produkte an und generiert den Auftrag',
+        noManualInput: 'Keine manuelle Eingabe erforderlich',
+        forPointsMeAndSuppliers: 'Geeignet für PointsMe-Benutzer und von Joinku Supplier unterstützte Lieferanten.',
+        aiBooking: 'KI-Bestellung',
+        aiPhoneLineDesc: 'Rufen Sie die KI-Telefonleitung des Lieferanten an und geben Sie Ihre Auftragsdetails an.',
+        systemSyncDesc: 'Das System generiert eine Vorbestellung und synchronisiert sie mit dem System des Lieferanten zur Überprüfung und Bestätigung.',
+        forNonPointsMeUsers: 'Geeignet für Nicht-PointsMe-Benutzer und Lieferanten, die Joinku Supplier verwenden',
+        phoneBooking: 'Telefonische Bestellung',
+        smartPhoneServiceDesc: 'Nutzen Sie den intelligenten Festnetzservice des Lieferanten zur Generierung von Vorbestellungen.',
+        confirmationLinkDesc: 'Das System sendet einen Bestätigungslink an die Messaging-Plattform, damit Kunden den Auftrag einfach einsehen und bestätigen können.',
         idealBusiness: "Ideal für FastSimple-Geschäfte",
         solutionForSmallBusinesses: "Maßgeschneiderte Lösungen für kleine und mittlere Unternehmen",
         flexiblePayment: "Flexible Zahlung",
@@ -161,37 +248,113 @@ export default {
         beerBar: "Beer Bar"         
     },
     bannerFive: {
-        exclusiveHardware: "Exklusives Hardware-Paket",
-        reasonablePrice: "Günstiger Preis, hohe Effizienz, sofort verfügbar",
-        limitedTimeOffer: "Zeitlich begrenztes Angebot",
-        discountedPrice: "400€",
-        additionalFee: "*Zusätzliche Systemgebühr",
-        monthlyFee: "20€/Monat",
-        feeDescription: "(inklusive einem Tablet und einem Drucker)",
-        goToShop: "Zum Shop gehen,",
-        viewMore: "Mehr anzeigen",
-        imageDisclaimer: "*Bild nur zur Veranschaulichung. Spezifisches Modell bitte beim Kundenservice erfragen",
-        tablet: "Tablet Huawei",
-        printer: "Thermal printer",
-        tabletStation: "Tablet station"
+        title: 'Joinku Multi-Plattform-Kollaboration',
+        subtitle: 'Nahtlose Verbindung über Rollen hinweg',
+        features: {
+            sync: {
+                title: 'Plattformübergreifende Datensynchronisation',
+                description: 'Integration von Lieferanten, Einzelhändlern und Vertriebsagenten für nachvollziehbare Arbeitsabläufe und Echtzeit-Updates.'
+            },
+            order: {
+                title: 'Flexible Auftragseinreichung',
+                description: 'Senden Sie Aufträge über App, Instant Messaging oder E-Mail, um verschiedenen Geschäftsanforderungen gerecht zu werden.'
+            },
+            security: {
+                title: 'Compliance und Sicherheit',
+                description: 'Gewährleistung verschlüsselter Datenspeicherung, Datenschutz und Einhaltung von Branchenstandards.'
+            }
+        }
     },
     bannerSix: {
-        digitalTaxCompliance: "Digitale Steuerkonformität leicht gemacht",
-        tailoredSolution: "Maßgeschneiderte Lösungen für kleine und mittlere Unternehmen",
-        autoDataSubmission: "Automatische Datenübermittlung",
-        instantDataTransmission: "Sofortige Übermittlung von Transaktionsdaten an Steuerbehörden",
-        regulations: "Was sagen die Vorschriften?",
-        regulationDetails: "Weil fastende ende an alle new-stop-kasse im jahr 2025 abgetan ist, hat das fastende ende an der karte gewonnen. Seit dem 6. Januar 2026 müssen alle händler den punkt des sicherheitssystems an elektronische kassierer anschließen, damit elektronische zahlungsdaten automatisch an das italienische finanzamt geschickt werden können. Andernfalls drohen einem bußgeld Von bis zu 4.000 euro man könnte sogar die zulassung aussetzen"
+        exclusiveAdvantages: "Exklusive Vorteile",
+        whyChooseJoinku: "Warum Joinku wählen?",
+        features: {
+            smartMatching: {
+                title: "Intelligente Zuordnung",
+                description: "Automatische Zuordnung häufig gekaufter Produkte, reduziert manuelle Eingaben und erhöht die Effizienz."
+            },
+            multiChannel: {
+                title: "Mehrkanalige Auftragsbestätigung",
+                description: "Teilen Sie Vorbestellungen mit mehreren Genehmigern und verwalten Sie Bestätigungslinks, um Fehler zu reduzieren."
+            },
+            digitalWorkflow: {
+                title: "End-to-End-Digitaler Workflow",
+                description: "Bearbeiten Sie Bestellungen über App, Messaging-Plattform oder E-Mail für vollständige Flexibilität."
+            },
+            roleCoverage: {
+                title: "Umfassende Rollenabdeckung",
+                description: "Maßgeschneiderte Tools für Lieferanten und Einzelhändler zur Verbesserung der Benutzerfreundlichkeit und Betriebseffizienz."
+            },
+            voiceOrdering: {
+                title: "Intelligente Sprachbestellung",
+                description: "Einzigartige Sprachbuchungsfunktion vereinfacht den Bestellvorgang und reduziert manuelle Eingabefehler."
+            }
+        },
+        support: {
+            omniChannel: {
+                title: "Omnichannel-Unterstützung durch Fern- und Vor-Ort-Service",
+                description: "Fern- und KI-Serviceunterstützung. Mehrere Supportkanäle, von telefonischer Fernunterstützung bis hin zu Vor-Ort-Assistenz, zur Unterstützung Ihres Geschäftswachstums."
+            },
+            inHouse: {
+                title: "Vollständig intern entwickelt mit Experten-Technologieunterstützung",
+                description: "Interne Entwicklung gewährleistet qualitativ hochwertigen Service, professionelles Team bietet umfassende technische und Kundenunterstützung."
+            }
+        }
     },
     bannerSeven: {
-        perfectSolution: "Perfekte Lösung für Steuerverwaltung",
-        helpBusinesses: "Unsere Lösung unterstützt Unternehmen",
-        description: "FastSimple wurde speziell für Street Food, Cafés und Food Trucks entwickelt und kombiniert Selbstbedienungsbestellung, sichere digitale Zahlungen und vereinfachte Warteschlangenverwaltung für Effizienz, Erschwinglichkeit und Einfachheit",
-        invoiceTitle: {
-            first: "Automatische Rechnungen in Spanien",
-            second: "Einfache Einhaltung von Steuervorschriften",
-            third: "Automatische Buchungsdaten"
-        },        
+        title: 'Effektive Lösungen für Lager- und Großhandelsbedürfnisse',
+        subtitle: 'Optimierte Arbeitsabläufe und intelligente Kassensysteme gewährleisten sicherere und bequemere Geschäftsabläufe für Händler.',
+        features: {
+            mobileSync: {
+                title: 'Mobile-Computer-Synchronisation',
+                description: 'Teilen Sie Voraufträge mit mehreren Genehmigern und verwalten Sie Bestätigungslinks, um Fehler zu reduzieren.'
+            },
+            quickScan: {
+                title: 'Mobiles Schnellscannen',
+                description: 'Teilen Sie Voraufträge mit mehreren Genehmigern und verwalten Sie Bestätigungslinks, um Fehler zu reduzieren.'
+            },
+            mobilePrint: {
+                title: 'Inventardruck auf mobilen Geräten',
+                description: 'Exportieren und drucken Sie Auftragsdetails direkt von der mobilen App jederzeit.'
+            },
+            oneClickScan: {
+                title: 'Ein-Klick-Lagerscan',
+                description: 'Erreichen Sie schnelle Lagerung und Echtzeit-Inventaraktualisierungen mit nur einem Scan.'
+            },
+            importInventory: {
+                title: 'Sofortiger Inventarimport',
+                description: 'Importieren und erfassen Sie alle vorherigen Inventardaten mit einem Klick durch Teilen von Produktdetails.'
+            }
+        },
+        regulations: {
+            title: 'Was Sagen die Vorschriften?',
+            description: 'Gemäß Artikel 145 des italienischen Haushaltsgesetzes 2019 und den seit Januar 2020 geltenden elektronischen Rechnungsvorschriften müssen alle Unternehmen und Selbständige elektronische Rechnungen (Fattura Elettronica) über das SDI-System (Sistema di Interscambio) übertragen und zertifizierte Steuerkontrollgeräte (Registratore Telematico) verwenden, um elektronische Belege (Scontrino Elettronico) in Echtzeit zu generieren und zu übertragen.'
+        },
+        support: {
+            title: 'Vollständige JOINKU-Systemunterstützung',
+            subtitle: 'Unsere Lösungen helfen Unternehmen',
+            features: {
+                invoice: {
+                    title: 'Automatische Rechnungserstellung und -übertragung',
+                    description: 'Die Plattform erstellt automatisch XML-strukturierte elektronische Rechnungen, die den FatturaPA-Standards entsprechen, und verbindet sich mit SDI-Kanälen für den legalen B2B/B2C-Rechnungsverkehr.'
+                },
+                receipt: {
+                    title: 'Elektronische Belegfunktionalität',
+                    description: 'Das System unterstützt RT-zertifizierte Geräte zur Generierung und Übermittlung legaler elektronischer Belege, die den fiskalischen Compliance-Anforderungen von Einzelhandelsterminals entsprechen.'
+                },
+                dataExchange: {
+                    title: 'Konforme Datenaustauschverwaltung',
+                    description: 'Das System stellt sicher, dass alle Transaktionsaufzeichnungen automatisch archiviert und an die Agenzia delle Entrate übertragen werden, um versteckte Transaktionen und Steuerrisiken zu vermeiden.'
+                },
+                dataStorage: {
+                    description: 'Darüber hinaus werden alle Systemdaten auf Servern innerhalb der EU (Irland) gespeichert, die den GDPR-Vorschriften zur Datensouveränität und zum grenzüberschreitenden Datentransfer entsprechen und langfristige Compliance, Sicherheit und Rückverfolgbarkeit von Benutzerrechnungen und Steuerdaten gewährleisten.'
+                }
+            }
+        },
+        sync: {
+            title: 'Präzise Synchronisation, Verbesserte Abläufe',
+            description: 'JoinKu synchronisiert Lagerdaten in Echtzeit, gewährleistet präzises Management und fördert die Effizienz des Geschäftswachstums.'
+        }
     },
     bannerEight: {
         invoiceTitle: {
@@ -203,7 +366,19 @@ export default {
             first: "Vollständig integriert mit fortschrittlichen Steuersystemen",
             second: "Vollständig integriert mit fortschrittlichen Steuersystemen"
         },
-        taxSystemDescription: "Vollständig integriert mit TicketBAI und Veri Factu Systemen, zertifiziert und genehmigt von spanischen Provinzsteuerbehörden. Konform mit dem Finanzreformgesetz 2024 und unterstützt die neuen obligatorischen Facturación Electrónica Vorschriften."
+        taxSystemDescription: "Vollständig integriert mit TicketBAI und Veri Factu Systemen, zertifiziert und genehmigt von spanischen Provinzsteuerbehörden. Konform mit dem Finanzreformgesetz 2024 und unterstützt die neuen obligatorischen Facturación Electrónica Vorschriften.",
+        costManagement: {
+            title: "Vereinfachte Kostenverwaltung",
+            description: "Wir berechnen nur eine feste Servicegebühr, andere Kosten richten sich nach Ihren Bedürfnissen. Keine versteckten Gebühren, optimale Budgetplanung für Händler."
+        },
+        afterSalesSupport: {
+            title: "Professioneller Kundendienst",
+            description: "Alle Geräte haben ein Jahr kostenlose Garantie für nicht manuelle Schäden. Nach der Garantiezeit bieten wir weiterhin professionelle Wartung für sorgenfreie Nutzung."
+        },
+        professionalSupport: {
+            title: "Professioneller Kundendienst",
+            description: "Alle Geräte haben ein Jahr kostenlose Garantie für nicht manuelle Schäden. Nach der Garantiezeit bieten wir weiterhin professionelle Wartung für sorgenfreie Nutzung."
+        }
     },
     bannerNine: {
         title: "Vereinfachte Steuerverwaltung",

@@ -1,14 +1,14 @@
 <template>
   <div class="banner">
     <div class="banner-content">
-      <h1 class="title">智能仓库管理，实现无缝运营</h1>
-      <p class="subtitle">智能工具助力智能运营</p>
+      <h1 class="title">{{ $t('banner.title') }}</h1>
+      <p class="subtitle">{{ $t('banner.subtitle') }}</p>
       <div class="button-group">
-        <span class="primary-btn">联系我们</span>
+        <span class="primary-btn">{{ $t('banner.contactUs') }}</span>
       </div>
     </div>
     <div class="banner-two"></div>
-    <div class="banner-two-i">精准盘点，智能管控</div>
+    <div class="banner-two-i">{{ $t('banner.preciseInventory') }}</div>
   </div>
 </template>
 

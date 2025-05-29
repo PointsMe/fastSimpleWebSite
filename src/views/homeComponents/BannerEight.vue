@@ -8,20 +8,16 @@
       </el-col>
       <el-col :span="12">
         <div class="banner-8-content">
-          <p>简化成本管理</p>
-          <p>
-            我们只收取固定服务费，其他费用则根据您的需求而定。无任何隐藏费用，确保商家预算优化。
-          </p>
+          <p>{{ $t('bannerEight.costManagement.title') }}</p>
+          <p>{{ $t('bannerEight.costManagement.description') }}</p>
         </div>
       </el-col>
     </el-row>
     <el-row>
       <el-col :span="12">
         <div class="banner-8-content-center">
-          <p>专业售后支持</p>
-          <p>
-            所有设备均享有一年免费保修，涵盖非人为损坏。保修期后，我们将继续提供专业维护，让您无忧使用。
-          </p>
+          <p>{{ $t('bannerEight.afterSalesSupport.title') }}</p>
+          <p>{{ $t('bannerEight.afterSalesSupport.description') }}</p>
         </div>
       </el-col>
       <el-col :span="12">
@@ -38,10 +34,8 @@
       </el-col>
       <el-col :span="12">
         <div class="banner-8-content">
-          <p>专业售后支持</p>
-          <p>
-            所有设备均享有一年免费保修，涵盖非人为损坏。保修期后，我们将继续提供专业维护，让您无忧使用。
-          </p>
+          <p>{{ $t('bannerEight.professionalSupport.title') }}</p>
+          <p>{{ $t('bannerEight.professionalSupport.description') }}</p>
         </div>
       </el-col>
     </el-row>

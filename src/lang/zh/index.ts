@@ -84,7 +84,10 @@ bannerOne: {
     smartDining: '智能餐饮',
     solution: '解决方案',
     subTitle: '简化运营，提升客户体验，优化成本',
-    contactUs: '联系我们'
+    contactUs: '联系我们',
+    title: '智能仓库管理，实现无缝运营',
+    subtitle: '智能工具助力智能运营',
+    preciseInventory: '精准盘点，智能管控'
   },
   bannerTwo: {
     title: "效率使餐饮企业变得简单",
@@ -121,18 +124,102 @@ bannerOne: {
     allergenScreeningDesc2: "动过滤危险成分，确保用餐安全。"
   },
   bannerThree: {
-    title: "多语言支持",
-    subTitle: "支持7种语言，为客户和员工提供国际服务",
-    greetings: {
-        english: "Hello",
-        french: "Bonjour",
-        german: "Hallo",
-        chinese: "你好",
-        italian: "Ciao",
-        spanish: "Hola"
+    title: '两大专业仓库管理系统',
+    subTitle: '满足各类商户需求，确保百货机食品供货仓储高效、规范运营',
+    supplier: '意酷供应商',
+    aiPurchase: {
+      title: 'AI商品采购智能管理',
+      description: '依托历史订单、库存周转与市场趋势，自动生成精准采购建议，助力供应商优化进货节奏，平衡供需结构，提升整体运营效率。'
+    },
+    aiSales: {
+      title: 'AI智能销售预售单',
+      description: '通过对下游客户采购模式的深度学习，预判未来需求，自动生成销售预订单，实现从被动接单到主动供给的转变，增强客户黏性与复购率。'
+    },
+    aiDelivery: {
+      title: 'AI智能配送路线生成',
+      description: '系统融合地理定位、订单优先级与物流资源，智能规划最优配送路径，自动排单、同步发货状态，全面提升履约效率与客户满意度。'
+    },
+    supplierVersion: 'JOINKU SUPPLIER',
+    supplierVersionDesc: '供应商版',
+    features: {
+      smartInventory: {
+        title: '智能库存管理',
+        description: '以批次级精度跟踪库存，以确保准确性可可追溯性。'
+      },
+      efficientOrder: {
+        title: '高效的订单处理',
+        description: '自动生成订单，支持客户代理下单简化订单管理。'
+      },
+      batchImport: {
+        title: '批量产品导入和条形码生成',
+        description: '轻松批量上传产品并生成可打印的条形码以及加快处理速度。'
+      },
+      collaborativeOrder: {
+        title: '协作订单管理',
+        description: '与下游零售商无缝对接，实现同步工作流程。'
+      },
+      cloudStorage: {
+        title: '基于云的数据存储',
+        description: '安全的云存储，保证数据安全和实时同步。'
+      }
+    },
+    retail: '意酷',
+    smartOps: {
+      title: 'SmartOps中枢',
+      description: '(Smart Operations)作为 Joinku Retail 的核心引擎，SmartOps 可自动学习门店销售节奏，动态优化商品结构、进货频率、定价策略与促销逻辑，为商户提供全周期的智能经营支持'
+    },
+    merchAI: {
+      title: 'MerchAI智能商品助手',
+      description: '(Merchandise)MerchAI 可基于实时数据流，自动判别商品热度、库存周转与销售波动，辅助商户制定科学选品、精准补货及利润最大化的销售方案'
+    },
+    retailBrain: {
+      title: 'Retail Brain零售决策引擎',
+      description: 'Retail Brain集成AI算法与经营模型，实时生成商品运营建议，持续优化商品生命周期价值，让每个SKU（Stock Keeping Unit 库存单位）都成为利润单元'
+    },
+    retailManagement: 'JOINKU SUPPLIER',
+    retailManagementDesc: '零售业管理',
+    retailFeatures: {
+      multiRole: {
+        title: '多角色管理',
+        description: '灵活的基于角色的权限以优化商店运营。'
+      },
+      mobileInventory: {
+        title: '移动友好的库存管理',
+        description: '支持通过移动应用程序进行库存输入，库存检查和调整。'
+      },
+      seamlessSync: {
+        title: '无缝同步',
+        description: '订单和库存的实时更新确保数据的一致性'
+      },
+      promotion: {
+        title: '促销与采购',
+        description: '管理促销和采购工作流程以简化补货流程。'
+      },
+      multiStore: {
+        title: '多店监管',
+        description: '从统一的仪表板访问所有商店的收银机和订单详细信息。'
+      }
     }
   },
   bannerFour: {
+    aiVoiceOrder: '新功能AI语音生成订单',
+    threeConvenientWays: '三种便捷方式，适用于各种场景',
+    smartOrderGeneration: '智能订单生成，提升运营效率',
+    autoGenerateOrders: '基于历史订单自动生成精准订单',
+    aiAnalysisDesc: '通过AI分析历史订单数据，自动生成精准订单，减少人工操作，提升库存管理效率。',
+    easyAdaptation: '轻松应对订单需求变化。',
+    forPointsMeUsers: '对于 PointsMe 用户',
+    voiceBooking: '通过 Joinku App 进行语音预订',
+    voiceOrderDesc: '只需说出产品名称和数量，系统就会自动匹配之前购买的商品并生成订单',
+    noManualInput: '无需手动输入',
+    forPointsMeAndSuppliers: '适用于PointsMe用户和Joinku Supplier支持的供应商。',
+    aiBooking: 'AI 预订',
+    aiPhoneLineDesc: '拨打供应商的人工智能电话线并提供您的订单详情。',
+    systemSyncDesc: '系统会生成预订单并将其同步到供应商的系统以供审核和确认。',
+    forNonPointsMeUsers: '适用于非PointsMe用户和使用Joinku Supplier的供应商',
+    phoneBooking: '电话预订',
+    smartPhoneServiceDesc: '使用供应商的智能座机服务生成预订单。',
+    confirmationLinkDesc: '系统向消息平台发送确认链接，让客户轻松查看和确认订单。',
     idealBusiness: "FastSimple的理想业务",
     solutionForSmallBusinesses: "为中小型企业量身定做的解决方案",
     flexiblePayment: "灵活的支付",
@@ -162,37 +249,113 @@ bannerOne: {
     beerBar: "啤酒吧",
   },
   bannerFive: {
-    exclusiveHardware: "独家硬件包",
-    reasonablePrice: "价格合理，效率高，随时可用",
-    limitedTimeOffer: "限时提供",
-    discountedPrice: "400€",
-    additionalFee: "*附加系统费用",
-    monthlyFee: "20€/月",
-    feeDescription: "(包括一台平板电脑和一台打印机)",
-    goToShop: "前往商城，",
-    viewMore: "查看更多",
-    imageDisclaimer: "*图片仅供参考。具体型号请联系客服",
-    tablet: "华为平板电脑",
-    printer: "热敏打印机",
-    tabletStation: "平板电脑站"
+    title: 'Joinku 多平台协作',
+    subtitle: '跨角色无缝连接',
+    features: {
+      sync: {
+        title: '跨平台数据同步',
+        description: '整合供应商、零售商和销售代理，确保可追踪的工作流程并实时更新。'
+      },
+      order: {
+        title: '灵活提交订单',
+        description: '通过应用程序、即时消息或电子邮件发送订单以满足不同的业务需求。'
+      },
+      security: {
+        title: '合规性和安全性',
+        description: '确保加密数据存储、隐私保护和遵守行业标准。'
+      }
+    }
   },
   bannerSix: {
-    digitalTaxCompliance: "数字税务合规变得容易",
-    tailoredSolution: "为中小型企业量身定做的解决方案",
-    autoDataSubmission: "自动提交数据",
-    instantDataTransmission: "即时向税务机关发送交易数据",
-    regulations: "法规是怎么说的？",
-    regulationDetails: "Fastsimple 的所有 POS 终端已经符合 2025 年财政法的规定。自 2026 年 1 月 6日起，所有商家必须将 POS 终端连接到电子收银机，以便将电子支付信息自动传输给意大利税务局。否则将面临最高 4000 欧元的罚款，甚至可能被暂停营业执照"
+    exclusiveAdvantages: "独家优势",
+    whyChooseJoinku: "为什么选择Joinku？",
+    features: {
+      smartMatching: {
+        title: "智能匹配",
+        description: "自动匹配常购买的商品，减少手动输入，提高效率。"
+      },
+      multiChannel: {
+        title: "多渠道订单确认",
+        description: "与多个审批者共享预订单并管理确认链接以减少错误。"
+      },
+      digitalWorkflow: {
+        title: "端到端数字化工作流程",
+        description: "可以通过应用程序、消息平台或电子邮件处理订单，以实现完全的灵活性。"
+      },
+      roleCoverage: {
+        title: "全面的角色覆盖",
+        description: "专为供应商和零售商设计的定制工具，提高可用性和运营效率。"
+      },
+      voiceOrdering: {
+        title: "智能语音下单",
+        description: "独特的语音预订功能简化了订购流程并减少了手动输入错误。"
+      }
+    },
+    support: {
+      omniChannel: {
+        title: "通过远程和现场服务提供全渠道支持",
+        description: "远程和AI服务支持。多种支持渠道，从远程电话指导到现场协助，旨在支持您的业务增长"
+      },
+      inHouse: {
+        title: "完全内部开发，拥有专家技术支持",
+        description: "内部研发确保优质服务，专业团队提供全面的技术和客户支持"
+      }
+    }
   },
   bannerSeven: {
-    perfectSolution: "税务管理的完美解决方案",
-    helpBusinesses: "我们的解决方案帮助企业",
-    description: "FastSimple专为街头小吃、咖啡和快餐车而设计，结合了自助订购、安全的数字支付和简化的队列管理，提供了效率、价格实惠和简单性",
-    invoiceTitle: {
-      first: "自动化发票流程",
-      second: "符合税务合规标准",
-      third: "适应未来的监管变化"
+    title: '满足仓储和批发需求的有效解决方案',
+    subtitle: '优化的工作流程和智能结账系统确保商家的操作更加安全、便捷。',
+    features: {
+      mobileSync: {
+        title: '移动电脑同步',
+        description: '与多个审批者共享预订单并管理确认链接以减少错误。'
+      },
+      quickScan: {
+        title: '移动快速扫描',
+        description: '与多个审批者共享预订单并管理确认链接以减少错误。'
+      },
+      mobilePrint: {
+        title: '在移动设备上打印库存',
+        description: '随时从移动应用程序直接导出和打印订单详细信息。'
+      },
+      oneClickScan: {
+        title: '一键扫描存储',
+        description: '只需一次扫描即可实现快速仓储和实时库存更新。'
+      },
+      importInventory: {
+        title: '立即导入库存',
+        description: '通过共享产品详细信息，只需单击即可导入并记录所有以前的库存数据。'
+      }
     },
+    regulations: {
+      title: '法规是怎么说的？',
+      description: '根据意大利《2019年预算法》第145条和意大利税务局2020年1月起生效的电子发票规定，所有企业和个体经营者均须通过SDI系统Sistema di Interscambio进行电子发票Fattura Elettronica传输，并使用认证税控设备Registratore Telematico完成电子小票Scontrino Elettronico的实时生成和传送。'
+    },
+    support: {
+      title: 'JOINKU系统全程支持',
+      subtitle: '我们的解决方案可帮助企业',
+      features: {
+        invoice: {
+          title: '发票生成与传输自动化',
+          description: '平台可自动创建符合 FatturaPA 标准的XML结构电子发票，并对接SDI通道，实现B2B/B2C发票合法合规流转'
+        },
+        receipt: {
+          title: '电子小票开具功能',
+          description: '系统支持对接RT认证设备，生成并发送合法的电子小票，满足零售终端的财政合规需求'
+        },
+        dataExchange: {
+          title: '数据交换合规管理',
+          description: '系统确保交易记录均自动归档和传输至Agenzia delle Entrate，避免隐性交易与税务风险'
+        },
+        dataStorage: {
+          description: '此外，系统数据全部保存在欧盟境内（爱尔兰）服务器，符合GDPR关于数据主权与跨境传输的规定，保障用户发票与税务数据的长期合规、安全和可追溯性'
+        }
+      }
+    },
+    sync: {
+      title: '精确同步，增强运营',
+      description: 'JoinKu实时同步仓库数据，确保管理精准，推动业务增长效率'
+    }
   },
   bannerEight: {
     invoiceTitle: {
@@ -204,7 +367,19 @@ bannerOne: {
       first: "与先进的税收系统完全集成",
       second: "与先进的税收系统完全集成"
     },
-    taxSystemDescription: "与TicketBAI和Veri Factu系统完全集成，由西班牙省级税务机关认证和批准。符合2024年财政改革法案，并支持新的Facturación Electrónica强制性法规。"
+    taxSystemDescription: "与TicketBAI和Veri Factu系统完全集成，由西班牙省级税务机关认证和批准。符合2024年财政改革法案，并支持新的Facturación Electrónica强制性法规。",
+    costManagement: {
+      title: "简化成本管理",
+      description: "我们只收取固定服务费，其他费用则根据您的需求而定。无任何隐藏费用，确保商家预算优化。"
+    },
+    afterSalesSupport: {
+      title: "专业售后支持",
+      description: "所有设备均享有一年免费保修，涵盖非人为损坏。保修期后，我们将继续提供专业维护，让您无忧使用。"
+    },
+    professionalSupport: {
+      title: "专业售后支持",
+      description: "所有设备均享有一年免费保修，涵盖非人为损坏。保修期后，我们将继续提供专业维护，让您无忧使用。"
+    }
   },
   
   bannerNine: {

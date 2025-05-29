@@ -4,8 +4,8 @@
       <!-- <img src="@/assets/headset-fill-2.png" alt="" /> -->
       <div class="banner-7-content">
         <div class="title">
-          <p>满足仓储和批发需求的有效解决方案</p>
-          <p>优化的工作流程和智能结账系统确保商家的操作更加安全、便捷。</p>
+          <p>{{ $t('bannerSeven.title') }}</p>
+          <p>{{ $t('bannerSeven.subtitle') }}</p>
         </div>
         <el-row class="banner-7-content-row">
           <el-col :span="8">
@@ -30,8 +30,8 @@
                 <p>
                   <img src="@/assets/joinkuImages/b-7-1.png" alt="" />
                 </p>
-                <p>移动电脑同步</p>
-                <p>与多个审批者共享预订单并管理确认链接以减少错误。</p>
+                <p>{{ $t('bannerSeven.features.mobileSync.title') }}</p>
+                <p>{{ $t('bannerSeven.features.mobileSync.description') }}</p>
               </div>
               <div class="line-b border-bottom"></div>
             </div>
@@ -44,8 +44,8 @@
                 <p>
                   <img src="@/assets/joinkuImages/b-7-2.png" alt="" />
                 </p>
-                <p>移动快速扫描</p>
-                <p>与多个审批者共享预订单并管理确认链接以减少错误。</p>
+                <p>{{ $t('bannerSeven.features.quickScan.title') }}</p>
+                <p>{{ $t('bannerSeven.features.quickScan.description') }}</p>
               </div>
               <div class="line-b border-bottom"></div>
             </div>
@@ -58,8 +58,8 @@
                 <p>
                   <img src="@/assets/joinkuImages/b-7-3.png" alt="" />
                 </p>
-                <p>在移动设备上打印库存</p>
-                <p>随时从移动应用程序直接导出和打印订单详细信息。</p>
+                <p>{{ $t('bannerSeven.features.mobilePrint.title') }}</p>
+                <p>{{ $t('bannerSeven.features.mobilePrint.description') }}</p>
               </div>
               <div class="line-b border-bottom"></div>
             </div>
@@ -72,8 +72,8 @@
                 <p>
                   <img src="@/assets/joinkuImages/b-7-4.png" alt="" />
                 </p>
-                <p>一键扫描存储</p>
-                <p>只需一次扫描即可实现快速仓储和实时库存更新。</p>
+                <p>{{ $t('bannerSeven.features.oneClickScan.title') }}</p>
+                <p>{{ $t('bannerSeven.features.oneClickScan.description') }}</p>
               </div>
               <div class="line-b border-bottom"></div>
             </div>
@@ -86,8 +86,8 @@
                 <p>
                   <img src="@/assets/joinkuImages/b-7-5.png" alt="" />
                 </p>
-                <p>立即导入库存</p>
-                <p>通过共享产品详细信息，只需单击即可导入并记录所有以前的库存数据。</p>
+                <p>{{ $t('bannerSeven.features.importInventory.title') }}</p>
+                <p>{{ $t('bannerSeven.features.importInventory.description') }}</p>
               </div>
               <div class="line-b border-bottom"></div>
             </div>
@@ -95,21 +95,16 @@
         </el-row>
       </div>
       <div class="banner-7-content-2">
-        <p>法规是怎么说的？</p>
-        <p>
-          根据意大利《2019年预算法》第145条和意大利税务局2020年1月起生效的电子发票规定，所有企业和个体经营者均须通过SDI系统Sistema
-          di Interscambio进行电子发票Fattura
-          Elettronica传输，并使用认证税控设备Registratore Telematico完成电子小票Scontrino
-          Elettronico的实时生成和传送。
-        </p>
+        <p>{{ $t('bannerSeven.regulations.title') }}</p>
+        <p>{{ $t('bannerSeven.regulations.description') }}</p>
       </div>
     </div>
     <div class="list-f-6">
       <!-- <img src="@/assets/headset-fill-3.png" alt="" /> -->
       <div class="content-2">
         <div class="title">
-          <p>JOINKU系统全程支持</p>
-          <p>我们的解决方案可帮助企业</p>
+          <p>{{ $t('bannerSeven.support.title') }}</p>
+          <p>{{ $t('bannerSeven.support.subtitle') }}</p>
         </div>
         <el-row :gutter="12">
           <el-col :span="6">
@@ -117,11 +112,8 @@
               <p>
                 <img src="@/assets/joinkuImages/b-7-6.png" alt="" />
               </p>
-              <p>发票生成与传输自动化</p>
-              <p>
-                平台可自动创建符合 FatturaPA
-                标准的XML结构电子发票，并对接SDI通道，实现B2B/B2C发票合法合规流转
-              </p>
+              <p>{{ $t('bannerSeven.support.features.invoice.title') }}</p>
+              <p>{{ $t('bannerSeven.support.features.invoice.description') }}</p>
             </div>
           </el-col>
           <el-col :span="6">
@@ -129,10 +121,8 @@
               <p>
                 <img src="@/assets/joinkuImages/b-7-7.png" alt="" />
               </p>
-              <p>电子小票开具功能</p>
-              <p>
-                系统支持对接RT认证设备，生成并发送合法的电子小票，满足零售终端的财政合规需求
-              </p>
+              <p>{{ $t('bannerSeven.support.features.receipt.title') }}</p>
+              <p>{{ $t('bannerSeven.support.features.receipt.description') }}</p>
             </div>
           </el-col>
           <el-col :span="6">
@@ -140,11 +130,8 @@
               <p>
                 <img src="@/assets/joinkuImages/b-7-8.png" alt="" />
               </p>
-              <p>数据交换合规管理</p>
-              <p>
-                系统确保交易记录均自动归档和传输至Agenzia delle
-                Entrate，避免隐性交易与税务风险
-              </p>
+              <p>{{ $t('bannerSeven.support.features.dataExchange.title') }}</p>
+              <p>{{ $t('bannerSeven.support.features.dataExchange.description') }}</p>
             </div>
           </el-col>
           <el-col :span="6">
@@ -154,15 +141,15 @@
               </p> -->
               <!-- <p>我们的解决方案可帮助企业</p> -->
               <p class="font-16">
-                此外，系统数据全部保存在欧盟境内（爱尔兰）服务器，符合GDPR关于数据主权与跨境传输的规定，保障用户发票与税务数据的长期合规、安全和可追溯性
+                {{ $t('bannerSeven.support.features.dataStorage.description') }}
               </p>
             </div>
           </el-col>
         </el-row>
       </div>
       <div class="banner-7-content-2">
-        <p>精确同步，增强运营</p>
-        <p>JoinKu实时同步仓库数据，确保管理精准，推动业务增长效率</p>
+        <p>{{ $t('bannerSeven.sync.title') }}</p>
+        <p>{{ $t('bannerSeven.sync.description') }}</p>
       </div>
     </div>
   </div>

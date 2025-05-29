@@ -3,8 +3,8 @@
     <el-row>
       <el-col :span="12">
         <div class="left">
-          <p>新功能AI语音生成订单</p>
-          <p>三种便捷方式，适用于各种场景</p>
+          <p>{{ $t('bannerFour.aiVoiceOrder') }}</p>
+          <p>{{ $t('bannerFour.threeConvenientWays') }}</p>
           <img src="@/assets/joinkuImages/b-4-1.png" alt="" />
         </div>
       </el-col>
@@ -13,19 +13,19 @@
           <div class="right-one">
             <el-row>
               <el-col :span="20">
-                <div class="right-one-left">智能订单生成，提升运营效率</div>
+                <div class="right-one-left">{{ $t('bannerFour.smartOrderGeneration') }}</div>
               </el-col>
               <el-col :span="4">
                 <div class="right-one-right">01</div>
               </el-col>
             </el-row>
             <div class="right-one-bottom">
-              基于历史订单自动生成精准订单
+              {{ $t('bannerFour.autoGenerateOrders') }}
               <ul>
                 <li>
-                  通过AI分析历史订单数据，自动生成精准订单，减少人工操作，提升库存管理效率。
+                  {{ $t('bannerFour.aiAnalysisDesc') }}
                 </li>
-                <li>轻松应对订单需求变化。</li>
+                <li>{{ $t('bannerFour.easyAdaptation') }}</li>
               </ul>
             </div>
           </div>
@@ -33,19 +33,19 @@
           <div class="right-one">
             <el-row>
               <el-col :span="20">
-                <div class="right-one-left">对于 PointsMe 用户</div>
+                <div class="right-one-left">{{ $t('bannerFour.forPointsMeUsers') }}</div>
               </el-col>
               <el-col :span="4">
                 <div class="right-one-right">02</div>
               </el-col>
             </el-row>
             <div class="right-one-bottom">
-              通过 Joinku App 进行语音预订
+              {{ $t('bannerFour.voiceBooking') }}
               <ul>
                 <li>
-                  只需说出产品名称和数量，系统就会自动匹配之前购买的商品并生成订单
+                  {{ $t('bannerFour.voiceOrderDesc') }}
                 </li>
-                <li>无需手动输入</li>
+                <li>{{ $t('bannerFour.noManualInput') }}</li>
               </ul>
             </div>
           </div>
@@ -53,40 +53,39 @@
           <div class="right-one">
             <el-row>
               <el-col :span="20">
-                <div class="right-one-left">适用于PointsMe用户和Joinku Supplier支持的供应商。</div>
+                <div class="right-one-left">{{ $t('bannerFour.forPointsMeAndSuppliers') }}</div>
               </el-col>
               <el-col :span="4">
                 <div class="right-one-right">03</div>
               </el-col>
             </el-row>
             <div class="right-one-bottom">
-              AI 预订
+              {{ $t('bannerFour.aiBooking') }}
               <ul>
                 <li>
-                   拨打供应商的人工智能电话线并提供您的订单详情。
+                  {{ $t('bannerFour.aiPhoneLineDesc') }}
                 </li>
-                <li>系统会生成预订单并将其同步到供应商的系统以供审核和确认。</li>
+                <li>{{ $t('bannerFour.systemSyncDesc') }}</li>
               </ul>
             </div>
           </div>
 
-
           <div class="right-one">
             <el-row>
               <el-col :span="20">
-                <div class="right-one-left">适用于非PointsMe用户和使用Joinku Supplier的供应商</div>
+                <div class="right-one-left">{{ $t('bannerFour.forNonPointsMeUsers') }}</div>
               </el-col>
               <el-col :span="4">
                 <div class="right-one-right">04</div>
               </el-col>
             </el-row>
             <div class="right-one-bottom" style="border: none;">
-              电话预订
+              {{ $t('bannerFour.phoneBooking') }}
               <ul>
                 <li>
-                  使用供应商的智能座机服务生成预订单。
+                  {{ $t('bannerFour.smartPhoneServiceDesc') }}
                 </li>
-                <li>系统向消息平台发送确认链接，让客户轻松查看和确认订单。</li>
+                <li>{{ $t('bannerFour.confirmationLinkDesc') }}</li>
               </ul>
             </div>
           </div>

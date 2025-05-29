@@ -3,40 +3,40 @@
     <div class="content-6">
       <div class="title">
         <el-divider>
-          <div class="col-1-t">独家优势</div>
+          <div class="col-1-t">{{ $t('bannerSix.exclusiveAdvantages') }}</div>
         </el-divider>
-        <div class="s-t">为什么选择Joinku？</div>
+        <div class="s-t">{{ $t('bannerSix.whyChooseJoinku') }}</div>
       </div>
       <div class="list-b-6">
         <div class="flex">
           <div class="flex1 f-1">
             <div class="f-1-b">
-              <p>智能匹配</p>
-              <p>自动匹配常购买的商品，减少手动输入，提高效率。</p>
+              <p>{{ $t('bannerSix.features.smartMatching.title') }}</p>
+              <p>{{ $t('bannerSix.features.smartMatching.description') }}</p>
             </div>
           </div>
           <div class="flex1 f-2">
             <div class="f-1-b">
-              <p>多渠道订单确认</p>
-              <p>与多个审批者共享预订单并管理确认链接以减少错误。</p>
+              <p>{{ $t('bannerSix.features.multiChannel.title') }}</p>
+              <p>{{ $t('bannerSix.features.multiChannel.description') }}</p>
             </div>
           </div>
           <div class="flex1 f-3">
             <div class="f-1-b">
-              <p>端到端数字化工作流程</p>
-              <p>可以通过应用程序、消息平台或电子邮件处理订单，以实现完全的灵活性。</p>
+              <p>{{ $t('bannerSix.features.digitalWorkflow.title') }}</p>
+              <p>{{ $t('bannerSix.features.digitalWorkflow.description') }}</p>
             </div>
           </div>
           <div class="flex1 f-4">
             <div class="f-1-b">
-              <p>全面的角色覆盖</p>
-              <p>专为供应商和零售商设计的定制工具，提高可用性和运营效率。</p>
+              <p>{{ $t('bannerSix.features.roleCoverage.title') }}</p>
+              <p>{{ $t('bannerSix.features.roleCoverage.description') }}</p>
             </div>
           </div>
           <div class="flex1 f-5">
             <div class="f-1-b">
-              <p>智能语音下单</p>
-              <p>独特的语音预订功能简化了订购流程并减少了手动输入错误。</p>
+              <p>{{ $t('bannerSix.features.voiceOrdering.title') }}</p>
+              <p>{{ $t('bannerSix.features.voiceOrdering.description') }}</p>
             </div>
           </div>
         </div>
@@ -47,8 +47,8 @@
             <img src="@/assets/headset-fill.png" alt="" />
           </div>
           <div>
-            <p>通过远程和现场服务提供全渠道支持</p>
-            <p>远程和AI服务支持。多种支持渠道，从远程电话指导到现场协助，旨在支持您的业务增长</p>
+            <p>{{ $t('bannerSix.support.omniChannel.title') }}</p>
+            <p>{{ $t('bannerSix.support.omniChannel.description') }}</p>
           </div>
         </div>
         <div class="flex1 flex1-g">
@@ -56,8 +56,8 @@
             <img src="@/assets/headset-fill-1.png" alt="" />
           </div>
           <div>
-            <p>完全内部开发，拥有专家技术支持</p>
-            <p>内部研发确保优质服务，专业团队提供全面的技术和客户支持</p>
+            <p>{{ $t('bannerSix.support.inHouse.title') }}</p>
+            <p>{{ $t('bannerSix.support.inHouse.description') }}</p>
           </div>
         </div>
       </div>
