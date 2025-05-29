@@ -18,6 +18,7 @@
 // import ShoppingIndex from '@/views/shoppingComponents/ShoppingIndex.vue'
 import ShoppingNewIndex from '@/views/shoppingComponents/ShoppingNewIndex.vue'
 import { useUserStore } from '@/stores/modules/user'
+import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
 import {
   Right,
 } from '@element-plus/icons-vue'
@@ -27,8 +28,10 @@ defineOptions({
   name: 'shoppingView'
 })
 onUnmounted(()=>{
-  window.localStorage.setItem("shoppingTab","1001");
+  // window.localStorage.setItem("shoppingTab","1001");
+  shoppingCartStore.resetTabId()
 })
+const shoppingCartStore = useShoppingCartStore()
 const userStore = useUserStore()
 const router = useRouter()
 const goRegister = () => {

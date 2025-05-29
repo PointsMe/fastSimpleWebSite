@@ -1,6 +1,6 @@
 <template>
   <div class="add-num-div" :ref="(el) => setRef(el)">
-    <span @click="reduceFn" :class="data?.type === 119 ? 'not-allow' : ''">
+    <span :class="data?.type === 119 ? 'not-allow' : ''">
       <el-icon>
         <Minus />
       </el-icon>
@@ -11,10 +11,9 @@
         size="small"
         v-model="inputNum"
         placeholder="0"
-        @input="changeInput"
       />
     </span>
-    <span @click="increaseFn" :class="data?.type === 119 ? 'not-allow' : ''">
+    <span :class="data?.type === 119 ? 'not-allow' : ''">
       <el-icon>
         <Plus />
       </el-icon>
@@ -50,10 +49,6 @@ const props = defineProps({
     required: false,
   },
   inviteCode: {
-    type: String,
-    required: false,
-  },
-  radioPackage: {
     type: String,
     required: false,
   },
@@ -160,6 +155,18 @@ const addPrecreate = async (posInviteCode: string = "") => {
     return ElMessage.warning(i18n.global.t("shopping.loginFirst"));
   }
   const params = shoppingCartStore.cart as any;
+  // const tab = window.localStorage.getItem("shoppingTab") || "1001";
+  // console.log("请求参数：", params, tab);
+  // if (tab === "1003") {
+  //   params.items = params.items.filter((iv: any) => iv.type !== 119);
+  // } else {
+  //   params.items = params.items.filter((iv: any) => iv.type !== 119);
+  //   params.items.push({
+  //     type: 119,
+  //     itemId: tab,
+  //     count: 1,
+  //   });
+  // }
   const current = params.items.find((iv: any) => iv.type === 119);
   if (current) {
     params.type = 102;
@@ -174,14 +181,14 @@ const addPrecreate = async (posInviteCode: string = "") => {
   }
   params.items = params.items.filter((iv: any) => iv.count);
   shoppingCartStore.setCart(params);
-  console.log("请求的参数：",params)
+
   const { data } = await precreateApi(params);
   console.log("precreateApi===>", data);
   return data;
   // return params
 };
 const increase = async () => {
-  console.log("increase===>", props.parents, props?.data, inputNum.value,props.radioPackage);
+  console.log("increase===>", props.parents, props?.data, inputNum.value);
   if (
     props.data?.id === posGoodsId.id &&
     shoppingCartStore.posGoods.num === 0
@@ -278,36 +285,26 @@ const handleClose = async() => {
   }
 };
 onMounted(() => {
-//   if (props.data?.type === 119) {
-//     inputNum.value = 1;
-//     increaseFn();
-//   }
-  emitter.on("sibling-msg", handleMessage);
-  emitter.on("sibling-msg-close", handleClose);
+  // if (props.data?.type === 119) {
+  //   inputNum.value = 1;
+  //   increaseFn();
+  // }
+  // emitter.on("sibling-msg", handleMessage);
+  // emitter.on("sibling-msg-close", handleClose);
 });
 onUnmounted(() => {
-  emitter.off("sibling-msg", handleMessage);
-  emitter.off("sibling-msg-close", handleClose);
+  // emitter.off("sibling-msg", handleMessage);
+  // emitter.off("sibling-msg-close", handleClose);
 });
-watch(
-    ()=> props.radioPackage,
-    (val)=>{
-        // if (props.data?.type === 119) {
-        //     console.log("props.radioPackage==>",val)
-        //     inputNum.value = 1;
-        //     increaseFn();
-        // }
-    },
-    {
-        immediate: true
-    }
-)
 </script>
 <style scoped lang="less">
 .add-num-div {
-  width: 96px;
-  height: 24px;
+  width: 86px;
+  height: 18px;
   position: relative;
+  :deep(.el-input__wrapper .el-input__inner) {
+    height: 17px !important;
+  }
   .not-allow {
     cursor: not-allowed !important;
   }
@@ -317,44 +314,44 @@ watch(
 
   > span:first-child {
     background-color: #f7f7f7;
-    width: 24px;
+    width: 18px;
     text-align: center;
     cursor: pointer;
     position: absolute;
     left: 0;
     top: 1px;
     color: #bdbdbd;
-    height: 24px;
+    height: 18px;
 
     .el-icon {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
-      margin-top: 4px;
+      margin-top: 3px;
     }
   }
 
   > span:nth-child(2) {
-    margin-left: 28px;
-    // height: 20px;
+    margin-left: 22px;
+    height: 20px !important;
     width: 40px;
     text-align: center;
   }
 
   > span:last-child {
     background-color: #f7f7f7;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     text-align: center;
     cursor: pointer;
     position: absolute;
-    left: 72px;
+    left: 66px;
     top: 1px;
     color: #1a1a1a;
 
     .el-icon {
-      font-size: 16px;
+      font-size: 13px;
       font-weight: bold;
-      margin-top: 4px;
+      margin-top: 0px;
     }
   }
 }

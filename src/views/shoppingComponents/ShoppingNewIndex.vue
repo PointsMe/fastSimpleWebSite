@@ -18,7 +18,10 @@
               </p>
               <p class="t_d" v-if="index + 1 !== tabArr.length">
                 {{ item.name }}
-                <span v-if="item.id === '1001' && shoppingCartStore.cart.items.find((it:any)=>it.itemId === hotGoodsId.id)?.count === 5">({{ $t('shoppingNewIndex.completeVersion') }})</span>
+                <span
+                  v-if="item.id === '1001' && shoppingCartStore.cart.items.find((it:any)=>it.itemId === hotGoodsId.id)?.count === 5"
+                  >({{ $t("shoppingNewIndex.completeVersion") }})</span
+                >
               </p>
               <span></span>
             </div>
@@ -60,7 +63,7 @@ import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { getToken } from "@/utils/cache/cookies";
 import { hotGoodsId } from "@/http/config";
 const shoppingCartStore = useShoppingCartStore();
-const userStore = useUserStore()
+const userStore = useUserStore();
 defineOptions({
   name: "shoppingNewIndex",
 });
@@ -95,31 +98,29 @@ const tabArr = ref<
 //     subtitle: '升级套餐',
 //     checked: false
 // },hardwareSelection
-const toPayDrawer = (orderList: any,inviteCode:string) => {
-  console.log("toPayDrawer=>", shoppingCartStore.cart,inviteCode);
+const toPayDrawer = (orderList: any, inviteCode: string) => {
+  console.log("toPayDrawer=>", shoppingCartStore.cart, inviteCode);
   if (DrawerRef.value) {
-    DrawerRef.value.showDrawer(orderList,inviteCode);
+    DrawerRef.value.showDrawer(orderList, inviteCode);
   }
 };
 const changeTab = (val: string) => {
-  window.localStorage.setItem("shoppingTab",val)
-  shoppingCartStore.setCart({
-    type: "",
-    items: [],
-  });
-  console.log("====changeTab>",shoppingCartStore.cart)
+  // window.localStorage.setItem("shoppingTab",val)
+  shoppingCartStore.resetCart();
+  console.log("====changeTab>", tabArr.value);
   tabArr.value = tabArr.value.map((item) => {
     return {
       ...item,
       checked: item.id === val ? true : false,
     };
   });
-  tab.value = val;
+  console.log("====changeTab>", tabArr.value);
 };
 const getData = async () => {
   const { data } = await getGoodsListApi({
-    biz: userStore.biz
+    biz: userStore.biz,
   });
+  console.log("shoppingCartStore.tabId", shoppingCartStore.tabId);
   if (data && data.length > 0) {
     console.log("res===>", data);
     const list = data.map((item: any, index: number) => {
@@ -127,11 +128,26 @@ const getData = async () => {
         id: item.id,
         name: item.name,
         subtitle: item.subtitle,
-        checked: false,
+        checked: shoppingCartStore.tabId === item.id ? true : false,
       };
     });
     console.log("list.contact(hardwareSelection)", list);
     list.push(hardwareSelection);
+    list.forEach((element: any, index: number) => {
+      if (shoppingCartStore.tabId) {
+        if (element.id === shoppingCartStore.tabId) {
+          element.checked = true;
+        } else {
+          element.checked = false;
+        }
+      } else {
+        if (!index) {
+          element.checked = true;
+        } else {
+          element.checked = false;
+        }
+      }
+    });
     tabArr.value = list;
   }
 };
@@ -139,17 +155,16 @@ const getData = async () => {
 onMounted(() => {
   getData().then(() => {
     console.log("onMounted=>", router.currentRoute.value.query);
-    changeTab(window.localStorage.getItem("shoppingTab") || '1001');
     if (getToken()) {
       if (
         router.currentRoute.value?.query?.status &&
         router.currentRoute.value?.query?.status === "false"
-    ) {
-      PayErrorRef.value.showModal(router.currentRoute.value?.query?.orderId);
-    } else if (
-      router.currentRoute.value?.query?.status &&
-      router.currentRoute.value?.query?.status === "true"
-    ) {
+      ) {
+        PayErrorRef.value.showModal(router.currentRoute.value?.query?.orderId);
+      } else if (
+        router.currentRoute.value?.query?.status &&
+        router.currentRoute.value?.query?.status === "true"
+      ) {
         PaySuccessRef.value.showModal(router.currentRoute.value?.query?.orderId);
       }
     }

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
-  <div class="order-one">
+  <div class="order-one" v-if="response">
     <el-row :gutter="6" class="row-list">
       <el-col :span="16" class="left">
         <div class="content-list">
@@ -36,25 +36,30 @@
           <div class="list-two-i">
             <el-radio-group v-model="radioPackage">
               <el-row>
-                <el-col :span="12"
+                <el-col
+                  :span="12"
                   v-for="(item, index) in response?.option?.items"
-                  :key="index">
-                  <div v-if="typeof item === 'number'"  class="radio-price">
+                  :key="index"
+                >
+                  <div v-if="typeof item === 'number'" class="radio-price">
                     <span>€{{ item }}</span>
                   </div>
                   <el-radio v-else :value="item?.id">{{ item?.name }}</el-radio>
                 </el-col>
               </el-row>
-              
             </el-radio-group>
           </div>
           <div class="list-one-j">
             <div>
               <span>{{ $t("orderOne.normalPrice") }}</span>
-              <span class="normal" v-if="radioPackage"> €{{ moneyPackage.normalSellPrice }} </span>
+              <span class="normal" v-if="radioPackage">
+                €{{ moneyPackage.normalSellPrice }}
+              </span>
               <span class="normal" v-else> €{{ response.sellPrice }} </span>
               <span class="m-f-20">{{ $t("orderOne.invitePrice") }}</span>
-              <span class="origin" v-if="radioPackage"> €{{ moneyPackage.vipSellPrice }} </span>
+              <span class="origin" v-if="radioPackage">
+                €{{ moneyPackage.vipSellPrice }}
+              </span>
               <span class="origin" v-else> €{{ Number(response.vipPrice) }} </span>
               <div class="pos-abs" style="visibility: hidden">
                 <AddNum
@@ -373,12 +378,10 @@ import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
 import ShowTipsHot from "./ShowTipsHot.vue";
 import { hotGoodsId, posGoodsId } from "@/http/config";
-import { ar } from "element-plus/es/locale/index.mjs";
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
 const JoinUsFnRef = ref();
-const UpdateViewRef = ref();
 const ShowTipsRef = ref();
 const ShowTipsHotRef = ref();
 const props = defineProps({
@@ -398,320 +401,53 @@ const moneyPackage = ref<any>({
   vipSellPrice: 0,
   normalSellPrice: 0,
 });
-const serverBuyer: any = reactive({
-  id: "1002",
-  name: "SERVER BUYER",
-  subtitle: "服务选购",
-  sellPrice: 800,
-  mixNum: 1,
-  maxNum: 999,
-  assorts: [
-    {
-      id: "1",
-      name: "远程指导安装人工费",
-      type: "input",
-      mixNum: 0,
-      maxNum: 999,
-      items: [
-        {
-          id: "产品ID",
-          type: 101,
-          unit: "小时", //单位
-          spec: "", //规格
-          sellPrice: 230,
-        },
-      ],
-    },
-    {
-      id: "2",
-      name: "商品人工导入费",
-      type: "checkbox",
-      items: [
-        {
-          id: "1",
-          type: 101,
-          unit: "", //单位
-          spec: "", //规格
-          sellPrice: 100,
-        },
-        {
-          id: "2",
-          type: 101,
-          unit: "", //单位
-          spec: "", //规格
-          sellPrice: 200,
-        },
-      ],
-    },
-    {
-      id: "3",
-      name: "商品人工翻译费",
-      type: "input",
-      mixNum: 0,
-      maxNum: 999,
-      items: [
-        {
-          id: "产品ID",
-          type: 101,
-          unit: "语言", //单位
-          spec: "", //规格
-          sellPrice: 50,
-        },
-      ],
-    },
-    {
-      id: "4",
-      name: "人工售后费",
-      type: "input",
-      mixNum: 0,
-      maxNum: 999,
-      items: [
-        {
-          id: "产品ID",
-          type: 101,
-          unit: "30分钟", //单位
-          spec: "", //规格
-          sellPrice: 10,
-        },
-      ],
-    },
-  ],
-});
-const response: any = ref({});
+const response: any = ref(null);
 
 const getData = async () => {
   if (props.id) {
     const { data } = await getGoodsDetailApi(props.id);
-    // const value = {
-    //     "id": "1001",
-    //     "name": "FASTSIMPLE BASIC",
-    //     "subtitle": "基础套餐",
-    //     "sellPrice": 800,
-    //     "items": [
-    //         {
-    //             "id": "100010101",
-    //             "name": "平板11寸HUAWEI SE",
-    //             "price": 230
-    //         },
-    //         {
-    //             "id": "100030101",
-    //             "name": "热敏打印机",
-    //             "price": 300
-    //         },
-    //         {
-    //             "id": "100040101",
-    //             "name": "平板电脑支架",
-    //             "price": 70
-    //         },
-    //         {
-    //             "id": "200010101",
-    //             "name": "FASTSIMPLE软件授权费",
-    //             "price": 200
-    //         }
-    //     ],
-    //     "assorts": [
-    //         {
-    //             "name": "FASTSIMPLE年费",
-    //             "minSelectCount": 1,
-    //             "maxSelectCount": 1,
-    //             "items": [
-    //                 {
-    //                     "id": "200030101",
-    //                     "type": 102,
-    //                     "spec": "1打印机 + 1平板",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 200
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             "name": "POS机",
-    //             "minSelectCount": 0,
-    //             "maxSelectCount": 200,
-    //             "items": [
-    //                 {
-    //                     "id": "100070101",
-    //                     "type": 101,
-    //                     "spec": "",
-    //                     "unit": null,
-    //                     "value": null,
-    //                     "sellPrice": 220
-    //                 },
-    //                 {
-    //                     "id": "100070102",
-    //                     "type": 103,
-    //                     "spec": "",
-    //                     "unit": null,
-    //                     "value": "12",
-    //                     "sellPrice": 10
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             "name": "点单手印打印扫码PDA",
-    //             "minSelectCount": 0,
-    //             "maxSelectCount": 200,
-    //             "items": [
-    //                 {
-    //                     "id": "100080101",
-    //                     "type": 101,
-    //                     "spec": "80mm",
-    //                     "unit": null,
-    //                     "value": null,
-    //                     "sellPrice": 800
-    //                 },
-    //                 {
-    //                     "id": "100080102",
-    //                     "type": 101,
-    //                     "spec": "58mm",
-    //                     "unit": null,
-    //                     "value": null,
-    //                     "sellPrice": 600
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             "name": "WIFI路由器SIM卡版",
-    //             "minSelectCount": 0,
-    //             "maxSelectCount": 200,
-    //             "items": [
-    //                 {
-    //                     "id": "100050101",
-    //                     "type": 101,
-    //                     "spec": "",
-    //                     "unit": null,
-    //                     "value": null,
-    //                     "sellPrice": 100
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             "name": "钱箱",
-    //             "minSelectCount": 0,
-    //             "maxSelectCount": 200,
-    //             "items": [
-    //                 {
-    //                     "id": "100090101",
-    //                     "type": 101,
-    //                     "spec": "",
-    //                     "unit": null,
-    //                     "value": null,
-    //                     "sellPrice": 80
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             "name": "SOFATTURA发票",
-    //             "minSelectCount": 0,
-    //             "maxSelectCount": 6,
-    //             "items": [
-    //                 {
-    //                     "id": "200020101",
-    //                     "type": 102,
-    //                     "spec": "套餐A(200张)",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 100
-    //                 },
-    //                 {
-    //                     "id": "200020102",
-    //                     "type": 102,
-    //                     "spec": "套餐A(200张)",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 100
-    //                 },{
-    //                     "id": "200020103",
-    //                     "type": 102,
-    //                     "spec": "套餐A(200张)",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 100
-    //                 },{
-    //                     "id": "200020104",
-    //                     "type": 102,
-    //                     "spec": "套餐A(200张)",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 100
-    //                 },{
-    //                     "id": "200020105",
-    //                     "type": 102,
-    //                     "spec": "套餐A(200张)",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 100
-    //                 },{
-    //                     "id": "200020106",
-    //                     "type": 102,
-    //                     "spec": "套餐A(200张)",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 100
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             "name": "税号搜索",
-    //             "minSelectCount": 0,
-    //             "maxSelectCount": 1,
-    //             "items": [
-    //                 {
-    //                     "id": "200020201",
-    //                     "type": 102,
-    //                     "spec": "",
-    //                     "unit": "年",
-    //                     "value": "1",
-    //                     "sellPrice": 100
-    //                 }
-    //             ]
-    //         }
-    //     ]
-    // }
-
-
-    // data.invitePrice = 100;
-    // data.option = {
-    //   name:'打印机',
-    //   minSelectCount: 1,
-    //   items:[
-    //     {
-    //       id:'1',
-    //       name:'热敏打印机',
-    //       price: 300
-    //     },
-    //     300,
-    //     {
-    //       id:'2',
-    //       name:'普通打印机',
-    //       price: 100
-    //     },
-    //     100
-    //   ]
-    // }
     const option = data?.option?.items || [];
-    let arr:any = []
-    console.log("arr===>",arr,option.length)
-    for(let i = 0; i < option.length; i++){
+    let arr: any = [];
+    console.log("arr===>", arr, option.length);
+    for (let i = 0; i < option.length; i++) {
       arr = arr.concat([
         {
           id: option[i]?.id,
           name: option[i]?.name,
-          price: option[i]?.price
+          price: option[i]?.price,
         },
-        option[i]?.price
-      ])
+        option[i]?.price,
+      ]);
     }
-    console.log("arr===>",arr,option)
-    if(option.length > 0){
+    console.log("arr===>", arr, option);
+    if (option.length > 0) {
       data.option.items = arr;
       radioPackage.value = data?.option?.items[0].id;
     }
     response.value = data;
   }
 };
-
+const precreateFn = async () => {
+  const params = shoppingCartStore.cart;
+  params.type = 102;
+  const current = params.items.find((iv) => iv.type === 119);
+  if (current) {
+    current.optionIds = radioPackage.value ? [radioPackage.value] : null;
+  } else {
+    params.items.push({
+      type: 119,
+      itemId: response.value?.id,
+      count: 1,
+      optionIds: radioPackage.value ? [radioPackage.value] : null,
+    });
+  }
+  shoppingCartStore.setCart(params);
+  const res = await precreateApi({
+    ...params,
+    inviteCode: inviteCode.value,
+  });
+  orderList.value = res.data;
+};
 const orderList = ref<any>({
   netAmount: 0,
   taxAmount: 0,
@@ -789,22 +525,25 @@ onMounted(() => {
   getData();
 });
 
-watch(()=> radioPackage.value,
-  (val)=>{
-    if(val){
-      shoppingCartStore.setPackageIds(val)
-      const price = Number(response.value.sellPrice) + Number(response.value.option.items.find((iv:any)=> iv.id === val).price);
-      console.log("price===>",price)
+watch(
+  () => radioPackage.value,
+  (val) => {
+    if (val) {
+      const price =
+        Number(response.value.sellPrice) +
+        Number(response.value.option.items.find((iv: any) => iv.id === val).price);
+      console.log("price===>", price);
       moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
       moneyPackage.value.vipSellPrice = Number(
-        (Number(price *100) - Number(response.value.invitePrice)*100) /100
+        (Number(price * 100) - Number(response.value.invitePrice) * 100) / 100
       ).toFixed(2);
+      precreateFn();
     }
   },
   {
-    immediate: true
+    immediate: true,
   }
- )
+);
 defineExpose({
   joinUsFn,
   changeOrderList,
@@ -1076,7 +815,7 @@ defineExpose({
           > span {
             display: inline-block;
           }
-          .margin-left-ico{
+          .margin-left-ico {
             margin-left: 10px;
           }
           .sub-left-i-a {
@@ -1179,12 +918,12 @@ defineExpose({
         border: none !important;
         padding-bottom: 0px !important;
       }
-      .list-two-i{
+      .list-two-i {
         padding-left: 10px;
         padding-top: 28px;
         padding-bottom: 28px;
         border-bottom: 1px solid #ededed;
-        .radio-price{
+        .radio-price {
           // padding-top: 28px;
           font-family: DIN, DIN;
           font-weight: bold;
@@ -1197,7 +936,7 @@ defineExpose({
         }
         :deep(.el-radio) {
           display: block;
-          .el-radio__label{
+          .el-radio__label {
             font-family: Source Han Sans SC, Source Han Sans SC;
             font-weight: 400;
             font-size: 16px;
