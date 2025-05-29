@@ -58,3 +58,15 @@ export const getUserInfoStorage = ()=>{
 export const removeUserInfoStorage = ()=>{
     return window.localStorage.removeItem('userInfo')
 }
+
+export const setBizStorage = (value: string)=>{
+    return window.localStorage.setItem('biz',value)
+}
+
+export const getBizStorage = ()=>{
+    return window.localStorage.getItem('biz')
+}
+
+export const removeBizStorage = ()=>{
+    return window.localStorage.removeItem('biz')
+}

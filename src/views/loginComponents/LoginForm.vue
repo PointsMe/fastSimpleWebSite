@@ -159,6 +159,7 @@ const onSubmit = async () => {
                 }else{
                     params.account =  `${form.account}${emailCode.value}`
                 }
+                
                 // 跳转到首页的方法
                 const { data } = await loginApi({
                     ...params,
@@ -167,8 +168,8 @@ const onSubmit = async () => {
                 console.log("onSubmit===>",data)
                 userStore.setToken(data.token)
                 userStore.setUserInfo(data.account)
+                userStore.setBiz(data.account?.biz)
                 commonStore.setShowLoginModal(false)
-                router.push('/home')
             }else{
                 console.log('error submit!')
             }

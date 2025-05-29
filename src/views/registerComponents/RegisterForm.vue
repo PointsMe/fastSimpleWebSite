@@ -420,6 +420,7 @@ const onSubmit = () => {
                         })
                         userStore.setToken(data.token)
                         userStore.setUserInfo(data.account)
+                        userStore.setBiz(data.account.biz)
                         commonStore.setShowRegisterModal(false)
                     }
                 }
