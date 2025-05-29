@@ -3,7 +3,7 @@
     <div class="login-form">
         <el-form :key="registerStyle" :model="form" label-width="auto" ref="formRef" :rules="formRules">
             <el-row :gutter="12">
-                <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
+                <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span" :style="item?.otherStyle" >
                     <el-form-item :label="item.label" :prop="item.value">
                         <el-input v-if="item.type === 'input'" size="large" v-model="form[item.value]" :type="`${item.typePass}`"
                             :placeholder="$t(item.placeholder)" class="bg-input">
@@ -23,7 +23,7 @@
                                 <AllCountryView @changeCountry="changeCountry"/>
                             </template>
                         </el-input>
-                        <el-select size="large"  v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="$t(item.placeholder)">
+                        <el-select size="large" v-if="item.type === 'select'" v-model="form[item.value]" :placeholder="$t(item.placeholder)">
                             <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
                         </el-select>
@@ -94,6 +94,9 @@ const props = defineProps({
 });
 const formRules = computed(()=>{
     return {
+        biz: [
+            { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'),trigger: 'change' },
+        ],
         account: [
             { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'),trigger: 'change' },
         ],
@@ -120,6 +123,7 @@ const changeEmail = (e:string)=>{
 const form: any = reactive({
     account: "",
     password: "",
+    biz: userStore.biz,
 })
 
 const formRef = ref<FormInstance>()

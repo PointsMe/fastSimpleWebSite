@@ -4,7 +4,7 @@
         <el-form :key="formId" :model="formModel" ref="formModelRef"
             :rules="formRules">
             <el-row :gutter="12">
-                <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span">
+                <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span" :style="item?.otherStyle">
                     <el-form-item :label="item.label" :prop="item.value">
                         <el-input 
                         controls-position="right"
@@ -146,6 +146,7 @@ const changeEmail = (e:string)=>{
     emailCode.value = e
 }
 const formModel: any = reactive({
+    biz: userStore.biz,
     name: '',
     // storeName: '',
     phoneAccount:'',
@@ -219,7 +220,9 @@ const formRules = computed(()=> {
         },
     ],
 
-    
+    biz: [
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputTel'), trigger: 'change' },
+    ],
     subName: [
         { required: true, message: i18n.global.t('aboutLogin.componeyName'), trigger: 'blur' },
         // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
@@ -353,7 +356,7 @@ const getVerificationCode = async (token:string) => {
         try {
             await getVerificationCodeApi({
                 ...params,
-                biz: userStore.biz,
+                biz: formModel.biz,
                 captcha: token
             })
             loading.close()
@@ -391,6 +394,7 @@ const onSubmit = () => {
                         "account": props.registerStyle === '1' ? `${countryCode.value.replace('+', '')}-${formModel.phoneAccount}` : `${formModel.emailAccount}${emailCode.value}`,
                         "password": formModel.password,
                         "verificationCode": formModel.verificationCode,
+                        "biz": formModel.biz,
                         // "storeName": formModel.storeName,
                         company: {
                             "type": 101,
@@ -406,8 +410,7 @@ const onSubmit = () => {
                     }
                     console.log('submit!', valid, params)
                     const { data } = await registerApi({
-                        ...params,
-                        biz: userStore.biz
+                        ...params
                     });
                     if (data) {
                         ElMessage.success({

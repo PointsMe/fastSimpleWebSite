@@ -1,4 +1,5 @@
 import { useCommonStoreOutside } from "@/stores/modules/common"
+import { bizList } from "@/http/config"
 const commonStoreOutside = useCommonStoreOutside()
 export const emailFormStep1 =     [
     {
@@ -68,14 +69,6 @@ export const phoneFormStep1 =[
         placeholder: 'aboutLogin.pleaseInputName',
         onEventFunction: 'changeName'
     },
-    // {
-    //     span: 12,
-    //     label: '',
-    //     value: 'storeName',
-    //     type: 'input',
-    //     placeholder: 'aboutLogin.pleaseInputStoreName',
-    //     onEventFunction: 'changeStoreName'
-    // },
     {
         span: 24,
         label: '',
@@ -123,6 +116,17 @@ export const phoneFormStep1 =[
     },
 ]
 export const formStep2 =     [
+    {
+        span: 24,
+        label: '',
+        value: 'biz',
+        type: 'select',
+        optionsData: bizList.filter(iv => iv.value === '111'),
+        placeholder: '',
+        otherStyle:{
+            display: 'none'
+        }
+    },
     {
         span: 12,
         label: '',

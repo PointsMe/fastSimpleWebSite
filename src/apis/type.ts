@@ -28,7 +28,8 @@ export type formTypeOne = {
     haveTelSelect?: boolean,
     onEventFunction?:Function,
     typePass?: string
-    disabled?: boolean
+    disabled?: boolean,
+    otherStyle?: any
 }
 export type RuleForm ={
   name: string,

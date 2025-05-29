@@ -1,4 +1,16 @@
+import { bizList } from "@/http/config"
 export const emailFormStep1 =     [
+    {
+        span: 24,
+        label: '',
+        value: 'biz',
+        type: 'select',
+        optionsData: bizList.filter(iv => iv.value === '111'),
+        placeholder: '',
+        otherStyle:{
+            display: 'none'
+        }
+    },
     {
         span: 24,
         label: '',
@@ -45,6 +57,17 @@ export const emailFormStep1 =     [
 
 ]
 export const phoneFormStep1 =[
+    {
+        span: 24,
+        label: '',
+        value: 'biz',
+        type: 'select',
+        optionsData: bizList.filter(iv => iv.value === '111'),
+        placeholder: '',
+        otherStyle:{
+            display: 'none'
+        }
+    },
     {
         span: 24,
         label: '',
