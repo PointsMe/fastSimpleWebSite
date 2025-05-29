@@ -4,7 +4,7 @@
       <h1 class="title">{{ $t('banner.title') }}</h1>
       <p class="subtitle">{{ $t('banner.subtitle') }}</p>
       <div class="button-group">
-        <span class="primary-btn">{{ $t('banner.contactUs') }}</span>
+        <span class="primary-btn" @click="toAboutUs">{{ $t('banner.contactUs') }}</span>
       </div>
     </div>
     <div class="banner-two"></div>
@@ -13,6 +13,11 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const toAboutUs = ()=>{
+  router.push('/contact')
+}
 defineOptions({
   name: 'HomeBanner'
 })
@@ -103,6 +108,7 @@ defineOptions({
   background: #6a8c69;
   border-radius: 85px 85px 85px 85px;
   color: #fff;
+  cursor: pointer;
 }
 
 /* .primary-btn:hover {

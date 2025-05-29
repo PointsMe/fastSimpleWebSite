@@ -9,7 +9,12 @@
       :rules="formRules"
     >
       <el-row :gutter="12">
-        <el-col v-for="(item, index) in emailForm" :key="index" :span="item.span" :style="item?.otherStyle">
+        <el-col
+          v-for="(item, index) in emailForm"
+          :key="index"
+          :span="item.span"
+          :style="item?.otherStyle"
+        >
           <el-form-item :label="item.label" :prop="item.value">
             <el-input
               v-if="item.type === 'input'"
@@ -47,7 +52,7 @@
               v-if="item.type === 'select'"
               v-model="form[item.value]"
               :placeholder="$t(item.placeholder)"
-               class="bg-input"
+              class="bg-input"
             >
               <el-option
                 v-for="(iv, ivIndex) in item.optionsData"
@@ -56,6 +61,14 @@
                 :value="iv.value"
               />
             </el-select>
+            <el-radio-group v-if="item.type === 'radioGroup'" v-model="form[item.value]">
+              <el-radio
+                v-for="(iv, ivIndex) in item.optionsData"
+                :key="ivIndex"
+                :value="iv.value"
+                >{{ iv.label }}</el-radio
+              >
+            </el-radio-group>
           </el-form-item>
         </el-col>
       </el-row>
@@ -152,7 +165,7 @@ const changeEmail = (e: string) => {
   emailCode.value = e;
 };
 const form: any = reactive({
-  biz:userStore.biz,
+  biz: userStore.biz,
   account: "",
   verificationCode: "",
   password: "",
@@ -162,7 +175,7 @@ const form: any = reactive({
 const formRules = computed(() => {
   return {
     biz: [
-        { required: true, message: i18n.global.t('aboutLogin.biz'), trigger: 'change' },
+      { required: true, message: i18n.global.t("aboutLogin.biz"), trigger: "change" },
     ],
     account: [{ required: true, message: i18n.global.t("aboutLogin.pleaseInputTel") }],
     verificationCode: [
@@ -239,14 +252,14 @@ const onSubmit = async () => {
       // 跳转到首页的方法
       const { data } = await forgetPassWordApi({
         ...params,
-        biz: form.biz
+        biz: form.biz,
       });
       console.log("onSubmit===>", data);
       ElMessage.success(i18n.global.t("aboutLogin.findPassSuccess"));
       // userStore.setToken(data.token)
       // userStore.setUserInfo(data.account)
-      commonStore.setShowFindPassModal(false)
-      commonStore.setShowLoginModal(true)
+      commonStore.setShowFindPassModal(false);
+      commonStore.setShowLoginModal(true);
     } else {
       console.log("error submit!");
     }
@@ -264,7 +277,7 @@ const submitVerifyCode = () => {
       return false;
     }
     if (!form.account) {
-        ElMessage.error(i18n.global.t("aboutLogin.pleaseInputTel"));
+      ElMessage.error(i18n.global.t("aboutLogin.pleaseInputTel"));
       return false;
     }
   } else {
@@ -273,14 +286,14 @@ const submitVerifyCode = () => {
       return false;
     }
     if (!form.account) {
-        ElMessage.error(i18n.global.t("aboutLogin.pleaseInputEmail"));
+      ElMessage.error(i18n.global.t("aboutLogin.pleaseInputEmail"));
       return false;
     }
   }
   verifyRef.value && verifyRef.value.show();
 };
 // 发送短信验证码
-const getVerificationCode = async (token:string) => {
+const getVerificationCode = async (token: string) => {
   console.log("aaaaa");
   if (num.value) return false;
   if (props.registerStyle === "1") {
@@ -313,7 +326,7 @@ const getVerificationCode = async (token:string) => {
       }
       await getVerificationCodeApi({
         ...params,
-        captcha: token
+        captcha: token,
       });
       loading.close();
       num.value = 60;

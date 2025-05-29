@@ -3,17 +3,6 @@ export const emailFormStep1 =     [
     {
         span: 24,
         label: '',
-        value: 'biz',
-        type: 'select',
-        optionsData: bizList.filter(iv => iv.value !== '111'),
-        placeholder: 'aboutLogin.biz',
-        otherStyle:{
-            display: 'block'
-        }
-    },
-    {
-        span: 24,
-        label: '',
         value: 'account',
         type: 'input',
         placeholder: 'aboutLogin.pleaseInputEmail',
@@ -54,20 +43,20 @@ export const emailFormStep1 =     [
         haveIcon: true,
         typePass:'password'
     },
-
-]
-export const phoneFormStep1 =[
     {
         span: 24,
         label: '',
         value: 'biz',
-        type: 'select',
+        type: 'radioGroup',
         optionsData: bizList.filter(iv => iv.value !== '111'),
         placeholder: 'aboutLogin.biz',
         otherStyle:{
             display: 'block'
         }
     },
+
+]
+export const phoneFormStep1 =[
     {
         span: 24,
         label: '',
@@ -110,5 +99,16 @@ export const phoneFormStep1 =[
         haveBtn: false,
         haveIcon: true,
         typePass:'password'
+    },
+    {
+        span: 24,
+        label: '',
+        value: 'biz',
+        type: 'radioGroup',
+        optionsData: bizList.filter(iv => iv.value !== '111'),
+        placeholder: 'aboutLogin.biz',
+        otherStyle:{
+            display: 'block'
+        }
     },
 ]

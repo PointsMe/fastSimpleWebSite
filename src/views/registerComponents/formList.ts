@@ -117,17 +117,6 @@ export const phoneFormStep1 =[
 ]
 export const formStep2 =     [
     {
-        span: 24,
-        label: '',
-        value: 'biz',
-        type: 'select',
-        optionsData: bizList.filter(iv => iv.value !== '111'),
-        placeholder: 'aboutLogin.biz',
-        otherStyle:{
-            display: 'block'
-        }
-    },
-    {
         span: 12,
         label: '',
         value: 'subName',
@@ -190,5 +179,16 @@ export const formStep2 =     [
         value: 'taxCode',
         type: 'input',
         placeholder: 'aboutLogin.point',
+    },
+    {
+        span: 24,
+        label: '',
+        value: 'biz',
+        type: 'radioGroup',
+        optionsData: bizList.filter(iv => iv.value !== '111'),
+        placeholder: 'aboutLogin.biz',
+        otherStyle:{
+            display: 'block'
+        }
     },
 ]
