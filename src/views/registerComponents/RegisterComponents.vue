@@ -5,13 +5,14 @@
         <el-col :span="12" class="left-title"> {{$t('aboutLogin.registerMember')}} </el-col>
         <el-col :span="24" class="right-title-i">
           <div class="r-t-i-r-1">
-            <img src="@/assets/r-1-1.png" alt="">
-            <span class="color-step-2">{{$t('aboutLogin.messagePerson')}}</span>
-            <span :class="step === '1' ? 'line color-step-1 color-step-1-span':'line color-step-2 color-step-2-span'">
-            </span>
-            <img src="@/assets/r-1-3.png" alt="" v-if="step === '1'">
-            <img src="@/assets/r-1-2.png" alt="" v-if="step === '2'">
-            <span :class="step === '1' ? 'color-step-1' : 'color-step-2'">{{$t('aboutLogin.componeyMess')}}</span>
+            <div v-if="step === '1'">
+              <span class="color-step-2">第一步：</span>
+              <span class="color-step-2">{{$t('aboutLogin.messagePerson')}}</span>
+            </div>
+            <div v-if="step === '2'">
+              <span class="color-step-2">第二步：</span>
+              <span class="color-step-2">{{$t('aboutLogin.componeyMess')}}</span>
+            </div>
           </div>
         </el-col>
       </el-row>
@@ -134,7 +135,9 @@ color: #1B1B1B;
         color: #999999 !important;
       }
       .color-step-2{
-        color: #387533 !important;
+        // color: #387533 !important;
+        color: #999999;
+        font-weight: bold;
       }
     }
 
