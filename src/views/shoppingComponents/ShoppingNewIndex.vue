@@ -106,6 +106,9 @@ const toPayDrawer = (orderList: any, inviteCode: string) => {
 };
 const changeTab = (val: string) => {
   // window.localStorage.setItem("shoppingTab",val)
+  if(tabArr.value.find(iv=> iv.checked)?.id === val){
+    return false
+  }
   shoppingCartStore.resetCart();
   console.log("====changeTab>", tabArr.value);
   tabArr.value = tabArr.value.map((item) => {
