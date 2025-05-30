@@ -378,6 +378,7 @@ import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
 import ShowTipsHot from "./ShowTipsHot.vue";
 import { hotGoodsId, posGoodsId } from "@/http/config";
+import { getInviteCodeStorage } from "@/utils/cache/cookies";
 const userStore = useUserStore();
 const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
@@ -392,7 +393,7 @@ const props = defineProps({
 });
 const emits = defineEmits(["toPay"]);
 const isShowPos = ref(false);
-const inviteCode = ref("");
+const inviteCode = ref(getInviteCodeStorage() || "");
 defineOptions({
   name: "orderOne",
 });

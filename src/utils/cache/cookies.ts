@@ -70,3 +70,14 @@ export const getBizStorage = ()=>{
 export const removeBizStorage = ()=>{
     return window.localStorage.removeItem('biz')
 }
+export const setInviteCodeStorage = (value: string)=>{
+    return window.localStorage.setItem('inviteCode',value)
+}
+
+export const getInviteCodeStorage = ()=>{
+    return window.localStorage.getItem('inviteCode')
+}
+
+export const removeInviteCodeStorage = ()=>{
+    return window.localStorage.removeItem('inviteCode')
+}
