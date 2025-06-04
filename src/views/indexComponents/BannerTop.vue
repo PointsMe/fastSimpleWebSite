@@ -74,6 +74,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import { useUserStore } from '@/stores/modules/user'
 import {useCommonStore} from "@/stores/modules/common"
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart"
+import { removeInviteCodeStorage } from "@/utils/cache/cookies"
 const current = getCurrentInstance()?.appContext.config.globalProperties as any;
 // 获取路由实例
 const router = useRouter()
@@ -96,7 +97,8 @@ const loginOut = () => {
     userStore.resetUserInfo()
     shoppingCartStore.resetCart()
     shoppingCartStore.resetOrderId()
-    userStore.resetBiz()
+    removeInviteCodeStorage();
+    // userStore.resetBiz()
     router.push(`/module/login`)
 }
 const toMyOrder = ()=> {

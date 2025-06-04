@@ -329,6 +329,7 @@ import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
 import { hotGoodsId, posGoodsId } from "@/http/config";
+import { getInviteCodeStorage } from "@/utils/cache/cookies"
 const isShowPos = ref(false);
 const userStore = useUserStore();
 const shoppingCartStore = useShoppingCartStore();
@@ -474,7 +475,7 @@ const precreateFn = async () => {
   });
   orderList.value = res.data;
 };
-const inviteCode = ref("");
+const inviteCode = ref(getInviteCodeStorage() || "");
 const orderList = ref<any>({
   netAmount: 0,
   taxAmount: 0,

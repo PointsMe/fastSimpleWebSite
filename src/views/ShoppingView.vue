@@ -1,10 +1,13 @@
 <template>
   <div class="shop-view">
     <div class="top">
-      <p>{{ $t('shopping.title') }}</p>
+      <p>{{ $t("shopping.title") }}</p>
       <span v-if="!userStore.token">
-        {{ $t('shopping.membershipPromotion') }}
-        <span style="color: #fed15f;cursor: pointer;" @click="goRegister">{{ $t('shopping.registerNow') }}</span>&nbsp;&nbsp;&nbsp;
+        {{ $t("shopping.membershipPromotion") }}
+        <span style="color: #fed15f; cursor: pointer" @click="goRegister">{{
+          $t("shopping.registerNow")
+        }}</span
+        >&nbsp;&nbsp;&nbsp;
         <el-icon class="icon-right-shop">
           <Right />
         </el-icon>
@@ -16,36 +19,42 @@
 </template>
 <script setup lang="ts">
 // import ShoppingIndex from '@/views/shoppingComponents/ShoppingIndex.vue'
-import ShoppingNewIndex from '@/views/shoppingComponents/ShoppingNewIndex.vue'
-import { useUserStore } from '@/stores/modules/user'
-import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
-import {
-  Right,
-} from '@element-plus/icons-vue'
-import { useRouter } from 'vue-router'
-import { useCommonStore } from '@/stores/modules/common'
-import {onUnmounted} from "vue"
+import ShoppingNewIndex from "@/views/shoppingComponents/ShoppingNewIndex.vue";
+import { setInviteCodeStorage } from "@/utils/cache/cookies";
+import { useUserStore } from "@/stores/modules/user";
+import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { useCommonStore } from "@/stores/modules/common";
+import { Right } from "@element-plus/icons-vue";
+import { useRouter } from "vue-router";
+import { onUnmounted } from "vue";
+const commonStore = useCommonStore();
 defineOptions({
-  name: 'shoppingView'
-})
-const commonStore = useCommonStore()
-onUnmounted(()=>{
+  name: "shoppingView",
+});
+onUnmounted(() => {
   // window.localStorage.setItem("shoppingTab","1001");
-  shoppingCartStore.resetTabId()
-})
-const shoppingCartStore = useShoppingCartStore()
-const userStore = useUserStore()
-const router = useRouter()
+  shoppingCartStore.resetTabId();
+});
+const shoppingCartStore = useShoppingCartStore();
+const userStore = useUserStore();
+const router = useRouter();
 const goRegister = () => {
-  commonStore.setShowRegisterModal(true)
+  commonStore.setShowRegisterModal(true);
   // router.push('/module/register')
-}
-onMounted(()=>{
-  if(!userStore.token){
-    commonStore.setShowLoginModal(true)
-    // router.push('/module/login')
+};
+onMounted(() => {
+  const str = router.currentRoute.value?.query?.inviteCode as string;
+  if (str) {
+    setInviteCodeStorage(str);
+    if (userStore.token) {
+      router.replace("/shopping");
+    }
   }
-})
+  if (!userStore.token) {
+      commonStore.setShowLoginModal(true);
+      // router.push('/module/login')
+    }
+});
 </script>
 <style scoped lang="less">
 .shop-view {
@@ -93,13 +102,13 @@ onMounted(()=>{
       }
     }
     > span::after {
-        content: ''; /* 创建伪元素 */
-        position: absolute; /* 绝对定位 */
-        left: 0; /* 与原始元素左对齐 */
-        bottom: 0; /* 与原始元素底部对齐 */
-        width: 100%; /* 宽度为100%，即与原始元素相同 */
-        height: 1px; /* 下划线的高度 */
-        background-color: #ffffff; /* 下划线的颜色 */
+      content: ""; /* 创建伪元素 */
+      position: absolute; /* 绝对定位 */
+      left: 0; /* 与原始元素左对齐 */
+      bottom: 0; /* 与原始元素底部对齐 */
+      width: 100%; /* 宽度为100%，即与原始元素相同 */
+      height: 1px; /* 下划线的高度 */
+      background-color: #ffffff; /* 下划线的颜色 */
     }
   }
 }

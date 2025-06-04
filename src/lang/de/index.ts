@@ -439,7 +439,11 @@ export default {
         spain: "Spanien",
         wechat: "WeChat",
         copyright: "Copyright © 2024 FastSimple By Yine Srl, Alle Rechte vorbehalten",
-        terms: "Bedingungen"
+        terms: "Bedingungen",
+        privacy: 'Nutzungsbedingungen',
+        cookie: 'Cookie-Richtlinie',
+        sitemap: 'Datenschutzerklärung',
+            aiService: 'KI-Technologiedienstleistungen'
     },
     shopping: {
         title: "Vorteilsshop",

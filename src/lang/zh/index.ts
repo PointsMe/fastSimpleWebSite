@@ -444,7 +444,11 @@ bannerOne: {
     spain:'西班牙',
     wechat: "微信",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, 版权所有",
-    terms: "Termini"
+    terms: "Termini",
+    privacy:'用户条例',
+    cookie:'cookies条例',
+    sitemap: '隐私条例',
+    aiService: '人工智能技术服务'
   },
   shopping: {
     title: "优惠商城",
