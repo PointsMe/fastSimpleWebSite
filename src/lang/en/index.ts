@@ -264,7 +264,11 @@ bannerOne: {
     spain: "Spain",
     wechat: "WeChat",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, All Rights Reserved",
-    terms: "Terms"
+    terms: "Terms",
+    privacy: 'User Policy',
+    cookie: 'Cookie Policy',
+    sitemap: 'Privacy Policy',
+        aiService: 'AI Technical Services'
   },
   shopping: {
     title: "Discount Mall",

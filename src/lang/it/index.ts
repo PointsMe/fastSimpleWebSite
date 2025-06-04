@@ -260,7 +260,11 @@ export default {
     spain: "Spagna",
     wechat: "WeChat",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, Tutti i diritti riservati",
-    terms: "Termini"
+    terms: "Termini",
+    privacy: "Privacy",
+    cookie: "Cookie",
+    sitemap: "Mappa del sito",
+    aiService: 'Servizi Tecnologici di Intelligenza Artificiale'
   },
   shopping: {
     title: "Negozio sconti",
