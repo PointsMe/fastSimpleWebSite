@@ -5,14 +5,21 @@
         <div class="content-list-left">
           <div class="left-1" v-if="response1 && response1.hardwares.length > 0">
             <div class="title-1">
-              <span>硬件</span>
+              <span>{{ $t("shopping.addHardware") }}</span>
               <span></span>
             </div>
             <el-row class="row-1 row-b" :gutter="24">
               <el-col :span="8" v-for="(item, index) in response1.hardwares" :key="index">
                 <div class="new-con">
                   <div class="img-div">
-                    <img :src="item.imageUrl" alt="" />
+                    <img v-if="item.imageUrl" :src="item.imageUrl" alt="" />
+                    <el-image v-else>
+                      <template #error>
+                        <div class="image-slot">
+                          <el-icon><Picture /></el-icon>
+                        </div>
+                      </template>
+                    </el-image>
                   </div>
                   <div class="padding-10">
                     <p>
@@ -71,7 +78,7 @@
           </div>
           <div class="left-2" v-if="response1 && response1.softwares.length > 0">
             <div class="title-1">
-              <span>软件</span>
+              <span>{{ $t("shopping.addSoft") }}</span>
               <span></span>
             </div>
             <div v-for="(item, index) in response1.softwares" :key="index">
@@ -139,7 +146,7 @@
           </div>
           <div class="left-3" v-if="response1 && response1.services.length > 0">
             <div class="title-1">
-              <span>其他服务</span>
+              <span>{{ $t("shopping.otherServer") }}</span>
               <span class="width-100"></span>
             </div>
             <div
@@ -419,15 +426,17 @@ import ShowTipsHot from "./ShowTipsHot.vue";
 import ShowTips from "./ShowTips.vue";
 import JoinUs from "./JoinUs.vue";
 import ParentsInvoiceCheckbox from "./ParentsInvoiceCheckbox.vue";
-import { ArrowRightBold, ArrowDownBold, QuestionFilled } from "@element-plus/icons-vue";
+import { ArrowRightBold, ArrowDownBold, Picture } from "@element-plus/icons-vue";
 import { getProductSoftwaresApi, precreateApi, getProductAllApi } from "@/apis/goods";
 import { useUserStore } from "@/stores/modules/user";
 import { hotGoodsId, posGoodsId } from "@/http/config";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { useCommonStore } from "@/stores/modules/common";
 defineOptions({
   name: "orderTwo",
 });
 const emits = defineEmits(["toPay"]);
+const commonStore = useCommonStore();
 const response1 = ref();
 const isShowPos = ref(true);
 const ShowTipsRef = ref();
@@ -492,13 +501,27 @@ const toPay = async () => {
   }
 };
 onMounted(() => {
-  const tabThreeShowWare = shoppingCartStore.tabThreeShowWare
+  const tabThreeShowWare = shoppingCartStore.tabThreeShowWare;
   if (tabThreeShowWare) {
     getData();
   } else {
     getData1();
   }
 });
+watch(
+  () => commonStore.language,
+  (val) => {
+    const tabThreeShowWare = shoppingCartStore.tabThreeShowWare;
+    if (tabThreeShowWare) {
+      getData();
+    } else {
+      getData1();
+    }
+  },
+  {
+    immediate: true,
+  }
+);
 defineExpose({
   changeOrderList,
 });

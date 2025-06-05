@@ -53,7 +53,9 @@ export default {
     register: 'Registrati',
     pleaseCountry: 'Seleziona prima il prefispo!!!',
     pleaseEmail: 'Seleziona prima l\'email!!!',
-    registerSuccess: 'Registrazione completata, vai al login!!!'
+    registerSuccess: 'Registrazione completata, vai al login!!!',
+    kindName: 'Tipo di negozio',
+    pleaseInputKindName: 'Seleziona il tipo di negozio',
   },
   navigation: {
     home: 'Home',
@@ -453,7 +455,11 @@ export default {
     paySuccess: 'Pagamento riuscito',
     checkOrderDetail: 'Puoi controllare i dettagli del tuo ordine nella sezione "I miei ordini"',
     viewOrder: 'Vedi ordine',
-    confirm: 'Conferma'
+    confirm: 'Conferma',
+    addServer: 'Aggiungi servizio',
+    addSoft: 'Software',
+    addHardware: 'Hardware',
+    otherServer: 'Altri servizi'
   },
   serverView: {
     ourServices: "I nostri servizi",
@@ -712,5 +718,6 @@ export default {
   codeVerifyTitle: 'Codice di verifica',
   verifyFinish: 'Verifica completata',
   verifyError: 'Verifica fallita',
-  explainWord: 'Scorri il blocco per completare la verifica'
+  explainWord: 'Scorri il blocco per completare la verifica',
+  all: 'Tutti'
 }

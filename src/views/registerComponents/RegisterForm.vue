@@ -215,9 +215,9 @@ const formRules = computed(() => {
         trigger: "blur",
       },
     ],
-    // storeName: [
-    //     { required: true, message: i18n.global.t('aboutLogin.pleaseInputStoreName'), trigger: 'blur' },
-    // ],
+    kind: [
+        { required: true, message: i18n.global.t('aboutLogin.pleaseInputKindName'), trigger: 'change' },
+    ],
     phoneAccount: [
       {
         required: true,

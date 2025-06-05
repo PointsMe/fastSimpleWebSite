@@ -53,7 +53,9 @@ export default {
         register: 'Register',
         pleaseCountry: 'Please select a country code first!!!',
         pleaseEmail: 'Please select an email first!!!',
-        registerSuccess: 'Registration successful, redirecting to login!!!'
+        registerSuccess: 'Registration successful, redirecting to login!!!',
+        kindName: 'Store Type',     
+        pleaseInputKindName: 'Please select your store type',
     },
     // Add to the existing export default object
 navigation: {
@@ -430,7 +432,11 @@ bannerOne: {
     paySuccess: 'Payment successful',
     checkOrderDetail: 'You can check the details of your order in the "My Orders" section',
     viewOrder: 'View order',
-    confirm: 'Confirm'
+    confirm: 'Confirm',
+    addServer: 'Add Service',
+    addSoft: 'Software',
+    addHardware: 'Hardware',
+    otherServer: 'Other Services'
   },
   serverView: {
     ourServices: "Our Services",
@@ -690,5 +696,6 @@ bannerOne: {
   codeVerifyTitle: 'Verification Code',
   verifyFinish: 'Verification successful',
   verifyError: 'Verification failed',
-  explainWord: 'Slide the block to complete the verification'
+  explainWord: 'Slide the block to complete the verification',
+    all: 'All'
 }

@@ -53,7 +53,10 @@ export default {
         register: '注册',
         pleaseCountry:'请先选择区号！！！',
         pleaseEmail:'请先选择邮箱！！！',
-        registerSuccess: '注册成功，即将前往登录！！！'
+        registerSuccess: '注册成功，即将前往登录！！！',
+
+        kindName: '门店类型',
+        pleaseInputKindName:'请选择您的门店类型',
 
     },
     navigation: {
@@ -458,7 +461,12 @@ bannerOne: {
     paySuccess: '支付成功',
     checkOrderDetail: '可前往"我的订单"中查看详情',
     viewOrder: '查看订单',
-    confirm: '确认'
+    confirm: '确认',
+    addServer: '服务加购',
+    addSoft: '软件',
+    addHardware: '硬件',
+    otherServer: '其他服务'
+
   },
   serverView: {
     ourServices: "我们的服务",
@@ -719,5 +727,6 @@ bannerOne: {
 codeVerifyTitle: '验证码',
 verifyFinish: '验证成功',
 verifyError: '验证失败',
-explainWord: '向右滑动滑块以完成验证'
+explainWord: '向右滑动滑块以完成验证',
+all: '所有'
 }

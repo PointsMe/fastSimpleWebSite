@@ -53,7 +53,9 @@ export default {
         register: 'Registrieren',
         pleaseCountry:'Bitte wählen Sie zuerst die Vorwahl!',
         pleaseEmail:'Bitte wählen Sie zuerst die E-Mail!',
-        registerSuccess: 'Registrierung erfolgreich, Sie werden zum Login weitergeleitet!'
+        registerSuccess: 'Registrierung erfolgreich, Sie werden zum Login weitergeleitet!',
+        kindName: 'Geschäftstyp',
+        pleaseInputKindName:'Bitte wählen Sie Ihren Geschäftstyp',
     },
     navigation: {
         home: 'Startseite',
@@ -453,7 +455,11 @@ export default {
         paySuccess: 'Zahlung erfolgreich',
         checkOrderDetail: 'Sie können die Details Ihrer Bestellung in der "Meine Bestellungen" -Sektion überprüfen',
         viewOrder: 'Bestellung ansehen',
-        confirm: 'Bestätigen'
+        confirm: 'Bestätigen',
+        addServer: 'Dienstleistung hinzufügen',
+        addSoft: 'Software',
+        addHardware: 'Hardware',
+        otherServer: 'Weitere Dienstleistungen'
     },
     serverView: {
         ourServices: "Unsere Dienstleistungen",
@@ -713,5 +719,6 @@ export default {
     codeVerifyTitle: 'Einladungscodesprache',
     verifyFinish: 'Einladungscodesprache',
     verifyError: 'Einladungscodesprache',
-    explainWord: 'Scorri den Block nach rechts, um die Überprüfung zu erfolgreich abzuschließen'
+    explainWord: 'Scorri den Block nach rechts, um die Überprüfung zu erfolgreich abzuschließen',
+      all: 'Alle'
 }
