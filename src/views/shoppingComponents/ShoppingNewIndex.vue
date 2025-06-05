@@ -28,7 +28,7 @@
       <div class="tab-content">
         <div v-for="(item, index) in tabArr" :key="index">
           <OrderOne v-if="!index && item.checked" :id="item.id" @toPay="toPayDrawer" />
-          <OrderTwo
+          <!-- <OrderTwo
             v-if="index === 1 && item.checked"
             :id="item.id"
             @toPay="toPayDrawer"
@@ -37,9 +37,9 @@
             v-if="index === 2 && item.checked"
             :id="item.id"
             @toPay="toPayDrawer"
-          />
+          /> -->
           <OrderThree
-            v-if="index === 3 && item.checked"
+            v-if="index === 1 && item.checked"
             :id="item.id"
             @toPay="toPayDrawer"
           />
@@ -142,7 +142,7 @@ const getData = async () => {
       };
     });
     console.log("list.contact(hardwareSelection)", list);
-    // list.push(hardwareSelection);
+    list.push(hardwareSelection);
     list.forEach((element: any, index: number) => {
       if (shoppingCartStore.tabId) {
         if (element.id === shoppingCartStore.tabId) {

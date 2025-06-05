@@ -3,7 +3,7 @@
     <el-row :gutter="6" class="row-list">
       <el-col :span="16" class="left">
         <div class="content-list-left">
-          <div class="left-1" v-if="response1 && response1.hardwares">
+          <div class="left-1" v-if="response1 && response1.hardwares.length > 0">
             <div class="title-1">
               <span>硬件</span>
               <span></span>
@@ -69,7 +69,7 @@
               <!-- <el-col :span="24" class="margin-5"></el-col> -->
             </el-row>
           </div>
-          <div class="left-2" v-if="response1 && response1.softwares">
+          <div class="left-2" v-if="response1 && response1.softwares.length > 0">
             <div class="title-1">
               <span>软件</span>
               <span></span>
@@ -137,7 +137,7 @@
               </el-row>
             </div>
           </div>
-          <div class="left-3" v-if="response1 && response1.services">
+          <div class="left-3" v-if="response1 && response1.services.length > 0">
             <div class="title-1">
               <span>其他服务</span>
               <span class="width-100"></span>
