@@ -16,14 +16,6 @@ export const emailFormStep1 =     [
     {
         span: 24,
         label: '',
-        value: 'kind',
-        type: 'select',
-        optionsData: kindList,
-        placeholder: 'aboutLogin.kindName',
-    },
-    {
-        span: 24,
-        label: '',
         value: 'name',
         type: 'input',
         placeholder: 'aboutLogin.pleaseInputName',
@@ -90,14 +82,6 @@ export const phoneFormStep1 =[
         otherStyle:{
             display: 'block'
         }
-    },
-    {
-        span: 24,
-        label: '',
-        value: 'kind',
-        type: 'select',
-        optionsData: kindList,
-        placeholder: 'aboutLogin.kindName',
     },
     {
         span: 24,
