@@ -13,10 +13,10 @@
               @click="changeTab(item.id)"
               :class="item.checked ? 'shopping-content choosed' : 'shopping-content'"
             >
-              <p :class="index + 1 === tabArr.length ? 't_c l_t_c' : 't_c'">
+              <p class="'t_c'">
                 {{ item.subtitle }}
               </p>
-              <p class="t_d" v-if="index + 1 !== tabArr.length">
+              <p class="t_d">
                 {{ item.name }}
                 <span
                   v-if="item.id === '1001' && shoppingCartStore.cart.items.find((it:any)=>it.itemId === hotGoodsId.id)?.count === 5"
@@ -76,8 +76,8 @@ defineOptions({
 const router = useRouter();
 const hardwareSelection = {
   id: "1003",
-  name: "All",
-  subtitle: "所有",
+  name: "所有",
+  subtitle: "",
   span: 3,
   checked: false,
 };
@@ -117,6 +117,7 @@ const changeTab = (val: string) => {
   if (tabArr.value.find((iv) => iv.checked)?.id === val) {
     return false;
   }
+  shoppingCartStore.resetTabThreeShowWare()
   shoppingCartStore.resetCart();
   console.log("====changeTab>", tabArr.value);
   tabArr.value = tabArr.value.map((item) => {
@@ -223,8 +224,8 @@ defineExpose({
             color: #fed15f !important;
           }
           .l_t_c {
-            height: 100%;
-            line-height: 3;
+            // height: 100%;
+            // line-height: 3;
           }
 
           .t_d {
@@ -250,7 +251,7 @@ defineExpose({
           position: relative;
           background-color: #ffffff;
           text-align: center;
-          padding: 26px 0;
+          padding: 16px 0;
           cursor: pointer;
           height: 100%;
 

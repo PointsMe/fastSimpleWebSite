@@ -71,4 +71,10 @@ export function getProductAllApi() {
     method: "post",
   })
 }
+export function getProductSoftwaresApi() {
+  return request<ApiResponseData<any>>({
+    url: `/product/softwares`,
+    method: "post",
+  })
+}
 

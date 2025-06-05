@@ -140,9 +140,13 @@
           <div class="left-3" v-if="response1 && response1.services">
             <div class="title-1">
               <span>其他服务</span>
-              <span class=" width-100"></span>
+              <span class="width-100"></span>
             </div>
-            <div class="content-list-a" v-for="(item, index) in response1.services" :key="index">
+            <div
+              class="content-list-a"
+              v-for="(item, index) in response1.services"
+              :key="index"
+            >
               <div
                 :class="
                   item.skus[0].id === posGoodsId.id
@@ -405,8 +409,8 @@
     </el-row>
   </div>
   <JoinUs ref="JoinUsFnRef" />
-    <ShowTips ref="ShowTipsRef" />
-    <ShowTipsHot ref="ShowTipsHotRef" />
+  <ShowTips ref="ShowTipsRef" />
+  <ShowTipsHot ref="ShowTipsHotRef" />
 </template>
 <script setup lang="ts">
 import AddNum from "./AddNum.vue";
@@ -416,7 +420,7 @@ import ShowTips from "./ShowTips.vue";
 import JoinUs from "./JoinUs.vue";
 import ParentsInvoiceCheckbox from "./ParentsInvoiceCheckbox.vue";
 import { ArrowRightBold, ArrowDownBold, QuestionFilled } from "@element-plus/icons-vue";
-import { getHardwareListApi, precreateApi, getProductAllApi } from "@/apis/goods";
+import { getProductSoftwaresApi, precreateApi, getProductAllApi } from "@/apis/goods";
 import { useUserStore } from "@/stores/modules/user";
 import { hotGoodsId, posGoodsId } from "@/http/config";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
@@ -424,17 +428,23 @@ defineOptions({
   name: "orderTwo",
 });
 const emits = defineEmits(["toPay"]);
-const response = ref();
 const response1 = ref();
 const isShowPos = ref(true);
 const ShowTipsRef = ref();
 const ShowTipsHotRef = ref();
 const userStore = useUserStore();
+const router = useRouter();
 const shoppingCartStore = useShoppingCartStore();
-const inviteCode = ref("");
 const getData = async () => {
-  const { data } = await getHardwareListApi();
-  response.value = data;
+  const { data } = await getProductSoftwaresApi();
+  data.softwares = data.map((item: any) => {
+    return {
+      ...item,
+      maxSelectCount: 1,
+      minSelectCount: 0,
+    };
+  });
+  response1.value = data;
 };
 const getData1 = async () => {
   const { data } = await getProductAllApi();
@@ -482,8 +492,12 @@ const toPay = async () => {
   }
 };
 onMounted(() => {
-  getData();
-  getData1();
+  const tabThreeShowWare = shoppingCartStore.tabThreeShowWare
+  if (tabThreeShowWare) {
+    getData();
+  } else {
+    getData1();
+  }
 });
 defineExpose({
   changeOrderList,
@@ -492,128 +506,128 @@ defineExpose({
 <style scoped lang="less">
 .order-one {
   .content-list-a {
-      margin-top: 5px;
-      background-color: #ffffff;
-      border-radius: 6px;
-      .current-one {
-        padding: 30px;
-      }
-      .pos-bg-class-padding {
-        // background-color: rgb(144, 215, 214);
-      }
-      .pos-bg-class {
-        height: 578px;
-        width: 100%;
-        background-image: url("@/assets/fastsImages/pos-bg.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        .pos-div-content {
-          font-family: Source Han Sans SC, Source Han Sans SC;
-          font-weight: 400;
-          font-size: 12px;
-          color: #124c45;
-          margin-left: 50%;
-        }
-      }
-      .tips-text {
-        font-family: DIN, DIN;
-        font-weight: 500;
-        font-size: 12px;
-        color: #646464;
-      }
-      .g-b {
+    margin-top: 5px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    .current-one {
+      padding: 30px;
+    }
+    .pos-bg-class-padding {
+      // background-color: rgb(144, 215, 214);
+    }
+    .pos-bg-class {
+      height: 578px;
+      width: 100%;
+      background-image: url("@/assets/fastsImages/pos-bg.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      .pos-div-content {
         font-family: Source Han Sans SC, Source Han Sans SC;
-        font-weight: 500;
-        font-size: 14px;
-        color: #646464;
+        font-weight: 400;
+        font-size: 12px;
+        color: #124c45;
+        margin-left: 50%;
+      }
+    }
+    .tips-text {
+      font-family: DIN, DIN;
+      font-weight: 500;
+      font-size: 12px;
+      color: #646464;
+    }
+    .g-b {
+      font-family: Source Han Sans SC, Source Han Sans SC;
+      font-weight: 500;
+      font-size: 14px;
+      color: #646464;
 
-        .c-b {
-          .mon {
-            font-family: DIN, DIN;
-            font-weight: 500;
-            font-size: 18px;
-            color: #999999;
-          }
+      .c-b {
+        .mon {
+          font-family: DIN, DIN;
+          font-weight: 500;
+          font-size: 18px;
+          color: #999999;
         }
       }
+    }
 
-      .title-b {
+    .title-b {
+      font-family: Source Han Sans SC, Source Han Sans SC;
+      font-weight: 500;
+      font-size: 16px;
+      color: #1b1b1b;
+    }
+
+    .tips {
+      font-family: Source Han Sans SC, Source Han Sans SC;
+      font-weight: 400 !important;
+      font-size: 14px !important;
+      color: #999999;
+    }
+
+    .left {
+      .left-i-a {
         font-family: Source Han Sans SC, Source Han Sans SC;
         font-weight: 500;
         font-size: 16px;
         color: #1b1b1b;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        > span {
+          display: inline-block;
+        }
+        .margin-left-ico {
+          margin-left: 10px;
+        }
+        .sub-left-i-a {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .right {
+      .oragin {
+        color: #fdb522;
       }
 
-      .tips {
-        font-family: Source Han Sans SC, Source Han Sans SC;
-        font-weight: 400 !important;
-        font-size: 14px !important;
+      .grey {
         color: #999999;
       }
 
-      .left {
-        .left-i-a {
-          font-family: Source Han Sans SC, Source Han Sans SC;
-          font-weight: 500;
-          font-size: 16px;
-          color: #1b1b1b;
-          display: flex;
-          align-items: center;
-          justify-content: left;
-          > span {
-            display: inline-block;
-          }
-          .margin-left-ico {
-            margin-left: 10px;
-          }
-          .sub-left-i-a {
-            font-size: 13px;
-          }
-        }
-      }
+      .num-div {
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-weight: 500;
+        font-size: 14px;
+        color: #646464;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding-right: 102px;
 
-      .right {
         .oragin {
           color: #fdb522;
         }
 
-        .grey {
+        > span {
+          font-family: DIN, DIN;
+          font-weight: 500;
+          font-size: 18px;
           color: #999999;
         }
+      }
 
-        .num-div {
+      .radio-common {
+        .radio-con {
           font-family: Source Han Sans SC, Source Han Sans SC;
           font-weight: 500;
           font-size: 14px;
           color: #646464;
-          position: relative;
-          width: 100%;
-          height: 100%;
-          padding-right: 102px;
-
-          .oragin {
-            color: #fdb522;
-          }
-
-          > span {
-            font-family: DIN, DIN;
-            font-weight: 500;
-            font-size: 18px;
-            color: #999999;
-          }
-        }
-
-        .radio-common {
-          .radio-con {
-            font-family: Source Han Sans SC, Source Han Sans SC;
-            font-weight: 500;
-            font-size: 14px;
-            color: #646464;
-          }
         }
       }
     }
+  }
   .el-white {
     background-color: #ffffff;
     margin-top: 10px;
@@ -638,11 +652,13 @@ defineExpose({
     .content-list,
     .content-list-right {
       height: 100%; // 确保内容容器占满高度
+      min-height: 600px;
     }
 
     .content-list,
     .content-list-left {
       height: 100%; // 确保内容容器占满高度
+      min-height: 600px;
     }
 
     .content-list-right {
@@ -805,11 +821,11 @@ defineExpose({
           font-family: Source Han Sans SC, Source Han Sans SC;
           font-weight: 500;
           margin-bottom: 10px;
-          border-bottom: 1px solid #1a1a1a;
+          border-bottom: 1px solid #b1b1b1;
           height: 40px;
           line-height: 40px;
           position: relative;
-         
+
           > span {
             display: block;
           }
@@ -827,7 +843,7 @@ defineExpose({
             z-index: 1;
             background-color: #fed15f;
           }
-          .width-100{
+          .width-100 {
             width: 60px !important;
           }
         }

@@ -382,7 +382,7 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["toPay"]);
-const isShowPos = ref(true);
+const isShowPos = ref(false);
 const inviteCode = ref(getInviteCodeStorage() || "");
 defineOptions({
   name: "orderOne",
