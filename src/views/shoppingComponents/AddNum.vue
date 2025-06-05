@@ -54,7 +54,7 @@ const props = defineProps({
     required: false,
   },
   radioPackage: {
-    type: String,
+    type: Array<any>,
     required: false,
   },
 });

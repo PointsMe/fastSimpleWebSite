@@ -4,19 +4,18 @@
       <div class="shopping-tab">
         <el-row>
           <el-col
-            :span="12"
             class="shopping-col"
             v-for="(item, index) in tabArr"
+            :span="item.span"
             :key="index"
           >
             <div
               @click="changeTab(item.id)"
               :class="item.checked ? 'shopping-content choosed' : 'shopping-content'"
             >
-             
-              <!-- <p :class="index + 1 === tabArr.length ? 't_c l_t_c' : 't_c'">
+              <p class="'t_c'">
                 {{ item.subtitle }}
-              </p> -->
+              </p>
               <p class="t_d">
                 {{ item.name }}
                 <!-- <span v-if="item.id === '1001' && shoppingCartStore.cart.items.find((it:any)=>it.itemId === hotGoodsId.id)?.count === 5">({{ $t('shoppingNewIndex.completeVersion') }})</span> -->
@@ -34,8 +33,13 @@
             :id="item.id"
             @toPay="toPayDrawer"
           />
-          <OrderThree
+          <OrderFour
             v-if="index === 2 && item.checked"
+            :id="item.id"
+            @toPay="toPayDrawer"
+          />
+          <OrderThree
+            v-if="index === 3 && item.checked"
             :id="item.id"
             @toPay="toPayDrawer"
           />
@@ -52,6 +56,7 @@ import { useRouter } from "vue-router";
 import OrderOne from "./OrderOne.vue";
 import OrderTwo from "./OrderTwo.vue";
 import OrderThree from "./OrderThree.vue";
+import OrderFour from "./OrderFour.vue";
 import DrawerView from "./DrawerView.vue";
 import PayError from "./PayError.vue";
 import PaySuccess from "./PaySuccess.vue";
@@ -68,8 +73,9 @@ defineOptions({
 const router = useRouter();
 const hardwareSelection = {
   id: "1003",
-  name: "硬件选购",
-  subtitle: "硬件选购",
+  name: "所有",
+  subtitle: "",
+  span: 3,
   checked: false,
 };
 const DrawerRef = ref();
@@ -82,6 +88,7 @@ const tabArr = ref<
     name: string;
     subtitle: string;
     checked: boolean;
+    span: number;
   }>
 >([]);
 // {
@@ -104,9 +111,10 @@ const toPayDrawer = (orderList: any, inviteCode: string) => {
 };
 const changeTab = (val: string) => {
   // window.localStorage.setItem("shoppingTab",val)
-  if(tabArr.value.find(iv=> iv.checked)?.id === val){
-    return false
+  if (tabArr.value.find((iv) => iv.checked)?.id === val) {
+    return false;
   }
+  shoppingCartStore.resetTabThreeShowWare()
   shoppingCartStore.resetCart();
   console.log("====changeTab>", tabArr.value);
   tabArr.value = tabArr.value.map((item) => {
@@ -129,6 +137,7 @@ const getData = async () => {
         id: item.id,
         name: item.name,
         subtitle: item.subtitle,
+        span: 7,
         checked: shoppingCartStore.tabId === item.id ? true : false,
       };
     });
@@ -220,8 +229,8 @@ defineExpose({
             color: #387533 !important;
           }
           .l_t_c {
-            height: 100%;
-            line-height: 3;
+            // height: 100%;
+            // line-height: 3;
           }
 
           .t_d {

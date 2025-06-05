@@ -37,7 +37,7 @@
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
         </el-col>
-        <el-col :span="8" style="position: relative;">
+        <!-- <el-col :span="8" style="position: relative;">
           <div class="img-col">
             <p class="t_i">CUSTOM</p>
             <p class="s_i">€***</p>
@@ -46,7 +46,6 @@
               <el-row v-for="(itemChild,indexChild) in goodsList" :key="indexChild">
                 <el-col :span="12" v-if="indexChild < 4">
                   <div class="content-list-left">
-                    <!-- <img src="@/assets/r-1-1.png" alt="" /> -->
                     <span>{{ itemChild.name }} </span>
                   </div>
                 </el-col>
@@ -56,9 +55,8 @@
               </el-row>
             </div>
             <div class="content-list-bottom" @click="toShopping('1003')">{{ $t('bannerOne.nowBuy') }}</div>
-            <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
-        </el-col>
+        </el-col> -->
       </el-row>
     </div>
   </div>

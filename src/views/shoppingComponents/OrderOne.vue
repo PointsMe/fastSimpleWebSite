@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
-  <div class="order-one" v-if="response">
+  <div class="order-one" v-if="response" :key="id">
     <el-row :gutter="6" class="row-list">
       <el-col :span="16" class="left">
         <div class="content-list">
@@ -33,34 +33,23 @@
               </el-row>
             </el-row>
           </div>
-          <div class="list-two-i">
-            <el-radio-group v-model="radioPackage">
-              <el-row>
-                <el-col
-                  :span="12"
-                  v-for="(item, index) in response?.option?.items"
-                  :key="index"
-                >
-                  <div v-if="typeof item === 'number'" class="radio-price">
-                    <span>€{{ item }}</span>
-                  </div>
-                  <el-radio v-else :value="item?.id">{{ item?.name }}</el-radio>
-                </el-col>
-              </el-row>
-            </el-radio-group>
+          <div class="list-two-i" v-if="response.options.length > 0">
+            <div v-for="(item, index) in response.options" :key="index">
+              <ParentsGoods
+                :ref="(event) => (parentsGoodsRef[index] = event)"
+                :items="item.items || []"
+                :min-select-count="item.minSelectCount || 1"
+                :max-select-count="item.maxSelectCount || 1"
+                @changeRadioValue="changeRadioValue"
+              />
+            </div>
           </div>
           <div class="list-one-j">
             <div>
               <span>{{ $t("orderOne.normalPrice") }}</span>
-              <span class="normal" v-if="radioPackage">
-                €{{ moneyPackage.normalSellPrice }}
-              </span>
-              <span class="normal" v-else> €{{ response.sellPrice }} </span>
+              <span class="normal"> €{{ moneyPackage.normalSellPrice }} </span>
               <span class="m-f-20">{{ $t("orderOne.invitePrice") }}</span>
-              <span class="origin" v-if="radioPackage">
-                €{{ moneyPackage.vipSellPrice }}
-              </span>
-              <span class="origin" v-else> €{{ Number(response.vipPrice) }} </span>
+              <span class="origin"> €{{ moneyPackage.vipSellPrice }} </span>
               <div class="pos-abs" style="visibility: hidden">
                 <AddNum
                   :parents="{
@@ -366,6 +355,7 @@
 import AddNum from "./AddNum.vue";
 import RadioView from "./RadioView.vue";
 import InvoiceCheckbox from "./InvoiceCheckbox.vue";
+import ParentsGoods from "./ParentsGoods.vue";
 import ShowTips from "./ShowTips.vue";
 import { ArrowRightBold, ArrowDownBold, QuestionFilled } from "@element-plus/icons-vue";
 import JoinUs from "./JoinUs.vue";
@@ -392,12 +382,13 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["toPay"]);
-const isShowPos = ref(false);
+const isShowPos = ref(true);
 const inviteCode = ref(getInviteCodeStorage() || "");
 defineOptions({
   name: "orderOne",
 });
-const radioPackage = ref();
+const radioPackage = ref([]);
+const parentsGoodsRef = ref<any>([]);
 const moneyPackage = ref<any>({
   vipSellPrice: 0,
   normalSellPrice: 0,
@@ -407,24 +398,6 @@ const response: any = ref(null);
 const getData = async () => {
   if (props.id) {
     const { data } = await getGoodsDetailApi(props.id);
-    const option = data?.option?.items || [];
-    let arr: any = [];
-    console.log("arr===>", arr, option.length);
-    for (let i = 0; i < option.length; i++) {
-      arr = arr.concat([
-        {
-          id: option[i]?.id,
-          name: option[i]?.name,
-          price: option[i]?.price,
-        },
-        option[i]?.price,
-      ]);
-    }
-    console.log("arr===>", arr, option);
-    if (option.length > 0) {
-      data.option.items = arr;
-      radioPackage.value = data?.option?.items[0].id;
-    }
     response.value = data;
   }
 };
@@ -433,13 +406,13 @@ const precreateFn = async () => {
   params.type = 102;
   const current = params.items.find((iv) => iv.type === 119);
   if (current) {
-    current.optionIds = radioPackage.value ? [radioPackage.value] : null;
+    current.optionIds = radioPackage.value ? radioPackage.value : null;
   } else {
     params.items.push({
       type: 119,
       itemId: response.value?.id,
       count: 1,
-      optionIds: radioPackage.value ? [radioPackage.value] : null,
+      optionIds: radioPackage.value ? radioPackage.value : null,
     });
   }
   shoppingCartStore.setCart(params);
@@ -522,35 +495,95 @@ const toPay = async () => {
     ElMessage.warning(i18n.global.t("orderOne.pleaseSelectPackage"));
   }
 };
+const changeRadioValue = (data: any) => {
+  console.log("changeRadioValue==>", data.value, data.items);
+  if (radioPackage.value.length > 0) {
+    const ids = data.items.map((iv: any) => iv.id).filter((it: any) => it !== data.value);
+    radioPackage.value.map((iv: any) => {
+      if (ids.includes(iv)) {
+        //@ts-ignore
+        radioPackage.value.splice(radioPackage.value.indexOf(iv), 1);
+      }
+    });
+    const arr = radioPackage.value.concat(data.value);
+    const uniqueArr = Array.from(new Set(arr));
+    radioPackage.value = uniqueArr;
+  } else {
+    //@ts-ignore
+    data.value && (radioPackage.value = [data.value]);
+    console.log("radioPackage.value===>", radioPackage.value);
+  }
+  //@ts-ignore
+  const arr = response.value.options.map((iv: any) => iv.items).flat().filter((iv: any) => radioPackage.value.includes(iv?.id));
+  let num = 0;
+  arr.map((iv: any) => {
+    num = num + Number(iv.price);
+  });
+  const price = Number(response.value.sellPrice) + num;
+  moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
+  moneyPackage.value.vipSellPrice = Number(
+    (Number(price * 100) - Number(response.value.invitePrice) * 100) / 100
+  ).toFixed(2);
+  precreateFn();
+};
 onMounted(() => {
   getData();
 });
-
 watch(
-  () => radioPackage.value,
+  () => response.value,
   (val) => {
     if (val) {
-      const price =
-        Number(response.value.sellPrice) +
-        Number(response.value.option.items.find((iv: any) => iv.id === val).price);
-      console.log("price===>", price);
-      moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
-      moneyPackage.value.vipSellPrice = Number(
-        (Number(price * 100) - Number(response.value.invitePrice) * 100) / 100
-      ).toFixed(2);
-      precreateFn();
+      setTimeout(() => {
+        if (parentsGoodsRef.value.length > 0) {
+          parentsGoodsRef.value.map((iv: any) => {
+            radioPackage.value = radioPackage.value.concat(iv.radioPackage);
+          });
+        }
+        let options: any = [];
+        val.options.map((iv: any) => {
+          options = options.concat(iv.items);
+        });
+
+        let price = Number(val.sellPrice);
+        if (radioPackage.value.length > 0) {
+          radioPackage.value.map((iv: any) => {
+            price = price + Number(options.find((it: any) => it.id === iv)?.price || 0);
+          });
+        }
+        console.log("options===>", options, val.options, parentsGoodsRef.value, price);
+        moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
+        moneyPackage.value.vipSellPrice = Number(
+          (Number(price * 100) - Number(val.invitePrice) * 100) / 100
+        ).toFixed(2);
+        precreateFn();
+      }, 10);
     }
   },
   {
     immediate: true,
   }
 );
-watch(
-  ()=> userStore.token,
-  ()=>{
-    getData();
-  }
-)
+// watch(
+//   ()=> userStore.token,
+//   ()=>{
+//     getData();
+//   }
+// )
+// watch(
+//   ()=> response.value,
+//   (val)=>{
+//     if(val){
+//       const price =
+//       Number(val.sellPrice);
+//       console.log("==radioPackage.value==",radioPackage.value,price,val.invitePrice)
+//       moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
+//       moneyPackage.value.vipSellPrice = Number(
+//         (Number(price * 100) - Number(val.invitePrice) * 100) / 100
+//       ).toFixed(2);
+//       precreateFn();
+//     }
+//   }
+// )
 defineExpose({
   joinUsFn,
   changeOrderList,
@@ -657,6 +690,7 @@ defineExpose({
 
       .all-order {
         height: calc(100% - 350px);
+        // min-height: 800px;
         max-height: calc(100% - 350px);
         overflow-y: auto;
         color: #387533;

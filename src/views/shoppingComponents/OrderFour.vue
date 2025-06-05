@@ -125,7 +125,7 @@
                     :key="chilIndex"
                   >
                     <div class="num-div" v-if="item.maxSelectCount > 2">
-                      <span v-if="itemChil.spec"
+                      <span v-if="itemChil.spec" style="color: #fdb522"
                         >({{ itemChil.spec }})</span
                       >
                       <span v-if="itemChil.value">{{ itemChil.value }}</span>
@@ -382,7 +382,7 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["toPay"]);
-const isShowPos = ref(true);
+const isShowPos = ref(false);
 const inviteCode = ref(getInviteCodeStorage() || "");
 defineOptions({
   name: "orderOne",
@@ -562,14 +562,7 @@ watch(
   {
     immediate: true,
   }
- )
-//  watch(
-//   ()=> userStore.token,
-//   ()=>{
-//     getData();
-//   }
-// )
-// );
+);
 // watch(
 //   ()=> response.value,
 //   (val)=>{
@@ -622,14 +615,6 @@ defineExpose({
         bottom: 0;
         left: 0;
         padding: 0px 30px 30px 30px;
-        color: #387533;
-        :deep(.el-input__wrapper){
-          box-shadow:  none;
-          border: 1px solid #387533;
-          .el-input__inner{
-            color: #387533 !important;
-          }
-        }
         .order-btn-row {
           font-size: 16px;
           .left-i-sub {
@@ -662,7 +647,7 @@ defineExpose({
           font-family: Source Han Sans SC, Source Han Sans SC;
           font-weight: 400;
           font-size: 16px;
-          // color: #1b1b1b;
+          color: #1b1b1b;
           position: relative;
 
           .word {
@@ -671,7 +656,7 @@ defineExpose({
             left: 0;
             .word-1 {
               font-size: 14px;
-              // color: #999999;
+              color: #999999;
             }
           }
         }
@@ -681,10 +666,10 @@ defineExpose({
           font-family: Inter, Inter;
           font-weight: bold;
           font-size: 48px;
-          // color: #1a1a1a;
+          color: #1a1a1a;
           .word-1 {
             font-size: 24px;
-            // color: #999999;
+            color: #999999;
           }
         }
       }
@@ -694,7 +679,6 @@ defineExpose({
         // min-height: 800px;
         max-height: calc(100% - 350px);
         overflow-y: auto;
-        color: #387533;
         .left {
           text-align: left;
           font-family: Source Han Sans SC, Source Han Sans SC;
@@ -708,7 +692,7 @@ defineExpose({
           font-family: DIN, DIN;
           font-weight: 500;
           font-size: 18px;
-          // color: #1a1a1a;
+          color: #1a1a1a;
         }
 
         .order-i {
@@ -736,12 +720,7 @@ defineExpose({
 
       .title {
         text-align: center;
-        :deep(.el-divider--horizontal){
-          border-top:1px solid #387533 !important;
-        }
-        :deep(.el-divider__text){
-          color: #387533;
-        }
+
         .col-a {
           position: relative;
 
@@ -882,7 +861,7 @@ defineExpose({
 
       .right {
         .oragin {
-          color: #387533;
+          color: #fdb522;
         }
 
         .grey {
@@ -900,14 +879,14 @@ defineExpose({
           padding-right: 102px;
 
           .oragin {
-            color: #387533;
+            color: #fdb522;
           }
 
           > span {
             font-family: DIN, DIN;
             font-weight: 500;
             font-size: 18px;
-            color: #387533;
+            color: #999999;
           }
         }
 
@@ -958,7 +937,7 @@ defineExpose({
             font-family: DIN, DIN;
             font-weight: 500;
             font-size: 18px;
-            color: #387533;
+            color: #fdb522;
           }
         }
 
