@@ -51,7 +51,9 @@ export default {
         register: 'Registrarse',
         pleaseCountry: '¡Por favor seleccione el código de país primero!',
         pleaseEmail: '¡Por favor seleccione el correo primero!',
-        registerSuccess: '¡Registro exitoso, procediendo a iniciar sesión!'
+        registerSuccess: '¡Registro exitoso, procediendo a iniciar sesión!',
+        kindName: 'Tipo de tienda',            
+        pleaseInputKindName: 'Por favor seleccione su tipo de tienda',
     },
     navigation: {
         home: 'Inicio',

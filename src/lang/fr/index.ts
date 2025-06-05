@@ -51,7 +51,9 @@ export default {
         register: 'S\'inscrire',
         pleaseCountry: 'Veuillez d\'abord sélectionner l\'indicatif !',
         pleaseEmail: 'Veuillez d\'abord sélectionner l\'email !',
-        registerSuccess: 'Inscription réussie, redirection vers la connexion !'
+        registerSuccess: 'Inscription réussie, redirection vers la connexion !',
+        kindName: 'Type de magasin',
+        pleaseInputKindName: 'Veuillez sélectionner votre type de magasin',
     },
     navigation: {
         home: 'Accueil',

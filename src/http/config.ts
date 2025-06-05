@@ -53,3 +53,17 @@ export const bizList = [
         value: '113'
     }
 ]
+export const kindList = [
+    {
+        label: '餐饮',
+        value: '11'
+    },
+    {
+        label: '商店',
+        value: '12'
+    },
+    {
+        label: '餐车',
+        value: '13'
+    }
+]

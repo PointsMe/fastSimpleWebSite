@@ -51,7 +51,9 @@ export default {
         register: 'Register',
         pleaseCountry: 'Please select a country code first!!!',
         pleaseEmail: 'Please select an email first!!!',
-        registerSuccess: 'Registration successful, redirecting to login!!!'
+        registerSuccess: 'Registration successful, redirecting to login!!!',
+        kindName: 'Store Type',     
+        pleaseInputKindName: 'Please select your store type',
     },
     // Add to the existing export default object
 navigation: {

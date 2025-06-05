@@ -51,7 +51,10 @@ export default {
         register: '注册',
         pleaseCountry:'请先选择区号！！！',
         pleaseEmail:'请先选择邮箱！！！',
-        registerSuccess: '注册成功，即将前往登录！！！'
+        registerSuccess: '注册成功，即将前往登录！！！',
+
+        kindName: '门店类型',
+        pleaseInputKindName:'请选择您的门店类型',
 
     },
     navigation: {

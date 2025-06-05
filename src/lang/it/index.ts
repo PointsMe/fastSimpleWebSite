@@ -51,7 +51,9 @@ export default {
     register: 'Registrati',
     pleaseCountry: 'Seleziona prima il prefisso!!!',
     pleaseEmail: 'Seleziona prima l\'email!!!',
-    registerSuccess: 'Registrazione completata, vai al login!!!'
+    registerSuccess: 'Registrazione completata, vai al login!!!',
+    kindName: 'Tipo di negozio',
+    pleaseInputKindName: 'Seleziona il tipo di negozio',
   },
   navigation: {
     home: 'Home',

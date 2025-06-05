@@ -51,7 +51,9 @@ export default {
         register: 'Registrieren',
         pleaseCountry:'Bitte wählen Sie zuerst die Vorwahl!',
         pleaseEmail:'Bitte wählen Sie zuerst die E-Mail!',
-        registerSuccess: 'Registrierung erfolgreich, Sie werden zum Login weitergeleitet!'
+        registerSuccess: 'Registrierung erfolgreich, Sie werden zum Login weitergeleitet!',
+        kindName: 'Geschäftstyp',
+        pleaseInputKindName:'Bitte wählen Sie Ihren Geschäftstyp',
     },
     navigation: {
         home: 'Startseite',

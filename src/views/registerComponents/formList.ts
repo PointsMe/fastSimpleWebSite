@@ -1,7 +1,15 @@
 import { useCommonStoreOutside } from "@/stores/modules/common"
-import { bizList } from "@/http/config"
+import { bizList,kindList } from "@/http/config"
 const commonStoreOutside = useCommonStoreOutside()
 export const emailFormStep1 =     [
+    {
+        span: 24,
+        label: '',
+        value: 'kind',
+        type: 'select',
+        optionsData: kindList,
+        placeholder: 'aboutLogin.kindName',
+    },
     {
         span: 24,
         label: '',
@@ -61,6 +69,14 @@ export const emailFormStep1 =     [
 
 ]
 export const phoneFormStep1 =[
+    {
+        span: 24,
+        label: '',
+        value: 'kind',
+        type: 'select',
+        optionsData: kindList,
+        placeholder: 'aboutLogin.kindName',
+    },
     {
         span: 24,
         label: '',
