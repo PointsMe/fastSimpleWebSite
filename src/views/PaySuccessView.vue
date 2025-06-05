@@ -4,13 +4,13 @@
     <div class="top-content">
       <img v-if="payStatus" src="@/assets/fastsImages/pay-suc.png" alt="" />
       <img v-else class="err-title" src="@/assets/fastsImages/pay-err.png" alt="" />
-      <p class="title" v-if="payStatus">支付成功</p>
-      <p class="title" v-else>支付失败</p>
-      <p class="sub-title">可前往“我的订单”中查看详情</p>
+      <p class="title" v-if="payStatus">{{ $t('shopping.paySuccess') }}</p>
+      <p class="title" v-else>{{ $t('shoppingCart.payError') }}</p>
+      <p class="sub-title">{{ $t('shopping.checkOrderDetail') }}</p>
       <div class="pay-btns">
-        <span v-if="payStatus" @click="checkOrder">查看订单</span>
-        <span v-else @click="checkOrder">重新支付</span>
-        <span @click="sureBtn">确认</span>
+        <span v-if="payStatus" @click="checkOrder">{{ $t('shopping.viewOrder') }}</span>
+        <span v-else @click="checkOrder">{{ $t('orderView.repay') }}</span>
+        <span @click="sureBtn">{{ $t('aboutLogin.sureBtn') }}</span>
       </div>
     </div>
     <div class="bottom-content">
@@ -18,13 +18,13 @@
         <el-row>
           <el-col :span="12">
             <div class="title-1">
-              <span>服务加购</span>
+              <span>{{ $t('shopping.addServer') }}</span>
               <span class="width-100"></span>
             </div>
           </el-col>
           <el-col :span="12">
             <div class="con">
-              <span @click="toPay">立即加购</span>
+              <span @click="toPay">{{ $t('orderOne.buyNow') }}</span>
               <el-icon><DArrowRight /></el-icon>
             </div>
           </el-col>
@@ -37,7 +37,7 @@
                 <!-- SOFATTURA套餐简要介绍SOFATTURA套餐简要介绍SOFATTURA套餐简要介绍SOFATTURA套餐简要介绍 -->
               </p>
               <div class="con">
-                <span @click="toPay">立即加购</span>
+                <span @click="toPay">{{ $t('orderOne.buyNow') }}</span>
                 <el-icon><DArrowRight /></el-icon>
               </div>
             </div>

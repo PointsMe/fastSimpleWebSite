@@ -68,15 +68,18 @@ import { getGoodsListApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { getToken } from "@/utils/cache/cookies";
 import { hotGoodsId } from "@/http/config";
+import { i18n } from "@/lang/index";
+import { useCommonStore } from "@/stores/modules/common";
 const shoppingCartStore = useShoppingCartStore();
 const userStore = useUserStore();
+const commonStore = useCommonStore();
 defineOptions({
   name: "shoppingNewIndex",
 });
 const router = useRouter();
 const hardwareSelection = {
   id: "1003",
-  name: "所有",
+  name: i18n.global.t("all"),
   subtitle: "",
   span: 3,
   checked: false,
@@ -117,7 +120,7 @@ const changeTab = (val: string) => {
   if (tabArr.value.find((iv) => iv.checked)?.id === val) {
     return false;
   }
-  shoppingCartStore.resetTabThreeShowWare()
+  shoppingCartStore.resetTabThreeShowWare();
   shoppingCartStore.resetCart();
   console.log("====changeTab>", tabArr.value);
   tabArr.value = tabArr.value.map((item) => {
@@ -145,7 +148,13 @@ const getData = async () => {
       };
     });
     console.log("list.contact(hardwareSelection)", list);
-    list.push(hardwareSelection);
+    list.push({
+      id: "1003",
+      name: i18n.global.t("all"),
+      subtitle: "",
+      span: 3,
+      checked: false,
+    });
     list.forEach((element: any, index: number) => {
       if (shoppingCartStore.tabId) {
         if (element.id === shoppingCartStore.tabId) {
@@ -165,7 +174,7 @@ const getData = async () => {
   }
 };
 
-onMounted(() => {
+const reflush = () => {
   getData().then(() => {
     console.log("onMounted=>", router.currentRoute.value.query);
     if (getToken()) {
@@ -182,7 +191,19 @@ onMounted(() => {
       }
     }
   });
+};
+onMounted(() => {
+  reflush();
 });
+watch(
+  () => commonStore.language,
+  (val) => {
+    reflush();
+  },
+  {
+    immediate: true,
+  }
+);
 defineExpose({
   toPayDrawer,
 });

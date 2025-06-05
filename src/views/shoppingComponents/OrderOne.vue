@@ -406,13 +406,13 @@ const precreateFn = async () => {
   params.type = 102;
   const current = params.items.find((iv) => iv.type === 119);
   if (current) {
-    current.optionIds = radioPackage.value ? radioPackage.value : null;
+    current.optionIds = radioPackage.value && radioPackage.value.length > 0 ? radioPackage.value : null;
   } else {
     params.items.push({
       type: 119,
       itemId: response.value?.id,
       count: 1,
-      optionIds: radioPackage.value ? radioPackage.value : null,
+      optionIds: radioPackage.value && radioPackage.value.length > 0 ? radioPackage.value : null,
     });
   }
   shoppingCartStore.setCart(params);
@@ -563,21 +563,15 @@ watch(
     immediate: true,
   }
 );
-// watch(
-//   ()=> response.value,
-//   (val)=>{
-//     if(val){
-//       const price =
-//       Number(val.sellPrice);
-//       console.log("==radioPackage.value==",radioPackage.value,price,val.invitePrice)
-//       moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
-//       moneyPackage.value.vipSellPrice = Number(
-//         (Number(price * 100) - Number(val.invitePrice) * 100) / 100
-//       ).toFixed(2);
-//       precreateFn();
-//     }
-//   }
-// )
+watch(
+  ()=> commonStore.language,
+  (val)=>{
+    getData();
+  },
+  {
+    immediate: true
+  }
+)
 defineExpose({
   joinUsFn,
   changeOrderList,

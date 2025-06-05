@@ -276,7 +276,11 @@ export default {
         paySuccess: 'Pago exitoso',
         checkOrderDetail: 'Puede verificar los detalles de su pedido en la sección "Mis pedidos"',
         viewOrder: 'Ver pedido',
-        confirm: 'Confirmar'
+        confirm: 'Confirmar',
+        addServer: 'Servicios adicionales',
+        addSoft: 'Software',
+        addHardware: 'Hardware',
+        otherServer: 'Otros servicios'
     },
     serverView: {
         ourServices: "Nuestros servicios",
@@ -541,5 +545,6 @@ export default {
     codeVerifyTitle: 'Código de verificación',
     verifyFinish: 'Verificación completada',
     verifyError: 'Verificación fallida',
-    explainWord: 'Deslice el bloque para completar la verificación'
+    explainWord: 'Deslice el bloque para completar la verificación',
+      all: 'Todos'
 }

@@ -66,11 +66,13 @@ import { DArrowRight } from "@element-plus/icons-vue";
 import { useUserStore } from "@/stores/modules/user";
 import { getGoodsListApi,getHardwareListApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { useCommonStore } from "@/stores/modules/common";
 const userStore = useUserStore();
 const shoppingCartStore = useShoppingCartStore()
 defineOptions({
   name: "bannerOne",
 });
+const commonStore = useCommonStore()
 const listData = ref<any[]>([]);
 const goodsList = ref<any[]>([]);
 const router = useRouter();
@@ -86,19 +88,23 @@ const getListData = async () => {
     biz: userStore.biz
   });
   listData.value = data;
-  return data;
 };
 const getData = async()=>{
     const {data} = await getHardwareListApi()
     goodsList.value = data
     return data;
 }
+watch(
+  ()=> commonStore.language,
+  (val)=>{
+    getListData();
+  },
+  {
+    immediate: true
+  }
+)
 onMounted(() => {
-  Promise.all([getListData(),getData()]).then(res=>{
-    console.log("onMounted==>",res);
-    listData.value = res[0];
-    goodsList.value = res[1];
-  });
+  getListData()
 });
 </script>
 <style scoped lang="less">

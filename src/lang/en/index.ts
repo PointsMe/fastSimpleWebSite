@@ -280,7 +280,11 @@ bannerOne: {
     paySuccess: 'Payment successful',
     checkOrderDetail: 'You can check the details of your order in the "My Orders" section',
     viewOrder: 'View order',
-    confirm: 'Confirm'
+    confirm: 'Confirm',
+    addServer: 'Add Service',
+    addSoft: 'Software',
+    addHardware: 'Hardware',
+    otherServer: 'Other Services'
   },
   serverView: {
     ourServices: "Our Services",
@@ -540,5 +544,6 @@ bannerOne: {
   codeVerifyTitle: 'Verification Code',
   verifyFinish: 'Verification successful',
   verifyError: 'Verification failed',
-  explainWord: 'Slide the block to complete the verification'
+  explainWord: 'Slide the block to complete the verification',
+    all: 'All'
 }
