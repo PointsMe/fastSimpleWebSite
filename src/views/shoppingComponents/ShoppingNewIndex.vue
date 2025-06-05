@@ -4,9 +4,9 @@
       <div class="shopping-tab">
         <el-row :gutter="6">
           <el-col
-            :span="8"
             class="shopping-col"
             v-for="(item, index) in tabArr"
+            :span="item.span"
             :key="index"
           >
             <div
@@ -36,8 +36,13 @@
             :id="item.id"
             @toPay="toPayDrawer"
           />
-          <OrderThree
+          <OrderFour
             v-if="index === 2 && item.checked"
+            :id="item.id"
+            @toPay="toPayDrawer"
+          />
+          <OrderThree
+            v-if="index === 3 && item.checked"
             :id="item.id"
             @toPay="toPayDrawer"
           />
@@ -54,6 +59,7 @@ import { useRouter } from "vue-router";
 import OrderOne from "./OrderOne.vue";
 import OrderTwo from "./OrderTwo.vue";
 import OrderThree from "./OrderThree.vue";
+import OrderFour from "./OrderFour.vue";
 import DrawerView from "./DrawerView.vue";
 import PayError from "./PayError.vue";
 import PaySuccess from "./PaySuccess.vue";
@@ -70,8 +76,9 @@ defineOptions({
 const router = useRouter();
 const hardwareSelection = {
   id: "1003",
-  name: "",
-  subtitle: "硬件选购",
+  name: "All",
+  subtitle: "所有",
+  span: 3,
   checked: false,
 };
 const DrawerRef = ref();
@@ -84,6 +91,7 @@ const tabArr = ref<
     name: string;
     subtitle: string;
     checked: boolean;
+    span: number;
   }>
 >([]);
 // {
@@ -106,8 +114,8 @@ const toPayDrawer = (orderList: any, inviteCode: string) => {
 };
 const changeTab = (val: string) => {
   // window.localStorage.setItem("shoppingTab",val)
-  if(tabArr.value.find(iv=> iv.checked)?.id === val){
-    return false
+  if (tabArr.value.find((iv) => iv.checked)?.id === val) {
+    return false;
   }
   shoppingCartStore.resetCart();
   console.log("====changeTab>", tabArr.value);
@@ -131,6 +139,7 @@ const getData = async () => {
         id: item.id,
         name: item.name,
         subtitle: item.subtitle,
+        span: 7,
         checked: shoppingCartStore.tabId === item.id ? true : false,
       };
     });

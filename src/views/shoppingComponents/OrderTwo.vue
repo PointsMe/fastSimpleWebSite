@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-deprecated-v-on-native-modifier -->
 <template>
-  <div class="order-two" v-if="response">
+  <div class="order-one" v-if="response" :key="id">
     <el-row :gutter="6" class="row-list">
       <el-col :span="16" class="left">
         <div class="content-list">
@@ -15,7 +15,7 @@
                     <QuestionFilled />
                   </el-icon>
                   {{
-                    $t("orderTwo.registerMember", { price: userStore.discountedPrice })
+                    $t("orderOne.registerMember", { price: userStore.discountedPrice })
                   }}
                 </div>
               </el-col>
@@ -33,29 +33,23 @@
               </el-row>
             </el-row>
           </div>
-          <div class="list-two-i">
-            <el-radio-group v-model="radioPackage">
-              <el-row>
-                <el-col :span="12"
-                  v-for="(item, index) in response?.option?.items"
-                  :key="index">
-                  <div v-if="typeof item === 'number'"  class="radio-price">
-                    <span>€{{ item }}</span>
-                  </div>
-                  <el-radio v-else :value="item.id">{{ item.name }}</el-radio>
-                </el-col>
-              </el-row>
-              
-            </el-radio-group>
+          <div class="list-two-i" v-if="response.options.length > 0">
+            <div v-for="(item, index) in response.options" :key="index">
+              <ParentsGoods
+                :ref="(event) => (parentsGoodsRef[index] = event)"
+                :items="item.items || []"
+                :min-select-count="item.minSelectCount || 1"
+                :max-select-count="item.maxSelectCount || 1"
+                @changeRadioValue="changeRadioValue"
+              />
+            </div>
           </div>
           <div class="list-one-j">
             <div>
-              <span>{{ $t("orderTwo.normalPrice") }}</span>
-              <span class="normal" v-if="radioPackage"> €{{ moneyPackage.normalSellPrice }} </span>
-              <span class="normal" v-else> €{{ response.sellPrice }} </span>
+              <span>{{ $t("orderOne.normalPrice") }}</span>
+              <span class="normal"> €{{ moneyPackage.normalSellPrice }} </span>
               <span class="m-f-20">{{ $t("orderOne.invitePrice") }}</span>
-              <span class="origin" v-if="radioPackage"> €{{ moneyPackage.vipSellPrice }} </span>
-              <span class="origin" v-else> €{{ Number(response.vipPrice) }} </span>
+              <span class="origin"> €{{ moneyPackage.vipSellPrice }} </span>
               <div class="pos-abs" style="visibility: hidden">
                 <AddNum
                   :parents="{
@@ -67,7 +61,7 @@
                     name: response.name,
                     type: 119,
                   }"
-                   :radioPackage="radioPackage"
+                  :radioPackage="radioPackage"
                   :inviteCode="inviteCode"
                   @changeOrderList="changeOrderList"
                 />
@@ -101,13 +95,13 @@
                         >({{ item.items[0].spec }})</span
                       >
                       <el-icon
-                      class="margin-left-ico"
+                        class="margin-left-ico"
                         v-if="item.items[0].id === posGoodsId.id && !isShowPos"
                         @click="isShowPos = !isShowPos"
                         ><ArrowRightBold
                       /></el-icon>
                       <el-icon
-                      class="margin-left-ico"
+                        class="margin-left-ico"
                         v-if="item.items[0].id === posGoodsId.id && isShowPos"
                         @click="isShowPos = !isShowPos"
                         ><ArrowDownBold
@@ -196,18 +190,48 @@
             </el-row>
           </div>
         </div>
+        <!-- <div class="content-list content-list-top">
+                    <div class="list-one">
+                        <el-row>
+                            <el-col :span="12" class="left title">
+                                {{ serverBuyer.subtitle }}
+                            </el-col>
+                        </el-row>
+
+                    </div>
+                    <div class="list-one-i none-m-b">
+                        <el-row>
+                            <el-row style="width: 100%;" v-for="(item, index) in serverBuyer.assorts" :key="index">
+                                <el-col :span="12" class="left">{{ item.name }}</el-col>
+                                <el-col :span="12" class="right">
+                                    <div class="all-i" v-if="item.type === 'input'">
+                                        <span class="i-1"> {{ item.items[0].unit }}/</span><span class="i-2">€ {{
+                                            item.items[0].sellPrice }}</span>
+                                        <div class="pos-abs">
+                                            <AddNum :require-choosed="false" :id="item.id" :mixNum="item.mixNum"
+                                                :maxNum="item.maxNum" />
+                                        </div>
+                                    </div>
+                                    <CheckboxView v-if="item.type === 'checkbox'" :id="item.id"
+                                        :checkbox-list="item.items">
+                                    </CheckboxView>
+                                </el-col>
+                            </el-row>
+                        </el-row>
+                    </div>
+                </div> -->
       </el-col>
       <el-col :span="8" class="right">
         <div class="content-list-right">
           <div class="title">
             <el-divider>
-              <div>{{ $t("orderTwo.total") }}</div>
+              <div>{{ $t("orderOne.total") }}</div>
             </el-divider>
             <!-- <el-row :gutter="12">
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
-              <el-col :span="4" class="col-a"> {{ $t("orderTwo.total") }} </el-col>
+              <el-col :span="4" class="col-a"> {{ $t("orderOne.total") }} </el-col>
               <el-col :span="10" class="col-a">
                 <div class="line"></div>
               </el-col>
@@ -252,36 +276,49 @@
                 </el-col>
               </el-row>
             </div>
+            <!-- <div class="order-i">
+                            <el-row>
+                                <el-col :span="24" class="left">
+                                    POS机（刷卡机）*1
+                                </el-col>
+                                <el-col :span="20" class="left tips">
+                                    购买
+                                </el-col>
+                                <el-col :span="4" class="right tips-1">
+                                    €220
+                                </el-col>
+                            </el-row>
+                        </div> -->
           </div>
           <div class="order-btn" v-if="orderList.items.length > 0">
             <el-row class="order-btn-row">
-              <el-col :span="12" class="left-i-sub">
-                {{ $t("orderTwo.productAmount") }}
+              <el-col :span="16" class="left-i-sub">
+                {{ $t("orderOne.totalAmount") }}
               </el-col>
-              <el-col :span="12" class="right-i-sub">
+              <el-col :span="8" class="right-i-sub">
                 €{{ orderList?.totalAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub">
-                {{ $t("orderTwo.discountAmount") }}
+              <el-col :span="16" class="left-i-sub">
+                {{ $t("orderOne.discountAmount") }}
               </el-col>
-              <el-col :span="12" class="right-i-sub">
+              <el-col :span="8" class="right-i-sub">
                 €{{ orderList?.discountAmount || 0 }}
               </el-col>
-              <el-col :span="12" class="left-i-sub">
-                {{ $t("orderTwo.taxAmount") }}
+              <el-col :span="16" class="left-i-sub">
+                {{ $t("orderOne.taxAmount") }}
               </el-col>
-              <el-col :span="12" class="right-i-sub">
+              <el-col :span="8" class="right-i-sub">
                 €{{ orderList?.taxAmount || 0 }}
               </el-col>
             </el-row>
             <el-row>
-              <el-col :span="8" class="left-i">
+              <el-col :span="12" class="left-i">
                 <span class="word"
-                  >{{ $t("orderTwo.total") }}
+                  >{{ $t("orderOne.finalAmount") }}
                   <label class="word-1">(+ IVA)</label>
                 </span>
               </el-col>
-              <el-col :span="16" class="right-i">
+              <el-col :span="12" class="right-i">
                 <span>
                   €{{ orderList?.finalAmount || 0 }}
                   <!-- <label class="word-1">+ IVA</label> -->
@@ -291,17 +328,17 @@
                 <el-input
                   class="input-h"
                   v-model="inviteCode"
-                  @keydown.enter.native="enterEvent($event)"
                   @input="changeInviteCode"
+                  @keydown.enter.native="enterEvent($event)"
                   :placeholder="
-                    $t('orderTwo.enterInviteCode', { price: userStore.discountedPrice })
+                    $t('orderOne.enterInviteCode', { price: userStore.discountedPrice })
                   "
                   size="large"
                 />
               </el-col>
               <el-col :span="24">
                 <el-button class="button-h" @click="toPay">{{
-                  $t("orderTwo.buyNow")
+                  $t("orderOne.buyNow")
                 }}</el-button>
               </el-col>
             </el-row>
@@ -318,28 +355,26 @@
 import AddNum from "./AddNum.vue";
 import RadioView from "./RadioView.vue";
 import InvoiceCheckbox from "./InvoiceCheckbox.vue";
+import ParentsGoods from "./ParentsGoods.vue";
 import ShowTips from "./ShowTips.vue";
-import ShowTipsHot from "./ShowTipsHot.vue";
 import { ArrowRightBold, ArrowDownBold, QuestionFilled } from "@element-plus/icons-vue";
 import JoinUs from "./JoinUs.vue";
 import { useUserStore } from "@/stores/modules/user";
 import { ElMessage } from "element-plus";
 import { getGoodsDetailApi, precreateApi } from "@/apis/goods";
+import { useCommonStore } from "@/stores/modules/common";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { debounce } from "lodash";
 import { i18n } from "@/lang/index";
+import ShowTipsHot from "./ShowTipsHot.vue";
 import { hotGoodsId, posGoodsId } from "@/http/config";
-import { getInviteCodeStorage } from "@/utils/cache/cookies"
-const isShowPos = ref(false);
+import { getInviteCodeStorage } from "@/utils/cache/cookies";
 const userStore = useUserStore();
+const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore();
-
 const JoinUsFnRef = ref();
-const radioPackage = ref();
-const moneyPackage = ref<any>({
-  vipSellPrice: 0,
-  normalSellPrice: 0,
-});
+const ShowTipsRef = ref();
+const ShowTipsHotRef = ref();
 const props = defineProps({
   id: {
     type: String,
@@ -347,110 +382,22 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["toPay"]);
+const isShowPos = ref(true);
+const inviteCode = ref(getInviteCodeStorage() || "");
 defineOptions({
   name: "orderOne",
 });
-//   id: "1002",
-//   name: "SERVER BUYER",
-//   subtitle: "服务选购",
-//   sellPrice: 800,
-//   mixNum: 1,
-//   maxNum: 999,
-//   assorts: [
-//     {
-//       id: "1",
-//       name: "远程指导安装人工费",
-//       type: "input",
-//       mixNum: 0,
-//       maxNum: 999,
-//       items: [
-//         {
-//           id: "产品ID",
-//           type: 101,
-//           unit: "小时", //单位
-//           spec: "", //规格
-//           sellPrice: 230,
-//         },
-//       ],
-//     },
-//     {
-//       id: "2",
-//       name: "商品人工导入费",
-//       type: "checkbox",
-//       items: [
-//         {
-//           id: "1",
-//           type: 101,
-//           unit: "", //单位
-//           spec: "", //规格
-//           sellPrice: 100,
-//         },
-//         {
-//           id: "2",
-//           type: 101,
-//           unit: "", //单位
-//           spec: "", //规格
-//           sellPrice: 200,
-//         },
-//       ],
-//     },
-//     {
-//       id: "3",
-//       name: "商品人工翻译费",
-//       type: "input",
-//       mixNum: 0,
-//       maxNum: 999,
-//       items: [
-//         {
-//           id: "产品ID",
-//           type: 101,
-//           unit: "语言", //单位
-//           spec: "", //规格
-//           sellPrice: 50,
-//         },
-//       ],
-//     },
-//     {
-//       id: "4",
-//       name: "人工售后费",
-//       type: "input",
-//       mixNum: 0,
-//       maxNum: 999,
-//       items: [
-//         {
-//           id: "产品ID",
-//           type: 101,
-//           unit: "30分钟", //单位
-//           spec: "", //规格
-//           sellPrice: 10,
-//         },
-//       ],
-//     },
-//   ],
-// });
+const radioPackage = ref([]);
+const parentsGoodsRef = ref<any>([]);
+const moneyPackage = ref<any>({
+  vipSellPrice: 0,
+  normalSellPrice: 0,
+});
 const response: any = ref(null);
 
 const getData = async () => {
   if (props.id) {
     const { data } = await getGoodsDetailApi(props.id);
-    const option = data?.option?.items || [];
-    let arr: any = [];
-    console.log("arr===>", arr, option.length);
-    for (let i = 0; i < option.length; i++) {
-      arr = arr.concat([
-        {
-          id: option[i]?.id,
-          name: option[i]?.name,
-          price: option[i]?.price,
-        },
-        option[i]?.price,
-      ]);
-    }
-    console.log("arr===>", arr, option);
-    if (option.length > 0) {
-      data.option.items = arr;
-      radioPackage.value = data?.option?.items[0].id;
-    }
     response.value = data;
   }
 };
@@ -459,13 +406,13 @@ const precreateFn = async () => {
   params.type = 102;
   const current = params.items.find((iv) => iv.type === 119);
   if (current) {
-    current.optionIds = radioPackage.value ? [radioPackage.value] : null;
+    current.optionIds = radioPackage.value ? radioPackage.value : null;
   } else {
     params.items.push({
       type: 119,
       itemId: response.value?.id,
       count: 1,
-      optionIds: radioPackage.value ? [radioPackage.value] : null,
+      optionIds: radioPackage.value ? radioPackage.value : null,
     });
   }
   shoppingCartStore.setCart(params);
@@ -475,7 +422,6 @@ const precreateFn = async () => {
   });
   orderList.value = res.data;
 };
-const inviteCode = ref(getInviteCodeStorage() || "");
 const orderList = ref<any>({
   netAmount: 0,
   taxAmount: 0,
@@ -522,16 +468,15 @@ const blurInviteCode = async (value: any) => {
       inviteCode: inviteCode.value,
     });
     orderList.value = data;
-    ElMessage.success(i18n.global.t("orderTwo.inviteCodeUpdated"));
+    ElMessage.success(i18n.global.t("orderOne.discountUpdated"));
   } else {
-    ElMessage.warning(i18n.global.t("orderTwo.enterCorrectCode"));
+    ElMessage.warning(i18n.global.t("orderOne.pleaseEnterCorrectCode"));
   }
 };
 const blurInviteCodeFn = debounce(blurInviteCode, 1000);
 const changeInviteCode = (value: any) => {
   // 限制输入为数字和字母
   const val = value.replace(/[^a-zA-Z0-9]/g, "").trim();
-  console.log("changeInviteCode==>", val.length);
   inviteCode.value = val.substring(0, 8);
   console.log("changeInviteCode==>", val);
   if (val.length === 0) {
@@ -547,35 +492,99 @@ const toPay = async () => {
   if (orderList.value.items.find((iv: any) => iv.type === 119)) {
     emits("toPay", JSON.parse(JSON.stringify(orderList.value)), inviteCode.value);
   } else {
-    ElMessage.warning(i18n.global.t("orderTwo.selectPackage"));
+    ElMessage.warning(i18n.global.t("orderOne.pleaseSelectPackage"));
   }
+};
+const changeRadioValue = (data: any) => {
+  console.log("changeRadioValue==>", data.value, data.items);
+  if (radioPackage.value.length > 0) {
+    const ids = data.items.map((iv: any) => iv.id).filter((it: any) => it !== data.value);
+    radioPackage.value.map((iv: any) => {
+      if (ids.includes(iv)) {
+        //@ts-ignore
+        radioPackage.value.splice(radioPackage.value.indexOf(iv), 1);
+      }
+    });
+    const arr = radioPackage.value.concat(data.value);
+    const uniqueArr = Array.from(new Set(arr));
+    radioPackage.value = uniqueArr;
+  } else {
+    //@ts-ignore
+    data.value && (radioPackage.value = [data.value]);
+    console.log("radioPackage.value===>", radioPackage.value);
+  }
+  //@ts-ignore
+  const arr = response.value.options.map((iv: any) => iv.items).flat().filter((iv: any) => radioPackage.value.includes(iv?.id));
+  let num = 0;
+  arr.map((iv: any) => {
+    num = num + Number(iv.price);
+  });
+  const price = Number(response.value.sellPrice) + num;
+  moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
+  moneyPackage.value.vipSellPrice = Number(
+    (Number(price * 100) - Number(response.value.invitePrice) * 100) / 100
+  ).toFixed(2);
+  precreateFn();
 };
 onMounted(() => {
   getData();
 });
-watch(()=> radioPackage.value,
-  (val)=>{
-    if(val){
-      const price = Number(response.value.sellPrice) + Number(response.value.option.items.find((iv:any)=> iv.id === val).price);
-      console.log("price===>",price)
-      moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
-      moneyPackage.value.vipSellPrice = Number(
-        (Number(price *100) - Number(response.value.invitePrice)*100) /100
-      ).toFixed(2);
-      precreateFn()
+watch(
+  () => response.value,
+  (val) => {
+    if (val) {
+      setTimeout(() => {
+        if (parentsGoodsRef.value.length > 0) {
+          parentsGoodsRef.value.map((iv: any) => {
+            radioPackage.value = radioPackage.value.concat(iv.radioPackage);
+          });
+        }
+        let options: any = [];
+        val.options.map((iv: any) => {
+          options = options.concat(iv.items);
+        });
+
+        let price = Number(val.sellPrice);
+        if (radioPackage.value.length > 0) {
+          radioPackage.value.map((iv: any) => {
+            price = price + Number(options.find((it: any) => it.id === iv)?.price || 0);
+          });
+        }
+        console.log("options===>", options, val.options, parentsGoodsRef.value, price);
+        moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
+        moneyPackage.value.vipSellPrice = Number(
+          (Number(price * 100) - Number(val.invitePrice) * 100) / 100
+        ).toFixed(2);
+        precreateFn();
+      }, 10);
     }
   },
   {
-    immediate: true
+    immediate: true,
   }
- )
+);
+// watch(
+//   ()=> response.value,
+//   (val)=>{
+//     if(val){
+//       const price =
+//       Number(val.sellPrice);
+//       console.log("==radioPackage.value==",radioPackage.value,price,val.invitePrice)
+//       moneyPackage.value.normalSellPrice = Number(price.toFixed(2));
+//       moneyPackage.value.vipSellPrice = Number(
+//         (Number(price * 100) - Number(val.invitePrice) * 100) / 100
+//       ).toFixed(2);
+//       precreateFn();
+//     }
+//   }
+// )
 defineExpose({
   joinUsFn,
   changeOrderList,
 });
 </script>
 <style scoped lang="less">
-.order-two {
+.order-one {
   .row-list {
     .pos-abs {
       position: absolute;
@@ -666,7 +675,8 @@ defineExpose({
       }
 
       .all-order {
-        height: calc(100% - 350px); 
+        height: calc(100% - 350px);
+        // min-height: 800px;
         max-height: calc(100% - 350px);
         overflow-y: auto;
         .left {
@@ -796,8 +806,7 @@ defineExpose({
         font-family: DIN, DIN;
         font-weight: 500;
         font-size: 12px;
-        color: #999999;
-        line-height: 16px;
+        color: #646464;
       }
       .g-b {
         font-family: Source Han Sans SC, Source Han Sans SC;
@@ -841,7 +850,7 @@ defineExpose({
           > span {
             display: inline-block;
           }
-          .margin-left-ico{
+          .margin-left-ico {
             margin-left: 10px;
           }
           .sub-left-i-a {
@@ -944,12 +953,12 @@ defineExpose({
         border: none !important;
         padding-bottom: 0px !important;
       }
-      .list-two-i{
+      .list-two-i {
         padding-left: 10px;
         padding-top: 28px;
         padding-bottom: 28px;
         border-bottom: 1px solid #ededed;
-        .radio-price{
+        .radio-price {
           // padding-top: 28px;
           font-family: DIN, DIN;
           font-weight: bold;
@@ -962,7 +971,7 @@ defineExpose({
         }
         :deep(.el-radio) {
           display: block;
-          .el-radio__label{
+          .el-radio__label {
             font-family: Source Han Sans SC, Source Han Sans SC;
             font-weight: 400;
             font-size: 16px;

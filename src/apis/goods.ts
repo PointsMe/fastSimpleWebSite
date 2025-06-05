@@ -65,4 +65,10 @@ export function cancelOrderApi(orderId: string) {
     method: "post",
   })
 }
+export function getProductAllApi() {
+  return request<ApiResponseData<any>>({
+    url: `/product/all`,
+    method: "post",
+  })
+}
 

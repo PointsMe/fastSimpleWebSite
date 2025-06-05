@@ -3,9 +3,44 @@
     <el-row :gutter="6" class="row-list">
       <el-col :span="16" class="left">
         <div class="content-list-left">
-          <div class="left-1">
-            <el-row class="row-1 row-b" v-for="(item, index) in response" :key="index">
-              <el-col :span="12">
+          <div class="left-1" v-if="response1 && response1.hardwares">
+            <div class="title-1">
+              <span>硬件</span>
+              <span></span>
+            </div>
+            <el-row class="row-1 row-b" :gutter="24">
+              <el-col :span="8" v-for="(item, index) in response1.hardwares" :key="index">
+                <div class="new-con">
+                  <div class="img-div">
+                    <img :src="item.imageUrl" alt="" />
+                  </div>
+                  <div class="padding-10">
+                    <p>
+                      {{ item.name }}
+                    </p>
+                    <p v-if="item.skus[0].spec" style="color: #fdb522">
+                      {{ item.skus[0].spec }}
+                    </p>
+                    <div class="con-r">
+                      <div class="con-l">
+                        <span v-if="item.skus[0].unit">{{ item.skus[0].unit }}/</span>
+                        <span>€{{ item.skus[0].sellPrice }}</span>
+                      </div>
+                      <div class="pos-abs">
+                        <AddNum
+                          :data="item.skus[0]"
+                          :parents="{
+                            minSelectCount: 0,
+                            maxSelectCount: 999,
+                          }"
+                          @changeOrderList="changeOrderList"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </el-col>
+              <!-- <el-col :span="12">
                 <div class="con">
                   <img :src="item.imageUrl" alt="" />
                   {{ item.name }}
@@ -30,9 +65,188 @@
                     />
                   </div>
                 </div>
-              </el-col>
+              </el-col> -->
               <!-- <el-col :span="24" class="margin-5"></el-col> -->
             </el-row>
+          </div>
+          <div class="left-2" v-if="response1 && response1.softwares">
+            <div class="title-1">
+              <span>软件</span>
+              <span></span>
+            </div>
+            <div v-for="(item, index) in response1.softwares" :key="index">
+              <el-row class="el-white" v-if="item.skus.length > 2">
+                <el-col :span="24" class="title-b">{{ item.name }}</el-col>
+                <el-col :span="24">
+                  <ParentsInvoiceCheckbox
+                    @changeOrderList="changeOrderList"
+                    :parents="item"
+                  />
+                </el-col>
+              </el-row>
+              <el-row class="el-white" v-if="item.skus.length < 3">
+                <el-col :span="12" class="left">
+                  <el-row>
+                    <el-col :span="24">
+                      <div class="left-i-a">
+                        <span>{{ item.name }}</span>
+                        <span
+                          class="sub-left-i-a"
+                          v-if="item.skus.length === 1 && item.skus[0].spec"
+                          >({{ item.skus[0].spec }})</span
+                        >
+                      </div>
+                    </el-col>
+                  </el-row>
+                </el-col>
+                <el-col :span="12" class="right">
+                  <el-row>
+                    <el-col
+                      :span="24"
+                      v-for="(itemChil, chilIndex) in item.skus"
+                      :key="chilIndex"
+                    >
+                      <div class="num-div" v-if="item.maxSelectCount > 2">
+                        <span v-if="itemChil.spec" style="color: #fdb522"
+                          >({{ itemChil.spec }})</span
+                        >
+                        <span v-if="itemChil.value">{{ itemChil.value }}</span>
+                        <span v-if="itemChil.unit">{{ itemChil.unit }}/</span>
+                        <span>€{{ itemChil.sellPrice }}</span>
+                        <div class="pos-abs">
+                          <AddNum
+                            :parents="item"
+                            :data="itemChil"
+                            @changeOrderList="changeOrderList"
+                          />
+                        </div>
+                      </div>
+                      <div class="radio-common" v-if="item.maxSelectCount < 3">
+                        <span v-if="itemChil.spec && item.items.length > 1"
+                          >({{ itemChil.spec }})</span
+                        >
+                        <ParentsRadioView
+                          :parents="item"
+                          :data="itemChil"
+                          @changeOrderList="changeOrderList"
+                        />
+                      </div>
+                    </el-col>
+                  </el-row>
+                </el-col>
+              </el-row>
+            </div>
+          </div>
+          <div class="left-3" v-if="response1 && response1.services">
+            <div class="title-1">
+              <span>其他服务</span>
+              <span class=" width-100"></span>
+            </div>
+            <div class="content-list-a" v-for="(item, index) in response1.services" :key="index">
+              <div
+                :class="
+                  item.skus[0].id === posGoodsId.id
+                    ? isShowPos
+                      ? 'current-one pos-bg-class'
+                      : 'current-one pos-bg-class-padding'
+                    : 'current-one'
+                "
+              >
+                <el-row v-if="item.skus.length < 3">
+                  <el-col :span="12" class="left">
+                    <el-row>
+                      <el-col :span="24">
+                        <div class="left-i-a">
+                          <span>{{ item.name }}</span>
+                          <span
+                            class="sub-left-i-a"
+                            v-if="item.skus.length === 1 && item.skus[0].spec"
+                            >({{ item.skus[0].spec }})</span
+                          >
+                          <el-icon
+                            class="margin-left-ico"
+                            v-if="item.skus[0].id === posGoodsId.id && !isShowPos"
+                            @click="isShowPos = !isShowPos"
+                            ><ArrowRightBold
+                          /></el-icon>
+                          <el-icon
+                            class="margin-left-ico"
+                            v-if="item.skus[0].id === posGoodsId.id && isShowPos"
+                            @click="isShowPos = !isShowPos"
+                            ><ArrowDownBold
+                          /></el-icon>
+                        </div>
+                      </el-col>
+                      <el-col :span="24">
+                        <div class="tips-text" v-if="item.skus[0].id === posGoodsId.id">
+                          <span>
+                            {{ $t("posGoods.content") }}
+                          </span>
+                        </div>
+                      </el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col :span="12" class="right">
+                    <el-row>
+                      <el-col
+                        :span="24"
+                        v-for="(itemChil, chilIndex) in item.skus"
+                        :key="chilIndex"
+                      >
+                        <div class="num-div" v-if="item.maxSelectCount > 2">
+                          <span v-if="itemChil.spec" style="color: #fdb522"
+                            >({{ itemChil.spec }})</span
+                          >
+                          <span v-if="itemChil.value">{{ itemChil.value }}</span>
+                          <span v-if="itemChil.unit">{{ itemChil.unit }}/</span>
+                          <span>€{{ itemChil.sellPrice }}</span>
+                          <div class="pos-abs">
+                            <AddNum
+                              :parents="item"
+                              :data="itemChil"
+                              @changeOrderList="changeOrderList"
+                            />
+                          </div>
+                        </div>
+                        <div class="radio-common" v-if="item.maxSelectCount < 3">
+                          <span v-if="itemChil.spec && item.skus.length > 1"
+                            >({{ itemChil.spec }})</span
+                          >
+                          <ParentsRadioView
+                            :parents="item"
+                            :data="itemChil"
+                            @changeOrderList="changeOrderList"
+                          />
+                        </div>
+                      </el-col>
+                      <el-col
+                        :span="24"
+                        class="right tips"
+                        v-if="item.skus[0].id === posGoodsId.id"
+                      >
+                        <div class="tips-text">
+                          <span> {{ $t("posGoods.fee") }} </span>
+                        </div>
+                      </el-col>
+                      <el-col
+                        :span="24"
+                        class="right tips"
+                        v-if="item.skus[0].id === hotGoodsId.id"
+                      >
+                        <div class="tips-text">
+                          <span> *{{ $t("hotGoods") }} </span>
+                        </div>
+                      </el-col>
+                    </el-row>
+                  </el-col>
+                  <el-col :span="24" v-if="item.skus[0].id === posGoodsId.id">
+                    <div class="pos-div-content" v-if="isShowPos">
+                      {{ $t("posGoods.contentAnother") }}
+                    </div>
+                  </el-col>
+                </el-row>
+              </div>
+            </div>
           </div>
         </div>
       </el-col>
@@ -190,20 +404,31 @@
       </el-col>
     </el-row>
   </div>
+  <JoinUs ref="JoinUsFnRef" />
+    <ShowTips ref="ShowTipsRef" />
+    <ShowTipsHot ref="ShowTipsHotRef" />
 </template>
 <script setup lang="ts">
 import AddNum from "./AddNum.vue";
-import { QuestionFilled } from "@element-plus/icons-vue";
-import { getHardwareListApi, precreateApi } from "@/apis/goods";
-import { ElMessage } from "element-plus";
+import ParentsRadioView from "./ParentsRadioView.vue";
+import ShowTipsHot from "./ShowTipsHot.vue";
+import ShowTips from "./ShowTips.vue";
+import JoinUs from "./JoinUs.vue";
+import ParentsInvoiceCheckbox from "./ParentsInvoiceCheckbox.vue";
+import { ArrowRightBold, ArrowDownBold, QuestionFilled } from "@element-plus/icons-vue";
+import { getHardwareListApi, precreateApi, getProductAllApi } from "@/apis/goods";
 import { useUserStore } from "@/stores/modules/user";
+import { hotGoodsId, posGoodsId } from "@/http/config";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
-import { i18n } from "@/lang/index";
 defineOptions({
   name: "orderTwo",
 });
 const emits = defineEmits(["toPay"]);
 const response = ref();
+const response1 = ref();
+const isShowPos = ref(true);
+const ShowTipsRef = ref();
+const ShowTipsHotRef = ref();
 const userStore = useUserStore();
 const shoppingCartStore = useShoppingCartStore();
 const inviteCode = ref("");
@@ -211,7 +436,31 @@ const getData = async () => {
   const { data } = await getHardwareListApi();
   response.value = data;
 };
-
+const getData1 = async () => {
+  const { data } = await getProductAllApi();
+  // data.hardwares = data.hardwares.map((item: any) => {
+  //   return {
+  //     ...item,
+  //     type: 101
+  //   };
+  // });
+  data.softwares = data.softwares.map((item: any) => {
+    return {
+      ...item,
+      maxSelectCount: 1,
+      minSelectCount: 0,
+    };
+  });
+  data.services = data.services.map((item: any) => {
+    return {
+      ...item,
+      maxSelectCount: 99,
+      minSelectCount: 0,
+    };
+  });
+  console.log("getData1===>", data);
+  response1.value = data;
+};
 const orderList = ref<any>({
   netAmount: 0,
   taxAmount: 0,
@@ -234,6 +483,7 @@ const toPay = async () => {
 };
 onMounted(() => {
   getData();
+  getData1();
 });
 defineExpose({
   changeOrderList,
@@ -241,6 +491,135 @@ defineExpose({
 </script>
 <style scoped lang="less">
 .order-one {
+  .content-list-a {
+      margin-top: 5px;
+      background-color: #ffffff;
+      border-radius: 6px;
+      .current-one {
+        padding: 30px;
+      }
+      .pos-bg-class-padding {
+        // background-color: rgb(144, 215, 214);
+      }
+      .pos-bg-class {
+        height: 578px;
+        width: 100%;
+        background-image: url("@/assets/fastsImages/pos-bg.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        .pos-div-content {
+          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-weight: 400;
+          font-size: 12px;
+          color: #124c45;
+          margin-left: 50%;
+        }
+      }
+      .tips-text {
+        font-family: DIN, DIN;
+        font-weight: 500;
+        font-size: 12px;
+        color: #646464;
+      }
+      .g-b {
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-weight: 500;
+        font-size: 14px;
+        color: #646464;
+
+        .c-b {
+          .mon {
+            font-family: DIN, DIN;
+            font-weight: 500;
+            font-size: 18px;
+            color: #999999;
+          }
+        }
+      }
+
+      .title-b {
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-weight: 500;
+        font-size: 16px;
+        color: #1b1b1b;
+      }
+
+      .tips {
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-weight: 400 !important;
+        font-size: 14px !important;
+        color: #999999;
+      }
+
+      .left {
+        .left-i-a {
+          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-weight: 500;
+          font-size: 16px;
+          color: #1b1b1b;
+          display: flex;
+          align-items: center;
+          justify-content: left;
+          > span {
+            display: inline-block;
+          }
+          .margin-left-ico {
+            margin-left: 10px;
+          }
+          .sub-left-i-a {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .right {
+        .oragin {
+          color: #fdb522;
+        }
+
+        .grey {
+          color: #999999;
+        }
+
+        .num-div {
+          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-weight: 500;
+          font-size: 14px;
+          color: #646464;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding-right: 102px;
+
+          .oragin {
+            color: #fdb522;
+          }
+
+          > span {
+            font-family: DIN, DIN;
+            font-weight: 500;
+            font-size: 18px;
+            color: #999999;
+          }
+        }
+
+        .radio-common {
+          .radio-con {
+            font-family: Source Han Sans SC, Source Han Sans SC;
+            font-weight: 500;
+            font-size: 14px;
+            color: #646464;
+          }
+        }
+      }
+    }
+  .el-white {
+    background-color: #ffffff;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 3px;
+  }
   .pos-abs {
     position: absolute;
     right: 0;
@@ -417,7 +796,41 @@ defineExpose({
       // background-color: #FFFFFF;
       position: relative;
 
-      .left-1 {
+      .left-1,
+      .left-2,
+      .left-3 {
+        .title-1 {
+          font-size: 16px;
+          color: #1b1b1b;
+          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-weight: 500;
+          margin-bottom: 10px;
+          border-bottom: 1px solid #1a1a1a;
+          height: 40px;
+          line-height: 40px;
+          position: relative;
+         
+          > span {
+            display: block;
+          }
+          > span {
+            position: absolute;
+            left: 0;
+          }
+          > span:first-child {
+            z-index: 2;
+          }
+          > span:last-child {
+            width: 30px;
+            height: 8px;
+            bottom: 8px;
+            z-index: 1;
+            background-color: #fed15f;
+          }
+          .width-100{
+            width: 60px !important;
+          }
+        }
         .row-b {
           margin-bottom: 5px;
           // .margin-5{
@@ -426,8 +839,13 @@ defineExpose({
           // }
         }
         .row-1 {
-          padding: 12px;
-          background-color: #ffffff;
+          .el-col {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+          }
+          // padding: 12px;
+          // background-color: #ffffff;
           border-radius: 6px;
           .con-l {
             font-family: Source Han Sans SC, Source Han Sans SC;
@@ -445,17 +863,45 @@ defineExpose({
             }
           }
 
-          .con-r {
-            padding-right: 102px;
-            position: relative;
-            width: 100%;
-            // height: 60px;
-            // height: 100%;
-            position: relative;
-            // line-height: 60px;
-            text-align: right;
-          }
+          .new-con {
+            background-color: #ffffff;
+            height: 100%;
+            .padding-10 {
+              margin: 10px;
+            }
+            .img-div {
+              margin: 10px;
+              background-color: #f6f6f4;
+              height: 120px;
+              margin-bottom: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              > img {
+                display: block;
+                margin: auto;
+                // width: 142px;
+                height: 80px;
+                width: 100px;
+              }
+            }
 
+            .con-r {
+              padding-right: 102px;
+              position: relative;
+              width: 100%;
+              // height: 60px;
+              // height: 100%;
+              position: relative;
+              // line-height: 60px;
+              text-align: left;
+            }
+            > p {
+              font-size: 14px;
+              color: #1b1b1b;
+              text-align: left;
+            }
+          }
           .con {
             height: 60px;
             position: relative;
