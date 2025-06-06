@@ -66,7 +66,9 @@ import { DArrowRight } from "@element-plus/icons-vue";
 import { useUserStore } from "@/stores/modules/user";
 import { getGoodsListApi,getHardwareListApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
+import { useCommonStore } from "@/stores/modules/common";
 const userStore = useUserStore();
+const commonStore = useCommonStore();
 const shoppingCartStore = useShoppingCartStore()
 defineOptions({
   name: "bannerOne",
@@ -79,7 +81,8 @@ const toShopping = (id:any) => {
   router.push("/shopping");
 };
 const toRegister = () => {
-  router.push("/module/register");
+  commonStore.setShowRegisterModal(true)
+  // router.push("/module/register");
 };
 const getListData = async () => {
   const { data } = await getGoodsListApi({
@@ -95,6 +98,12 @@ const getListData = async () => {
 onMounted(() => {
   getListData()
 });
+watch(
+  ()=> commonStore.language,
+  ()=>{
+    getListData()
+  }
+)
 watch(
   ()=> userStore.token,
   ()=>{
