@@ -39,6 +39,9 @@ const router = useRouter();
 const goRegister = () => {
   router.push("/module/register");
 };
+onBeforeRouteLeave(() => {
+  shoppingCartStore.resetCart()
+})
 onMounted(() => {
   const str = router.currentRoute.value?.query?.inviteCode as string;
   if (str) {

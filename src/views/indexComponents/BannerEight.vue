@@ -98,6 +98,7 @@
           font-weight: bold;
           font-size: 52px;
           color: #1a1a1a;
+          padding-right: 10px;
         }
 
         > p:last-child {

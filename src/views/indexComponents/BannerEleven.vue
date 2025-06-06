@@ -5,53 +5,54 @@
         <el-col :span="12">
           <div class="qr-code">
             <el-row :gutter="12">
-              <el-col :span="3"></el-col>
-              <el-col :span="7">
+              <el-col :span="8">
                 <div class="code-div">
-                  <div class="code-top">
-                    {{ $t('bannerEleven.technicalAdvisor') }}
-                    ({{ $t('bannerEleven.china') }})  
-                    <!-- <span class="line"></span> -->
-                  </div>
                   <div class="wx-img">
                     <p>
                       <img src="@/assets/fastsImages/b-11-1.png" alt="" />
                     </p>
+                  </div>
+                  <div class="code-top">
+                    {{ $t('bannerEleven.technicalAdvisor') }}
+                    ({{ $t('bannerEleven.china') }})  
+                    <!-- <span class="line"></span> -->
                   </div>
                 </div>
                 <div class="wx-div">{{ $t('bannerEleven.wechat') }}:LAIPAY1
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
               </el-col>
-              <el-col :span="7">
+              <el-col :span="8">
                 <div class="code-div">
+                 
+                  <div class="wx-img">
+                    <p>
+                      <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                    </p>
+                  </div>
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
                     ({{ $t('bannerEleven.italy') }})
                     <!-- <span class="line"></span> -->
                   </div>
+                </div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:wxid_g1oajzv7yyu922</div>
+              </el-col>
+              <el-col :span="8">
+                <div class="code-div">
+                 
                   <div class="wx-img">
                     <p>
                       <img src="@/assets/fastsImages/b-11-2.png" alt="" />
                     </p>
                   </div>
-                </div>
-                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:wxid_g1oajzv7yyu922</div>
-              </el-col>
-              <el-col :span="7">
-                <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
                     ({{ $t('bannerEleven.spain') }})
                     <!-- <span class="line"></span> -->
                   </div>
-                  <div class="wx-img">
-                    <p>
-                      <img src="@/assets/fastsImages/b-11-2.png" alt="" />
-                    </p>
-                  </div>
                 </div>
-                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:~</div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:wxid_p9qser8yuqt722</div>
               </el-col>
             </el-row>
           </div>
@@ -158,6 +159,7 @@ const goToPage = (value: any) => {
   .top {
     width: 1280px;
     margin: auto;
+    padding: 100px 0;
     border-bottom: 1px solid #ffffff;
 
     .qr-code {
@@ -167,19 +169,19 @@ const goToPage = (value: any) => {
       font-weight: 400;
       font-size: 14px;
       color: #ffffff;
-      margin-top: 130px;
+      // margin-top: 130px;
       text-align: center;
 
       .wx-div {
         text-indent: 0px;
         text-align: left;
-        margin-top: 16px;
       }
 
       .code-div {
         // width: 140px;
         margin: auto;
         text-align: left;
+        
         .wx-img {
           width: 100%;
           margin-top: 14px;
@@ -192,7 +194,7 @@ const goToPage = (value: any) => {
         .code-top {
           position: relative;
           text-align: left;
-
+          margin-top: 10px;
           .line {
             display: block;
             position: absolute;
@@ -207,18 +209,20 @@ const goToPage = (value: any) => {
       }
     }
     .tips-messages{
-      margin-top: 210px;
+      // margin-top: 210px;
       font-family: Source Han Sans SC, Source Han Sans SC;
       font-weight: 400;
       font-size: 13px;
       color: #FFFFFF;
+      padding-left: 30px;
+      padding-top: 80px;
     }
     .nav-menu {
       flex: 1;
       display: flex;
-      justify-content: center;
+      justify-content: left;
       // margin-top: 210px;
-      padding-bottom: 124px;
+      // padding-bottom: 100px;
 
       .language-selector {
         color: #ffffff;

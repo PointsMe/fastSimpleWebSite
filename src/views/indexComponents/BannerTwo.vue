@@ -2,19 +2,19 @@
   <div class="banner-two">
     <div class="title-content">
       <div class="title">
-          <span class="con">{{ $t('bannerTwo.title') }}</span>
-          <span class="line"></span>
-          {{ $t('bannerTwo.title') }}
+        <span class="con">{{ $t("bannerTwo.title") }}</span>
+        <span class="line"></span>
+        {{ $t("bannerTwo.title") }}
       </div>
     </div>
     <div class="sub-title-con">
-      {{ $t('bannerTwo.subTitle') }}
+      {{ $t("bannerTwo.subTitle") }}
     </div>
     <div class="title-content-1">
       <div class="title">
-          <span class="con">{{ $t('bannerTwo.whyChoose') }}</span>
-          <span class="line"></span>
-          {{ $t('bannerTwo.whyChoose') }}
+        <span class="con">{{ $t("bannerTwo.whyChoose") }}</span>
+        <span class="line"></span>
+        {{ $t("bannerTwo.whyChoose") }}
       </div>
     </div>
     <div class="choose-fast">
@@ -24,8 +24,8 @@
             <p>
               <img src="@/assets/fastsImages/b-2-1.png" alt="" />
             </p>
-            <p>{{ $t('bannerTwo.seamlessIntegration') }}</p>
-            <p>{{ $t('bannerTwo.seamlessIntegrationDesc') }}</p>
+            <p>{{ $t("bannerTwo.seamlessIntegration") }}</p>
+            <p>{{ $t("bannerTwo.seamlessIntegrationDesc") }}</p>
           </div>
         </el-col>
         <el-col :span="8">
@@ -33,8 +33,8 @@
             <p>
               <img src="@/assets/fastsImages/b-2-2.png" alt="" />
             </p>
-            <p>{{ $t('bannerTwo.diverseFunctions') }}</p>
-            <p>{{ $t('bannerTwo.diverseFunctionsDesc') }}</p>
+            <p>{{ $t("bannerTwo.diverseFunctions") }}</p>
+            <p>{{ $t("bannerTwo.diverseFunctionsDesc") }}</p>
           </div>
         </el-col>
         <el-col :span="8">
@@ -42,24 +42,51 @@
             <p>
               <img src="@/assets/fastsImages/b-2-3.png" alt="" />
             </p>
-            <p>{{ $t('bannerTwo.enhancedExp') }}</p>
-            <p>{{ $t('bannerTwo.enhancedExpDesc') }}</p>
+            <p>{{ $t("bannerTwo.enhancedExp") }}</p>
+            <p>{{ $t("bannerTwo.enhancedExpDesc") }}</p>
           </div>
         </el-col>
       </el-row>
     </div>
     <div class="point-banner">
-      <h1>{{ $t('bannerTwo.keyFeatures') }}</h1>
-      <p class="sub-title">{{ $t('bannerTwo.keyFeaturesSubtitle') }}</p>
+      <h1>{{ $t("bannerTwo.keyFeatures") }}</h1>
+      <p class="sub-title">{{ $t("bannerTwo.keyFeaturesSubtitle") }}</p>
       <div class="top-margin-40">
         <el-row :gutter="12">
           <el-col :span="8">
             <div class="one">
               <div></div>
               <div>
-                <p>{{ $t('bannerTwo.tabletFeature') }}</p>
-                <p>{{ $t('bannerTwo.tabletFeatureDesc1') }}</p>
-                <p>{{ $t('bannerTwo.tabletFeatureDesc2') }}</p>
+                <p class="title-one">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.tabletFeature')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.tabletFeature") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-two">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.tabletFeatureDesc1')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.tabletFeatureDesc1") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-three">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.tabletFeatureDesc2')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.tabletFeatureDesc2") }}</span>
+                  </el-tooltip>
+                </p>
               </div>
             </div>
           </el-col>
@@ -67,9 +94,36 @@
             <div class="two">
               <div></div>
               <div>
-                <p>{{ $t('bannerTwo.qrCodeFeature') }}</p>
-                <p>{{ $t('bannerTwo.qrCodeFeatureDesc1') }}</p>
-                <p>{{ $t('bannerTwo.qrCodeFeatureDesc2') }}</p>
+                <p class="title-one">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.qrCodeFeature')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.qrCodeFeature") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-two">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.qrCodeFeatureDesc1')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.qrCodeFeatureDesc1") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-three">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.qrCodeFeatureDesc2')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.qrCodeFeatureDesc2") }}</span>
+                  </el-tooltip>
+                </p>
               </div>
             </div>
           </el-col>
@@ -77,9 +131,36 @@
             <div class="three">
               <div></div>
               <div>
-                <p>{{ $t('bannerTwo.onlinePayment') }}</p>
-                <p>{{ $t('bannerTwo.onlinePaymentDesc1') }}</p>
-                <p>{{ $t('bannerTwo.onlinePaymentDesc2') }}</p>
+                <p class="title-one">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.onlinePayment')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.onlinePayment") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-two">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.onlinePaymentDesc1')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.onlinePaymentDesc1") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-three">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.onlinePaymentDesc2')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.onlinePaymentDesc2") }}</span>
+                  </el-tooltip>
+                </p>
               </div>
             </div>
           </el-col>
@@ -90,9 +171,36 @@
             <div class="eight">
               <div></div>
               <div>
-                <p>{{ $t('bannerTwo.queueManagement') }}</p>
-                <p>{{ $t('bannerTwo.queueManagementDesc1') }}</p>
-                <p>{{ $t('bannerTwo.queueManagementDesc2') }}</p>
+                <p class="title-one">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.queueManagement')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.queueManagement") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-two">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.queueManagementDesc1')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.queueManagementDesc1") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-three">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.queueManagementDesc2')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.queueManagementDesc2") }}</span>
+                  </el-tooltip>
+                </p>
               </div>
             </div>
           </el-col>
@@ -100,9 +208,36 @@
             <div class="seven">
               <div></div>
               <div>
-                <p>{{ $t('bannerTwo.orderSync') }}</p>
-                <p>{{ $t('bannerTwo.orderSyncDesc1') }}</p>
-                <p>{{ $t('bannerTwo.orderSyncDesc2') }}</p>
+                <p class="title-one">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.orderSync')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.orderSync") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-two">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.orderSyncDesc1')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.orderSyncDesc1") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-three">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.orderSyncDesc2')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.orderSyncDesc2") }}</span>
+                  </el-tooltip>
+                </p>
               </div>
             </div>
           </el-col>
@@ -110,9 +245,36 @@
             <div class="six">
               <div></div>
               <div>
-                <p>{{ $t('bannerTwo.digitalInvoice') }}</p>
-                <p>{{ $t('bannerTwo.digitalInvoiceDesc1') }}</p>
-                <p>{{ $t('bannerTwo.digitalInvoiceDesc2') }}</p>
+                <p class="title-one">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.digitalInvoice')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.digitalInvoice") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-two">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.digitalInvoiceDesc1')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.digitalInvoiceDesc1") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-three">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.digitalInvoiceDesc2')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.digitalInvoiceDesc2") }}</span>
+                  </el-tooltip>
+                </p>
               </div>
             </div>
           </el-col>
@@ -120,9 +282,36 @@
             <div class="five">
               <div></div>
               <div>
-                <p>{{ $t('bannerTwo.allergenScreening') }}</p>
-                <p>{{ $t('bannerTwo.allergenScreeningDesc1') }}</p>
-                <p>{{ $t('bannerTwo.allergenScreeningDesc2') }}</p>
+                <p class="title-one">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.allergenScreening')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.allergenScreening") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-two">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.allergenScreeningDesc1')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.allergenScreeningDesc1") }}</span>
+                  </el-tooltip>
+                </p>
+                <p class="title-three">
+                  <el-tooltip
+                    class="box-item"
+                    effect="dark"
+                    :content="$t('bannerTwo.allergenScreeningDesc2')"
+                    placement="top"
+                  >
+                    <span>{{ $t("bannerTwo.allergenScreeningDesc2") }}</span>
+                  </el-tooltip>
+                </p>
               </div>
             </div>
           </el-col>
@@ -133,8 +322,8 @@
 </template>
 <script setup lang="ts">
 defineOptions({
-  name: 'bannerTwo'
-})
+  name: "bannerTwo",
+});
 </script>
 <style scoped lang="less">
 .banner-two {
@@ -155,31 +344,31 @@ defineOptions({
       }
 
       .one {
-        background-image: url('@/assets/fastsImages/b-2-4.png');
+        background-image: url("@/assets/fastsImages/b-2-4.png");
       }
 
       .two {
-        background-image: url('@/assets/fastsImages/b-2-10.png');
+        background-image: url("@/assets/fastsImages/b-2-10.png");
       }
 
       .three {
-        background-image: url('@/assets/fastsImages/b-2-9.png');
+        background-image: url("@/assets/fastsImages/b-2-9.png");
       }
 
       .eight {
-        background-image: url('@/assets/fastsImages/b-2-8.png');
+        background-image: url("@/assets/fastsImages/b-2-8.png");
       }
 
       .seven {
-        background-image: url('@/assets/fastsImages/b-2-7.png');
+        background-image: url("@/assets/fastsImages/b-2-7.png");
       }
 
       .six {
-        background-image: url('@/assets/fastsImages/b-2-6.png');
+        background-image: url("@/assets/fastsImages/b-2-6.png");
       }
 
       .five {
-        background-image: url('@/assets/fastsImages/b-2-5.png');
+        background-image: url("@/assets/fastsImages/b-2-5.png");
       }
 
       .one,
@@ -200,7 +389,24 @@ defineOptions({
         align-items: center;
         justify-content: center;
         position: relative;
-
+        .title-one {
+          height: 40px;
+          // line-height: 40px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          overflow: hidden;
+        }
+        .title-two {
+          height: 30px;
+          line-height: 30px;
+          overflow: hidden;
+        }
+        .title-three {
+          height: 40px;
+          line-height: 20px;
+          padding-bottom: 10px;
+          overflow: hidden;
+        }
         > div {
           position: absolute;
           bottom: 0;
@@ -287,85 +493,81 @@ defineOptions({
   }
 
   .title-content {
+    position: relative;
+    height: 80px;
+    // width: 100%;
+    margin: auto;
+    margin-top: 150px;
+    display: block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    .title {
+      font-weight: bold;
+      font-size: 52px;
+      color: #1a1a1a;
+      width: auto;
+      height: 100%;
       position: relative;
-      height: 80px;
-      // width: 100%;
-      margin: auto;
-      margin-top: 150px;
-      display: block;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      .title {
+      color: #ffffff;
+      .con {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
         font-weight: bold;
         font-size: 52px;
         color: #1a1a1a;
-        width: auto;
-        height: 100%;
-        position: relative;
-        color: #ffffff;
-        .con{
-          position: absolute;
-          z-index: 2;
-          bottom: 0;
-          font-weight: bold;
-          font-size: 52px;
-          color: #1a1a1a;
-        }
-        .line {
-          display: block;
-          width: 204px;
-          height: 16px;
-          background: #fed15f;
-          position: absolute;
-          bottom: 10px;
-          // left: 0px;
-          z-index: 1;
       }
+      .line {
+        display: block;
+        width: 204px;
+        height: 16px;
+        background: #fed15f;
+        position: absolute;
+        bottom: 10px;
+        // left: 0px;
+        z-index: 1;
       }
-
-      
     }
+  }
 
   .title-content-1 {
+    position: relative;
+    height: 80px;
+    // width: 100%;
+    margin: auto;
+    margin-top: 150px;
+    display: block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    .title {
+      font-weight: bold;
+      font-size: 52px;
+      color: #1a1a1a;
+      width: auto;
+      height: 100%;
       position: relative;
-      height: 80px;
-      // width: 100%;
-      margin: auto;
-      margin-top: 150px;
-      display: block;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      .title {
+      color: #ffffff;
+      .con {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
         font-weight: bold;
         font-size: 52px;
         color: #1a1a1a;
-        width: auto;
-        height: 100%;
-        position: relative;
-        color: #ffffff;
-        .con{
-          position: absolute;
-          z-index: 2;
-          bottom: 0;
-          font-weight: bold;
-          font-size: 52px;
-          color: #1a1a1a;
-        }
-        .line {
-          display: block;
-          width: 204px;
-          height: 16px;
-          background: #fed15f;
-          position: absolute;
-          bottom: 10px;
-          // left: 0px;
-          z-index: 1;
       }
+      .line {
+        display: block;
+        width: 204px;
+        height: 16px;
+        background: #fed15f;
+        position: absolute;
+        bottom: 10px;
+        // left: 0px;
+        z-index: 1;
       }
-
-      
     }
+  }
 }
 </style>
