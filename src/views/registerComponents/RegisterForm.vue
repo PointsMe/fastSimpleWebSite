@@ -43,7 +43,7 @@
                         })"
                             :disabled="item.disabled"
                             :placeholder="$t(item.placeholder)">
-                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="iv.label"
+                            <el-option v-for="(iv, ivIndex) in item.optionsData" :key="ivIndex" :label="$t(iv.label)"
                                 :value="iv.value" />
                         </el-select>
                     </el-form-item>

@@ -545,5 +545,8 @@ bannerOne: {
   verifyFinish: 'Verification successful',
   verifyError: 'Verification failed',
   explainWord: 'Slide the block to complete the verification',
-    all: 'All'
+    all: 'All',
+    kindOne:'Restaurant',
+    kindTwo: 'Store',
+    kindThree: 'Food Truck'
 }

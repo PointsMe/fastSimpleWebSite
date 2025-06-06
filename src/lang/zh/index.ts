@@ -549,5 +549,8 @@ codeVerifyTitle: '验证码',
 verifyFinish: '验证成功',
 verifyError: '验证失败',
 explainWord: '向右滑动滑块以完成验证',
-all: '所有'
+all: '所有',
+kindOne:'餐饮',
+kindTwo: '商店',
+kindThree: '餐车'
 }

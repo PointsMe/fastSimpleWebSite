@@ -55,15 +55,15 @@ export const bizList = [
 ]
 export const kindList = [
     {
-        label: '餐饮',
+        label: 'kindOne', //餐饮
         value: '11'
     },
     {
-        label: '商店',
+        label: 'kindTwo',//商店
         value: '12'
     },
     {
-        label: '餐车',
+        label: 'kindThree',//餐车
         value: '13'
     }
 ]

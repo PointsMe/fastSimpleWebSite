@@ -540,5 +540,8 @@ export default {
   verifyFinish: 'Verifica completata',
   verifyError: 'Verifica fallita',
   explainWord: 'Scorri il blocco per completare la verifica',
-  all: 'Tutti'
+  all: 'Tutti',
+  kindOne:'Ristorante',
+  kindTwo: 'Negozio',
+  kindThree: 'Caffetteria'
 }

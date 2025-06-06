@@ -541,5 +541,8 @@ export default {
     verifyFinish: 'Einladungscodesprache',
     verifyError: 'Einladungscodesprache',
     explainWord: 'Scorri den Block nach rechts, um die Überprüfung zu erfolgreich abzuschließen',
-      all: 'Alle'
+      all: 'Alle',
+      kindOne:'Gastronomie',
+      kindTwo: 'Geschäft',
+      kindThree: 'Food Truck'
 }
