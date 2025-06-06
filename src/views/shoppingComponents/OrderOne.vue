@@ -572,6 +572,15 @@ watch(
     immediate: true
   }
 )
+watch(
+  ()=> userStore.token,
+  (val)=>{
+    getData();
+  },
+  {
+    immediate: true
+  }
+)
 defineExpose({
   joinUsFn,
   changeOrderList,
