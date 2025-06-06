@@ -105,7 +105,8 @@
           <el-col :span="24">
             <div v-if="props.step === '2'">
               <el-checkbox v-model="checked1">
-                {{ $t("aboutLogin.loginTips") }}
+                <div class="c_i-check">
+                    {{ $t("aboutLogin.loginTips") }}
                 <span class="link-span" @click.native.prevent="checkBooks(1)">{{
                   $t("aboutLogin.linkOne")
                 }}</span>
@@ -113,6 +114,8 @@
                 <span class="link-span" @click.native.prevent="checkBooks(2)">{{
                   $t("aboutLogin.linkTwo")
                 }}</span>
+                </div>
+               
               </el-checkbox>
             </div>
           </el-col>
@@ -572,7 +575,16 @@ watch(
       font-size: 12px;
       color: #8f8f8f;
       margin-top: 33px;
-
+      .c_i-check{
+        word-break: normal;
+        width: 100%;
+        // height: 100px;
+        display: -ms-inline-grid;
+        white-space: pre-line;
+        word-wrap: break-word;
+        overflow: hidden;
+        // line-height: 20px;
+      }
       .link-span {
         color: #4c8afd;
       }

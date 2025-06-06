@@ -272,13 +272,13 @@ const forgetPass = () => {
       margin-top: 33px;
       .c_i-check{
         word-break: normal;
-        width: 200px;
-        height: 100px;
+        width: 100%;
+        // height: 100px;
         display: -ms-inline-grid;
         white-space: pre-line;
         word-wrap: break-word;
         overflow: hidden;
-        line-height: 20px;
+        // line-height: 20px;
       }
       .chin-select {
         margin-top: 10px;

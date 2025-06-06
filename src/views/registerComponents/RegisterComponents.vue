@@ -6,11 +6,11 @@
         <el-col :span="24" class="right-title-i">
           <div class="r-t-i-r-1">
             <div v-if="step === '1'">
-              <span class="color-step-2">第一步：</span>
+              <span class="color-step-2">{{ $t('joinUs.stepOne') }}：</span>
               <span class="color-step-2">{{$t('aboutLogin.messagePerson')}}</span>
             </div>
             <div v-if="step === '2'">
-              <span class="color-step-2">第二步：</span>
+              <span class="color-step-2">{{ $t('joinUs.stepTwo') }}：</span>
               <span class="color-step-2">{{$t('aboutLogin.componeyMess')}}</span>
             </div>
           </div>

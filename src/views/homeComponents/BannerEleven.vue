@@ -3,34 +3,6 @@
     <div class="top">
       <el-row :gutter="12">
         <el-col :span="12">
-          <div class="nav-menu">
-            <el-menu mode="horizontal" :ellipsis="false" class="menu">
-              <el-menu-item index="1" @click="goToPage('home')">{{$t('navigation.home')}}</el-menu-item>
-              <el-menu-item index="2" @click="goToPage('shopping')">{{$t('navigation.shop')}}</el-menu-item>
-              <!-- <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item> -->
-              <el-menu-item index="4" @click="goToPage('server')">{{$t('navigation.support')}}</el-menu-item>
-              <el-menu-item index="5" @click="goToPage('about')">{{$t('navigation.about')}}</el-menu-item>
-              <el-menu-item index="6" @click="goToPage('contact')">{{$t('navigation.contact')}}</el-menu-item>
-              <el-menu-item index="7">
-                <el-dropdown @command="handleCommand" trigger="click">
-                  <span class="language-selector">
-                    {{ languageList.find(iv=>iv.code === commonStore.language)?.label }}
-                     <el-icon>
-                      <ArrowDown />
-                    </el-icon>
-                  </span>
-                  <template #dropdown>
-                    <el-dropdown-menu>
-                      <el-dropdown-item v-for="(item, index) in languageList" :command="item.code" :key="index">{{
-                        item.label }}</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </template>
-                </el-dropdown>
-              </el-menu-item>
-            </el-menu>
-          </div>
-        </el-col>
-        <el-col :span="12">
           <div class="qr-code">
             <el-row :gutter="12">
               <el-col :span="3"></el-col>
@@ -64,7 +36,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:PM3242850588</div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:wxid_g1oajzv7yyu922</div>
               </el-col>
               <el-col :span="7">
                 <div class="code-div">
@@ -79,15 +51,52 @@
                     </p>
                   </div>
                 </div>
-                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:PM3242850588</div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:~</div>
               </el-col>
             </el-row>
+          </div>
+        </el-col>
+        <el-col :span="12">
+          <div class="tips-messages">
+            <p>Whatsapp: +39 3242847077</p>
+            <p>{{ $t('bannerTen.email') }}：Email: info@fastsimple.it</p>
+            <p>{{ $t('bannerTen.aiService') }}：~</p>
+          </div>
+          <div class="nav-menu">
+            <el-menu mode="horizontal" :ellipsis="false" class="menu">
+              <el-menu-item index="1" @click="goToPage('index')">{{$t('navigation.home')}}</el-menu-item>
+              <el-menu-item index="2" @click="goToPage('shopping')">{{$t('navigation.shop')}}</el-menu-item>
+              <!-- <el-menu-item index="3" @click="goToPage('news')">{{$t('navigation.news')}}</el-menu-item> -->
+              <el-menu-item index="4" @click="goToPage('server')">{{$t('navigation.support')}}</el-menu-item>
+              <el-menu-item index="5" @click="goToPage('about')">{{$t('navigation.about')}}</el-menu-item>
+              <el-menu-item index="6" @click="goToPage('contact')">{{$t('navigation.contact')}}</el-menu-item>
+              <el-menu-item index="7">
+                <el-dropdown @command="handleCommand" trigger="click">
+                  <span class="language-selector">
+                    {{ languageList.find(iv=>iv.code === commonStore.language)?.label }}
+                     <el-icon>
+                      <ArrowDown />
+                    </el-icon>
+                  </span>
+                  <template #dropdown>
+                    <el-dropdown-menu>
+                      <el-dropdown-item v-for="(item, index) in languageList" :command="item.code" :key="index">{{
+                        item.label }}</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </template>
+                </el-dropdown>
+              </el-menu-item>
+            </el-menu>
           </div>
         </el-col>
       </el-row>
     </div>
     <div class="des">
-      {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 -<span class="line-th">{{ $t('bannerEleven.terms') }}</span>
+      <!-- {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 -<span class="line-th">{{ $t('bannerEleven.terms') }}</span> -->
+      {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 
+      -<span>《{{ $t('bannerEleven.privacy') }}》</span>
+      -<span>《{{ $t('bannerEleven.cookie') }}》</span>
+      -<span>《{{ $t('bannerEleven.sitemap') }}》</span>
     </div>
     <div class="des-img">
       <img src="@/assets/fastsImages/b-11-3.png" alt="" />
@@ -197,12 +206,18 @@ const goToPage = (value: any) => {
         }
       }
     }
-
+    .tips-messages{
+      margin-top: 210px;
+      font-family: Source Han Sans SC, Source Han Sans SC;
+      font-weight: 400;
+      font-size: 13px;
+      color: #FFFFFF;
+    }
     .nav-menu {
       flex: 1;
       display: flex;
       justify-content: center;
-      margin-top: 210px;
+      // margin-top: 210px;
       padding-bottom: 124px;
 
       .language-selector {
