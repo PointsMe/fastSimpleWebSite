@@ -5,8 +5,8 @@
         <el-col :span="12">
           <div class="qr-code">
             <el-row :gutter="12">
-              <el-col :span="3"></el-col>
-              <el-col :span="7">
+              <!-- <el-col :span="3"></el-col> -->
+              <el-col :span="8">
                 <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
@@ -23,7 +23,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
               </el-col>
-              <el-col :span="7">
+              <el-col :span="8">
                 <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
@@ -38,7 +38,7 @@
                 </div>
                 <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:wxid_g1oajzv7yyu922</div>
               </el-col>
-              <el-col :span="7">
+              <el-col :span="8">
                 <div class="code-div">
                   <div class="code-top">
                     {{ $t('bannerEleven.technicalAdvisor') }}
@@ -174,6 +174,13 @@ const goToPage = (value: any) => {
         text-indent: 0px;
         text-align: left;
         margin-top: 16px;
+            word-break: normal;
+        width: 100%;
+        // height: 100px;
+        display: -ms-inline-grid;
+        white-space: pre-line;
+        word-wrap: break-word;
+        overflow: hidden;
       }
 
       .code-div {
