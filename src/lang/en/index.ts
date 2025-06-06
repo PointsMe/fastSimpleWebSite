@@ -417,7 +417,7 @@ bannerOne: {
     italy: "Italy",
     spain: "Spain",
     wechat: "WeChat",
-    copyright: "Copyright © 2024 FastSimple By Yine Srl, All Rights Reserved",
+    copyright: "Copyright © 2024 JoinKu By Yine Srl, All Rights Reserved",
     terms: "Terms",
     privacy: 'User Policy',
     cookie: 'Cookie Policy',

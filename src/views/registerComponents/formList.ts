@@ -18,7 +18,7 @@ export const emailFormStep1 =     [
         label: '',
         value: 'name',
         type: 'input',
-        placeholder: 'aboutLogin.pleaseInputName',
+        placeholder: 'aboutLogin.pleaseInputStoreName',
     },
     // {
     //     span: 12,
@@ -88,7 +88,7 @@ export const phoneFormStep1 =[
         label: '',
         value: 'name',
         type: 'input',
-        placeholder: 'aboutLogin.pleaseInputName',
+        placeholder: 'aboutLogin.pleaseInputStoreName',
         onEventFunction: 'changeName'
     },
     {

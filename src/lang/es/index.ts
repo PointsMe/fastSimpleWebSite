@@ -440,7 +440,7 @@ export default {
         italy: "Italia",
         spain: "España",
         wechat: "WeChat",
-        copyright: "Copyright © 2024 FastSimple By Yine Srl, Todos los derechos reservados",
+        copyright: "Copyright © 2024 JoinKu By Yine Srl, Todos los derechos reservados",
         terms: "Términos",
         privacy:'Política de Usuario',
         cookie:'Política de Cookies',

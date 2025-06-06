@@ -214,7 +214,7 @@ const formRules = computed(() => {
     name: [
       {
         required: true,
-        message: i18n.global.t("aboutLogin.pleaseInputName"),
+        message: i18n.global.t("aboutLogin.pleaseInputStoreName"),
         trigger: "blur",
       },
     ],

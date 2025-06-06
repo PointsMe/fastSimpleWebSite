@@ -246,13 +246,13 @@ const sendMessage = async () => {
                 tag: "lark_md",
               },
             },
-            {
-              tag: "div",
-              text: {
-                content: `城市：  ${formLabelAlign.message}`,
-                tag: "lark_md",
-              },
-            },
+            // {
+            //   tag: "div",
+            //   text: {
+            //     content: `城市：  ${formLabelAlign.message}`,
+            //     tag: "lark_md",
+            //   },
+            // },
             {
               tag: "div",
               text: {
@@ -263,7 +263,7 @@ const sendMessage = async () => {
           ],
           header: {
             title: {
-              content: "Fast Simple",
+              content: "JoinKu",
               tag: "plain_text",
             },
           },

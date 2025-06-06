@@ -46,15 +46,18 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Close } from '@element-plus/icons-vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
+// import { useRouter } from 'vue-router'
+import { useCommonStore } from '@/stores/modules/common'
+// const router = useRouter()
+const commonStore = useCommonStore()
 const visible = ref(false)
 const inviteCode = ref('')
 const showModal = () => {
     visible.value = true
 }
 const goRegister = () => {
-    router.push('/module/register')
+    commonStore.setShowRegisterModal(true)
+    // router.push('/module/register')
 }
 defineExpose({
     showModal

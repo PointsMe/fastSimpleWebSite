@@ -446,7 +446,7 @@ bannerOne: {
     italy:'意大利',
     spain:'西班牙',
     wechat: "微信",
-    copyright: "Copyright © 2024 FastSimple By Yine Srl, 版权所有",
+    copyright: "Copyright © 2024 JoinKu By Yine Srl, 版权所有",
     terms: "Termini",
     privacy:'用户条例',
     cookie:'cookies条例',

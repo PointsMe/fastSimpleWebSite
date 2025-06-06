@@ -42,6 +42,9 @@ const goRegister = () => {
   commonStore.setShowRegisterModal(true);
   // router.push('/module/register')
 };
+onBeforeRouteLeave(() => {
+  shoppingCartStore.resetCart()
+})
 onMounted(() => {
   const str = router.currentRoute.value?.query?.inviteCode as string;
   if (str) {

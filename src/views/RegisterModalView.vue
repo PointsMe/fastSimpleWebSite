@@ -7,7 +7,7 @@
       :close-on-click-modal="false"
       :before-close="handleClose"
     >
-      <div class="content">
+      <div class="content"  v-if="dialogVisible">
         <RegisterComponents />
       </div>
       <!-- <template #footer>
