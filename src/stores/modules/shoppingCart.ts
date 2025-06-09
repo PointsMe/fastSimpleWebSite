@@ -18,6 +18,13 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
     type: '',
     currentData: {}
   })
+  const orderListStore = ref<any>({})
+  const setOrderListStore = (value: any)=>{
+    orderListStore.value = value
+  }
+  const getOrderListStore = ()=>{
+    return orderListStore.value
+  }
   const setTabThreeShowWare = (value: boolean)=>{
     tabThreeShowWare.value = value
   }
@@ -66,7 +73,7 @@ export const useShoppingCartStore = defineStore("shoppingCart", () => {
     tabId.value = ''
   }
 
-  return {tabThreeShowWare, cart, setCart,resetCart,orderId,setOrderId,resetOrderId,posGoods,setPosGoods,resetPosGoods,hotGoods,setHotGoods,resetHotGoods,tabId,setTabId,resetTabId,setTabThreeShowWare,resetTabThreeShowWare }
+  return {tabThreeShowWare, cart, setCart,resetCart,orderId,setOrderId,resetOrderId,posGoods,setPosGoods,resetPosGoods,hotGoods,setHotGoods,resetHotGoods,tabId,setTabId,resetTabId,setTabThreeShowWare,resetTabThreeShowWare,orderListStore,setOrderListStore,getOrderListStore }
 })
 
 

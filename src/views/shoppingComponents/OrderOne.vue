@@ -245,13 +245,13 @@
               <el-row>
                 <el-col
                   v-for="(item,index) in orderList.items.find((iv: any)=> iv.type === 119)?.children"
-                  :span="orderList.items.find((iv: any)=> iv.type === 119)?.children?.length === index + 1 ? 20 : 24"
+                  :span="orderList.items.find((iv: any)=> iv.type === 119)?.children?.length === index + 1 ? 18 : 24"
                   class="left"
                   :key="index"
                 >
                   {{ item.name }}
                 </el-col>
-                <el-col :span="4" class="right">
+                <el-col :span="6" class="right">
                   €{{ orderList.items.find((iv: any)=> iv.type === 119)?.sellPrice }}
                 </el-col>
               </el-row>
@@ -337,7 +337,7 @@
                 />
               </el-col>
               <el-col :span="24">
-                <el-button class="button-h" @click="toPay">{{
+                <el-button class="button-h" :loading="loading" @click="toPay">{{
                   $t("orderOne.buyNow")
                 }}</el-button>
               </el-col>
@@ -387,6 +387,7 @@ const inviteCode = ref(getInviteCodeStorage() || "");
 defineOptions({
   name: "orderOne",
 });
+const loading = ref(true);
 const radioPackage = ref([]);
 const parentsGoodsRef = ref<any>([]);
 const moneyPackage = ref<any>({
@@ -416,11 +417,14 @@ const precreateFn = async () => {
     });
   }
   shoppingCartStore.setCart(params);
+  loading.value = true;
   const res = await precreateApi({
     ...params,
     inviteCode: inviteCode.value,
   });
+  shoppingCartStore.setOrderListStore(res.data);
   orderList.value = res.data;
+  loading.value = false;
 };
 const orderList = ref<any>({
   netAmount: 0,
@@ -433,6 +437,7 @@ const orderList = ref<any>({
 
 const changeOrderList = (data: any) => {
   console.log("changeOrderList==>", data);
+  shoppingCartStore.setOrderListStore(data);
   orderList.value = data;
 };
 
@@ -467,13 +472,14 @@ const blurInviteCode = async (value: any) => {
       ...params,
       inviteCode: inviteCode.value,
     });
+    shoppingCartStore.setOrderListStore(data);
     orderList.value = data;
     ElMessage.success(i18n.global.t("orderOne.discountUpdated"));
   } else {
     ElMessage.warning(i18n.global.t("orderOne.pleaseEnterCorrectCode"));
   }
 };
-const blurInviteCodeFn = debounce(blurInviteCode, 1000);
+const blurInviteCodeFn = debounce(blurInviteCode, 500);
 const changeInviteCode = (value: any) => {
   // 限制输入为数字和字母
   const val = value.replace(/[^a-zA-Z0-9]/g, "").trim();
@@ -527,7 +533,7 @@ const changeRadioValue = (data: any) => {
   precreateFn();
 };
 onMounted(() => {
-  getData();
+  // getData();
 });
 watch(
   () => response.value,
@@ -565,8 +571,11 @@ watch(
 );
 watch(
   ()=> commonStore.language,
-  (val)=>{
-    getData();
+  (val,newVal)=>{
+    console.log("commonStore.language===>", val,newVal);
+    if(newVal && newVal !== val){
+      window.location.reload();
+    }
   },
   {
     immediate: true
@@ -574,8 +583,11 @@ watch(
 )
 watch(
   ()=> userStore.token,
-  (val)=>{
-    getData();
+  (val,newVal)=>{
+    console.log("userStore.token===>", val,newVal);
+    if(val){
+      getData()
+    }
   },
   {
     immediate: true

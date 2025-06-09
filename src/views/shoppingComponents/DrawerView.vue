@@ -639,6 +639,16 @@ watch(
   },
   { deep: true, immediate: true } // 关键选项
 );
+watch(
+  () => shoppingCartStore.orderListStore,
+  (newVal: any) => {
+    console.log("newVal===>", newVal);
+    if(newVal){
+      orderList.value = newVal;
+    }
+  },
+  { deep: true, immediate: true }
+);
 onMounted(() => {
   console.log("cart===>", shoppingCartStore.cart);
   //   if (shoppingCartStore.orderId) {
