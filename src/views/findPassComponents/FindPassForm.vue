@@ -136,13 +136,11 @@ const props = defineProps({
   },
 });
 const checkBooks = (value: number) => {
-  if (["it", "es"].includes(commonStore.language)) {
-    if (value === 1) {
+  if (value === 1) {
       router.push("/privice");
     } else {
       router.push("/regulations");
     }
-  }
 };
 const changeCountry = (e: string) => {
   countryCode.value = e;

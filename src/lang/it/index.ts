@@ -82,7 +82,10 @@ export default {
     smartDining: 'Ristorazione intelligente',
     solution: 'Soluzione',
     subTitle: 'Semplifica le operazioni, migliora l\'esperienza cliente, ottimizza i costi',
-    contactUs: 'Contattaci'
+    contactUs: 'Contattaci',
+    Efficiency: 'Efficienza',
+    Simple: 'Semplice',
+    costBenefit: 'Convenienza'
   },
   bannerTwo: {
     title: "L'efficienza rende semplice la ristorazione",

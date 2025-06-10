@@ -82,7 +82,10 @@ export default {
         smartDining: 'Gastronomie-Lösung',
         solution: 'für kleine Unternehmen',
         subTitle: 'Vereinfachen Sie den Betrieb, verbessern Sie das Kundenerlebnis, optimieren Sie die Kosten',
-        contactUs: 'Kontaktieren Sie uns'
+        contactUs: 'Kontaktieren Sie uns',
+        Efficiency: 'Effizienz',
+        Simple:'Einfache',
+        costBenefit: 'Kosteneffizienz'
     },
     bannerTwo: {
         title: "Effizienz macht Gastronomie einfach",

@@ -83,7 +83,10 @@ bannerOne: {
     smartDining: 'Smart Dining',
     solution: 'Solutions',
     subTitle: 'Simplify Operations, Enhance Customer Experience, Optimize Costs',
-    contactUs: 'Contact Us'
+    contactUs: 'Contact Us',
+    Efficiency: 'Efficiency',
+    Simple:'Simple',
+    costBenefit: 'Cost Benefit'
   },
   bannerTwo: {
     title: "Efficiency Makes Restaurant Business Simple",

@@ -4,30 +4,39 @@
       <div class="content">
         <img class="icon-title" src="@/assets/fastsImages/Vector.png" alt="" />
         <div class="title">
-          <span class="fast-simple-title">{{ $t('banner.fastSimpleTitle') }}</span>
+          <span class="fast-simple-title">{{ $t("banner.fastSimpleTitle") }}</span>
           <br />
-          <span class="fast-simple-title-desc">{{ $t('banner.fastSimpleTitleDesc') }}</span>
-          <span class="smart-dining">{{ $t('banner.smartDining') }}</span>
-          <span class="solution">{{ $t('banner.solution') }}</span>
+          <span class="fast-simple-title-desc">{{
+            $t("banner.fastSimpleTitleDesc")
+          }}</span>
+          <span class="smart-dining">{{ $t("banner.smartDining") }}</span>
+          <span class="solution">{{ $t("banner.solution") }}</span>
         </div>
         <div class="sub-title">
-          {{ $t('banner.subTitle') }}
+          {{ $t("banner.subTitle") }}
           <el-button class="tel-btn" type="pain" @click="goContactUs"
-            >{{ $t('banner.contactUs') }}<el-icon><Right /></el-icon
+            >{{ $t("banner.contactUs") }}<el-icon><Right /></el-icon
           ></el-button>
         </div>
         <div class="bg-title"></div>
+        <div class="bg-title-word">
+          <span>{{ $t("banner.Efficiency") }}</span>
+          <el-divider direction="vertical" />
+          <span>{{ $t("banner.Simple") }}</span>
+          <el-divider direction="vertical" />
+          <span>{{ $t("banner.costBenefit") }}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { Right } from '@element-plus/icons-vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
+import { Right } from "@element-plus/icons-vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const goContactUs = () => {
-  router.push('/contact')
-}
+  router.push("/contact");
+};
 </script>
 <style scoped lang="less">
 .banner-view-div {
@@ -42,10 +51,21 @@ const goContactUs = () => {
       margin: auto;
       position: relative;
       padding: 40px 0;
+      .bg-title-word {
+        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-weight: 400;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.9);
+        color: #fff;
+        position: absolute;
+        right: -150px;
+        bottom: -500px;
+        z-index: 2;
+      }
       .bg-title {
         width: 1720px;
         height: 500px;
-        background-image: url('@/assets/fastsImages/top-bg.png');
+        background-image: url("@/assets/fastsImages/top-bg.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -85,21 +105,23 @@ const goContactUs = () => {
         font-weight: bold;
         font-size: 72px;
         color: rgba(255, 255, 255, 0.9);
-        .fast-simple-title,.fast-simple-title-desc,.solution{
+        .fast-simple-title,
+        .fast-simple-title-desc,
+        .solution {
           font-size: 72px;
           font-weight: bold;
         }
-        .smart-dining{
+        .smart-dining {
           font-size: 24px;
         }
-        .smart-dining{
+        .smart-dining {
           font-weight: normal;
           font-size: 72px;
           color: #fed15f;
           margin-left: 8px;
           margin-right: 8px;
         }
-        span{
+        span {
           vertical-align: left;
         }
       }

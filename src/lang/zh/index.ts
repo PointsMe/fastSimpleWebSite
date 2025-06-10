@@ -84,7 +84,10 @@ bannerOne: {
     smartDining: '智能餐饮',
     solution: '解决方案',
     subTitle: '简化运营，提升客户体验，优化成本',
-    contactUs: '联系我们'
+    contactUs: '联系我们',
+    Efficiency: '效率',
+    Simple:'简单',
+    costBenefit: '成本效益'
   },
   bannerTwo: {
     title: "效率使餐饮企业变得简单",
