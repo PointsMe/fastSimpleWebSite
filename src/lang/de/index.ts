@@ -89,7 +89,10 @@ export default {
         contactUs: 'Kontaktieren Sie uns',
         title: 'Intelligentes Lagermanagement, nahtlose Abläufe',
         subtitle: 'Intelligente Werkzeuge für intelligente Abläufe',
-        preciseInventory: 'Präzise Bestandsaufnahme, intelligente Kontrolle'
+        preciseInventory: 'Präzise Bestandsaufnahme, intelligente Kontrolle',
+        Efficiency: 'Effizienz',
+        Simple:'Einfache',
+        costBenefit: 'Kosteneffizienz'
     },
     bannerTwo: {
         title: "Effizienz macht Gastronomie einfach",
@@ -720,5 +723,8 @@ export default {
     verifyFinish: 'Einladungscodesprache',
     verifyError: 'Einladungscodesprache',
     explainWord: 'Scorri den Block nach rechts, um die Überprüfung zu erfolgreich abzuschließen',
-      all: 'Alle'
+      all: 'Alle',
+      kindOne:'Gastronomie',
+      kindTwo: 'Geschäft',
+      kindThree: 'Food Truck'
 }

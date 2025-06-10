@@ -245,14 +245,14 @@
               <el-row>
                 <el-col
                   v-for="(item,index) in orderList.items.find((iv: any)=> iv.type === 119)?.children"
-                  :span="orderList.items.find((iv: any)=> iv.type === 119)?.children?.length === index + 1 ? 20 : 24"
+                  :span="orderList.items.find((iv: any)=> iv.type === 119)?.children?.length === index + 1 ? 16 : 24"
                   class="left"
                   :key="index"
                 >
                   {{ item.name }}
                 </el-col>
-                <el-col :span="4" class="right">
-                  €{{ orderList.items.find((iv: any)=> iv.type === 119)?.sellPrice }}
+                <el-col :span="8" class="right">
+                  TOT.€{{ orderList.items.find((iv: any)=> iv.type === 119)?.sellPrice }}
                 </el-col>
               </el-row>
             </div>

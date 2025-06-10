@@ -90,7 +90,10 @@ bannerOne: {
     contactUs: 'Contact Us',
     title: 'Smart Warehouse Management, Seamless Operations',
     subtitle: 'Smart Tools for Smart Operations',
-    preciseInventory: 'Precise Inventory, Smart Control'
+    preciseInventory: 'Precise Inventory, Smart Control',
+    Efficiency: 'Efficiency',
+    Simple:'Simple',
+    costBenefit: 'Cost Benefit'
   },
   bannerTwo: {
     title: "Efficiency Makes Restaurant Business Simple",
@@ -697,5 +700,8 @@ bannerOne: {
   verifyFinish: 'Verification successful',
   verifyError: 'Verification failed',
   explainWord: 'Slide the block to complete the verification',
-    all: 'All'
+    all: 'All',
+    kindOne:'Restaurant',
+    kindTwo: 'Store',
+    kindThree: 'Food Truck'
 }

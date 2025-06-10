@@ -325,20 +325,18 @@ const formRules = computed(() => {
       { required: true, message: i18n.global.t("aboutLogin.point"), trigger: "blur" },
       // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
     ],
-  };
-});
-const checkBooks = (value: number) => {
-  if (["it", "es"].includes(commonStore.language)) {
-    if (value === 1) {
-      router.push("/privice");
-    } else {
-      router.push("/regulations");
-    }
-  }
-};
-const toBack = () => {
-  emit("setStep", "1");
-};
+}
+})
+const checkBooks = (value:number)=>{
+    if(value === 1){
+            router.push('/privice')
+        }else{
+            router.push('/regulations')
+        }
+}
+const toBack = ()=>{
+    emit('setStep', '1')
+}
 const EventFunction = async (event: any) => {
   console.log("EventFunction==>", event);
   switch (event.evt) {

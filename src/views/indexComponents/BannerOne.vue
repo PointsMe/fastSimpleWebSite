@@ -2,8 +2,8 @@
   <div class="banner-one">
     <div class="title">
       <span>
-      {{ $t("bannerOne.featuredPackages") }}
-      <label>({{ $t("bannerOne.firstMonthTrial") }})</label>
+        {{ $t("bannerOne.featuredPackages") }}
+        <label>({{ $t("bannerOne.firstMonthTrial") }})</label>
       </span>
       <div class="more" @click="toShopping('')">
         <span>{{ $t("bannerOne.more") }}</span>
@@ -12,28 +12,47 @@
     </div>
     <div>
       <el-row :gutter="12">
-        <el-col :span="8" v-for="(item,index) in listData" :key="index" style="position: relative;">
+        <el-col
+          :span="8"
+          v-for="(item, index) in listData"
+          :key="index"
+          style="position: relative"
+        >
           <div class="img-col">
             <p class="t_i">{{ item.name }}</p>
-            <p class="s_i">€{{ ((Number(item.sellPrice) *100 - Number(item.invitePrice)*100)/100).toFixed(2) }}
-              <span>€{{ Number(item.sellPrice) }}
-            </span></p>
-            <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }},<span  @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
+            <p class="s_i" v-if="index !== listData.length - 1">
+              €{{
+                (
+                  (Number(item.sellPrice) * 100 - Number(item.invitePrice) * 100) /
+                  100
+                ).toFixed(2)
+              }}
+              <span>€{{ Number(item.sellPrice) }} </span>
+            </p>
+            <p class="s_i" v-else>
+              €***
+            </p>
+            <p class="b_i" v-if="!userStore.token">
+              {{ $t("bannerOne.registerNowDesc") }},<span @click="toRegister"
+                >{{ $t("bannerOne.registerNow") }} >></span
+              >
+            </p>
             <div class="content-list">
-              <el-row v-for="(itemChild,indexChild) in item.items" :key="indexChild">
+              <el-row v-for="(itemChild, indexChild) in item.items" :key="indexChild">
                 <el-col :span="16">
                   <div class="content-list-left">
                     <img src="@/assets/r-1-1.png" alt="" />
-                    <span style="margin-left: 10px;"> {{ itemChild.name }} </span>
+                    <span style="margin-left: 10px"> {{ itemChild.name }} </span>
                   </div>
                 </el-col>
                 <el-col :span="8">
                   <div class="content-list-right">€{{ itemChild.price }}</div>
                 </el-col>
               </el-row>
-            
             </div>
-            <div class="content-list-bottom" @click="toShopping(item.id)">{{ $t('bannerOne.nowBuy') }}</div>
+            <div class="content-list-bottom" @click="toShopping(item.id)">
+              {{ $t("bannerOne.nowBuy") }}
+            </div>
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
         </el-col>
@@ -64,20 +83,20 @@
 <script setup lang="ts">
 import { DArrowRight } from "@element-plus/icons-vue";
 import { useUserStore } from "@/stores/modules/user";
-import { getGoodsListApi,getHardwareListApi } from "@/apis/goods";
+import { getGoodsListApi, getHardwareListApi } from "@/apis/goods";
 import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
 import { useCommonStore } from "@/stores/modules/common";
 const userStore = useUserStore();
-const shoppingCartStore = useShoppingCartStore()
+const shoppingCartStore = useShoppingCartStore();
 defineOptions({
   name: "bannerOne",
 });
-const commonStore = useCommonStore()
+const commonStore = useCommonStore();
 const listData = ref<any[]>([]);
 const goodsList = ref<any[]>([]);
 const router = useRouter();
-const toShopping = (id:any) => {
-  shoppingCartStore.setTabId(id)
+const toShopping = (id: any) => {
+  shoppingCartStore.setTabId(id);
   router.push("/shopping");
 };
 const toRegister = () => {
@@ -85,26 +104,26 @@ const toRegister = () => {
 };
 const getListData = async () => {
   const { data } = await getGoodsListApi({
-    biz: userStore.biz
+    biz: userStore.biz,
   });
   listData.value = data;
 };
-const getData = async()=>{
-    const {data} = await getHardwareListApi()
-    goodsList.value = data
-    return data;
-}
+const getData = async () => {
+  const { data } = await getHardwareListApi();
+  goodsList.value = data;
+  return data;
+};
 watch(
-  ()=> commonStore.language,
-  (val)=>{
+  () => commonStore.language,
+  (val) => {
     getListData();
   },
   {
-    immediate: true
+    immediate: true,
   }
-)
+);
 onMounted(() => {
-  getListData()
+  getListData();
 });
 </script>
 <style scoped lang="less">
@@ -128,29 +147,28 @@ onMounted(() => {
     width: 100%;
     min-height: 450px;
     .content-list-bottom {
-        cursor: pointer;
-        font-family: Source Han Sans SC, Source Han Sans SC;
-        margin-top: 80px;
-        font-weight: 400;
-        font-size: 16px;
-        color: #ffffff;
-        line-height: 16px;
-        text-align: left;
-        font-style: normal;
-        text-transform: none;
-        width: 80%;
-        height: 60px;
-        line-height: 60px;
-        background: #1a1a1a;
-        border-radius: 85px 85px 85px 85px;
-        text-align: center;
-        color: #fff;
-        position: absolute;
-        bottom: 40px;
-        left: 10%;
-      }
+      cursor: pointer;
+      font-family: Source Han Sans SC, Source Han Sans SC;
+      margin-top: 80px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #ffffff;
+      line-height: 16px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+      width: 80%;
+      height: 60px;
+      line-height: 60px;
+      background: #1a1a1a;
+      border-radius: 85px 85px 85px 85px;
+      text-align: center;
+      color: #fff;
+      position: absolute;
+      bottom: 40px;
+      left: 10%;
+    }
     .content-list {
-
       .content-list-left {
         height: 30px;
         text-align: left;
@@ -241,21 +259,20 @@ onMounted(() => {
     // }
   }
   .title {
-   
     position: relative;
     margin-bottom: 20px;
     > span:first-child {
       font-weight: bold;
       font-size: 52px;
       color: #1b1b1b;
-      > label{
+      > label {
         font-size: 14px;
         color: #fed15f;
         margin-left: 10px;
         font-weight: bold;
       }
     }
-    .more{
+    .more {
       position: absolute;
       right: 0;
       bottom: 0;

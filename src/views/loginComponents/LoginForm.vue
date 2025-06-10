@@ -166,12 +166,10 @@ const formRules = computed(() => {
   };
 });
 const checkBooks = (value: number) => {
-  if (["it", "es"].includes(commonStore.language)) {
-    if (value === 1) {
-      router.push("/privice");
-    } else {
-      router.push("/regulations");
-    }
+  if (value === 1) {
+    router.push("/privice");
+  } else {
+    router.push("/regulations");
   }
 };
 const changeCountry = (e: string) => {

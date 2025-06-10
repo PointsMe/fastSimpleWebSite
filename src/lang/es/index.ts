@@ -89,7 +89,10 @@ export default {
         contactUs: 'Contáctenos',
         title: 'Gestión Inteligente de Almacén, Operaciones Sin Interrupciones',
         subtitle: 'Herramientas Inteligentes para Operaciones Inteligentes',
-        preciseInventory: 'Inventario Preciso, Control Inteligente'
+        preciseInventory: 'Inventario Preciso, Control Inteligente',
+        Efficiency: 'Eficiencia',
+        Simple: 'Simple',
+        costBenefit: 'Relación costo-beneficio'
     },
     bannerTwo: {
         title: "La eficiencia hace que la restauración sea simple",
@@ -725,5 +728,8 @@ export default {
     verifyFinish: 'Verificación completada',
     verifyError: 'Verificación fallida',
     explainWord: 'Deslice el bloque para completar la verificación',
-      all: 'Todos'
+      all: 'Todos', 
+      kindOne:'Restaurante',
+      kindTwo: 'Tienda',
+      kindThree: 'Food Truck'
 }

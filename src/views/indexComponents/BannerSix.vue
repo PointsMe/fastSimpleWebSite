@@ -90,7 +90,7 @@
         bottom: -20px;
         left: 50%;
         transform: translateX(-50%);
-        width: 120%;
+        width: 100%;
         p {
           margin: 0;
           padding: 0;

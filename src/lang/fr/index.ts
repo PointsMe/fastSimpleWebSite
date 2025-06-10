@@ -89,7 +89,10 @@ export default {
         contactUs: 'Contactez-nous',
         title: 'Gestion Intelligente des Entrepôts, Opérations Fluides',
         subtitle: 'Outils Intelligents pour des Opérations Intelligentes',
-        preciseInventory: 'Inventaire Précis, Contrôle Intelligent'
+        preciseInventory: 'Inventaire Précis, Contrôle Intelligent',
+        Efficiency: 'Efficacité',
+        Simple: 'Simplicité',
+        costBenefit: 'Rapport coût-bénéfice'
     },
     bannerTwo: {
         title: "L'efficacité simplifie la restauration",
@@ -733,5 +736,8 @@ export default {
     verifyFinish: 'Vérification terminée',
     verifyError: 'Vérification échouée',
     explainWord: 'Glissez le bloc pour compléter la vérification',
-      all: 'Tous'
+    all: 'Tous',
+    kindOne:'Restaurant',
+    kindTwo: 'Magasin',
+    kindThree: 'Véhicule de restauration'
 }

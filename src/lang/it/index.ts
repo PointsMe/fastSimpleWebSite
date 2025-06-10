@@ -89,7 +89,10 @@ export default {
     contactUs: 'Contattaci',
     title: 'Gestione Intelligente del Magazzino, Operazioni Senza Interruzioni',
     subtitle: 'Strumenti Intelligenti per Operazioni Intelligenti',
-    preciseInventory: 'Inventario Preciso, Controllo Intelligente'
+    preciseInventory: 'Inventario Preciso, Controllo Intelligente',
+    Efficiency: 'Efficienza',
+    Simple: 'Semplice',
+    costBenefit: 'Convenienza'
   },
   bannerTwo: {
     title: "L'efficienza rende semplice la ristorazione",
@@ -719,5 +722,8 @@ export default {
   verifyFinish: 'Verifica completata',
   verifyError: 'Verifica fallita',
   explainWord: 'Scorri il blocco per completare la verifica',
-  all: 'Tutti'
+  all: 'Tutti',
+  kindOne:'Ristorante',
+  kindTwo: 'Negozio',
+  kindThree: 'Caffetteria'
 }

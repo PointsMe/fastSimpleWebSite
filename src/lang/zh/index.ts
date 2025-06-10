@@ -91,7 +91,10 @@ bannerOne: {
     contactUs: '联系我们',
     title: '智能仓库管理，实现无缝运营',
     subtitle: '智能工具助力智能运营',
-    preciseInventory: '精准盘点，智能管控'
+    preciseInventory: '精准盘点，智能管控',
+    Efficiency: '效率',
+    Simple:'简单',
+    costBenefit: '成本效益'
   },
   bannerTwo: {
     title: "效率使餐饮企业变得简单",
@@ -728,5 +731,8 @@ codeVerifyTitle: '验证码',
 verifyFinish: '验证成功',
 verifyError: '验证失败',
 explainWord: '向右滑动滑块以完成验证',
-all: '所有'
+all: '所有',
+kindOne:'餐饮',
+kindTwo: '商店',
+kindThree: '餐车'
 }

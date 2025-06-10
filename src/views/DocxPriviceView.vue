@@ -18,7 +18,8 @@ const commonStore = useCommonStore();
 const content = ref('');
 async function extractContent() {
     try {
-        let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/${commonStore.language}-privice.docx`;
+        const words = commonStore.language === 'es' ? 'es' : 'it';
+        let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/${words}-privice.docx`;
         // let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/it-privice.docx`;
         console.log(url);
         const response = await fetch(url);
