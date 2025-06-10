@@ -100,7 +100,7 @@
       -<span>《{{ $t('bannerEleven.sitemap') }}》</span>
     </div>
     <div class="des-img">
-      <img src="@/assets/fastsImages/b-11-3.png" alt="" />
+      <img src="@/assets/joinkuImages/bottom-bg.png" alt="" />
     </div>
   </div>
 </template>
@@ -128,12 +128,12 @@ const goToPage = (value: any) => {
   background: #151515;
 
   .des-img {
-    width: 1280px;
+    width: 100%;
     margin: auto;
 
     img {
       display: block;
-      width: 1182px;
+      width: 100%;
       height: 136px;
       margin: auto;
     }
