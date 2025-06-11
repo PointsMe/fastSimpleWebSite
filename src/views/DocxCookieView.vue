@@ -21,7 +21,6 @@ import { ref } from "vue";
 import mammoth from 'mammoth';
 import { Document, ArrowRightBold } from '@element-plus/icons-vue';
 import { useCommonStore } from "@/stores/modules/common";
-import { ElMessage } from "element-plus";
 const commonStore = useCommonStore();
 const router = useRouter();
 const content = ref('');
@@ -52,7 +51,6 @@ async function extractContent() {
     }
 }
 const goBack = () => {
-  ElMessage.success('测试jenkins')
     router.back();
 }
 onMounted(() => {
