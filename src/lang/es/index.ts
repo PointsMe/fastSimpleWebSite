@@ -367,6 +367,10 @@ export default {
         title: 'Términos y condiciones para servicios rápidos', 
         updateDate: 'Fecha de actualización: 13 de mayo de 2025'
     },
+    cookieTips: {
+        title: 'Política de cookies para FastSimple',
+        updateDate: 'Fecha de actualización: 13 de mayo de 2025'
+    },
     
 
     orderView: {

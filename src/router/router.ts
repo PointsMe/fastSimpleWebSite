@@ -160,5 +160,13 @@ export default [
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/PaySuccessView.vue')
     },
+    {
+      path: '/cookie',
+      name: 'cookieView',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/DocxCookieView.vue')
+    },
 ]
     
