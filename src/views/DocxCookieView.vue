@@ -52,7 +52,7 @@ async function extractContent() {
     }
 }
 const goBack = () => {
-  ElMessage.success('123')
+  ElMessage.success('测试jenkins')
     router.back();
 }
 onMounted(() => {
