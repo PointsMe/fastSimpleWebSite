@@ -129,14 +129,6 @@ export default [
       component: () => import('../views/HomeView.vue')
     },
     {
-      path: '/testVideo',
-      name: 'testVideo',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/TestVideoView.vue')
-    },
-    {
       path: '/regulations',
       name: 'regulationsView',
       // route level code-splitting
