@@ -61,7 +61,7 @@
           <div class="tips-messages">
             <p>Whatsapp: +39 3242847077</p>
             <p>{{ $t('bannerTen.email') }}：Email: info@fastsimple.it</p>
-            <p>{{ $t('bannerTen.aiService') }}：~</p>
+            <p>{{ $t('bannerEleven.aiService') }}：~</p>
           </div>
           <div class="nav-menu">
             <el-menu mode="horizontal" :ellipsis="false" class="menu">
@@ -95,9 +95,9 @@
     <div class="des">
       <!-- {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 -<span class="line-th">{{ $t('bannerEleven.terms') }}</span> -->
       {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 
-      -<span>《{{ $t('bannerEleven.privacy') }}》</span>
-      -<span>《{{ $t('bannerEleven.cookie') }}》</span>
-      -<span>《{{ $t('bannerEleven.sitemap') }}》</span>
+      -<span @click="goToPage('privice')">《{{ $t('bannerEleven.privacy') }}》</span>
+      -<span @click="goToPage('cookie')">《{{ $t('bannerEleven.cookie') }}》</span>
+      -<span @click="goToPage('regulations')">《{{ $t('bannerEleven.sitemap') }}》</span>
     </div>
     <div class="des-img">
       <img src="@/assets/fastsImages/b-11-3.png" alt="" />
@@ -149,7 +149,9 @@ const goToPage = (value: any) => {
     color: #bdbdbd;
     margin-top: 30px;
     margin-bottom: 39px;
-
+    >span{
+      cursor: pointer;
+    }
     .line-th {
       display: inline-block;
       text-decoration: underline;

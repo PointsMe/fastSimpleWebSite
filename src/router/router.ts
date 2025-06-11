@@ -88,66 +88,6 @@ export default [
     ]
   },
   {
-      path: '/module',
-      name: 'ModuleView',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ModuleView.vue'),
-      redirect: '/module/login',
-      children: [
-          {
-              path: 'login',
-              name: 'loginView',
-              // route level code-splitting
-              // this generates a separate chunk (About.[hash].js) for this route
-              // which is lazy-loaded when the route is visited.
-              component: () => import('../views/loginComponents/LoginComponents.vue'),
-              meta: {
-                name: '登录'
-              }
-            },
-            {
-              path: 'register',
-              name: 'registerView',
-              // route level code-splitting
-              // this generates a separate chunk (About.[hash].js) for this route
-              // which is lazy-loaded when the route is visited.
-              component: () => import('../views/registerComponents/RegisterComponents.vue'),
-              meta: {
-                name: '注册'
-              }
-            },
-            {
-              path: 'findpass',
-              name: 'findpassView',
-              // route level code-splitting
-              // this generates a separate chunk (About.[hash].js) for this route
-              // which is lazy-loaded when the route is visited.
-              component: () => import('../views/findPassComponents/FindPassComponents.vue'),
-              meta: {
-                name: '忘记密码'
-              }
-            },
-      ]
-  },
-  {
-    path: '/home',
-    name: 'home',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../views/HomeView.vue')
-  },
-  {
-    path: '/testVideo',
-    name: 'testVideo',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../views/TestVideoView.vue')
-  },
-  {
     path: '/regulations',
     name: 'regulationsView',
     // route level code-splitting
@@ -170,6 +110,14 @@ export default [
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('../views/PaySuccessView.vue')
+  },
+  {
+    path: '/cookie',
+    name: 'cookieView',
+    // route level code-splitting
+    // this generates a separate chunk (About.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/DocxCookieView.vue')
   },
 ]
   

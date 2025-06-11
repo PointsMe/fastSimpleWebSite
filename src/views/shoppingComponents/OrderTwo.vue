@@ -527,7 +527,7 @@ const changeRadioValue = (data: any) => {
   precreateFn();
 };
 onMounted(() => {
-  getData();
+  // getData();
 });
 watch(
   () => response.value,
@@ -565,8 +565,23 @@ watch(
 );
 watch(
   ()=> commonStore.language,
-  (val)=>{
-    getData();
+  (val,newVal)=>{
+    console.log("commonStore.language===>", val,newVal);
+    if(newVal && newVal !== val){
+      window.location.reload();
+    }
+  },
+  {
+    immediate: true
+  }
+)
+watch(
+  ()=> userStore.token,
+  (val,newVal)=>{
+    console.log("userStore.token===>", val,newVal);
+    if(val){
+      getData()
+    }
   },
   {
     immediate: true

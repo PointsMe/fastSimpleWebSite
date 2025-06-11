@@ -546,7 +546,10 @@ export default {
         title: 'Vertragsbedingungen für schnellen Service', 
         updateDate: 'Aktualisiert am: 13. Mai 2025'
     },
-    
+    cookieTips: {
+        title: 'Cookie-Richtlinie für schnellen Service',
+        updateDate: 'Aktualisiert am: 13. Mai 2025'
+    },
 
     orderView: {
         myOrders: 'Meine Bestellungen',

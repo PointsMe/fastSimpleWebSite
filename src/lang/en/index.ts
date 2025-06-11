@@ -522,6 +522,10 @@ bannerOne: {
     title: 'Contract Terms for FastSimple', 
     updateDate: 'Updated on May 13, 2025'
   },
+  cookieTips: {
+    title: 'Cookie Policy for FastSimple',
+    updateDate: 'Updated on May 13, 2025'
+  },  
 
 
   orderView: {

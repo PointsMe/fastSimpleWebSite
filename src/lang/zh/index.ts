@@ -552,7 +552,10 @@ bannerOne: {
     title: '提供快速服务的合同条例',
     updateDate: '更新日期：2025年5月13日'
   },
-  
+  cookieTips: {
+    title: '提供快速服务的cookie条例',
+    updateDate: '更新日期：2025年5月13日'
+  },
 
   orderView: {
     myOrders: '我的订单',

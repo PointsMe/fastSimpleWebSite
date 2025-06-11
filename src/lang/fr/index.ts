@@ -559,7 +559,10 @@ export default {
         title: 'Conditions générales pour la fourniture de services rapides',   
         updateDate: 'Date de mise à jour : 13 mai 2025'
     },
-    
+    cookieTips: {
+        title: 'Politique de cookies pour FastSimple',
+        updateDate: 'Date de mise à jour : 13 mai 2025'
+    },
 
     orderView: {
         myOrders: 'Mes commandes',
