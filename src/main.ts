@@ -4,8 +4,6 @@ import { createApp } from 'vue'
 import 'amfe-flexible'
 import { createPinia } from 'pinia'
 import { defineAsyncComponent } from 'vue';
-import vue3videoPlay from 'vue3-video-play' // 引入组件
-import 'vue3-video-play/dist/style.css' // 引入css
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -18,9 +16,6 @@ import { i18n } from './lang/index'
 // // 引入css
 // import 'vue3-country-intl/lib/vue3-country-intl.css'
 
-
-// import vue3videoPlay from 'vue3-video-play' // 引入组件
-// import 'vue3-video-play/dist/style.css' // 引入css
 import { configureCompat } from '@vue/compat';
 configureCompat({ MODE: 'Vue2' });
 const app = createApp(App);
@@ -33,6 +28,5 @@ app.use(i18n)  // 挂载i18n
 app.use(createPinia())
 app.use(router)
 app.use(ElementPlus)
-app.use(vue3videoPlay)
 
 app.mount('#app')
