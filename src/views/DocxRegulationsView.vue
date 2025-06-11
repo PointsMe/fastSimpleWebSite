@@ -4,6 +4,10 @@
       <div>
         <el-icon><Document /></el-icon>
         <span>{{ $t('regulationsTips.title') }}</span>
+        <div class="back-btn" @click="goBack">
+          <span>{{ $t('aboutLogin.back') }}</span>
+          <el-icon><ArrowRightBold /></el-icon>
+        </div>
       </div>
       <!-- <div>
         {{ $t('wordTips.updateDate') }}
@@ -15,9 +19,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import mammoth from 'mammoth';
-import { Document } from '@element-plus/icons-vue';
+import { Document, ArrowRightBold } from '@element-plus/icons-vue';
 import { useCommonStore } from "@/stores/modules/common";
+import { useRouter } from 'vue-router';
 const commonStore = useCommonStore();
+const router = useRouter();
 const content = ref('');
 async function extractContent() {
     try {
@@ -45,6 +51,9 @@ async function extractContent() {
         console.error('转换文档失败:', error);
     }
 }
+const goBack = () => {
+    router.back();
+}
 onMounted(() => {
     extractContent();
 })
@@ -63,8 +72,21 @@ onMounted(() => {
             align-items: center;
             justify-content: center;
             gap: 10px;
+            position: relative;
             .el-icon{
                 color: #FDB522;
+            }
+            .back-btn{
+                position: absolute;
+                right: 30px;
+                top: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                font-size: 14px;
+                cursor: pointer;
+                color: #FDB522;
+                gap: 5px;
             }
         }
     }
