@@ -126,7 +126,7 @@
                             <el-col :span="16"> {{ $t('orderDetail.discountAmount') }} </el-col>
                             <el-col :span="8"> €{{ item.discountAmount }} </el-col>
                             <el-col :span="16"> {{ $t('orderDetail.taxRate') }} </el-col>
-                            <el-col :span="8"> €{{ item.taxRate }} </el-col>
+                            <el-col :span="8"> €{{ item.taxAmount }} </el-col>
                             <el-col :span="16" class="total-amount"> {{ $t('orderDetail.total') }}： </el-col>
                             <el-col :span="8" class="total-amount"> €{{ item.finalAmount }} </el-col>
                           </el-row>
