@@ -74,6 +74,7 @@ export default {
         registerNow: 'Regístrate ahora',
         registerNowDesc: 'Beneficios inmediatos para miembros registrados',
         nowBuy: 'Comprar ahora',
+        nowBuyOther: 'Personalizar ahora',
         firstMonthTrial: 'Primer mes de periodo de prueba, disponible para un mes, con posibilidad de reembolso sin costos'
     },
     banner: {

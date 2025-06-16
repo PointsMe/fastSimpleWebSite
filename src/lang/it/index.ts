@@ -74,6 +74,7 @@ export default {
     registerNow: 'Registrati ora',
     registerNowDesc: 'Gli stati membri registrati beneficiano di una preferenza',
     nowBuy: 'Acquista ora',
+    nowBuyOther: 'Personalizza ora',
     firstMonthTrial: 'Primo mese di prova, reso disponibile per un mese, con possibilità di rimborso senza costi',
   },
   banner: {
@@ -268,7 +269,7 @@ export default {
     terms: "Termini",
     privacy: "Privacy",
     cookie: "Cookie",
-    sitemap: "Mappa del sito",
+    sitemap: "TERMINL E CONDIZIONI",
     aiService: 'Servizi Tecnologici di Intelligenza Artificiale'
   },
   shopping: {

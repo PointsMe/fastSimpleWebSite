@@ -75,6 +75,7 @@ bannerOne: {
     registerNow: 'Register Now',
     registerNowDesc: 'Registered members enjoy immediate discounts',
     nowBuy: 'Now Buy',
+    nowBuyOther: 'Customize Now',
     firstMonthTrial: 'First month trial period, refundable without any costs'
   },
   banner: {
