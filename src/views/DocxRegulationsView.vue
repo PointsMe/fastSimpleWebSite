@@ -3,7 +3,7 @@
   <div class="title">
       <div>
         <el-icon><Document /></el-icon>
-        <span>{{ $t('regulationsTips.title') }}</span>
+        <span>{{ $t('priviceTips.title') }}</span>
         <div class="back-btn" @click="goBack">
           <span>{{ $t('aboutLogin.back') }}</span>
           <el-icon><ArrowRightBold /></el-icon>

@@ -80,6 +80,7 @@ bannerOne: {
     registerNow: '立即注册',
     registerNowDesc: '注册会员立享优惠',
     nowBuy: '立即选购',
+    nowBuyOther: '立即自定义',
     firstMonthTrial: '首月试用期，可无条件退货退款',
   },
   banner: {

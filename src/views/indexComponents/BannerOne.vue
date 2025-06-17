@@ -19,7 +19,7 @@
           style="position: relative"
         >
           <div class="img-col">
-            <p class="t_i">{{ item.name }}</p>
+            <p :class="index === listData.length -1 ? 't_i_l' : 't_i'">{{ item.name }}</p>
             <p class="s_i" v-if="index !== listData.length - 1">
               €{{
                 (
@@ -51,7 +51,12 @@
               </el-row>
             </div>
             <div class="content-list-bottom" @click="toShopping(item.id)">
-              {{ $t("bannerOne.nowBuy") }}
+              <span v-if="index === listData.length -1">
+                {{ $t("bannerOne.nowBuyOther") }}
+              </span>
+              <span v-else>
+                {{ $t("bannerOne.nowBuy") }}
+              </span>
             </div>
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
@@ -207,6 +212,17 @@ onMounted(() => {
       font-weight: bold;
       font-size: 30px;
       color: #fed15f;
+      line-height: 32px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+    }
+    .t_i_l {
+      padding-top: 40px;
+      font-family: Inter, Inter;
+      font-weight: bold;
+      font-size: 30px;
+      color: #1a1a1a;
       line-height: 32px;
       text-align: left;
       font-style: normal;

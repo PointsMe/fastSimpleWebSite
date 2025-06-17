@@ -78,6 +78,7 @@ export default {
         registerNow: 'Jetzt registrieren',
         registerNowDesc: 'Die mitgliedschaft steht auf zuschüsse',
         nowBuy: 'Jetzt kaufen',
+        nowBuyOther: 'Jetzt anpassen',
         firstMonthTrial: 'Erste Monatsprüfungsphase, Rückerstattung ohne Kosten'
     },
     banner: {
