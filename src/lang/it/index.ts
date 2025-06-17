@@ -269,7 +269,7 @@ export default {
     terms: "Termini",
     privacy: "Privacy",
     cookie: "Cookie",
-    sitemap: "TERMINL E CONDIZIONI",
+    sitemap: "Termini e condizioni",
     aiService: 'Servizi Tecnologici di Intelligenza Artificiale'
   },
   shopping: {
