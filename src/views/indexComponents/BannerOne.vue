@@ -14,13 +14,13 @@
       <el-row :gutter="12">
         <el-col
           :span="8"
-          v-for="(item, index) in listData"
+          v-for="(item, index) in listData.filter(item => item.id !== '1009')"
           :key="index"
           style="position: relative"
         >
           <div class="img-col">
-            <p :class="index === listData.length -1 ? 't_i_l' : 't_i'">{{ item.name }}</p>
-            <p class="s_i" v-if="index !== listData.length - 1">
+            <p class="t_i">{{ item.name }}</p>
+            <p class="s_i">
               €{{
                 (
                   (Number(item.sellPrice) * 100 - Number(item.invitePrice) * 100) /
@@ -28,9 +28,6 @@
                 ).toFixed(2)
               }}
               <span>€{{ Number(item.sellPrice) }} </span>
-            </p>
-            <p class="s_i" v-else>
-              €***
             </p>
             <p class="b_i" v-if="!userStore.token">
               {{ $t("bannerOne.registerNowDesc") }},<span @click="toRegister"
@@ -51,36 +48,50 @@
               </el-row>
             </div>
             <div class="content-list-bottom" @click="toShopping(item.id)">
-              <span v-if="index === listData.length -1">
-                {{ $t("bannerOne.nowBuyOther") }}
-              </span>
-              <span v-else>
+              <span>
                 {{ $t("bannerOne.nowBuy") }}
               </span>
             </div>
             <!-- <img src="@/assets/fastsImages/b-1-1.png" alt="" /> -->
           </div>
         </el-col>
-        <!-- <el-col :span="8" style="position: relative;">
-          <div class="img-col">
-            <p class="t_i">CUSTOM</p>
-            <p class="s_i">€***</p>
-            <p class="b_i"  v-if="!userStore.token">{{ $t('bannerOne.registerNowDesc') }}，<span @click="toRegister">{{ $t('bannerOne.registerNow') }} >></span></p>
+        <el-col
+          :span="8"
+          v-for="(item, index) in listData.filter(item => item.id === '1009')"
+          :key="index"
+          style="position: relative"
+        >
+          <div class="img-col" style="background-color: #1a1a1a;">
+            <p class="t_i">{{ item.name }}</p>
+            <p class="s_i_a">
+              专属定制方案，满足您的个性化系统的需求
+            </p>
+            <p class="b_i" v-if="!userStore.token">
+              {{ $t("bannerOne.registerNowDesc") }},<span @click="toRegister"
+                >{{ $t("bannerOne.registerNow") }} >></span
+              >
+            </p>
             <div class="content-list">
-              <el-row v-for="(itemChild,indexChild) in goodsList" :key="indexChild">
-                <el-col :span="12" v-if="indexChild < 4">
+              <el-row v-for="(itemChild, indexChild) in item.items" :key="indexChild">
+                <el-col :span="16">
                   <div class="content-list-left">
-                    <span>{{ itemChild.name }} </span>
+                    <!-- <img src="@/assets/r-1-1.png" alt="" /> -->
+                    <span style="margin-left: 10px;color: #e6e6e6;"> {{ itemChild.name }} </span>
                   </div>
                 </el-col>
-                <el-col :span="12" v-if="indexChild < 4">
-                  <div class="content-list-right">€{{ itemChild.sellPrice }}</div>
+                <el-col :span="8">
+                  <!-- <div class="content-list-right" style="color: #fff;">€{{ itemChild.price }}</div> -->
                 </el-col>
               </el-row>
             </div>
-            <div class="content-list-bottom" @click="toShopping('1003')">{{ $t('bannerOne.nowBuy') }}</div>
+            <div class="content-list-bottom" style="background-color: #fed15f;" @click="toShopping(item.id)">
+              <span style="color: #1a1a1a;">
+                {{ $t("bannerOne.nowBuyOther") }}
+              </span>
+            </div>
+            <img class="bg-img" src="@/assets/fastsImages/b-1-bg.png" alt="" />
           </div>
-        </el-col> -->
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -141,7 +152,7 @@ onMounted(() => {
     margin: 0;
     padding: 0;
   }
-  .img-col {
+  .img-col{
     padding: 0 36px 50px 36px;
     text-align: left;
     background-color: #fff;
@@ -150,7 +161,15 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 450px;
+    min-height: 500px;
+    .bg-img{
+      position: absolute;
+      bottom: 25%;
+      right: 36px;
+      width: 219px;
+      height: 219px;
+      object-fit: cover;
+    }
     .content-list-bottom {
       cursor: pointer;
       font-family: Source Han Sans SC, Source Han Sans SC;
@@ -228,6 +247,17 @@ onMounted(() => {
       font-style: normal;
       text-transform: none;
     }
+    .s_i_a{
+      font-size: 16px;
+      color: #e6e6e6;
+      line-height: 16px;
+      text-align: left;
+      font-style: normal;
+      text-transform: none;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid gray;
+    }
     .s_i {
       padding-top: 20px;
       font-family: Inter, Inter;
@@ -238,6 +268,8 @@ onMounted(() => {
       text-align: left;
       font-style: normal;
       text-transform: none;
+      padding-bottom: 30px;
+      border-bottom: 1px solid gray;
       > span {
         display: inline-block;
         margin-left: 10px;
