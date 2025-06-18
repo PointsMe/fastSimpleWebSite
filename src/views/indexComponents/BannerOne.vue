@@ -64,7 +64,7 @@
           <div class="img-col" style="background-color: #1a1a1a;">
             <p class="t_i">{{ item.name }}</p>
             <p class="s_i_a">
-              专属定制方案，满足您的个性化系统的需求
+              {{ $t("bannerOne.nowBuyOtherDesc") }}
             </p>
             <p class="b_i" v-if="!userStore.token">
               {{ $t("bannerOne.registerNowDesc") }},<span @click="toRegister"

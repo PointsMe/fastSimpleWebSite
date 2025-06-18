@@ -75,6 +75,7 @@ export default {
     registerNowDesc: 'Gli stati membri registrati beneficiano di una preferenza',
     nowBuy: 'Acquista ora',
     nowBuyOther: 'Personalizza ora',
+    nowBuyOtherDesc: 'Soluzioni su misura per piccole e medie imprese',
     firstMonthTrial: 'Primo mese di prova, reso disponibile per un mese, con possibilità di rimborso senza costi',
   },
   banner: {

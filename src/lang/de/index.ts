@@ -75,6 +75,7 @@ export default {
         registerNowDesc: 'Die mitgliedschaft steht auf zuschüsse',
         nowBuy: 'Jetzt kaufen',
         nowBuyOther: 'Jetzt anpassen',
+        nowBuyOtherDesc: 'Maßgeschneiderte Lösungen für kleine und mittlere Unternehmen',
         firstMonthTrial: 'Erste Monatsprüfungsphase, Rückerstattung ohne Kosten'
     },
     banner: {

@@ -75,6 +75,7 @@ export default {
         registerNowDesc: 'Avantages immédiats pour les membres enregistrés',
         nowBuy: 'Aller à la boutique',
         nowBuyOther: 'Personnaliser maintenant',
+        nowBuyOtherDesc: 'Solutions sur mesure pour les petites et moyennes entreprises',
         firstMonthTrial: 'Premier mois de période d\'essai, disponible pour un mois, avec possibilité de remboursement sans frais'
     },
     banner: {
