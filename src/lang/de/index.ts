@@ -552,5 +552,10 @@ export default {
       all: 'Alle',
       kindOne:'Gastronomie',
       kindTwo: 'Geschäft',
-      kindThree: 'Food Truck'
+      kindThree: 'Food Truck',
+      cookieBottom: 'Cookie sammelt die daten über den anonymen gebrauch auf dieser website, um unserem gesamten benutzererlebnis mehr geltung zu verschaffen Sie können uns lesen, wenn sie mehr Wissen möchten Oder ihre vorlieben ändern möchten',
+      cookieBottomAnd: 'Cookies regel.',
+      cookieBottomOne: '。Klicken sie "akzeptanz", und sie sind einverstanden, cookies zu benutzen。',
+      agree: '(sheriff) einverstanden.',
+notAgree: 'Nein, danke.'
 }

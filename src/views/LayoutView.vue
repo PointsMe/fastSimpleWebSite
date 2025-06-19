@@ -6,6 +6,7 @@
     <BannerEleven />
     <OrderView ref="OrderViewRef" />
     <OrderDetailView ref="OrderDetailViewRef" />
+    <CookiesView />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import BannerTen from '@/views/indexComponents/BannerTen.vue'
 import BannerEleven from '@/views/indexComponents/BannerEleven.vue'
 import OrderView from './orderView.vue'
 import OrderDetailView from './OrderDetailView.vue'
+import CookiesView from '@/views/indexComponents/CookiesView.vue'
 defineOptions({
   name: 'layoutView'
 })

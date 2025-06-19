@@ -558,5 +558,10 @@ export default {
       all: 'Todos', 
       kindOne:'Restaurante',
       kindTwo: 'Tienda',
-      kindThree: 'Food Truck'
+      kindThree: 'Food Truck',
+      cookieBottom: 'Este sitio web utiliza cookies para recopilar datos de uso anónimos que nos facilitan mejorar la experiencia general del usuario. Si desea obtener más información o cambiar sus preferencias, lea nuestro',
+      cookieBottomAnd: 'Política de cookies',
+      cookieBottomOne: '。Al hacer clic en "aceptar", usted acepta el uso de cookies。',
+      agree: 'De acuerdo con',
+notAgree: 'No, gracias'
 }
