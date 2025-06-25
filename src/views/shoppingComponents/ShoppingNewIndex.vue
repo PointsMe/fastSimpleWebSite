@@ -130,7 +130,7 @@ const changeTab = (val: string) => {
 };
 const getData = async () => {
   const { data } = await getGoodsListApi({
-    biz: userStore.biz,
+    // biz: userStore.biz,
   });
   console.log("shoppingCartStore.tabId", shoppingCartStore.tabId);
   if (data && data.length > 0) {

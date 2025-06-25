@@ -109,7 +109,7 @@ const toRegister = () => {
 };
 const getListData = async () => {
   const { data } = await getGoodsListApi({
-    biz: userStore.biz,
+    // biz: userStore.biz,
   });
   listData.value = data;
 };
