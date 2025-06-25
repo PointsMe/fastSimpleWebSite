@@ -499,7 +499,8 @@ const onSubmit = () => {
           });
           userStore.setToken(data.token);
           userStore.setUserInfo(data.account);
-          userStore.setBiz(data.account.biz);
+          // userStore.setBiz(data.account.biz);
+          userStore.setBiz(formModel.biz);
           commonStore.setShowRegisterModal(false);
         }
       }

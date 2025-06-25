@@ -226,7 +226,8 @@ const onSubmit = async () => {
       console.log("onSubmit===>", data);
       userStore.setToken(data.token);
       userStore.setUserInfo(data.account);
-      userStore.setBiz(data.account?.biz);
+      // userStore.setBiz(data.account?.biz);
+      userStore.setBiz(form.biz);
       commonStore.setShowLoginModal(false);
     } else {
       console.log("error submit!");
