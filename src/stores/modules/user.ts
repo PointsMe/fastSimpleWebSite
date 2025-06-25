@@ -11,8 +11,9 @@ export const useUserStore = defineStore("user", () => {
 
   const setBiz = (value: string) => {
     // setBizStorage(value)
+    // biz.value = value
     setBizStorage('81')
-    biz.value = value
+    biz.value = '81'
   }
   // 设置 Token
   const setToken = (value: string) => {
