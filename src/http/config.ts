@@ -42,15 +42,19 @@ export const posGoodsId = {
 export const bizList = [
     {
         label: 'FASTSIMPLE',
-        value: '111'
+        value: '81'
     },
     {
         label: 'JOINKU',
-        value: '103'
+        value: '91'
+    },
+    {
+        label: 'MINI',
+        value: '92'
     },
     {
         label: 'BEAUTY',
-        value: '113'
+        value: '93'
     }
 ]
 export const kindList = [
