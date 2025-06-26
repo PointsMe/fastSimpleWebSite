@@ -295,7 +295,7 @@ onMounted(() => {
       font-style: normal;
       text-transform: none;
       padding-bottom: 20px;
-      border-bottom: 1px solid #e6e6e6;
+      z-index: 2;
       > span {
         cursor: pointer;
         color: #fed15f;

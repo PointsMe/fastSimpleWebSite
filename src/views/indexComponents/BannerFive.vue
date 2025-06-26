@@ -57,7 +57,6 @@ const goToShop = () => {
   width: 100%;
   background-color: #111111;
   color: #ffffff;
-  margin-top: 100px;
   .content {
     width: 1280px;
     margin: auto;

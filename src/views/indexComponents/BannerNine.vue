@@ -62,6 +62,7 @@
 .banner-9-div {
   width: 100%;
   padding-bottom: 138px;
+  background-color: #ffffff;
   p {
     padding: 0;
     margin: 0;

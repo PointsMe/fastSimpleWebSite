@@ -33,10 +33,10 @@
 </template>
 <style scoped lang="less">
 .banner-7-div {
-  margin-top: 150px;
   width: 100%;
   background-color: #f6f6f4;
-
+  padding-top: 80px;
+  padding-bottom: 80px;
   .content {
     width: 1280px;
     margin: auto;
@@ -76,7 +76,6 @@
     }
 
     .title {
-      padding-top: 120px;
       font-weight: bold;
       font-size: 52px;
       color: #1a1a1a;

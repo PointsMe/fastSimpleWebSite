@@ -62,7 +62,6 @@ defineOptions({
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
-  margin-top: 200px;
   .con-lan {
     width: 1280px;
     margin: auto;
