@@ -88,20 +88,20 @@ export default [
     ]
   },
   {
-    path: '/regulations',
-    name: 'regulationsView',
+    path: '/termsandconditions',
+    name: 'termsandconditionsView',
     // route level code-splitting
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import('../views/DocxRegulationsView.vue')
+    component: () => import('../views/DocxTermsAndConditionsView.vue')
   },
   {
-    path: '/privice',
-    name: 'priviceView',
+    path: '/privacy',
+    name: 'privacyView',
     // route level code-splitting
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import('../views/DocxPriviceView.vue')
+    component: () => import('../views/DocxPrivacyView.vue')
   },
   {
     path: '/paysuccess',
@@ -118,6 +118,6 @@ export default [
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import('../views/DocxCookieView.vue')
-  },
+  }
 ]
   

@@ -16,7 +16,7 @@ export default {
         loginTips: 'J\'ai lu et accepté nos',
         linkOne: '《Conditions d\'utilisation》',
         linkAnd: 'et',
-        linkTwo: '《Conditions du contrat》',
+        linkTwo: '《Privacy》',
 
         componeyMess: "Informations de l'entreprise",
         findPass: 'Récupérer le mot de passe',
@@ -558,7 +558,7 @@ export default {
         updateDate: 'Date de mise à jour : 13 mai 2025'
     },
     regulationsTips: {
-        title: 'Conditions générales pour la fourniture de services rapides',   
+        title: 'Conditions d\'utilisation pour FastSimple',   
         updateDate: 'Date de mise à jour : 13 mai 2025'
     },
     cookieTips: {

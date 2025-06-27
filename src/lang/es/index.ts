@@ -16,7 +16,7 @@ export default {
         loginTips: 'He leído y acepto nuestros',
         linkOne: '《Términos de Usuario》',
         linkAnd: 'y',
-        linkTwo: '《Términos del Contrato》',
+        linkTwo: '《Privacy》',
 
         componeyMess: "Información de la empresa",
         findPass: 'Recuperar contraseña',
@@ -447,9 +447,9 @@ export default {
         wechat: "WeChat",
         copyright: "Copyright © 2024 JoinKu By Yine Srl, Todos los derechos reservados",
         terms: "Términos",
-        privacy:'Política de Usuario',
+        privacy:'Política de Privacidad',
         cookie:'Política de Cookies',
-        sitemap: 'Política de Privacidad',
+        sitemap: 'Política de Usuario',
             aiService: 'Servicio de Tecnología de Inteligencia Artificial'
     },
     shopping: {
@@ -545,7 +545,7 @@ export default {
         updateDate: 'Fecha de actualización: 13 de mayo de 2025'
     },
     regulationsTips: {
-        title: 'Términos y condiciones para servicios rápidos', 
+        title: 'Términos y condiciones para FastSimple', 
         updateDate: 'Fecha de actualización: 13 de mayo de 2025'
     },
     cookieTips: {

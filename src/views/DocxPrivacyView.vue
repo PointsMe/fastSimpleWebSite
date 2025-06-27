@@ -1,11 +1,11 @@
 <template>
   <div class="word-tips-view">
   <div class="title">
-      <div>
+    <div>
         <el-icon><Document /></el-icon>
-        <span>{{ $t('regulationsTips.title') }}</span>
+        <span>{{ $t('priviceTips.title') }}</span>
         <div class="back-btn" @click="goBack">
-            <span>{{ $t('aboutLogin.back') }}</span>
+          <span>{{ $t('aboutLogin.back') }}</span>
           <el-icon><ArrowRightBold /></el-icon>
         </div>
       </div>
@@ -25,7 +25,7 @@ const content = ref('');
 async function extractContent() {
     try {
         const words = commonStore.language === 'es' ? 'es' : 'it';
-        let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/${words}-privice.docx`;
+        let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/${words}-privacy.docx`;
         // let url = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/word/it-privice.docx`;
         console.log(url);
         const response = await fetch(url);
@@ -57,6 +57,7 @@ onMounted(() => {
 </script>
 <style scoped lang="less">
 .word-tips-view {
+    background-color: #fff;
     .title{
         font-family: Inter, Inter;
         font-weight: 500;
