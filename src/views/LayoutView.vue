@@ -31,5 +31,6 @@ defineOptions({
 <style scoped lang="less">
 .index-view {
   width: 100%;
+  background-color: #fff;
 }
 </style>

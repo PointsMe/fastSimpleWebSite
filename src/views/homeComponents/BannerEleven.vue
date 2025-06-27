@@ -36,7 +36,7 @@
                     <!-- <span class="line"></span> -->
                   </div>
                 </div>
-                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:wxid_g1oajzv7yyu922</div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:Fastsimple_it</div>
               </el-col>
               <el-col :span="8">
                 <div class="code-div">
@@ -52,7 +52,7 @@
                     <!-- <span class="line"></span> -->
                   </div>
                 </div>
-                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:wxid_p9qser8yuqt722</div>
+                <div class="wx-div" style="text-indent: 0">{{ $t('bannerEleven.wechat') }}:Fastsimple_es</div>
               </el-col>
             </el-row>
           </div>

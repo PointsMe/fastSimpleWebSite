@@ -34,7 +34,7 @@ onMounted(() => {})
 </script>
 <style scoped lang="less">
 .cookie-view {
-    background-color: #FED15F;
+    background-color: #fff;
     line-height: 20px;
     width: 100%;
     position: fixed;

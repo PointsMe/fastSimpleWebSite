@@ -281,12 +281,12 @@ defineOptions({
           .t-b {
             font-size: 24px;
             font-weight: bold;
-
-            .t-b-t {
-              color: #595959;
-              padding: 10px 0;
-            }
+            color: #1a1a1a;
           }
+          .t-b-t {
+              color: #595959;
+              // padding: 10px 0;
+            }
         }
 
         .col-1-ban-3 {
@@ -392,6 +392,7 @@ defineOptions({
           // text-indent: 20px;
           font-weight: 400;
           font-size: 18px;
+          color: #595959;
         }
         .col-2-t {
           position: relative;
@@ -407,6 +408,7 @@ defineOptions({
           font-size: 52px;
           font-weight: bold;
           text-align: left;
+          color: #1a1a1a;
         }
       }
     }
