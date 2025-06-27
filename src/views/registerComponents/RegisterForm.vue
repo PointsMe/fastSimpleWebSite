@@ -246,10 +246,10 @@ const formRules = computed(()=> {
     address: [
         { required: true, message:  i18n.global.t('aboutLogin.address'), trigger: 'blur' },
     ],
-    taxCode: [
-        { required: true, message: i18n.global.t('aboutLogin.point'), trigger: 'blur' },
-        // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
-    ],
+    // taxCode: [
+    //     { required: true, message: i18n.global.t('aboutLogin.point'), trigger: 'blur' },
+    //     // { min: 7, max: 11, message: 'Length should be 7 to 11', trigger: 'blur' },
+    // ],
 }
 })
 const checkBooks = (value:number)=>{
