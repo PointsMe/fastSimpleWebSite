@@ -95,9 +95,9 @@
     <div class="des">
       <!-- {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 -<span class="line-th">{{ $t('bannerEleven.terms') }}</span> -->
       {{ $t('bannerEleven.copyright') }} - P.iva: 08435150969 
-      -<span @click="goToPage('privice')">《{{ $t('bannerEleven.privacy') }}》</span>
+      -<span @click="goToPage('privacy')">《{{ $t('bannerEleven.privacy') }}》</span>
       -<span @click="goToPage('cookie')">《{{ $t('bannerEleven.cookie') }}》</span>
-      -<span @click="goToPage('regulations')">《{{ $t('bannerEleven.sitemap') }}》</span>
+      -<span @click="goToPage('termsandconditions')">《{{ $t('bannerEleven.sitemap') }}》</span>
     </div>
     <div class="des-img">
       <img src="@/assets/joinkuImages/bottom-bg.png" alt="" />
