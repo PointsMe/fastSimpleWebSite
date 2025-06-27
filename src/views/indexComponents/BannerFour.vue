@@ -179,6 +179,9 @@ const commonStore = useCommonStore();
 <style scoped lang="less">
 .banner-4-div {
   width: 100%;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  background-color: #ffffff;
   .pay-style {
     width: 1280px;
     margin: auto;
@@ -289,7 +292,6 @@ const commonStore = useCommonStore();
       position: relative;
       height: 80px;
       margin: auto;
-      margin-top: 100px;
       text-align: left;
       .title {
         font-weight: bold;
@@ -320,6 +322,7 @@ const commonStore = useCommonStore();
     height: 164px;
     margin: auto;
     margin-top: 80px;
+    margin-bottom: 100px;
     overflow: hidden;
     // background-image: url("@/assets/fastsImages/b-4-1.png");
     // background-size: cover;

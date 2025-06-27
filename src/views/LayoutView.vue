@@ -9,6 +9,7 @@
     <LoginModalView ref="LoginModalViewRef" />
     <RegisterModalView ref="RegisterModalViewRef" />
     <FindPassModalView ref="FindPassModalViewRef" />
+    <CookiesView />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import OrderDetailView from './OrderDetailView.vue'
 import LoginModalView from '@/views/LoginModalView.vue'
 import RegisterModalView from '@/views/RegisterModalView.vue'
 import FindPassModalView from '@/views/FindPassModalView.vue'
+import CookiesView from '@/views/indexComponents/CookiesView.vue'
 defineOptions({
   name: 'layoutView'
 })

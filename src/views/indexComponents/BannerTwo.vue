@@ -329,7 +329,8 @@ defineOptions({
 .banner-two {
   width: 100%;
   background: #ffffff;
-
+  padding-top: 100px;
+  padding-bottom: 150px;
   .point-banner {
     width: 1280px;
     margin: auto;
@@ -497,7 +498,6 @@ defineOptions({
     height: 80px;
     // width: 100%;
     margin: auto;
-    margin-top: 150px;
     display: block;
     text-align: center;
     display: flex;

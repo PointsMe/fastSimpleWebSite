@@ -81,6 +81,7 @@ bannerOne: {
     registerNowDesc: '注册会员立享优惠',
     nowBuy: '立即选购',
     nowBuyOther: '立即自定义',
+    nowBuyOtherDesc: '专属定制方案，满足您的个性化系统的需求',
     firstMonthTrial: '首月试用期，可无条件退货退款',
   },
   banner: {
@@ -738,5 +739,10 @@ explainWord: '向右滑动滑块以完成验证',
 all: '所有',
 kindOne:'餐饮',
 kindTwo: '商店',
-kindThree: '餐车'
+kindThree: '餐车',
+cookieBottom: '本网站使用 Cookie 来收集匿名使用数据，以便于我们提升整体用户体验。如果您想了解更多信息或更改您的偏好，请阅读我们的',
+cookieBottomAnd: 'Cookie 政策',
+cookieBottomOne: '。通过点击“接受”，您同意使用 Cookie。',
+agree: '同意',
+notAgree: '不，谢谢'
 }

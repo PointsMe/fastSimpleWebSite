@@ -689,7 +689,7 @@ defineExpose({
       background-color: #ffffff;
       border-radius: 6px;
       position: relative;
-
+      color: #1a1a1a;
       .order-btn {
         position: absolute;
         width: 100%;

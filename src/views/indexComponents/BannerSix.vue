@@ -58,6 +58,9 @@
 <style scoped lang="less">
 .banner-6-div {
   width: 100%;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  background-color: #ffffff;
   .list-number {
     width: 1280px;
     margin: auto;
@@ -123,7 +126,6 @@
       height: 80px;
       // width: 100%;
       margin: auto;
-      margin-top: 150px;
       display: block;
       text-align: center;
       display: flex;

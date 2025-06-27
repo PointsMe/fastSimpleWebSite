@@ -65,6 +65,7 @@ const commonStore = useCommonStore()
 <style scoped lang="less">
 .server-view-div {
   margin-top: 90px;
+  background-color: #ffffff;
   .my-server {
     width: 1280px;
     margin: auto;

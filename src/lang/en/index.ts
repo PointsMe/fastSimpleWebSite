@@ -80,6 +80,7 @@ bannerOne: {
     registerNowDesc: 'Registered members enjoy immediate discounts',
     nowBuy: 'Now Buy',
     nowBuyOther: 'Customize Now',
+    nowBuyOtherDesc: 'Customized solutions for small and medium businesses',
     firstMonthTrial: 'First month trial period, refundable without any costs'
   },
   banner: {
@@ -708,5 +709,10 @@ bannerOne: {
     all: 'All',
     kindOne:'Restaurant',
     kindTwo: 'Store',
-    kindThree: 'Food Truck'
+    kindThree: 'Food Truck',
+    cookieBottom: 'This website uses cookies to collect anonymous usage data in order to help us improve the overall user experience. If you would like to know more information or change your preferences, please read ours',
+    cookieBottomAnd: 'Cookie Policy',
+    cookieBottomOne: '。By clicking "Accept", you agree to the use of cookies。',
+    agree: 'agree',
+notAgree: 'No, thank you.'
 }

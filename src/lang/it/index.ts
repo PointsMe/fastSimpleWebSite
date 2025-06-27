@@ -79,6 +79,7 @@ export default {
     registerNowDesc: 'Gli stati membri registrati beneficiano di una preferenza',
     nowBuy: 'Acquista ora',
     nowBuyOther: 'Personalizza ora',
+    nowBuyOtherDesc: 'Soluzioni su misura per piccole e medie imprese',
     firstMonthTrial: 'Primo mese di prova, reso disponibile per un mese, con possibilità di rimborso senza costi',
   },
   banner: {
@@ -448,7 +449,7 @@ export default {
     terms: "Termini",
     privacy: "Privacy",
     cookie: "Cookie",
-    sitemap: "TERMINL E CONDIZIONI",
+    sitemap: "Termini e condizioni",
     aiService: 'Servizi Tecnologici di Intelligenza Artificiale'
   },
   shopping: {
@@ -730,5 +731,10 @@ export default {
   all: 'Tutti',
   kindOne:'Ristorante',
   kindTwo: 'Negozio',
-  kindThree: 'Caffetteria'
+  kindThree: 'Caffetteria',
+  cookieBottom: 'Il sito si serve di Cookie per raccogliere dati anonimi sull’uso dei dati, al fine di migliorare l’esperienza generale degli utenti. Se volete saperne di più o cambiare le vostre preferenze, leggete le nostre',
+  cookieBottomAnd: 'Cookie policy',
+  cookieBottomOne: '。Cliccando su "accettare", accettate di usare i Cookie。',
+  agree: 'd’accordo',
+notAgree: 'No grazie'
 }

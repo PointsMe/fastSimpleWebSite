@@ -79,6 +79,7 @@ export default {
         registerNowDesc: 'Avantages immédiats pour les membres enregistrés',
         nowBuy: 'Aller à la boutique',
         nowBuyOther: 'Personnaliser maintenant',
+        nowBuyOtherDesc: 'Solutions sur mesure pour les petites et moyennes entreprises',
         firstMonthTrial: 'Premier mois de période d\'essai, disponible pour un mois, avec possibilité de remboursement sans frais'
     },
     banner: {
@@ -743,5 +744,10 @@ export default {
     all: 'Tous',
     kindOne:'Restaurant',
     kindTwo: 'Magasin',
-    kindThree: 'Véhicule de restauration'
+    kindThree: 'Véhicule de restauration',
+    cookieBottom: 'Ce site utilise des cookies pour collecter des données d’utilisation anonymes afin que nous puissions améliorer l’expérience utilisateur globale. Si vous souhaitez en savoir plus ou modifier vos préférences, veuillez lire notre',
+    cookieBottomAnd: 'Politique de cookies',
+    cookieBottomOne: '。En cliquant sur "accepter", vous acceptez l’utilisation de cookies。',
+    agree: 'Le consentement',
+notAgree: 'Non, merci'
 }

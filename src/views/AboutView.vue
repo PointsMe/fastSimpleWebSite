@@ -246,6 +246,7 @@ const commonStore = useCommonStore();
 </script>
 <style scoped lang="less">
 .about-view {
+  background-color: #ffffff;
   p {
     margin: 0;
     padding: 0;
