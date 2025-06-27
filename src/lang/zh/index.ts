@@ -16,7 +16,7 @@ export default {
         loginTips:'已阅读并同意我们的',
         linkOne:'《用户条例》',
         linkAnd: '和',
-        linkTwo: '《合同条例》',
+        linkTwo: '《隐私条例》',
 
         componeyMess: "公司信息",
         findPass: '找回密码',
@@ -274,9 +274,9 @@ bannerOne: {
     wechat: "微信",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, 版权所有",
     terms: "Termini",
-    privacy:'用户条例',
+    privacy:'隐私条例',
     cookie:'cookies条例',
-    sitemap: '隐私条例',
+    sitemap: '用户条例',
     aiService: '人工智能技术服务'
   },
   shopping: {
@@ -372,7 +372,7 @@ bannerOne: {
     updateDate: '更新日期：2025年5月13日'
   },
   regulationsTips: {
-    title: '提供快速服务的合同条例',
+    title: '提供快速服务的用户条例',
     updateDate: '更新日期：2025年5月13日'
   },
   cookieTips: {

@@ -156,9 +156,9 @@ const formRules = computed(() => {
 });
 const checkBooks = (value: number) => {
   if (value === 1) {
-    router.push("/privice");
+    router.push("/termsandconditions");
   } else {
-    router.push("/regulations");
+    router.push("/privacy");
   }
 };
 const changeCountry = (e: string) => {

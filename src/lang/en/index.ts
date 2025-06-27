@@ -11,12 +11,12 @@ export default {
         pleaseInputEmail: 'Please enter your email',
         pleaseInputPassword: 'Please enter your password',
         passwordLength: 'The password must be between 6 and 16 characters',
-        pleaseCheckbox: 'Please check and read the "User List" and "Contract Regulations" first.',
+        pleaseCheckbox: 'Please check and read the "User List" and "Privacy" first.',
         forgetPassword: 'Forgot Password',
         loginTips: 'I have read and agree to our',
         linkOne: '《User Policy》',
         linkAnd: 'and',
-        linkTwo: '《Terms of Service》',
+        linkTwo: '《Privacy》',  
 
         componeyMess: "Company Information",
         findPass: 'Recover Password',
@@ -272,9 +272,9 @@ bannerOne: {
     wechat: "WeChat",
     copyright: "Copyright © 2024 FastSimple By Yine Srl, All Rights Reserved",
     terms: "Terms",
-    privacy: 'User Policy',
+    privacy: 'Privacy Policy',
     cookie: 'Cookie Policy',
-    sitemap: 'Privacy Policy',
+    sitemap: 'User Policy',
         aiService: 'AI Technical Services'
   },
   shopping: {
@@ -369,7 +369,7 @@ bannerOne: {
     updateDate: 'Updated on May 13, 2025'
   },
   regulationsTips: {
-    title: 'Contract Terms for FastSimple', 
+    title: 'User Terms for FastSimple', 
     updateDate: 'Updated on May 13, 2025'
   },
   cookieTips: {

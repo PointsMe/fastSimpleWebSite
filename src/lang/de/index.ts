@@ -16,7 +16,7 @@ export default {
         loginTips:'Ich habe die',
         linkOne:'《Nutzungsbedingungen》',
         linkAnd: 'und',
-        linkTwo: '《Vertragsbedingungen gelesen und stimme zu》',
+        linkTwo: '《Privacy》',   
 
         componeyMess: "Firmeninformationen",
         findPass: 'Passwort wiederherstellen',
@@ -268,9 +268,9 @@ export default {
         wechat: "WeChat",
         copyright: "Copyright © 2024 FastSimple By Yine Srl, Alle Rechte vorbehalten",
         terms: "Bedingungen",
-        privacy: 'Nutzungsbedingungen',
+        privacy: 'Datenschutzerklärung',
         cookie: 'Cookie-Richtlinie',
-        sitemap: 'Datenschutzerklärung',
+        sitemap: 'Nutzungsbedingungen',
             aiService: 'KI-Technologiedienstleistungen'
     },
     shopping: {
@@ -366,7 +366,7 @@ export default {
         updateDate: 'Aktualisiert am: 13. Mai 2025'
     },
     regulationsTips: {
-        title: 'Vertragsbedingungen für schnellen Service', 
+        title: 'Nutzungsbedingungen für schnellen Service', 
         updateDate: 'Aktualisiert am: 13. Mai 2025'
     },
     cookieTips: {

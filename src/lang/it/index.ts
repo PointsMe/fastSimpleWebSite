@@ -16,7 +16,7 @@ export default {
     loginTips: 'Ho letto e accetto i nostri',
     linkOne: '《Termini di utilizzo》',
     linkAnd: 'e',
-    linkTwo: '《Termini contrattuali》',
+    linkTwo: '《Privacy》',
 
     componeyMess: "Informazioni aziendali",
     findPass: 'Recupera password',
@@ -365,7 +365,7 @@ export default {
     updateDate: 'Updated on May 13, 2025'
   },
   regulationsTips: {
-    title: 'Contract Terms for FastSimple',
+    title: 'User Terms for FastSimple', 
     updateDate: 'Updated on May 13, 2025'
   },
   cookieTips: {
