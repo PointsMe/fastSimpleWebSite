@@ -7,10 +7,10 @@
             <p>{{ $t("bannerTen.contactUs") }}</p>
             <p>{{ $t("bannerTen.contactDescription") }}</p>
           </div>
-          <div class="con-left-i">
+          <!-- <div class="con-left-i">
             <p>{{ $t("bannerTen.email") }}: info@yine.it</p>
             <p>{{ $t("bannerTen.address") }}: Via Procaccini 11, 20154 – Milano (MI)</p>
-          </div>
+          </div> -->
         </el-col>
         <el-col :span="14">
           <div class="col-right">
