@@ -4,7 +4,7 @@
       <p>{{ $t("shopping.title") }}</p>
       <span v-if="!userStore.token">
         {{ $t("shopping.membershipPromotion") }}
-        <span style="color: #fed15f; cursor: pointer" @click="goRegister">{{
+        <span style="color: #387533; cursor: pointer" @click="goRegister">{{
           $t("shopping.registerNow")
         }}</span
         >&nbsp;&nbsp;&nbsp;
