@@ -7,10 +7,14 @@
             <p>{{ $t("bannerTen.contactUs") }}</p>
             <p>{{ $t("bannerTen.contactDescription") }}</p>
           </div>
-          <!-- <div class="con-left-i">
-            <p>{{ $t("bannerTen.email") }}: info@yine.it</p>
-            <p>{{ $t("bannerTen.address") }}: Via Procaccini 11, 20154 – Milano (MI)</p>
-          </div> -->
+          <div class="con-left-i">
+            <p>Whatsapp({{ $t("bannerEleven.italy") }}):+39 3242847077</p>
+            <p>Whatsapp({{ $t("bannerEleven.spain") }}):+34 688557366</p>
+            <p>{{ $t("bannerTen.email") }}: info@fastsimple.it</p>
+            <p>{{ $t("bannerEleven.aiService") }}：~</p>
+            <!-- <p>{{ $t("bannerTen.email") }}: info@yine.it</p>
+            <p>{{ $t("bannerTen.address") }}: Via Procaccini 11, 20154 – Milano (MI)</p> -->
+          </div>
         </el-col>
         <el-col :span="14">
           <div class="col-right">
@@ -119,6 +123,63 @@
                 </el-col>
               </el-row>
             </el-form>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="footer-div">
+      <el-row :gutter="24">
+        <el-col :span="8">
+          <div class="footer-content">
+            <el-row :gutter="12">
+              <el-col :span="12">
+                <div class="footer-content-left">
+                  <p>{{ $t("bannerEleven.technicalAdvisor") }}
+                    ({{ $t("bannerEleven.spain") }})</p>
+                  <p> {{ $t("bannerEleven.wechat") }}:Fastsimple_es</p>
+                </div>
+              </el-col>
+              <el-col :span="12">
+                <div class="footer-content-right">
+                  <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                </div>
+              </el-col>
+            </el-row>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="footer-content">
+            <el-row :gutter="12">
+              <el-col :span="12">
+                <div class="footer-content-left">
+                  <p>{{ $t("bannerEleven.technicalAdvisor") }}
+                    ({{ $t("bannerEleven.italy") }})</p>
+                  <p> {{ $t("bannerEleven.wechat") }}:Fastsimple_it</p>
+                </div>
+              </el-col>
+              <el-col :span="12">
+                <div class="footer-content-right">
+                  <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                </div>
+              </el-col>
+            </el-row>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="footer-content">
+            <el-row :gutter="12">
+              <el-col :span="12">
+                <div class="footer-content-left">
+                  <p> {{ $t("bannerEleven.technicalAdvisor") }}({{ $t("bannerEleven.china") }})</p>
+                  <p> {{ $t("bannerEleven.wechat") }}:LAIPAY1</p>
+                </div>
+              </el-col>
+              <el-col :span="12">
+                <div class="footer-content-right">
+                  <img src="@/assets/fastsImages/b-11-1.png" alt="" />
+                </div>
+              </el-col>
+            </el-row>
           </div>
         </el-col>
       </el-row>
@@ -309,9 +370,36 @@ watch(
   width: 100%;
   background-color: #f2f0e4;
   // margin-top: 138px;
+  .footer-div{
+    padding: 0 320px 120px 320px;
+    .footer-content{
+      border: 1px solid #1a1a1a;
+      border-radius: 5px;
+      height: 100%;
+      padding: 10px;
+      .footer-content-left,.footer-content-right{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
+      }
+      .footer-content-left{
+        align-items: flex-start;
+      }
+      .footer-content-right{
+        align-items: flex-end;
+        img{
+          width: 80px;
+          height: 80px;
+          display: block;
+        }
+      }
+    }
+  }
   .content {
-    padding: 120px 320px;
+    padding: 120px 320px 30px 320px;
 
     .col-right {
       // height: 480px;

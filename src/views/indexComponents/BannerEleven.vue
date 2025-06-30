@@ -2,7 +2,7 @@
   <div class="banner-11-div">
     <div class="top">
       <el-row :gutter="12">
-        <el-col :span="12">
+        <!-- <el-col :span="12">
           <div class="qr-code">
             <el-row :gutter="12">
               <el-col :span="8">
@@ -15,7 +15,6 @@
                   <div class="code-top">
                     {{ $t("bannerEleven.technicalAdvisor") }}
                     ({{ $t("bannerEleven.china") }})
-                    <!-- <span class="line"></span> -->
                   </div>
                 </div>
                 <div class="wx-div">
@@ -33,7 +32,6 @@
                   <div class="code-top">
                     {{ $t("bannerEleven.technicalAdvisor") }}
                     ({{ $t("bannerEleven.italy") }})
-                    <!-- <span class="line"></span> -->
                   </div>
                 </div>
                 <div class="wx-div" style="text-indent: 0">
@@ -50,7 +48,6 @@
                   <div class="code-top">
                     {{ $t("bannerEleven.technicalAdvisor") }}
                     ({{ $t("bannerEleven.spain") }})
-                    <!-- <span class="line"></span> -->
                   </div>
                 </div>
                 <div class="wx-div" style="text-indent: 0">
@@ -59,13 +56,13 @@
               </el-col>
             </el-row>
           </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="tips-messages">
+        </el-col> -->
+        <el-col :span="24">
+          <!-- <div class="tips-messages">
             <p>Whatsapp: +39 3242847077</p>
             <p>{{ $t("bannerTen.email") }}: info@fastsimple.it</p>
             <p>{{ $t("bannerEleven.aiService") }}：~</p>
-          </div>
+          </div> -->
           <div class="nav-menu">
             <el-menu mode="horizontal" :ellipsis="false" class="menu">
               <el-menu-item index="1" @click="goToPage('index')">{{
@@ -243,7 +240,7 @@ const goToPage = (value: any) => {
     .nav-menu {
       flex: 1;
       display: flex;
-      justify-content: left;
+      justify-content: center;
       // margin-top: 210px;
       // padding-bottom: 100px;
 
