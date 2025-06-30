@@ -18,7 +18,7 @@
                 @click.native.prevent="clickitem(itemChil)" :label="itemChil.unit"
                 >
                     <div class="radio-con">
-                       {{ itemChil.spec }} {{ itemChil.value }}{{ itemChil.unit }}/<span :class="!chilIndex ? 'oragin' : 'grey'">€{{
+                       {{ itemChil.spec }}&nbsp;&nbsp;&nbsp;{{ itemChil.value }}{{ itemChil.unit }}/<span :class="!chilIndex ? 'oragin' : 'grey'">€{{
                             itemChil.sellPrice }}</span>
                     </div>
             </el-radio>
