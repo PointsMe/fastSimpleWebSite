@@ -224,7 +224,7 @@
                         class="right tips"
                         v-if="item.skus[0].id === posGoodsId.id"
                       >
-                        <div class="tips-text">
+                        <div class="tips-text" v-if="commonStore.language === 'it'">
                           <span> {{ $t('posGoods.fee') }} </span>
                         </div>
                       </el-col>

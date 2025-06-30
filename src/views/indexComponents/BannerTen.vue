@@ -141,7 +141,9 @@
               </el-col>
               <el-col :span="12">
                 <div class="footer-content-right">
-                  <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                  <div class="wx-img">
+                    <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                  </div>
                 </div>
               </el-col>
             </el-row>
@@ -159,7 +161,9 @@
               </el-col>
               <el-col :span="12">
                 <div class="footer-content-right">
-                  <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                  <div class="wx-img">
+                    <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                  </div>
                 </div>
               </el-col>
             </el-row>
@@ -176,7 +180,9 @@
               </el-col>
               <el-col :span="12">
                 <div class="footer-content-right">
-                  <img src="@/assets/fastsImages/b-11-1.png" alt="" />
+                  <div class="wx-img">
+                    <img src="@/assets/fastsImages/b-11-1.png" alt="" />
+                  </div>
                 </div>
               </el-col>
             </el-row>
@@ -376,25 +382,44 @@ watch(
       border: 1px solid #1a1a1a;
       border-radius: 5px;
       height: 100%;
+      // padding: 10px;
       padding: 10px;
+      display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #1a1a1a;
+        .el-row{
+          width: 100%;
+        }
       .footer-content-left,.footer-content-right{
         height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        color: #1a1a1a;
       }
       .footer-content-left{
         align-items: flex-start;
       }
       .footer-content-right{
         align-items: flex-end;
-        img{
+        .wx-img{
           width: 80px;
           height: 80px;
-          display: block;
+          background: #1a1a1a;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          img{
+          width: 100%;
+          height: 100%;
         }
+        }
+        
       }
     }
   }
