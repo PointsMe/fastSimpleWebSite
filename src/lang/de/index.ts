@@ -543,15 +543,15 @@ export default {
     priviceTips: {
         title: 'Privatsphäre für schnellen Service',
         updateDate: 'Aktualisiert am: 13. Mai 2025'
-    },
-    regulationsTips: {
+      },
+      regulationsTips: {
         title: 'Nutzungsbedingungen für schnellen Service', 
         updateDate: 'Aktualisiert am: 13. Mai 2025'
-    },
-    cookieTips: {
+      },
+      cookieTips: {
         title: 'Cookie-Richtlinie für schnellen Service',
         updateDate: 'Aktualisiert am: 13. Mai 2025'
-    },
+      },
 
     orderView: {
         myOrders: 'Meine Bestellungen',

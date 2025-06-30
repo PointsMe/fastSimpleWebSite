@@ -556,15 +556,15 @@ export default {
     priviceTips: {
         title: 'Politique de confidentialité pour FastSimple',
         updateDate: 'Date de mise à jour : 13 mai 2025'
-    },
-    regulationsTips: {
+      },
+      regulationsTips: {
         title: 'Conditions d\'utilisation pour FastSimple',   
         updateDate: 'Date de mise à jour : 13 mai 2025'
-    },
-    cookieTips: {
+      },
+      cookieTips: {
         title: 'Politique de cookies pour FastSimple',
         updateDate: 'Date de mise à jour : 13 mai 2025'
-    },
+      },
 
     orderView: {
         myOrders: 'Mes commandes',

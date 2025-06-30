@@ -540,16 +540,16 @@ export default {
     newsContent: 'Recentemente, il leader globale ICT Huawei ha collaborato con YINE, azienda italiana di soluzioni per la gestione digitale e i negozi intelligenti, nel cuore dell\'ecosistema tecnologico italiano a Milano...'
   },
   priviceTips: {
-    title: 'Privacy Policy for FastSimple',
-    updateDate: 'Updated on May 13, 2025'
+    title: 'Informativa sulla privacy per FastSimple',
+    updateDate: 'Aggiornato il 13 maggio 2025'
   },
   regulationsTips: {
-    title: 'User Terms for FastSimple', 
-    updateDate: 'Updated on May 13, 2025'
+    title: 'Termini di utilizzo per FastSimple', 
+    updateDate: 'Aggiornato il 13 maggio 2025'
   },
   cookieTips: {
-    title: 'Cookie Policy for FastSimple',
-    updateDate: 'Updated on May 13, 2025'
+    title: 'Informativa sui cookie per FastSimple',
+    updateDate: 'Aggiornato il 13 maggio 2025'
   },
 
 
