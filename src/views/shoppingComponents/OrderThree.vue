@@ -5,7 +5,7 @@
         <div class="content-list-left">
           <div class="left-1" v-if="response1 && response1.hardwares.length > 0">
             <div class="title-1">
-              <span>{{ $t("shopping.addHardware") }}</span>
+              <span>{{ $t('shopping.addHardware') }}</span>
               <span></span>
             </div>
             <el-row class="row-1 row-b" :gutter="24">
@@ -38,7 +38,7 @@
                           :data="item.skus[0]"
                           :parents="{
                             minSelectCount: 0,
-                            maxSelectCount: 999,
+                            maxSelectCount: 999
                           }"
                           @changeOrderList="changeOrderList"
                         />
@@ -78,17 +78,14 @@
           </div>
           <div class="left-2" v-if="response1 && response1.softwares.length > 0">
             <div class="title-1">
-              <span>{{ $t("shopping.addSoft") }}</span>
+              <span>{{ $t('shopping.addSoft') }}</span>
               <span></span>
             </div>
             <div v-for="(item, index) in response1.softwares" :key="index">
               <el-row class="el-white" v-if="item.skus.length > 2">
                 <el-col :span="24" class="title-b">{{ item.name }}</el-col>
                 <el-col :span="24">
-                  <ParentsInvoiceCheckbox
-                    @changeOrderList="changeOrderList"
-                    :parents="item"
-                  />
+                  <ParentsInvoiceCheckbox @changeOrderList="changeOrderList" :parents="item" />
                 </el-col>
               </el-row>
               <el-row class="el-white" v-if="item.skus.length < 3">
@@ -108,11 +105,7 @@
                 </el-col>
                 <el-col :span="12" class="right">
                   <el-row>
-                    <el-col
-                      :span="24"
-                      v-for="(itemChil, chilIndex) in item.skus"
-                      :key="chilIndex"
-                    >
+                    <el-col :span="24" v-for="(itemChil, chilIndex) in item.skus" :key="chilIndex">
                       <div class="num-div" v-if="item.maxSelectCount > 2">
                         <span v-if="itemChil.spec" style="color: #fdb522"
                           >({{ itemChil.spec }})</span
@@ -146,14 +139,10 @@
           </div>
           <div class="left-3" v-if="response1 && response1.services.length > 0">
             <div class="title-1">
-              <span>{{ $t("shopping.otherServer") }}</span>
+              <span>{{ $t('shopping.otherServer') }}</span>
               <span class="width-100"></span>
             </div>
-            <div
-              class="content-list-a"
-              v-for="(item, index) in response1.services"
-              :key="index"
-            >
+            <div class="content-list-a" v-for="(item, index) in response1.services" :key="index">
               <div
                 :class="
                   item.skus[0].id === posGoodsId.id
@@ -191,7 +180,7 @@
                       <el-col :span="24">
                         <div class="tips-text" v-if="item.skus[0].id === posGoodsId.id">
                           <span>
-                            {{ $t("posGoods.content") }}
+                            {{ $t('posGoods.content') }}
                           </span>
                         </div>
                       </el-col>
@@ -236,7 +225,7 @@
                         v-if="item.skus[0].id === posGoodsId.id"
                       >
                         <div class="tips-text">
-                          <span> {{ $t("posGoods.fee") }} </span>
+                          <span> {{ $t('posGoods.fee') }} </span>
                         </div>
                       </el-col>
                       <el-col
@@ -245,14 +234,16 @@
                         v-if="item.skus[0].id === hotGoodsId.id"
                       >
                         <div class="tips-text">
-                          <span> *{{ $t("hotGoods") }} </span>
+                          <span> *{{ $t('hotGoods') }} </span>
                         </div>
                       </el-col>
                     </el-row>
                   </el-col>
                   <el-col :span="24" v-if="item.skus[0].id === posGoodsId.id">
                     <div class="pos-div-content" v-if="isShowPos">
-                      {{ $t("posGoods.contentAnother") }}
+                      <span v-if="commonStore.language === 'it'">
+                        {{ $t('posGoods.contentAnother') }}
+                      </span>
                     </div>
                   </el-col>
                 </el-row>
@@ -265,7 +256,7 @@
         <div class="content-list-right">
           <div class="title">
             <el-divider>
-              <div>{{ $t("orderThree.total") }}</div>
+              <div>{{ $t('orderThree.total') }}</div>
             </el-divider>
             <!-- <el-row :gutter="12">
                             <el-col :span="10" class="col-a">
@@ -337,27 +328,30 @@
                         </div>
                     </div> -->
           <div class="all-order">
-            <div
-              class="order-list"
-              v-if="orderList.items.find((iv: any)=> iv.type === 119)"
-            >
+            <div class="order-list" v-if="orderList.items.find((iv: any) => iv.type === 119)">
               <el-row>
                 <el-col
-                  v-for="(item,index) in orderList.items.find((iv: any)=> iv.type === 119)?.children"
-                  :span="orderList.items.find((iv: any)=> iv.type === 119)?.children?.length === index + 1 ? 20 : 24"
+                  v-for="(item, index) in orderList.items.find((iv: any) => iv.type === 119)
+                    ?.children"
+                  :span="
+                    orderList.items.find((iv: any) => iv.type === 119)?.children?.length ===
+                    index + 1
+                      ? 20
+                      : 24
+                  "
                   class="left"
                   :key="index"
                 >
                   {{ item.name }}
                 </el-col>
                 <el-col :span="4" class="right">
-                  €{{ orderList.items.find((iv: any)=> iv.type === 119)?.sellPrice }}
+                  €{{ orderList.items.find((iv: any) => iv.type === 119)?.sellPrice }}
                 </el-col>
               </el-row>
             </div>
             <div
               class="order-i"
-              v-for="(item,index) in orderList.items.filter((iv: any)=> iv.type !== 119)"
+              v-for="(item, index) in orderList.items.filter((iv: any) => iv.type !== 119)"
               :key="index"
             >
               <el-row>
@@ -378,23 +372,15 @@
           </div>
           <div class="order-btn">
             <el-row class="order-btn-row">
-              <el-col :span="16" class="left-i-sub">{{
-                $t("orderThree.totalAmount")
-              }}</el-col>
-              <el-col :span="8" class="right-i-sub">
-                €{{ orderList?.totalAmount || 0 }}
-              </el-col>
-              <el-col :span="16" class="left-i-sub">{{
-                $t("orderThree.taxAmount")
-              }}</el-col>
-              <el-col :span="8" class="right-i-sub">
-                €{{ orderList?.taxAmount || 0 }}
-              </el-col>
+              <el-col :span="16" class="left-i-sub">{{ $t('orderThree.totalAmount') }}</el-col>
+              <el-col :span="8" class="right-i-sub"> €{{ orderList?.totalAmount || 0 }} </el-col>
+              <el-col :span="16" class="left-i-sub">{{ $t('orderThree.taxAmount') }}</el-col>
+              <el-col :span="8" class="right-i-sub"> €{{ orderList?.taxAmount || 0 }} </el-col>
             </el-row>
             <el-row>
               <el-col :span="10" class="left-i">
                 <span class="word"
-                  >{{ $t("orderThree.finalAmount") }}
+                  >{{ $t('orderThree.finalAmount') }}
                   <label class="word-1">(+ IVA)</label>
                 </span>
               </el-col>
@@ -405,9 +391,7 @@
                 </span>
               </el-col>
               <el-col :span="24">
-                <el-button class="button-h" @click="toPay">{{
-                  $t("orderThree.buyNow")
-                }}</el-button>
+                <el-button class="button-h" @click="toPay">{{ $t('orderThree.buyNow') }}</el-button>
               </el-col>
             </el-row>
           </div>
@@ -420,43 +404,43 @@
   <ShowTipsHot ref="ShowTipsHotRef" />
 </template>
 <script setup lang="ts">
-import AddNum from "./AddNum.vue";
-import ParentsRadioView from "./ParentsRadioView.vue";
-import ShowTipsHot from "./ShowTipsHot.vue";
-import ShowTips from "./ShowTips.vue";
-import JoinUs from "./JoinUs.vue";
-import ParentsInvoiceCheckbox from "./ParentsInvoiceCheckbox.vue";
-import { ArrowRightBold, ArrowDownBold, Picture } from "@element-plus/icons-vue";
-import { getProductSoftwaresApi, precreateApi, getProductAllApi } from "@/apis/goods";
-import { useUserStore } from "@/stores/modules/user";
-import { hotGoodsId, posGoodsId } from "@/http/config";
-import { useShoppingCartStore } from "@/stores/modules/shoppingCart";
-import { useCommonStore } from "@/stores/modules/common";
+import AddNum from './AddNum.vue'
+import ParentsRadioView from './ParentsRadioView.vue'
+import ShowTipsHot from './ShowTipsHot.vue'
+import ShowTips from './ShowTips.vue'
+import JoinUs from './JoinUs.vue'
+import ParentsInvoiceCheckbox from './ParentsInvoiceCheckbox.vue'
+import { ArrowRightBold, ArrowDownBold, Picture } from '@element-plus/icons-vue'
+import { getProductSoftwaresApi, precreateApi, getProductAllApi } from '@/apis/goods'
+import { useUserStore } from '@/stores/modules/user'
+import { hotGoodsId, posGoodsId } from '@/http/config'
+import { useShoppingCartStore } from '@/stores/modules/shoppingCart'
+import { useCommonStore } from '@/stores/modules/common'
 defineOptions({
-  name: "orderTwo",
-});
-const emits = defineEmits(["toPay"]);
-const commonStore = useCommonStore();
-const response1 = ref();
-const isShowPos = ref(true);
-const ShowTipsRef = ref();
-const ShowTipsHotRef = ref();
-const userStore = useUserStore();
-const router = useRouter();
-const shoppingCartStore = useShoppingCartStore();
+  name: 'orderTwo'
+})
+const emits = defineEmits(['toPay'])
+const commonStore = useCommonStore()
+const response1 = ref()
+const isShowPos = ref(true)
+const ShowTipsRef = ref()
+const ShowTipsHotRef = ref()
+const userStore = useUserStore()
+const router = useRouter()
+const shoppingCartStore = useShoppingCartStore()
 const getData = async () => {
-  const { data } = await getProductSoftwaresApi();
+  const { data } = await getProductSoftwaresApi()
   data.softwares = data.map((item: any) => {
     return {
       ...item,
       maxSelectCount: 1,
-      minSelectCount: 0,
-    };
-  });
-  response1.value = data;
-};
+      minSelectCount: 0
+    }
+  })
+  response1.value = data
+}
 const getData1 = async () => {
-  const { data } = await getProductAllApi();
+  const { data } = await getProductAllApi()
   // data.hardwares = data.hardwares.map((item: any) => {
   //   return {
   //     ...item,
@@ -467,64 +451,64 @@ const getData1 = async () => {
     return {
       ...item,
       maxSelectCount: 1,
-      minSelectCount: 0,
-    };
-  });
+      minSelectCount: 0
+    }
+  })
   data.services = data.services.map((item: any) => {
     return {
       ...item,
       maxSelectCount: 99,
-      minSelectCount: 0,
-    };
-  });
-  console.log("getData1===>", data);
-  response1.value = data;
-};
+      minSelectCount: 0
+    }
+  })
+  console.log('getData1===>', data)
+  response1.value = data
+}
 const orderList = ref<any>({
   netAmount: 0,
   taxAmount: 0,
   totalAmount: 0,
   discountAmount: 0,
   finalAmount: 0,
-  items: [],
-});
+  items: []
+})
 
 const changeOrderList = (data: any) => {
-  console.log("changeOrderList==>", data);
-  orderList.value = data;
-};
+  console.log('changeOrderList==>', data)
+  orderList.value = data
+}
 
 const toPay = async () => {
-  console.log("aaaaa");
+  console.log('aaaaa')
   if (orderList.value.items.length > 0) {
-    emits("toPay", JSON.parse(JSON.stringify(orderList.value)));
+    emits('toPay', JSON.parse(JSON.stringify(orderList.value)))
   }
-};
+}
 onMounted(() => {
-  const tabThreeShowWare = shoppingCartStore.tabThreeShowWare;
+  const tabThreeShowWare = shoppingCartStore.tabThreeShowWare
   if (tabThreeShowWare) {
-    getData();
+    getData()
   } else {
-    getData1();
+    getData1()
   }
-});
+})
 watch(
   () => commonStore.language,
   (val) => {
-    const tabThreeShowWare = shoppingCartStore.tabThreeShowWare;
+    const tabThreeShowWare = shoppingCartStore.tabThreeShowWare
     if (tabThreeShowWare) {
-      getData();
+      getData()
     } else {
-      getData1();
+      getData1()
     }
   },
   {
-    immediate: true,
+    immediate: true
   }
-);
+)
 defineExpose({
-  changeOrderList,
-});
+  changeOrderList
+})
 </script>
 <style scoped lang="less">
 .order-one {
@@ -541,12 +525,14 @@ defineExpose({
     .pos-bg-class {
       height: 578px;
       width: 100%;
-      background-image: url("@/assets/fastsImages/pos-bg.png");
+      background-image: url('@/assets/fastsImages/pos-bg.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       .pos-div-content {
-        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-family:
+          Source Han Sans SC,
+          Source Han Sans SC;
         font-weight: 400;
         font-size: 12px;
         color: #124c45;
@@ -560,7 +546,9 @@ defineExpose({
       color: #646464;
     }
     .g-b {
-      font-family: Source Han Sans SC, Source Han Sans SC;
+      font-family:
+        Source Han Sans SC,
+        Source Han Sans SC;
       font-weight: 500;
       font-size: 14px;
       color: #646464;
@@ -576,14 +564,18 @@ defineExpose({
     }
 
     .title-b {
-      font-family: Source Han Sans SC, Source Han Sans SC;
+      font-family:
+        Source Han Sans SC,
+        Source Han Sans SC;
       font-weight: 500;
       font-size: 16px;
       color: #1b1b1b;
     }
 
     .tips {
-      font-family: Source Han Sans SC, Source Han Sans SC;
+      font-family:
+        Source Han Sans SC,
+        Source Han Sans SC;
       font-weight: 400 !important;
       font-size: 14px !important;
       color: #999999;
@@ -591,7 +583,9 @@ defineExpose({
 
     .left {
       .left-i-a {
-        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-family:
+          Source Han Sans SC,
+          Source Han Sans SC;
         font-weight: 500;
         font-size: 16px;
         color: #1b1b1b;
@@ -620,7 +614,9 @@ defineExpose({
       }
 
       .num-div {
-        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-family:
+          Source Han Sans SC,
+          Source Han Sans SC;
         font-weight: 500;
         font-size: 14px;
         color: #646464;
@@ -643,7 +639,9 @@ defineExpose({
 
       .radio-common {
         .radio-con {
-          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-family:
+            Source Han Sans SC,
+            Source Han Sans SC;
           font-weight: 500;
           font-size: 14px;
           color: #646464;
@@ -725,7 +723,9 @@ defineExpose({
 
         .left-i {
           text-align: left;
-          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-family:
+            Source Han Sans SC,
+            Source Han Sans SC;
           font-weight: 400;
           font-size: 16px;
           color: #1b1b1b;
@@ -761,7 +761,9 @@ defineExpose({
         overflow-y: auto;
         .left {
           text-align: left;
-          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-family:
+            Source Han Sans SC,
+            Source Han Sans SC;
           font-weight: 400;
           font-size: 16px;
           padding-top: 30px;
@@ -793,7 +795,9 @@ defineExpose({
           }
 
           .tips {
-            font-family: Source Han Sans SC, Source Han Sans SC;
+            font-family:
+              Source Han Sans SC,
+              Source Han Sans SC;
             font-weight: 400;
             font-size: 14px;
             color: #999999;
@@ -841,7 +845,9 @@ defineExpose({
         .title-1 {
           font-size: 16px;
           color: #1b1b1b;
-          font-family: Source Han Sans SC, Source Han Sans SC;
+          font-family:
+            Source Han Sans SC,
+            Source Han Sans SC;
           font-weight: 500;
           margin-bottom: 10px;
           border-bottom: 1px solid #b1b1b1;
@@ -887,7 +893,9 @@ defineExpose({
           // background-color: #ffffff;
           border-radius: 6px;
           .con-l {
-            font-family: Source Han Sans SC, Source Han Sans SC;
+            font-family:
+              Source Han Sans SC,
+              Source Han Sans SC;
             font-weight: 500;
             font-size: 14px;
             color: #646464;
@@ -945,7 +953,9 @@ defineExpose({
             height: 60px;
             position: relative;
             line-height: 60px;
-            font-family: Source Han Sans SC, Source Han Sans SC;
+            font-family:
+              Source Han Sans SC,
+              Source Han Sans SC;
             font-weight: 500;
             font-size: 16px;
             color: #1b1b1b;
@@ -966,14 +976,18 @@ defineExpose({
       text-align: left;
 
       .title {
-        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-family:
+          Source Han Sans SC,
+          Source Han Sans SC;
         font-weight: 500;
         font-size: 16px;
         color: #1b1b1b;
       }
 
       .sub-title {
-        font-family: Source Han Sans SC, Source Han Sans SC;
+        font-family:
+          Source Han Sans SC,
+          Source Han Sans SC;
         font-weight: 400;
         font-size: 12px;
         color: #646464;

@@ -174,7 +174,9 @@
               </el-col>
               <el-col :span="24" v-if="item.items[0].id === posGoodsId.id">
                 <div class="pos-div-content" v-if="isShowPos">
-                  {{ $t("posGoods.contentAnother") }}
+                  <span v-if="commonStore.language === 'it'">
+                    {{ $t("posGoods.contentAnother") }}
+                  </span>
                 </div>
               </el-col>
             </el-row>
