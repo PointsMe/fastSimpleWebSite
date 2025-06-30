@@ -60,6 +60,7 @@ onMounted(() => {
 <style scoped lang="less">
 .word-tips-view {
   background-color: #fff;
+  color: #1a1a1a;
     .title{
         font-family: Inter, Inter;
         font-weight: 500;
