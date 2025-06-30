@@ -5,7 +5,7 @@
             <el-checkbox v-for="(itemChil, chilIndex) in props.parents.skus" :key="chilIndex" :label="itemChil.spec"
                 :value="itemChil">
                 <div class="c-b">
-                    {{ itemChil.spec }} /{{ itemChil.value }}{{ itemChil.unit }}
+                    {{ itemChil.spec }}&nbsp;/&nbsp;{{ itemChil.value }}{{ itemChil.unit }}
                     <span class="mon">€{{ itemChil.sellPrice }}</span>
                 </div>
             </el-checkbox>
@@ -18,7 +18,7 @@
                 @click.native.prevent="clickitem(itemChil)" :label="itemChil.unit"
                 >
                     <div class="radio-con">
-                       {{ itemChil.spec }} {{ itemChil.value }}{{ itemChil.unit }}/<span :class="!chilIndex ? 'oragin' : 'grey'">€{{
+                       {{ itemChil.spec }} &nbsp;&nbsp;&nbsp;{{ itemChil.value }}{{ itemChil.unit }}&nbsp;/&nbsp;<span :class="!chilIndex ? 'oragin' : 'grey'">€{{
                             itemChil.sellPrice }}</span>
                     </div>
             </el-radio>
