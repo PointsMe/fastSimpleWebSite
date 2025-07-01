@@ -389,10 +389,10 @@ const submitVerifyCode = () => {
       return false;
     }
   } else {
-    if (!emailCode.value) {
-      ElMessage.error(i18n.global.t("aboutLogin.pleaseEmail"));
-      return false;
-    }
+    // if (!emailCode.value) {
+    //   ElMessage.error(i18n.global.t("aboutLogin.pleaseEmail"));
+    //   return false;
+    // }
     if (!formModel.emailAccount) {
       ElMessage.error(i18n.global.t("aboutLogin.pleaseInputEmail"));
       return false;
@@ -410,10 +410,10 @@ const getVerificationCode = async (token: string) => {
       return false;
     }
   } else {
-    if (!emailCode.value) {
-      ElMessage.error(i18n.global.t("aboutLogin.pleaseEmail"));
-      return false;
-    }
+    // if (!emailCode.value) {
+    //     ElMessage.error(i18n.global.t("aboutLogin.pleaseEmail"));
+    //     return false;
+    // }
   }
   if (formModel.phoneAccount || formModel.emailAccount) {
     const loading = ElLoading.service({
@@ -428,7 +428,7 @@ const getVerificationCode = async (token: string) => {
     if (props.registerStyle === "1") {
       params.account = `${countryCode.value.replace("+", "")}-${formModel.phoneAccount}`;
     } else {
-      params.account = `${formModel.emailAccount}${emailCode.value}`;
+      params.account = `${formModel.emailAccount}`;
     }
     try {
       await getVerificationCodeApi({
@@ -471,7 +471,7 @@ const onSubmit = () => {
           account:
             props.registerStyle === "1"
               ? `${countryCode.value.replace("+", "")}-${formModel.phoneAccount}`
-              : `${formModel.emailAccount}${emailCode.value}`,
+              : `${formModel.emailAccount}`,
           password: formModel.password,
           verificationCode: formModel.verificationCode,
           biz: formModel.biz,

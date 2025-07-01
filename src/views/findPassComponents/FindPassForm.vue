@@ -247,7 +247,7 @@ const onSubmit = async () => {
       if (props.registerStyle === "1") {
         params.account = `${countryCode.value.replace("+", "")}-${form.account}`;
       } else {
-        params.account = `${form.account}${emailCode.value}`;
+        params.account = `${form.account}`;
       }
       console.log("submit!", form, params);
       // 跳转到首页的方法
@@ -286,10 +286,10 @@ const submitVerifyCode = () => {
       return false;
     }
   } else {
-    if (!emailCode.value) {
-      ElMessage.error(i18n.global.t("aboutLogin.chooseEmail"));
-      return false;
-    }
+    // if (!emailCode.value) {
+    //   ElMessage.error(i18n.global.t("aboutLogin.chooseEmail"));
+    //   return false;
+    // }
     if (!form.account) {
       ElMessage.error(i18n.global.t("aboutLogin.pleaseInputEmail"));
       return false;
@@ -307,10 +307,10 @@ const getVerificationCode = async (token: string) => {
       return false;
     }
   } else {
-    if (!emailCode.value) {
-      ElMessage.error(i18n.global.t("aboutLogin.chooseEmail"));
-      return false;
-    }
+    // if (!emailCode.value) {
+    //   ElMessage.error(i18n.global.t("aboutLogin.chooseEmail"));
+    //   return false;
+    // }
   }
   if (form.account) {
     const loading = ElLoading.service({
@@ -327,7 +327,7 @@ const getVerificationCode = async (token: string) => {
       if (props.registerStyle === "1") {
         params.account = `${countryCode.value.replace("+", "")}-${form.account}`;
       } else {
-        params.account = `${form.account}${emailCode.value}`;
+        params.account = `${form.account}`;
       }
       await getVerificationCodeApi({
         ...params,
