@@ -17,7 +17,7 @@ export const emailFormStep1 = [
         value: 'account',
         type: 'input',
         placeholder: 'aboutLogin.pleaseInputEmail',
-        haveEmailSelect: true,
+        haveEmailSelect: false,
         haveBtn: false,
         haveIcon: false,
         haveTelSelect: false,

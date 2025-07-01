@@ -162,7 +162,7 @@
               <el-col :span="12">
                 <div class="footer-content-right">
                   <div class="wx-img">
-                    <img src="@/assets/fastsImages/b-11-2.png" alt="" />
+                    <img src="@/assets/fastsImages/b-11-4.png" alt="" />
                   </div>
                 </div>
               </el-col>

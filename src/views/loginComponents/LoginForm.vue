@@ -204,7 +204,7 @@ const onSubmit = async () => {
       if (props.registerStyle === "1") {
         params.account = `${countryCode.value.replace("+", "")}-${form.account}`;
       } else {
-        params.account = `${form.account}${emailCode.value}`;
+        params.account = `${form.account}`;
       }
 
       // 跳转到首页的方法
